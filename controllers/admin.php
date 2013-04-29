@@ -45,15 +45,6 @@ Class Admin Extends AjaxLogin {
 
 
     /**
-     * Load our admin JS/CSS ONLY when our settings page slug is present.
-     */
-    public function admin_scripts( $hook ) {
-        if ( 'settings_page_ajax-login-register-settings' != $hook ) return;
-        wp_enqueue_script( 'ajax-login-admin-script', plugins_url('/assets/admin.js', dirname( __FILE__) ) );
-    }
-
-
-    /**
      * Build our admin menu
      */
     public function admin_menu(){
