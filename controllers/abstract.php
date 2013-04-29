@@ -29,13 +29,13 @@ abstract Class AjaxLogin {
             'status' => 2,
             'cssClass' => 'error',
             'msg' => 'Invalid User',
-            'description' => '<div class="error-container">Invalid Username</div>'
+            'description' => '<div class="error-container">Login is in use or invalid</div>'
             ),
         array(
             'status' => 3,
             'msg' => 'Fail',
             'cssClass' => 'error',
-            'description' => '<div class="error-container">Invalid Email</div>'
+            'description' => '<div class="error-container">Email in use or invalid</div>'
             )
         );
 
@@ -208,7 +208,7 @@ abstract Class AjaxLogin {
         if ( validate_username( $username ) && ! is_object( get_user_by( 'login', $username ) ) ) {
             $msg = null;
         } else {
-            $msg =$this->status[1];
+            $msg =$this->status[2];
         }
 
         if ( $is_ajax ){

@@ -85,7 +85,7 @@ Class Register Extends AjaxLogin {
             || $valid['username']['status'] == 2 // invalid user
             || $valid['username']['status'] == 3 // invalid email
             ) {
-            $msg = $this->status[1]; // invalid user
+            $msg = $this->status[2]; // invalid user
         } else {
 
             $user_id = wp_create_user( $user['login'], $user['password'], $user['email'] );
