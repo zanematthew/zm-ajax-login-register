@@ -109,20 +109,4 @@ jQuery( document ).ready(function( $ ){
         });
     }
 
-
-    /**
-     * Check that username is valid
-     */
-    $( document ).on('blur', '#user_login', function(){
-        if ( $.trim( $(this).val() ) == '' ) return;
-
-        $.ajax({
-            data: "action=validate_username&login=" + $( this ).val(),
-            dataType: 'json',
-            success: function( msg ){
-                ajax_login_register_show_message( msg );
-            }
-        });
-    });
-
 });

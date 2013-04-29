@@ -76,6 +76,7 @@ jQuery( document ).ready(function( $ ){
             data: "action=register_submit&" + $( this ).serialize(),
             dataType: 'json',
             success: function( msg ) {
+console.log( msg );
                 ajax_login_register_show_message( msg );
                 if ( msg.status == 0 ) window.location.replace( _ajax_login_settings.redirect );
             }
