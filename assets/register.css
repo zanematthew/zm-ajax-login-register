@@ -1,15 +1,17 @@
+.ajax-login-register-status-container {
+    clear: both;
+    float: left;
+    width: 100%;
+    font-size: 12px;
+    }
+
+
 /*= Wide Styling Page
 -------------------------------------------------------------- */
 .ajax-login-register-login-container .wide .form-wrapper {
     width: 375px;
     }
 
-
-/*= Wide Styling Page
--------------------------------------------------------------- */
-.ajax-login-register-register-container .wide .fb-login-container {
-    margin: 105px 0 0;
-    }
 
 .ajax-login-register-register-container .wide .fb-login-container {
     width: 190px;
@@ -30,19 +32,15 @@
     }
 
 .ajax-login-register-register-container .wide .ajax-login-register-status-container {
-    margin: 0 auto 20px 13px;
+    /*margin: 0 auto 20px 13px;*/
     width: 400px;
     }
 
-.ajax-login-register-status-container {
-    font-size: 12px;
-    }
 
 
 /*= Wide Styling Dialog
 -------------------------------------------------------------- */
 .ajax-login-register-dialog .wide .fb-login-container {
-    margin: 35px 0;
     width: auto;
     }
 
@@ -52,4 +50,8 @@
 
 .ajax-login-register-dialog .wide .button-container {
     margin-left: -15px;
+    }
+
+.ui-dialog .ajax-login-default-form-container .error-container {
+    width: 205px;
     }

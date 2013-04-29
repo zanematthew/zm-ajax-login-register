@@ -118,13 +118,14 @@
 
 .ajax-login-default-form-container .error-container {
     color: #B94A48;
-    padding: 8px 35px 8px 14px;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
     background-color: #F2DEDE;
     border: 1px solid #EED3D7;
+
+    padding: 8px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
     margin: 0 0 10px;
     float: left;
-    width: 222px;
+    width: 295px;
     }
 
 .ajax-login-default-form-container .success-container {
