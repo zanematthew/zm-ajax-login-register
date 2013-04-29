@@ -25,7 +25,6 @@
                     <div class="ajax-login-register-status-container">
                         <div class="ajax-login-register-msg-target"></div>
                     </div>
-                    <div class="message-target" style="margin: -10px 0 10px;"></div>
                     <div class="noon"><label><?php _e('User Name', 'ajax_login_register'); ?></label><input type="text" name="login" id="user_login" class="" /></div>
                     <div class="noon"><label><?php _e('Email', 'ajax_login_register'); ?></label><input type="text" name="email" id="user_email" class="ajax-login-register-validate-email" /></div>
                     <div class="noon"><label><?php _e('Password', 'ajax_login_register'); ?></label><input type="password" name="password" id="user_password" class="" /></div>
