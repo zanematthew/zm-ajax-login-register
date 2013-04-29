@@ -236,9 +236,22 @@ abstract Class AjaxLogin {
      * Loads our default CSS and JS along with controller specific CSS and JS
      */
     public function enqueue_scripts( $scripts=null ){
+
+        $dependencies = array(
+            'jquery',
+            'jquery-ui-core',
+            'jquery-ui-widget',
+            'jquery-ui-mouse',
+            'jquery-ui-position',
+            'jquery-ui-draggable',
+            'jquery-ui-resizable',
+            'jquery-ui-button',
+            'jquery-ui-dialog'
+        );
+
         wp_enqueue_style( 'ajax-login-style', plugin_dir_url( dirname( __FILE__ ) ) . "assets/style.css" );
         wp_enqueue_style( 'jquery-ui-custom', plugin_dir_url( dirname( __FILE__ ) ) . "assets/jquery-ui.css" );
-        wp_enqueue_script( 'ajax-login-script', plugin_dir_url( dirname( __FILE__ ) ) . 'assets/scripts.js', array('jquery')  );
+        wp_enqueue_script( 'ajax-login-script', plugin_dir_url( dirname( __FILE__ ) ) . 'assets/scripts.js', $dependencies  );
 
         foreach( $this->scripts as $script )
             wp_enqueue_script( $script, plugin_dir_url( dirname( __FILE__ ) ) . 'assets/' . $script . '.js', array('jquery')  );
