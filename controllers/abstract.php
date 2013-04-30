@@ -39,6 +39,7 @@ abstract Class AjaxLogin {
             )
         );
 
+    public $scripts = array();
 
     /**
      * WordPress hooks to be ran during init
@@ -236,6 +237,8 @@ abstract Class AjaxLogin {
      * Loads our default CSS and JS along with controller specific CSS and JS
      */
     public function enqueue_scripts( $scripts=null ){
+
+        if ( empty( $this->scripts ) ) return;
 
         $dependencies = array(
             'jquery',

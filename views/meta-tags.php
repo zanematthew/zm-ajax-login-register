@@ -26,35 +26,34 @@
         }(document));
     <?php endif; ?>
 
-    <?php if ( ! is_user_logged_in() ) : ?>
-        var _ajax_login_settings = {
-            login_handle: "<?php print get_option('ajax_login_register_advanced_usage_login'); ?>",
-            register_handle: "<?php print get_option('ajax_login_register_advanced_usage_register'); ?>",
-            redirect: "<?php $redirect_url = get_option('ajax_login_register_redirect','/'); print empty( $redirect_url ) ? '/' : $redirect_url; ?>",
-            dialog_width: "<?php
+    var _ajax_login_settings = {
+        login_handle: "<?php print get_option('ajax_login_register_advanced_usage_login'); ?>",
+        register_handle: "<?php print get_option('ajax_login_register_advanced_usage_register'); ?>",
+        redirect: "<?php $redirect_url = get_option('ajax_login_register_redirect','/'); print empty( $redirect_url ) ? '/' : $redirect_url; ?>",
+        dialog_width: "<?php
 
-            $width = array(
-                'default' => 265,
-                'wide' => 440,
-                'extra_buttons' => 666
-                );
+        $width = array(
+            'default' => 265,
+            'wide' => 440,
+            'extra_buttons' => 666
+            );
 
-            $style = get_option('ajax_login_register_default_style');
-            $fb_button = get_option('ajax_login_register_facebook');
+        $style = get_option('ajax_login_register_default_style');
+        $fb_button = get_option('ajax_login_register_facebook');
 
-            if ( $style == 'wide' && $fb_button ){
-                $key = 'extra_buttons';
-            } elseif ( $style == 'wide' ){
-                $key = 'wide';
-            } else {
-                $key = 'default';
-            }
+        if ( $style == 'wide' && $fb_button ){
+            $key = 'extra_buttons';
+        } elseif ( $style == 'wide' ){
+            $key = 'wide';
+        } else {
+            $key = 'default';
+        }
 
-            print $width[ $key ];
+        print $width[ $key ];
 
-            ?>"
-        };
-    <?php endif; ?>
+        ?>"
+    };
+
 </script>
 
 <style type="text/css"><?php echo wp_kses_stripslashes( get_option('ajax_login_register_additional_styling') ); ?></style>

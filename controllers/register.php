@@ -46,7 +46,7 @@ Class Register Extends AjaxLogin {
      * If the user is not logged in we display the hidden jQuery UI dialog containers
      */
     public function footer(){
-        if ( ! is_user_logged_in() ) load_template( plugin_dir_path( dirname( __FILE__ ) ) . 'views/register-dialog.php' );
+        load_template( plugin_dir_path( dirname( __FILE__ ) ) . 'views/register-dialog.php' );
     }
 
 

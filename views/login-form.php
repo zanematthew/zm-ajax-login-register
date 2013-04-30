@@ -18,7 +18,7 @@
             <?php endif; ?>
             <div class="form-wrapper">
                 <?php wp_nonce_field( 'login_submit', 'security' ); ?>
-                <div class="noon"><label><?php _e('User Name','ajax_login_register'); ?></label><input type="text" name="user_login" id="user_login" size="30" required /></div>
+                <div class="noon"><label><?php _e('User Name','ajax_login_register'); ?></label><input type="text" name="user_login" size="30" required /></div>
                 <div class="noon"><label><?php _e('Password','ajax_login_register'); ?></label><input type="password" name="password" id="password" size="30" required /></div>
                 <input type="checkbox" name="remember" id="remember" />
                 <span class="meta"><?php _e('Keep me logged in','ajax_login_register'); ?>.</span>
