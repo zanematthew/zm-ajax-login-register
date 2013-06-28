@@ -65,6 +65,28 @@ jQuery( document ).ready(function( $ ){
         }
      });
 
+    /**
+     * Ensures that password is at least 6 chars long and that it contains at least 1 number
+     */
+     $( document ).on('blur', '#user_confirm_password', function(){
+        if ( $.trim( $(this).val() ) == '' ) return;
+
+        value = $( this ).val();
+        register_button_id = $( this ).attr( 'data-register_button_id' );
+
+        if ( ( value.length >= 6 ) && ( /\d/.test(value) ) ) {
+            $( register_button_id ).removeAttr('disabled');
+            $( register_button_id ).animate({ opacity: 1 });
+        } else {
+            $( register_button_id ).attr('disabled',true);
+            $( register_button_id ).animate({ opacity: 0.5 });
+            ajax_login_register_show_message({
+                "cssClass": "error",
+                "description": "<div class='error-container'>Password should have at least 6 characters and contain at least 1 number.</div>"
+            });
+        }
+     });
+
 
     /**
      * Our form is loaded via AJAX, so we need to attach our event to the document.
