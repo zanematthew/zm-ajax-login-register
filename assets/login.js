@@ -32,13 +32,13 @@ jQuery( document ).ready(function( $ ){
          */
         FB.login( function( response ) {
             /**
-             * If we get a succesful authorization response we handle it
+             * If we get a successful authorization response we handle it
              * note the "scope" parameter.
              */
             if ( response.authResponse ) {
 
                 /**
-                 * "me" referes to the current FB user, console.log( response )
+                 * "me" refers to the current FB user, console.log( response )
                  * for a full list.
                  */
                 FB.api('/me', function(response) {
@@ -75,7 +75,7 @@ jQuery( document ).ready(function( $ ){
                     });
                 });
             } else {
-                console.log('User cancelled login or did not fully authorize.');
+                console.log('User canceled login or did not fully authorize.');
             }
         },{
             /**

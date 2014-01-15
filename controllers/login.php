@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This is file is repsonible for custom logic needed by all templates. NO
+ * This is file is responsible for custom logic needed by all templates. NO
  * admin code should be placed in this file.
  */
 Class Login Extends AjaxLogin {
