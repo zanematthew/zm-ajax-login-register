@@ -93,10 +93,10 @@ Class Login Extends AjaxLogin {
          * If signon is successful we print the user name if not we print "0" for
          * false
          */
-        $status = is_wp_error( $user ) ? "0" : $user->data->user_login;
+        $status = is_wp_error( $user ) ? $this->status[1] : $this->status[0];
 
         if ( $is_ajax ) {
-            die();
+            wp_send_json( $status );
         } else {
             return $status;
         }
@@ -114,12 +114,11 @@ Class Login Extends AjaxLogin {
 
         $user = array(
             'username' => $_POST['username'],
-            'password' => $_POST['fb_id'],
             'email' => $_POST['email'],
             'fb_id' => $_POST['fb_id']
             );
 
-        if ( empty( $user['username'] ) || empty( $user['password'] ) ){
+        if ( empty( $user['username'] ) ){
 
             $msg = $this->status[3];
 
