@@ -69,7 +69,6 @@ jQuery( document ).ready(function( $ ){
                         global: false,
                         success: function( msg ){
                             $('.fb-login-container').append( msg.description );
-                            // console.log( msg );
                             window.location.replace( _ajax_login_settings.redirect );
                         }
                     });
@@ -95,17 +94,16 @@ jQuery( document ).ready(function( $ ){
 
             $('#ajax-login-register-login-dialog').dialog('open');
 
-            var data = {
-                action: 'load_template',
-                referer: 'login_form',
-                template: 'login-form',
-                security: $('#ajax-login-register-login-dialog').attr('data-security')
-            };
-
             $.ajax({
-                data: data,
+                data: {
+                    action: 'load_template',
+                    referer: 'login_form',
+                    template: 'login-form',
+                    security: $('#ajax-login-register-login-dialog').attr('data-security')
+                },
                 success: function( msg ){
                     $( "#ajax-login-register-login-target" ).fadeIn().html( msg ); // Give a smooth fade in effect
+                    window.location.replace( _ajax_login_settings.redirect );
                 }
             });
         });
