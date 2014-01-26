@@ -4,7 +4,7 @@ Contributors: ZaneMatthew
 Donate link: http://zanematthew.com/
 Tags: admin, AJAX, login, manage, modal, password, plugin, redirect, register, username
 Requires at least: 3.5
-Tested up to: 3.5.1
+Tested up to: 3.8.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -25,7 +25,7 @@ With zM Ajax Login & Register, you can create a custom login and registration pa
 
 = Usage =
 
-Add the following shortocde to a post or page `[ajax_login]` or `[ajax_register]` (make sure your site is set to "Anyone can register" for this shortcode).
+Add the following shortcode to a post or page `[ajax_login]` or `[ajax_register]` (make sure your site is set to "Anyone can register" for this shortcode).
 
 Advanced usage allows you to use any `HTML` element to trigger the login and register modal boxes. Simply visit the settings page from the WordPress Admin (Settings --> Ajax Login & Register) and in the section "Advanced Usage" enter the HTML tag, class name or ID of the item you want to trigger the modal box.
 
@@ -42,7 +42,7 @@ Advanced usage allows you to use any `HTML` element to trigger the login and reg
 
 == Frequently Asked Questions ==
 
-= How do I disable registraion? =
+= How do I disable registration? =
 
 From the WordPress admin click on Settings --> General and uncheck "Anyone can register"
 
@@ -72,6 +72,14 @@ here: https://developers.facebook.com/apps/YOUR_APP_ID/summary
 
 == Changelog ==
 
+= 1.0.2 =
+
+* Feature: Added WordPress networking support
+* Bug: Fixing issue when Facebook login did not work with latest WordPress
+* Bug: Shortcode now returns HTML rather than printing it
+* Security: Enhanced security for credentials when creating Facebook users
+
+
 = 1.0.1 =
 
 * Added setting to disable/enable "keep me logged in" checkbox
@@ -81,4 +89,5 @@ here: https://developers.facebook.com/apps/YOUR_APP_ID/summary
 
 
 = 1.0.0 =
+
 * Initial release
