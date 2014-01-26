@@ -90,6 +90,7 @@ jQuery( document ).ready(function( $ ){
      */
     if ( _ajax_login_settings.login_handle.length ){
         $( document ).on('click', _ajax_login_settings.login_handle, function( event ){
+
             event.preventDefault();
 
             $('#ajax-login-register-login-dialog').dialog('open');
@@ -103,7 +104,6 @@ jQuery( document ).ready(function( $ ){
                 },
                 success: function( msg ){
                     $( "#ajax-login-register-login-target" ).fadeIn().html( msg ); // Give a smooth fade in effect
-                    window.location.replace( _ajax_login_settings.redirect );
                 }
             });
         });
