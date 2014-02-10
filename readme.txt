@@ -2,43 +2,64 @@
 
 Contributors: ZaneMatthew
 Donate link: http://zanematthew.com/
-Tags: admin, AJAX, login, manage, modal, password, plugin, redirect, register, username
+Tags: admin, AJAX, login, manage, modal, password, plugin, redirect, register, username, Facebook
 Requires at least: 3.5
 Tested up to: 3.8.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Allows you to create a custom login and registration page, complete with login and registration modals.
+Allows you to create a custom login and registration page or login and registration modals. Complete with AJAX verification and Facebook login support.
 
 == Description ==
 
-With zM Ajax Login & Register, you can create a custom login and registration page using the following shortcode `[ajax_login]`, `[ajax_register]` or you can use modal boxes in the "Advanced Usage" setting.
+With zM Ajax Login & Register, you can create a custom login and registration page. No need for any custom post types, just create a normal WordPress page, add your own custom logo, text, and use the following shortcode `[ajax_login]`, `[ajax_register]`. 
+
+From the settings you can assign login and register modal boxes to menu items, and add a redirect URL. By assigning the login and register modals to menu items users will be able to click menu items, will display a single login or register form in a modal without any post content. Once the users login they can be redirected to a custom page, for example: "dashboard", or "welcome".
+
+Now your visitors can login or register from the page you've set-up. 
+
+Each form has pre-set styling options and uses AJAX. From the settings you can choose either; stacked (default) or wide styling. Additional styling you can be achieved by adding your custom CSS or using one of the available hooks. 
+Feel free to contact us and will add any additional hooks you need. The forms use AJAX to verify that the username and email are valid and are not already in use.
+
+If you've enabled the Facebook login or register, from your settings, the Facebook button will display in the form. Each user that logins with Facebook will be register as a "subscriber" and their Facebook profile picture will be used as their avatar.
 
 = Features =
 
 * Facebook login support
-* Redirect users to a custom URL or page after login, such as; `/dashboard/` or `/welcome/`
+* Redirect users to a custom URL or page after login, such as; "Dashboard" or "Welcome"
 * AJAX verification for username and email accounts
-* Choose between the default (stacked) or wide style
-* Advanced usage includes: custom triggers for login and register modals, support for custom CSS
+* Choose between different styles: stacked (default) or wide
+* Advanced usage includes: Assign login and register modals to menu items, support for custom CSS, several hooks are available as well
 
 = Usage =
 
-Add the following shortcode to a post or page `[ajax_login]` or `[ajax_register]` (make sure your site is set to "Anyone can register" for this shortcode).
+**Note your site will need to be open to registration**
 
-Advanced usage allows you to use any `HTML` element to trigger the login and register modal boxes. Simply visit the settings page from the WordPress Admin (Settings --> Ajax Login & Register) and in the section "Advanced Usage" enter the HTML tag, class name or ID of the item you want to trigger the modal box.
+1. Create a page
+1. Add the following shortcode `[ajax_login]` or `[ajax_register]` 
+
+Advanced usage allows you to use any menu item to launch the login and register modal boxes. 
+
+**Note your page must support custom menus**
+
+1. Create a menu item; such as "login" you can set the URL to # if need be
+1. Assign a unique class name to the menu item. If you do not see the "class name section", click on the "Screen options" in the upper corner and check the box for "CSS Classes"
+1. Copy/paste the class name you just assigned to the menu item
+1. Save the changes for the new menu item
+1. Visit the settings page from the WordPress Admin (Settings --> Ajax Login & Register)
+1. Paste the CSS class name in the appropriate field, either "Login Handle" or "Register Handle"
+1. Save the settings
+
+**Additionally you can assign a URL to a page the user is redirected to once logged in. The default is the site home page**
 
 == Installation ==
 
 1. Install the plugin via WordPress or download and upload the plugin to the `/wp-content/plugins/`
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Add the shortcode `[ajax_login]` or `[ajax_register]` (make sure your site is set to "anyone can register") to any post or page
+1. Activate the plugin through the 'Plugins' menu in WordPress
+1. Create a page called "login" or "register"
+1. Add the shortcode `[ajax_login]` or `[ajax_register]` (make sure your site is set to "anyone can register") to any post or page
 
-= Optional =
-
-* To customize, add custom CSS in the textarea found in settings
-* To use the modal boxes, add the name of the desired element that will trigger the boxes in your settings.
 
 == Frequently Asked Questions ==
 
@@ -74,6 +95,7 @@ here: https://developers.facebook.com/apps/YOUR_APP_ID/summary
 
 = 1.0.2 =
 
+* Improved `readme.txt`
 * Feature: Added WordPress networking support
 * Bug: Fixing issue when Facebook login did not work with latest WordPress
 * Bug: Shortcode now returns HTML rather than printing it
