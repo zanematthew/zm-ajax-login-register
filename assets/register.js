@@ -49,7 +49,7 @@ jQuery( document ).ready(function( $ ){
             $( register_button_id ).animate({ opacity: 0.5 });
             ajax_login_register_show_message({
                 "cssClass": "error",
-                "description": "<div class='error-container'>Passwords do not match.</div>"
+                "description": "<div class='error-container'>"+_ajax_login_settings.match_error+"</div>"
             });
         }
      });

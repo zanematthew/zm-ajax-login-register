@@ -25,42 +25,6 @@
             ref.parentNode.insertBefore(js, ref);
         }(document));
     <?php endif; ?>
-
-    <?php
-
-    $redirect_url = get_option('ajax_login_register_redirect');
-    $redirect_url = empty( $redirect_url ) ? site_url($_SERVER['REQUEST_URI']) : $redirect_url;
-    $redirect_url = apply_filters( 'zm_ajax_login_redirect', $redirect_url );
-
-    ?>
-    var _ajax_login_settings = {
-        login_handle: "<?php print get_option('ajax_login_register_advanced_usage_login'); ?>",
-        register_handle: "<?php print get_option('ajax_login_register_advanced_usage_register'); ?>",
-        redirect: "<?php echo $redirect_url; ?>",
-        dialog_width: "<?php
-
-        $width = array(
-            'default' => 265,
-            'wide' => 440,
-            'extra_buttons' => 666
-            );
-
-        $style = get_option('ajax_login_register_default_style');
-        $fb_button = get_option('ajax_login_register_facebook');
-
-        if ( $style == 'wide' && $fb_button ){
-            $key = 'extra_buttons';
-        } elseif ( $style == 'wide' ){
-            $key = 'wide';
-        } else {
-            $key = 'default';
-        }
-
-        print $width[ $key ];
-
-        ?>"
-    };
-
 </script>
 
 <style type="text/css"><?php echo wp_kses_stripslashes( get_option('ajax_login_register_additional_styling') ); ?></style>

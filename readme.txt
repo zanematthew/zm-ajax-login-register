@@ -94,6 +94,8 @@ here: https://developers.facebook.com/apps/YOUR_APP_ID/summary
 == Changelog ==
 
 = 1.0.3 =
+
+* Localizing JS, #13
 * Fixing issue where users could not register when the modal and shortcode was in use at the same time, #11
 * Bug: Fixed issue where Facebook login did not work on the registration page
 

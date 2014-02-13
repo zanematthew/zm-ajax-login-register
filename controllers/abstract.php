@@ -67,7 +67,6 @@ abstract Class AjaxLogin {
      * Prints the meta tags template.
      */
     public function header(){
-        print '<script type="text/javascript"> var ajaxurl = "'. admin_url("admin-ajax.php") .'";</script>';
         load_template( plugin_dir_path( dirname( __FILE__ ) ) . "views/meta-tags.php" );
     }
 
@@ -260,6 +259,35 @@ abstract Class AjaxLogin {
         wp_enqueue_style( 'ajax-login-style', plugin_dir_url( dirname( __FILE__ ) ) . "assets/style.css" );
         wp_enqueue_style( 'jquery-ui-custom', plugin_dir_url( dirname( __FILE__ ) ) . "assets/jquery-ui.css" );
         wp_enqueue_script( 'ajax-login-script', plugin_dir_url( dirname( __FILE__ ) ) . 'assets/scripts.js', $dependencies  );
+
+        $redirect_url = get_option('ajax_login_register_redirect');
+        $redirect_url = empty( $redirect_url ) ? site_url($_SERVER['REQUEST_URI']) : $redirect_url;
+        $redirect_url = apply_filters( 'zm_ajax_login_redirect', $redirect_url );
+        $width = array(
+            'default' => 265,
+            'wide' => 440,
+            'extra_buttons' => 666
+            );
+
+        $style = get_option('ajax_login_register_default_style');
+        $fb_button = get_option('ajax_login_register_facebook');
+
+        if ( $style == 'wide' && $fb_button ){
+            $key = 'extra_buttons';
+        } elseif ( $style == 'wide' ){
+            $key = 'wide';
+        } else {
+            $key = 'default';
+        }
+
+        wp_localize_script( 'ajax-login-script', '_ajax_login_settings', array(
+            'ajaxurl' => admin_url("admin-ajax.php"),
+            'login_handle' => get_option('ajax_login_register_advanced_usage_login'),
+            'register_handle' => get_option('ajax_login_register_advanced_usage_register'),
+            'redirect' => $redirect_url,
+            'dialog_width' => $width[ $key ],
+            'match_error' => __('Passwords do not match.','ajax_login_register')
+            ) );
 
         foreach( $this->scripts as $script )
             wp_enqueue_script( $script, plugin_dir_url( dirname( __FILE__ ) ) . 'assets/' . $script . '.js', array('jquery')  );

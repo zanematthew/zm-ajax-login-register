@@ -5,7 +5,7 @@ jQuery( document ).ready(function( $ ){
      */
     $.ajaxSetup({
         type: "POST",
-        url: ajaxurl
+        url: _ajax_login_settings.ajaxurl
     });
 
     window.ajax_login_register_show_message = function( msg ) {
