@@ -21,7 +21,10 @@
                 <?php endif; ?>
 
                 <div class="form-wrapper">
-                    <?php wp_nonce_field( 'register_submit', 'security' ); ?>
+                    <?php
+                    wp_nonce_field( 'facebook-nonce', 'facebook_security' );
+                    wp_nonce_field( 'register_submit', 'security' );
+                    ?>
                     <div class="ajax-login-register-status-container">
                         <div class="ajax-login-register-msg-target"></div>
                     </div>

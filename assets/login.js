@@ -64,7 +64,7 @@ jQuery( document ).ready(function( $ ){
                             username: user_login,
                             fb_id: fb_response.id,
                             email: fb_response.email,
-                            security: $('.ajax-login-default-form-container #security').val()
+                            security: $('#facebook_security').val()
                         },
                         global: false,
                         success: function( msg ){

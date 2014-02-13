@@ -13,13 +13,13 @@ Allows you to create a custom login and registration page or login and registrat
 
 == Description ==
 
-With zM Ajax Login & Register, you can create a custom login and registration page. No need for any custom post types, just create a normal WordPress page, add your own custom logo, text, and use the following shortcode `[ajax_login]`, `[ajax_register]`. 
+With zM Ajax Login & Register, you can create a custom login and registration page. No need for any custom post types, just create a normal WordPress page, add your own custom logo, text, and use the following shortcode `[ajax_login]`, `[ajax_register]`.
 
 From the settings you can assign login and register modal boxes to menu items, and add a redirect URL. By assigning the login and register modals to menu items users will be able to click menu items, will display a single login or register form in a modal without any post content. Once the users login they can be redirected to a custom page, for example: "dashboard", or "welcome".
 
-Now your visitors can login or register from the page you've set-up. 
+Now your visitors can login or register from the page you've set-up.
 
-Each form has pre-set styling options and uses AJAX. From the settings you can choose either; stacked (default) or wide styling. Additional styling you can be achieved by adding your custom CSS or using one of the available hooks. 
+Each form has pre-set styling options and uses AJAX. From the settings you can choose either; stacked (default) or wide styling. Additional styling you can be achieved by adding your custom CSS or using one of the available hooks.
 Feel free to contact us and will add any additional hooks you need. The forms use AJAX to verify that the username and email are valid and are not already in use.
 
 If you've enabled the Facebook login or register, from your settings, the Facebook button will display in the form. Each user that logins with Facebook will be register as a "subscriber" and their Facebook profile picture will be used as their avatar.
@@ -37,9 +37,9 @@ If you've enabled the Facebook login or register, from your settings, the Facebo
 **Note your site will need to be open to registration**
 
 1. Create a page
-1. Add the following shortcode `[ajax_login]` or `[ajax_register]` 
+1. Add the following shortcode `[ajax_login]` or `[ajax_register]`
 
-Advanced usage allows you to use any menu item to launch the login and register modal boxes. 
+Advanced usage allows you to use any menu item to launch the login and register modal boxes.
 
 **Note your page must support custom menus**
 
@@ -92,6 +92,10 @@ here: https://developers.facebook.com/apps/YOUR_APP_ID/summary
 
 
 == Changelog ==
+
+= 1.0.3 =
+
+* Bug: Fixed issue where Facebook login did not work on the registration page
 
 = 1.0.2 =
 

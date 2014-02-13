@@ -110,7 +110,7 @@ Class Login Extends AjaxLogin {
      */
     public function facebook_login(){
 
-        check_ajax_referer('login_submit','security');
+        check_ajax_referer( 'facebook-nonce', 'security' );
 
         $user = array(
             'username' => $_POST['username'],
