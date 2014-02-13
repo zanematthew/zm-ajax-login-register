@@ -33,13 +33,12 @@ jQuery( document ).ready(function( $ ){
     /**
      * Confirms that two input fields match
      */
-    $( document ).on('blur', '#user_confirm_password', function(){
+    $( document ).on('blur', '.user_confirm_password', function(){
         if ( $.trim( $(this).val() ) == '' ) return;
 
-        match_id = $( this ).attr( 'data-match_id' );
-        match_value = $( match_id ).val();
-
+        match_value = $(this).parent().parent().find( '.user_password' ).val();
         value = $( this ).val();
+
         register_button_id = $( this ).attr( 'data-register_button_id' );
 
         if ( value == match_value ) {
@@ -66,7 +65,6 @@ jQuery( document ).ready(function( $ ){
             data: "action=register_submit&" + $( this ).serialize(),
             dataType: 'json',
             success: function( msg ) {
-console.log( msg );
                 ajax_login_register_show_message( msg );
                 if ( msg.status == 0 ) window.location.replace( _ajax_login_settings.redirect );
             }

@@ -34,7 +34,6 @@ jQuery( document ).ready(function( $ ){
             dataType: 'json',
             success: function( msg ){
                 ajax_login_register_show_message( msg );
-console.log( msg );
             }
         });
     }
@@ -44,7 +43,6 @@ console.log( msg );
      * Validate email
      */
     $( document ).on('blur', '.ajax-login-register-validate-email', function(){
-        console.log( $(this) );
         ajax_login_register_validate_email( $(this) );
     });
 
