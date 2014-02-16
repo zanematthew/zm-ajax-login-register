@@ -51,7 +51,7 @@ jQuery( document ).ready(function( $ ){
     /**
      * Check that username is valid
      */
-    $( document ).on('blur', '#user_login', function(){
+    $( document ).on('blur', '.user_login', function(){
 
         if ( $.trim( $(this).val() ) == '' ) return;
 

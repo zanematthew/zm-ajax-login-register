@@ -12,7 +12,7 @@
         <?php if ( is_user_logged_in() ) : ?>
             <p><?php printf('%s <a href="%s" title="Logout">%s</a>.', __('You are already registered',''), wp_logout_url( site_url() ), __('Logout', 'ajax_login_register') ); ?></p>
         <?php else : ?>
-            <form action="javascript://" id="register_form" name="registerform" class="ajax-login-default-form-container <?php print get_option('ajax_login_register_default_style'); ?>">
+            <form action="javascript://" name="registerform" class="ajax-login-default-form-container register_form <?php print get_option('ajax_login_register_default_style'); ?>">
 
                 <?php if ( get_option('ajax_login_register_facebook') ) : ?>
                     <div class="fb-login-container">
@@ -28,13 +28,12 @@
                     <div class="ajax-login-register-status-container">
                         <div class="ajax-login-register-msg-target"></div>
                     </div>
-                    <div class="noon"><label><?php _e('User Name', 'ajax_login_register'); ?></label><input type="text" name="login" id="user_login" class="" /></div>
-                    <div class="noon"><label><?php _e('Email', 'ajax_login_register'); ?></label><input type="text" name="email" id="user_email" class="ajax-login-register-validate-email" /></div>
+                    <div class="noon"><label><?php _e('User Name', 'ajax_login_register'); ?></label><input type="text" name="login" class="user_login" /></div>
+                    <div class="noon"><label><?php _e('Email', 'ajax_login_register'); ?></label><input type="text" name="email" class="user_email ajax-login-register-validate-email" /></div>
                     <div class="noon"><label><?php _e('Password', 'ajax_login_register'); ?></label><input type="password" name="password" class="user_password" /></div>
-                    <div class="noon"><label><?php _e('Confirm Password', 'ajax_login_register'); ?></label><input type="password" name="confirm_password" class="user_confirm_password" data-match_id="#user_password" data-register_button_id="#register_button_id" /></div>
-                    <div class="button-container" id="register_button_pane">
+                    <div class="noon"><label><?php _e('Confirm Password', 'ajax_login_register'); ?></label><input type="password" name="confirm_password" class="user_confirm_password" /></div>
+                    <div class="button-container">
                         <input class="register_button green" type="submit" value="<?php _e('Register','ajax_login_register'); ?>" accesskey="p" name="register" disabled />
-                        <input type="button" value="Cancel" class="text cancel" id="ajax-login-register-close" />
                     </div>
                 </div>
             </form>

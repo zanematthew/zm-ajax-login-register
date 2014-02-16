@@ -4,7 +4,7 @@ jQuery( document ).ready(function( $ ){
      * the action maps to our php function, which is added as
      * an action, and we serialize the entire content of the form.
      */
-    $( document ).on('submit', '#ajax-login-register-login-dialog form, #login_form', function( event ){
+    $( document ).on('submit', '.login_form', function( event ){
         event.preventDefault();
         $.ajax({
             data: "action=login_submit&" + $(this).serialize(),

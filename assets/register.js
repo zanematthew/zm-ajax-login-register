@@ -62,7 +62,7 @@ jQuery( document ).ready(function( $ ){
      * Our form is loaded via AJAX, so we need to attach our event to the document.
      * When the form is submitted process the AJAX request.
      */
-    $( document ).on('submit', '#register_form', function( event ){
+    $( document ).on('submit', '.register_form', function( event ){
         event.preventDefault();
 
         $.ajax({
