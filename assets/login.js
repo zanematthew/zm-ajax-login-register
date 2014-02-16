@@ -89,24 +89,34 @@ jQuery( document ).ready(function( $ ){
      * Open the dialog box based on the handle, send the AJAX request.
      */
     if ( _ajax_login_settings.login_handle.length ){
-        $( document ).on('click', _ajax_login_settings.login_handle, function( event ){
 
-            event.preventDefault();
+        if ( _ajax_login_settings.is_user_logged_in == 1 ){
 
-            $('#ajax-login-register-login-dialog').dialog('open');
+            $this = $( _ajax_login_settings.login_handle ).children('a');
 
-            $.ajax({
-                data: {
-                    action: 'load_template',
-                    referer: 'login_form',
-                    template: 'login-form',
-                    security: $('#ajax-login-register-login-dialog').attr('data-security')
-                },
-                success: function( msg ){
-                    $( "#ajax-login-register-login-target" ).fadeIn().html( msg ); // Give a smooth fade in effect
-                }
+            $this.html( _ajax_login_settings.logout_text );
+            $this.attr( 'href', _ajax_login_settings.wp_logout_url );
+
+        } else {
+            $( document ).on('click', _ajax_login_settings.login_handle, function( event ){
+
+                event.preventDefault();
+
+                $('#ajax-login-register-login-dialog').dialog('open');
+
+                $.ajax({
+                    data: {
+                        action: 'load_template',
+                        referer: 'login_form',
+                        template: 'login-form',
+                        security: $('#ajax-login-register-login-dialog').attr('data-security')
+                    },
+                    success: function( msg ){
+                        $( "#ajax-login-register-login-target" ).fadeIn().html( msg ); // Give a smooth fade in effect
+                    }
+                });
             });
-        });
+        }
     }
 
 });

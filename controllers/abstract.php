@@ -286,8 +286,13 @@ abstract Class AjaxLogin {
             'register_handle' => get_option('ajax_login_register_advanced_usage_register'),
             'redirect' => $redirect_url,
             'dialog_width' => $width[ $key ],
-            'match_error' => __('Passwords do not match.','ajax_login_register')
+            'match_error' => __('Passwords do not match.','ajax_login_register'),
+            'is_user_logged_in' => is_user_logged_in() ? 1 : 0,
+            'wp_logout_url' => wp_logout_url( site_url() ),
+            'logout_text' => __('Logout', 'ajax_login_register' )
             ) );
+
+
 
         foreach( $this->scripts as $script )
             wp_enqueue_script( $script, plugin_dir_url( dirname( __FILE__ ) ) . 'assets/' . $script . '.js', array('jquery')  );

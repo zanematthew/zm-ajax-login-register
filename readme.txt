@@ -94,6 +94,8 @@ here: https://developers.facebook.com/apps/YOUR_APP_ID/summary
 == Changelog ==
 
 = 1.0.3 =
+
+* When Login modal is used the Login link changes text to say "Logout" once the user is logged in, [#9](https://github.com/zanematthew/zm-ajax-login-register/issues/9)
 * Removing duplicate IDs [#14](https://github.com/zanematthew/zm-ajax-login-register/issues/14)
 * Localizing JS, [https://github.com/zanematthew/zm-ajax-login-register/issues/13](#13)
 * Fixing issue where users could not register when the modal and shortcode was in use at the same time, [#11](https://github.com/zanematthew/zm-ajax-login-register/issues/11)
