@@ -32,7 +32,6 @@
                 <a href="<?php echo wp_lostpassword_url(); ?>" title="Lost Password"><?php _e('Lost Password','ajax_login_register'); ?></a>
                 <div class="button-container">
                     <input class="login_button green" type="submit" value="Login" accesskey="p" name="submit" />
-                    <input class="text cancel" type="button" value="cancel" name="cancel" />
                 </div>
             </div>
         </form>
