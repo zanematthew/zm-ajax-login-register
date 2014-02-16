@@ -33,7 +33,7 @@
                     <div class="noon"><label><?php _e('Password', 'ajax_login_register'); ?></label><input type="password" name="password" class="user_password" /></div>
                     <div class="noon"><label><?php _e('Confirm Password', 'ajax_login_register'); ?></label><input type="password" name="confirm_password" class="user_confirm_password" data-match_id="#user_password" data-register_button_id="#register_button_id" /></div>
                     <div class="button-container" id="register_button_pane">
-                        <input id="register_button_id" type="submit" value="<?php _e('Register','ajax_login_register'); ?>" accesskey="p" name="register" class="green" disabled />
+                        <input class="register_button green" type="submit" value="<?php _e('Register','ajax_login_register'); ?>" accesskey="p" name="register" disabled />
                         <input type="button" value="Cancel" class="text cancel" id="ajax-login-register-close" />
                     </div>
                 </div>
