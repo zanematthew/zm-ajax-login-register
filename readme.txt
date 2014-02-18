@@ -99,7 +99,7 @@ here: https://developers.facebook.com/apps/YOUR_APP_ID/summary
 * Removing duplicate IDs [#14](https://github.com/zanematthew/zm-ajax-login-register/issues/14)
 * Localizing JS, [https://github.com/zanematthew/zm-ajax-login-register/issues/13](#13)
 * Fixing issue where users could not register when the modal and shortcode was in use at the same time, [#11](https://github.com/zanematthew/zm-ajax-login-register/issues/11)
-* Bug: Fixed issue where Facebook login did not work on the registration page
+* Bug: Fixed issue where Facebook login did not work on the registration page, [#12](https://github.com/zanematthew/zm-ajax-login-register/issues/12)
 
 = 1.0.2 =
 
