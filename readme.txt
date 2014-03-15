@@ -93,6 +93,12 @@ here: https://developers.facebook.com/apps/YOUR_APP_ID/summary
 
 == Changelog ==
 
+= 1.0.4 =
+
+ * Added Multi-Language Support.
+ * Added Russian translation.
+ * Created .POT file.
+
 = 1.0.3 =
 
 * When Login modal is used the Login link changes text to say "Logout" once the user is logged in, [#9](https://github.com/zanematthew/zm-ajax-login-register/issues/9)

@@ -1,0 +1,153 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: controllers/abstract.php:83
+msgid "Login Handle"
+msgstr ""
+
+#: controllers/abstract.php:85 controllers/abstract.php:91
+msgid "Type the class name or ID of the element you want to launch the dialog box when clicked, example"
+msgstr ""
+
+#: controllers/abstract.php:85
+msgid ".login-link"
+msgstr ""
+
+#: controllers/abstract.php:89
+msgid "Register Handle"
+msgstr ""
+
+#: controllers/abstract.php:91
+msgid ".register-link"
+msgstr ""
+
+#: controllers/abstract.php:95
+msgid "Additional Styling"
+msgstr ""
+
+#: controllers/abstract.php:97
+msgid "Type your custom CSS styles that are applied to the dialog boxes."
+msgstr ""
+
+#: controllers/abstract.php:101
+msgid "Redirect After Login URL"
+msgstr ""
+
+#: controllers/abstract.php:103
+msgid "Enter the URL or slug you want users redirected to after login, example: "
+msgstr ""
+
+#: controllers/abstract.php:103
+msgid "http://site.com/, /dashboard/, /wp-admin/"
+msgstr ""
+
+#: controllers/abstract.php:107
+msgid "Form Layout"
+msgstr ""
+
+#: controllers/abstract.php:116
+msgid "URL"
+msgstr ""
+
+#: controllers/abstract.php:121
+msgid "Admin ID"
+msgstr ""
+
+#: controllers/abstract.php:126
+msgid "App ID"
+msgstr ""
+
+#: controllers/abstract.php:134
+msgid "Enable Facebook Login"
+msgstr ""
+
+#: controllers/abstract.php:135
+msgid "By disabling this your Facebook settings will still be saved."
+msgstr ""
+
+#: controllers/abstract.php:139
+msgid "Disable keep me logged in"
+msgstr ""
+
+#: controllers/abstract.php:140
+msgid "Use this option to disable the check box shown to keep users logged in."
+msgstr ""
+
+#: controllers/abstract.php:289
+msgid "Passwords do not match."
+msgstr ""
+
+#: controllers/abstract.php:292 views/login-form.php:11
+#: views/register-form.php:13
+msgid "Logout"
+msgstr ""
+
+#: controllers/admin.php:56 controllers/admin.php:57
+msgid "Ajax Login &amp; Register"
+msgstr ""
+
+#: views/login-dialog.php:8
+msgid "Login"
+msgstr ""
+
+#: views/login-dialog.php:9 views/register-dialog.php:8
+msgid "Loading..."
+msgstr ""
+
+#: views/login-form.php:11
+msgid "You are already logged in"
+msgstr ""
+
+#: views/login-form.php:24 views/register-form.php:31
+msgid "User Name"
+msgstr ""
+
+#: views/login-form.php:25 views/register-form.php:33
+msgid "Password"
+msgstr ""
+
+#: views/login-form.php:30
+msgid "Keep me logged in"
+msgstr ""
+
+#: views/login-form.php:32
+msgid "Lost Password"
+msgstr ""
+
+#: views/register-form.php:13
+msgid "You are already registered"
+msgstr ""
+
+#: views/register-form.php:32
+msgid "Email"
+msgstr ""
+
+#: views/register-form.php:34
+msgid "Confirm Password"
+msgstr ""
+
+#: views/register-form.php:36
+msgid "Register"
+msgstr ""
+
+#: views/register-form.php:43
+msgid "Registration is currently closed."
+msgstr ""
+
+#: views/settings.php:15
+msgid "Ajax Login &amp; Register Settings"
+msgstr ""
+
+#: views/settings.php:19
+msgid "General Settings"
+msgstr ""
+
+#: views/settings.php:32
+msgid "Facebook Settings"
+msgstr ""
+
+#: views/settings.php:44
+msgid "Advanced Usage"
+msgstr ""
