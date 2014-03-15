@@ -16,16 +16,16 @@
  * Plugin initial setup
  */
 function zm_ajax_login_register_setup() {
-
   /**
    * Load plugin textdomain
    */
   $domain = 'ajax_login_register';
   $locale = apply_filters( 'plugin_locale', get_locale(), $domain );
-
-  load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo' );
-  load_plugin_textdomain( $domain, false, basename( dirname( __FILE__ ) ) . '/languages/' );
-
+  if ( $loaded = load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo' ) ) {
+      return $loaded;
+  } else {
+      load_plugin_textdomain( $domain, false, basename( dirname( __FILE__ ) ) . '/languages/' );
+  }
 }
 add_action( 'init', 'zm_ajax_login_register_setup' );
 
