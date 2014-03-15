@@ -94,7 +94,7 @@ abstract Class AjaxLogin {
                     'key' => 'ajax_login_register_additional_styling',
                     'label' => __('Additional Styling','ajax_login_register'),
                     'type' => 'textarea',
-                    'description' => __('','')
+                    'description' => __('Type your custom CSS styles that are applied to the dialog boxes.','ajax_login_register')
                     ),
                 array(
                     'key' => 'ajax_login_register_redirect',
