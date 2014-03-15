@@ -8,7 +8,7 @@
 <!-- Login Form -->
 <div class="ajax-login-register-login-container">
     <?php if ( is_user_logged_in() ) : ?>
-        <p><?php printf("%s <a href=%s title='Logout'>%s</a>", __('You are already logged in','ajax_login_register'), wp_logout_url( site_url() ), __('Logout','ajax_login_register') );?></p>
+        <p><?php printf("%s <a href=%s title='%s'>%s</a>", __('You are already logged in','ajax_login_register'), wp_logout_url( site_url() ), __('Logout','ajax_login_register'), __('Logout','ajax_login_register') );?></p>
     <?php else : ?>
         <form action="javascript://" class="ajax-login-default-form-container login_form <?php print get_option('ajax_login_register_default_style'); ?>">
             <?php if ( get_option('ajax_login_register_facebook') && get_option('users_can_register') ) : ?>
@@ -27,7 +27,7 @@
                 $keep_logged_in = get_option('ajax_login_register_keep_me_logged_in');
                 if ( $keep_logged_in != "on") : ?>
                     <input type="checkbox" name="remember" />
-                    <span class="meta"><?php _e('Keep me logged in','ajax_login_register'); ?>.</span>
+                    <span class="meta"><?php _e('Keep me logged in','ajax_login_register'); ?></span>
                 <?php endif; ?>
                 <a href="<?php echo wp_lostpassword_url(); ?>" title="Lost Password"><?php _e('Lost Password','ajax_login_register'); ?></a>
                 <div class="button-container">

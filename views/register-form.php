@@ -10,7 +10,7 @@
 <?php if ( get_option('users_can_register') ) : ?>
     <div class="ajax-login-register-register-container">
         <?php if ( is_user_logged_in() ) : ?>
-            <p><?php printf('%s <a href="%s" title="Logout">%s</a>.', __('You are already registered',''), wp_logout_url( site_url() ), __('Logout', 'ajax_login_register') ); ?></p>
+            <p><?php printf('%s <a href="%s" title="%s">%s</a>.', __('You are already registered','ajax_login_register'), wp_logout_url( site_url() ), __('Logout', 'ajax_login_register'), __('Logout', 'ajax_login_register') ); ?></p>
         <?php else : ?>
             <form action="javascript://" name="registerform" class="ajax-login-default-form-container register_form <?php print get_option('ajax_login_register_default_style'); ?>">
 
@@ -40,6 +40,6 @@
         <?php endif; ?>
     </div>
 <?php else : ?>
-    <p><?php _e('Registration is currently closed.',''); ?></p>
+    <p><?php _e('Registration is currently closed.','ajax_login_register'); ?></p>
 <?php endif; ?>
 <!-- End 'modal' -->
