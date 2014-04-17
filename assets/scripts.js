@@ -1,12 +1,12 @@
 jQuery( document ).ready(function( $ ){
 
-    /**
-     * Default ajax setup
-     */
-    $.ajaxSetup({
-        type: "POST",
-        url: _ajax_login_settings.ajaxurl
-    });
+
+    window.zMAjaxLoginRegister = {
+        reload: function(){
+            location.href = _ajax_login_settings.redirect;
+        }
+    };
+
 
     window.ajax_login_register_show_message = function( form_obj, msg ) {
         if ( msg == null ) {
@@ -33,6 +33,8 @@ jQuery( document ).ready(function( $ ){
         $.ajax({
             data: "action=validate_email&email=" + $this.val(),
             dataType: 'json',
+            type: "POST",
+            url: _ajax_login_settings.ajaxurl,
             success: function( msg ){
                 ajax_login_register_show_message( $form, msg );
             }
@@ -60,6 +62,8 @@ jQuery( document ).ready(function( $ ){
         $.ajax({
             data: "action=validate_username&login=" + $( this ).val(),
             dataType: 'json',
+            type: "POST",
+            url: _ajax_login_settings.ajaxurl,
             success: function( msg ){
                 ajax_login_register_show_message( $form, msg );
             }

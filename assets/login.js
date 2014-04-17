@@ -8,11 +8,13 @@ jQuery( document ).ready(function( $ ){
         event.preventDefault();
         $.ajax({
             data: "action=login_submit&" + $(this).serialize(),
+            type: "POST",
+            url: _ajax_login_settings.ajaxurl,
             success: function( msg ){
                 if ( msg == 0 ){
                     $('#ajax-login-register-login-dialog').dialog('close');
                 } else {
-                    window.location.replace( _ajax_login_settings.redirect );
+                    zMAjaxLoginRegister.reload();
                 }
             }
         });
@@ -67,9 +69,11 @@ jQuery( document ).ready(function( $ ){
                             security: $('#facebook_security').val()
                         },
                         global: false,
+                        type: "POST",
+                        url: _ajax_login_settings.ajaxurl,
                         success: function( msg ){
                             $('.fb-login-container').append( msg.description );
-                            window.location.replace( _ajax_login_settings.redirect );
+                            zMAjaxLoginRegister.reload();
                         }
                     });
                 });
@@ -105,6 +109,8 @@ jQuery( document ).ready(function( $ ){
                 $('#ajax-login-register-login-dialog').dialog('open');
 
                 $.ajax({
+                    type: "POST",
+                    url: _ajax_login_settings.ajaxurl,
                     data: {
                         action: 'load_template',
                         referer: 'login_form',

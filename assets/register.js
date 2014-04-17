@@ -23,6 +23,8 @@ jQuery( document ).ready(function( $ ){
 
             $.ajax({
                 data: data,
+                type: "POST",
+                url: _ajax_login_settings.ajaxurl,
                 success: function( msg ){
                     $( "#ajax-login-register-target" ).fadeIn().html( msg ); // Give a smooth fade in effect
                 }
@@ -68,9 +70,12 @@ jQuery( document ).ready(function( $ ){
         $.ajax({
             data: "action=register_submit&" + $( this ).serialize(),
             dataType: 'json',
+            type: "POST",
+            url: _ajax_login_settings.ajaxurl,
             success: function( msg ) {
                 ajax_login_register_show_message( $(this), msg );
-                if ( msg.status == 0 ) window.location.replace( _ajax_login_settings.redirect );
+                if ( msg.status == 0 )
+                    zMAjaxLoginRegister.reload();
             }
         });
     });
