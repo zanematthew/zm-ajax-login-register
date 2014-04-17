@@ -122,7 +122,7 @@ Class Register Extends AjaxLogin {
     public function register_shortcode(){
         ob_start();
         load_template( plugin_dir_path( dirname( __FILE__ ) ) . 'views/register-form.php' );
-        echo ob_get_clean();
+        return ob_get_clean();
     }
 
 

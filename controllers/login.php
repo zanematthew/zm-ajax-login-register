@@ -156,7 +156,7 @@ Class Login Extends AjaxLogin {
     public function login_shortcode(){
         ob_start();
         load_template( plugin_dir_path( dirname( __FILE__ ) ) . 'views/login-form.php' );
-        echo ob_get_clean();
+        return ob_get_clean();
     }
 
 }
