@@ -9,13 +9,13 @@ Class Login Extends AjaxLogin {
     /**
      * Array of JavaScript, note name, must match FILE name!
      */
-    public $scripts = array( 'login' );
+    public $scripts = array( array( 'handle' => 'zm-login-js', 'file' => 'login.js' ) );
 
 
     /**
      * Array of stylesheets, note name, must match FILE name!
      */
-    public $styles = array( 'login' );
+    public $styles = array( array( 'handle' => 'zm-login-css', 'file' => 'login.css' ) );
 
 
     /**

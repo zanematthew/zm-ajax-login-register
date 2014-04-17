@@ -295,11 +295,11 @@ abstract Class AjaxLogin {
 
 
         foreach( $this->scripts as $script )
-            wp_enqueue_script( $script, plugin_dir_url( dirname( __FILE__ ) ) . 'assets/' . $script . '.js', array('jquery')  );
+            wp_enqueue_script( $script['handle'], plugin_dir_url( dirname( __FILE__ ) ) . 'assets/' . $script['file'], array('jquery')  );
 
         if ( ! empty( $this->styles ) ){
             foreach( $this->styles as $style )
-                wp_enqueue_style( $style, plugin_dir_url( dirname( __FILE__ ) ) . 'assets/' . $style . '.css' );
+                wp_enqueue_style( $style['handle'], plugin_dir_url( dirname( __FILE__ ) ) . 'assets/' . $style['file'] );
         }
     }
 }

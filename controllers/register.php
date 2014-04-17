@@ -9,13 +9,13 @@ Class Register Extends AjaxLogin {
     /**
      * Array of scripts, note name, must match FILE name!
      */
-    public $scripts = array('register');
+    public $scripts = array( array( 'handle' => 'zm-register-css', 'file' => 'register.js' ) );
 
 
     /**
      * Array of stylesheets, note name, must match FILE name!
      */
-    public $styles = array('register');
+    public $styles = array( array( 'handle' => 'zm-register-css', 'file' => 'register.css' ) );
 
 
     /**
