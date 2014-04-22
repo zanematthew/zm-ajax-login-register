@@ -28,10 +28,10 @@
                     <div class="ajax-login-register-status-container">
                         <div class="ajax-login-register-msg-target"></div>
                     </div>
-                    <div class="noon"><label><?php _e('User Name', 'ajax_login_register'); ?></label><input type="text" name="login" class="user_login" /></div>
-                    <div class="noon"><label><?php _e('Email', 'ajax_login_register'); ?></label><input type="text" name="email" class="user_email ajax-login-register-validate-email" /></div>
-                    <div class="noon"><label><?php _e('Password', 'ajax_login_register'); ?></label><input type="password" name="password" class="user_password" /></div>
-                    <div class="noon"><label><?php _e('Confirm Password', 'ajax_login_register'); ?></label><input type="password" name="confirm_password" class="user_confirm_password" /></div>
+                    <div class="noon"><label><?php _e('User Name', 'ajax_login_register'); ?></label><input type="text" required name="login" class="user_login" /></div>
+                    <div class="noon"><label><?php _e('Email', 'ajax_login_register'); ?></label><input type="text" required name="email" class="user_email ajax-login-register-validate-email" /></div>
+                    <div class="noon"><label><?php _e('Password', 'ajax_login_register'); ?></label><input type="password" required name="password" class="user_password" /></div>
+                    <div class="noon"><label><?php _e('Confirm Password', 'ajax_login_register'); ?></label><input type="password" required name="confirm_password" class="user_confirm_password" /></div>
                     <div class="button-container">
                         <input class="register_button green" type="submit" value="<?php _e('Register','ajax_login_register'); ?>" accesskey="p" name="register" disabled />
                     </div>
