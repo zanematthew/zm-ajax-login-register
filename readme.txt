@@ -26,6 +26,7 @@ If you've enabled the Facebook login or register, from your settings, the Facebo
 
 = Features =
 
+* Now available in Spanish and Russian thanks to [artbelov](https://github.com/artbelov)!
 * Facebook login support
 * Redirect users to a custom URL or page after login, such as; "Dashboard" or "Welcome"
 * AJAX verification for username and email accounts
@@ -92,6 +93,12 @@ here: https://developers.facebook.com/apps/YOUR_APP_ID/summary
 
 
 == Changelog ==
+
+= 1.0.5 =
+
+ * Added Multi-Language Support.
+ * Added Russian translation.
+ * Created .POT file.
 
 = 1.0.4 =
 
