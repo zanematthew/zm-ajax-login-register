@@ -161,7 +161,7 @@ abstract Class AjaxLogin {
                 break;
 
             case 'text':
-                $field = '<input type="text" name="' . $key . '" id="' . $key . '" class="regular-text" value="' . get_option( $key ) . '" />';
+                $field = '<input type="text" name="' . $key . '" id="' . $key . '" class="regular-text" value="' . esc_attr( get_option( $key ) ) . '" />';
                 break;
 
             case 'select':

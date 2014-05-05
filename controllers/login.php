@@ -82,8 +82,8 @@ Class Login Extends AjaxLogin {
          * Default is to look for $_POST variables
          */
         $creds = array(
-            'user_login'    => empty( $_POST['user_login'] ) ? $user_login : $_POST['user_login'],
-            'user_password' => empty( $_POST['password'] ) ? $password : $_POST['password'],
+            'user_login'    => empty( $_POST['user_login'] ) ? $user_login : sanitize_text_field( $_POST['user_login'] ),
+            'user_password' => empty( $_POST['password'] ) ? $password : sanitize_text_field( $_POST['password'] ),
             'remember'      => isset( $_POST['remember'] ) ? null : true
             );
         $user = wp_signon( $creds, false );

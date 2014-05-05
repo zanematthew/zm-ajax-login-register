@@ -71,10 +71,10 @@ Class Register Extends AjaxLogin {
         // TODO consider using wp_generate_password( $length=12, $include_standard_special_chars=false );
         // and wp_mail the users password asking to change it.
         $user = array(
-            'login'    => empty( $_POST['login'] ) ? $login : $_POST['login'],
-            'email'    => empty( $_POST['email'] ) ? $email : $_POST['email'],
-            'password' => empty( $_POST['password'] ) ? $password : $_POST['password'],
-            'fb_id'    => empty( $_POST['fb_id'] ) ? false : $_POST['fb_id']
+            'login'    => empty( $_POST['login'] ) ? $login : sanitize_text_field( $_POST['login'] ),
+            'email'    => empty( $_POST['email'] ) ? $email : sanitize_text_field( $_POST['email'] ),
+            'password' => empty( $_POST['password'] ) ? $password : sanitize_text_field( $_POST['password'] ),
+            'fb_id'    => empty( $_POST['fb_id'] ) ? false : sanitize_text_field( $_POST['fb_id'] )
         );
 
         $valid['email'] = $this->validate_email( $user['email'], false );
