@@ -94,6 +94,10 @@ here: https://developers.facebook.com/apps/YOUR_APP_ID/summary
 
 == Changelog ==
 
+= 1.0.6 =
+
+ * Fixed bug: Facebook Meta Tags issue [#41](https://github.com/zanematthew/zm-ajax-login-register/issues/41)
+
 = 1.0.5 =
 
  * Added Multi-Language Support.

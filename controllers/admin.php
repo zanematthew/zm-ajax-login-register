@@ -19,7 +19,7 @@ Class Admin Extends AjaxLogin {
 
 
     /**
-     * Retrive our settings from our parent class and register each setting.
+     * Retrieve our settings from our parent class and register each setting.
      * @todo use add_settings_section()
      */
     public function register_settings(){
