@@ -1,9 +1,10 @@
 <!-- Start: Ajax Login Register Meta Tags -->
 <?php if ( get_option('ajax_login_register_facebook') ) : ?>
     <?php $a = New Login; $fb = $a->get_settings(); foreach( $fb['facebook'] as $setting ) : ?>
-        <meta property="og:<?php print $setting['key']; ?>" content="<?php print get_option( $setting['key'] ); ?>" />
+        <meta property="<?php echo ( $setting['key'] == 'admins' || $setting['key'] == 'app_id' ) ? 'fb:' : 'og:'; ?><?php print $setting['key']; ?>" content="<?php print get_option( $setting['key'] ); ?>" />
         <?php $app_id = $setting['key'] == 'app_id' ? get_option( $setting['key'] ) : null; ?>
     <?php endforeach; ?>
+    <meta property="og:title" content="<?php wp_title( '|', true, 'right' ); ?>" />
 <?php endif; ?>
 
 <script type="text/javascript">
