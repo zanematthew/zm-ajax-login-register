@@ -90,6 +90,8 @@ Class Register Extends AjaxLogin {
 
             $user_id = wp_create_user( $user['login'], $user['password'], $user['email'] );
 
+            do_action( 'zm_ajax_login_after_successfull_registration', $user_id );
+
             if ( ! is_wp_error( $user_id ) ) {
 
                 update_user_meta( $user_id, 'show_admin_bar_front', 'false' );
