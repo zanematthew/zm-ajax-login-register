@@ -35,7 +35,7 @@ Class Admin Extends AjaxLogin {
 
 
     /**
-     * This method is fired when the settings that are rgister with register_settings()
+     * This method is fired when the settings that are register with register_settings()
      * are saved from the settings page. We filter out ALL html/js using wp_kses().
      */
     public function sanitize( $setting ){
