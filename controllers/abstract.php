@@ -246,13 +246,6 @@ abstract Class AjaxLogin {
 
         $dependencies = array(
             'jquery',
-            'jquery-ui-core',
-            'jquery-ui-widget',
-            'jquery-ui-mouse',
-            'jquery-ui-position',
-            'jquery-ui-draggable',
-            'jquery-ui-resizable',
-            'jquery-ui-button',
             'jquery-ui-dialog'
         );
 

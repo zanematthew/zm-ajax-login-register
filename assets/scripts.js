@@ -78,6 +78,7 @@ jQuery( document ).ready(function( $ ){
         autoOpen: false,
         width: _ajax_login_settings.dialog_width,
         resizable: false,
+        draggable: false,
         modal: true,
         open: function(){
             $('.ui-widget-overlay').bind('click',function(){
