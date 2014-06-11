@@ -84,7 +84,7 @@ Class Login Extends AjaxLogin {
         $creds = array(
             'user_login'    => empty( $_POST['user_login'] ) ? $user_login : sanitize_text_field( $_POST['user_login'] ),
             'user_password' => empty( $_POST['password'] ) ? $password : sanitize_text_field( $_POST['password'] ),
-            'remember'      => isset( $_POST['remember'] ) ? null : true
+            'remember'      => isset( $_POST['rememberme'] ) ? null : true
             );
         $user = wp_signon( $creds, false );
 
