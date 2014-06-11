@@ -96,6 +96,8 @@ here: https://developers.facebook.com/apps/YOUR_APP_ID/summary
 
 = 1.0.6 =
 
+ * Enhancement: French translation issue [#33](https://github.com/zanematthew/zm-ajax-login-register/pull/33) Thanks too [@jukd](https://twitter.com/jukd)
+ * Addressed compatibility issues with Easy-to-use issue [#38](https://github.com/zanematthew/zm-ajax-login-register/issues/38)
  * Fixed bug: Facebook Meta Tags issue [#41](https://github.com/zanematthew/zm-ajax-login-register/issues/41)
 
 = 1.0.5 =
