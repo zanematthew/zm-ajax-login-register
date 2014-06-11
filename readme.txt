@@ -96,6 +96,7 @@ here: https://developers.facebook.com/apps/YOUR_APP_ID/summary
 
 = 1.0.6 =
 
+ * Enhancement: Dialog/Modal is now closed if the user scrolls, issue [#34](https://github.com/zanematthew/zm-ajax-login-register/issues/34)
  * Enhancement: Dialog/Modal is no longer draggable, isssue [#35](https://github.com/zanematthew/zm-ajax-login-register/issues/35)
  * Enhancement: French translation issue [#33](https://github.com/zanematthew/zm-ajax-login-register/pull/33) Thanks too [@jukd](https://twitter.com/jukd)
  * Addressed compatibility issues with Easy-to-use issue [#38](https://github.com/zanematthew/zm-ajax-login-register/issues/38)
