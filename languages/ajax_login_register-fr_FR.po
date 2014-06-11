@@ -1,0 +1,184 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: ajax_login_register-fr_FR\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.6.4\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: fr\n"
+
+# "handle" refiere a lugar donde el usario puede tomar la acción de acceder la página seleccionada
+#: controllers/abstract.php:83
+msgid "Login Handle"
+msgstr "Gestionnaire de connexion"
+
+# tecla o escribir a máquina
+#: controllers/abstract.php:85 controllers/abstract.php:91
+msgid ""
+"Type the class name or ID of the element you want to launch the dialog box "
+"when clicked, example"
+msgstr ""
+"Tapez le nom de la classe ou l'ID de l'élément qui doit lancer la boite de "
+"dialogue, exemple"
+
+#: controllers/abstract.php:85
+msgid ".login-link"
+msgstr ".login-link"
+
+#: controllers/abstract.php:89
+msgid "Register Handle"
+msgstr "Gestionnaire d'inscription"
+
+#: controllers/abstract.php:91
+msgid ".register-link"
+msgstr ".register-link"
+
+#: controllers/abstract.php:95
+msgid "Additional Styling"
+msgstr "Style Additionnel"
+
+# o hecho a la medida
+#: controllers/abstract.php:97
+msgid "Type your custom CSS styles that are applied to the dialog boxes."
+msgstr ""
+"Tapez votre style CSS personnalisé qui sera appliqué aux boites de dialogue."
+
+#: controllers/abstract.php:101
+msgid "Redirect After Login URL"
+msgstr "URL de redirection après connexion"
+
+# Zane to remove Slug from this---
+#: controllers/abstract.php:103
+msgid ""
+"Enter the URL or slug you want users redirected to after login, example: "
+msgstr ""
+"Entrez l'URL où les utilisateurs doivent être redirigés après connexion, "
+"exemple:"
+
+# not translatable?
+#: controllers/abstract.php:103
+msgid "http://site.com/, /dashboard/, /wp-admin/"
+msgstr "http://site.com/, /tableau de bord/, /wp-admin/"
+
+#: controllers/abstract.php:107
+msgid "Form Layout"
+msgstr "Style du formulaire"
+
+#: controllers/abstract.php:116
+msgid "URL"
+msgstr "URL"
+
+# o admón
+#: controllers/abstract.php:121
+msgid "Admin ID"
+msgstr "ID de l'admin"
+
+#: controllers/abstract.php:126
+msgid "App ID"
+msgstr "ID de l'application"
+
+#: controllers/abstract.php:134
+msgid "Enable Facebook Login"
+msgstr "Activer la connexion via Facebook"
+
+# by disabling this, your facebook setttings will still be saved.
+#: controllers/abstract.php:135
+msgid "By disabling this your Facebook settings will still be saved."
+msgstr ""
+"En désactivant cette option vos paramètres Facebook seront sauvegardés."
+
+#: controllers/abstract.php:139
+msgid "Disable keep me logged in"
+msgstr "Désactive me laisser connecter"
+
+#: controllers/abstract.php:140
+msgid "Use this option to disable the check box shown to keep users logged in."
+msgstr ""
+"Utiliser cette option pour désactiver l'option permettant aux utilisateurs "
+"de rester connecté."
+
+#: controllers/abstract.php:289
+msgid "Passwords do not match."
+msgstr "Le mot de passe ne correspond pas."
+
+#: controllers/abstract.php:292 views/login-form.php:11
+#: views/register-form.php:13
+msgid "Logout"
+msgstr "Se déconnecter"
+
+# fix this sentence in english.
+# Ajax login and registration? (exclude the ;)
+#: controllers/admin.php:56 controllers/admin.php:57
+msgid "Ajax Login &amp; Register"
+msgstr "Connexion Ajax &amp; Inscription"
+
+#: views/login-dialog.php:8
+msgid "Login"
+msgstr "Connexion"
+
+#: views/login-dialog.php:9 views/register-dialog.php:8
+msgid "Loading..."
+msgstr "Chargement..."
+
+#: views/login-form.php:11
+msgid "You are already logged in"
+msgstr "Vous êtes déjà connecté"
+
+#: views/login-form.php:24 views/register-form.php:31
+msgid "User Name"
+msgstr "Pseudo"
+
+#: views/login-form.php:25 views/register-form.php:33
+msgid "Password"
+msgstr "Mot de Passe"
+
+#: views/login-form.php:30
+msgid "Keep me logged in"
+msgstr "Me laisser connecté"
+
+#: views/login-form.php:32
+msgid "Lost Password"
+msgstr "Mot de Passe perdu"
+
+#: views/register-form.php:13
+msgid "You are already registered"
+msgstr "Vous êtes déjà inscrit"
+
+#: views/register-form.php:32
+msgid "Email"
+msgstr "Email"
+
+#: views/register-form.php:34
+msgid "Confirm Password"
+msgstr "Confirmer le mot de passe"
+
+#: views/register-form.php:36
+msgid "Register"
+msgstr "S'inscrire"
+
+# Inscripción o registración
+#: views/register-form.php:43
+msgid "Registration is currently closed."
+msgstr "L'inscription est clôse pour le moment."
+
+#: views/settings.php:15
+msgid "Ajax Login &amp; Register Settings"
+msgstr "Connexion Ajax &amp; Paramètres d'inscription"
+
+#: views/settings.php:19
+msgid "General Settings"
+msgstr "Paramètres globaux"
+
+# o configuraciones de Facebook.
+#: views/settings.php:32
+msgid "Facebook Settings"
+msgstr "Paramètres Facebook"
+
+#: views/settings.php:44
+msgid "Advanced Usage"
+msgstr "Utilisation avancée"
