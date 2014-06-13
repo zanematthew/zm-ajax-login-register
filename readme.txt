@@ -4,7 +4,7 @@ Contributors: ZaneMatthew
 Donate link: http://zanematthew.com/
 Tags: admin, AJAX, login, manage, modal, password, plugin, redirect, register, username, Facebook
 Requires at least: 3.5
-Tested up to: 3.8.1
+Tested up to: 3.9
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -24,9 +24,12 @@ Feel free to contact us and will add any additional hooks you need. The forms us
 
 If you've enabled the Facebook login or register, from your settings, the Facebook button will display in the form. Each user that logins with Facebook will be register as a "subscriber" and their Facebook profile picture will be used as their avatar.
 
+* [Support](http://support.zanematthew.com/forum/zm-ajax-login-register/)
+* [GitHub Repository](https://github.com/zanematthew/zm-ajax-login-register)
+
 = Features =
 
-* Now available in Spanish and Russian thanks to [artbelov](https://github.com/artbelov)!
+* Now available in Russian thanks to [artbelov](https://github.com/artbelov), Spanish and French thanks to [Thomas G](https://twitter.com/Jukd)
 * Facebook login support
 * Redirect users to a custom URL or page after login, such as; "Dashboard" or "Welcome"
 * AJAX verification for username and email accounts
@@ -97,7 +100,7 @@ here: https://developers.facebook.com/apps/YOUR_APP_ID/summary
 = 1.0.6 =
 
  * Enhancement: Dialog/Modal is now closed if the user scrolls, issue [#34](https://github.com/zanematthew/zm-ajax-login-register/issues/34)
- * Enhancement: Dialog/Modal is no longer draggable, isssue [#35](https://github.com/zanematthew/zm-ajax-login-register/issues/35)
+ * Enhancement: Dialog/Modal is no longer draggable, issue [#35](https://github.com/zanematthew/zm-ajax-login-register/issues/35)
  * Enhancement: French translation issue [#33](https://github.com/zanematthew/zm-ajax-login-register/pull/33) Thanks too [@jukd](https://twitter.com/jukd)
  * Addressed compatibility issues with Easy-to-use issue [#38](https://github.com/zanematthew/zm-ajax-login-register/issues/38)
  * Fixed bug: Facebook Meta Tags issue [#41](https://github.com/zanematthew/zm-ajax-login-register/issues/41)
