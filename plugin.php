@@ -4,7 +4,7 @@
  * Plugin Name: zM Ajax Login & Register
  * Plugin URI: --
  * Description: Creates a simple login and register modal with an optional shortcode.
- * Version: 1.0.5
+ * Version: 1.0.6
  * Author: Zane Matthew
  * Author URI: http://zanematthew.com/
  * License: GPL V2 or Later
@@ -16,7 +16,7 @@
  * Plugin initial setup
  */
 function zm_ajax_login_register_init(){
-    // Set up localisation
+    // Set up localization
     load_plugin_textdomain( 'ajax_login_register', false, plugin_basename(dirname(__FILE__)) . '/languages' );
 }
 add_action( 'init', 'zm_ajax_login_register_init' );
