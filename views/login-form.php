@@ -23,7 +23,7 @@
                 ?>
                 <div class="noon"><label><?php _e('User Name','ajax_login_register'); ?></label><input type="text" name="user_login" size="30" required /></div>
                 <div class="noon"><label><?php _e('Password','ajax_login_register'); ?></label><input type="password" name="password" size="30" required /></div>
-                <div class="noon"><a href="#" class="not-a-member-handle"><?php _e('Not a member?'); ?></a></div>
+                <div class="noon"><a href="#" class="not-a-member-handle"><?php echo apply_filters( 'ajax_login_not_a_member_text', __('Not a member?') ); ?></a></div>
                 <?php
                 $keep_logged_in = get_option('ajax_login_register_keep_me_logged_in');
                 if ( $keep_logged_in != "on") : ?>

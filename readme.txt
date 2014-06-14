@@ -97,6 +97,10 @@ here: https://developers.facebook.com/apps/YOUR_APP_ID/summary
 
 == Changelog ==
 
+= 1.0.7 =
+
+ * Enhancement: Login dialog has a link to open the registration dialog and vice versa [issue #16](https://github.com/zanematthew/zm-ajax-login-register/issues/16)
+
 = 1.0.6 =
 
  * Enhancement: Dialog/Modal is now closed if the user scrolls, issue [#34](https://github.com/zanematthew/zm-ajax-login-register/issues/34)
