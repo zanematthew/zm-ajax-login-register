@@ -1,3 +1,7 @@
+body {
+    height: 100%;
+}
+
 /*= Default Forms
 -------------------------------------------------------------- */
 .ajax-login-default-form-container label {
