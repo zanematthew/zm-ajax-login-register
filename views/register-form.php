@@ -35,6 +35,8 @@
 
                     <div class="noon"><label><?php _e('Password', 'ajax_login_register'); ?></label><input type="password" required name="password" class="user_password" /></div>
                     <div class="noon"><label><?php _e('Confirm Password', 'ajax_login_register'); ?></label><input type="password" required name="confirm_password" class="user_confirm_password" /></div>
+
+                    <div class="noon"><a href="#" class="already-registered-handle"><?php _e('Already registered?','ajax_login_register'); ?></a></div>
                     <div class="button-container">
                         <input class="register_button green" type="submit" value="<?php _e('Register','ajax_login_register'); ?>" accesskey="p" name="register" disabled />
                     </div>

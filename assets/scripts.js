@@ -79,12 +79,7 @@ jQuery( document ).ready(function( $ ){
         width: _ajax_login_settings.dialog_width,
         resizable: false,
         draggable: false,
-        modal: true,
-        open: function(){
-            $('.ui-widget-overlay').bind('click',function(){
-                $('.ajax-login-register-container').dialog('close');
-            });
-        }
+        modal: true
     });
 
 

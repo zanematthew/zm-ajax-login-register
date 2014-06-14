@@ -8,10 +8,8 @@ jQuery( document ).ready(function( $ ){
         $(this).closest('.ajax-login-register-container').dialog('close');
     });
 
-    if ( _ajax_login_settings.register_handle.length ){
-        $( document ).on('click', _ajax_login_settings.register_handle, function( event ){
-            event.preventDefault();
-
+    window.zMAjaxLoginRegisterDialog = {
+        open: function(){
             $('#ajax-login-register-dialog').dialog('open');
 
             var data = {
@@ -29,6 +27,13 @@ jQuery( document ).ready(function( $ ){
                     $( "#ajax-login-register-target" ).fadeIn().html( msg ); // Give a smooth fade in effect
                 }
             });
+        }
+    };
+
+    if ( _ajax_login_settings.register_handle.length ){
+        $( document ).on('click', _ajax_login_settings.register_handle, function( event ){
+            event.preventDefault();
+            zMAjaxLoginRegisterDialog.open();
         });
     }
 
@@ -80,4 +85,8 @@ jQuery( document ).ready(function( $ ){
         });
     });
 
+    $( document ).on('click', '.already-registered-handle', function(){
+        $('#ajax-login-register-dialog').dialog('close');
+        zMAjaxLoginDialog.open();
+    });
 });
