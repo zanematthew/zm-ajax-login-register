@@ -27,16 +27,15 @@ jQuery( document ).ready(function( $ ){
      */
     $( document ).on('submit', '.login_form', function( event ){
         event.preventDefault();
+        var $this = $(this);
         $.ajax({
-            data: "action=login_submit&" + $(this).serialize(),
+            data: "action=login_submit&" + $this.serialize(),
             type: "POST",
             url: _ajax_login_settings.ajaxurl,
             success: function( msg ){
-                if ( msg == 0 ){
-                    $('#ajax-login-register-login-dialog').dialog('close');
-                } else {
-                    zMAjaxLoginRegister.reload();
-                }
+
+                ajax_login_register_show_message( $this, msg );
+
             }
         });
     });

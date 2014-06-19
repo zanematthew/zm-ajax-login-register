@@ -21,6 +21,9 @@
                 wp_nonce_field( 'facebook-nonce', 'facebook_security' );
                 wp_nonce_field( 'login_submit', 'security' );
                 ?>
+                <div class="ajax-login-register-status-container">
+                    <div class="ajax-login-register-msg-target"></div>
+                </div>
                 <div class="noon"><label><?php _e('User Name','ajax_login_register'); ?></label><input type="text" name="user_login" size="30" required /></div>
                 <div class="noon"><label><?php _e('Password','ajax_login_register'); ?></label><input type="password" name="password" size="30" required /></div>
                 <div class="noon"><a href="#" class="not-a-member-handle"><?php echo apply_filters( 'ajax_login_not_a_member_text', __('Not a member?') ); ?></a></div>

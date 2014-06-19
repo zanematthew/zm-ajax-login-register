@@ -8,37 +8,6 @@
  */
 abstract Class AjaxLogin {
 
-    /**
-     * Validation status responses
-     */
-    public $status = array(
-        array(
-            'status' => 0,
-            'cssClass' => 'success',
-            'msg' => 'Pass',
-            'field' => '',
-            'description' => '<div class="success-container">Success! One moment while we log you in...</div>'
-            ),
-        array(
-            'status' => 1,
-            'cssClass' => 'error',
-            'msg' => 'Default Error',
-            'description' => '<div class="error-container">Error</div>'
-            ),
-        array(
-            'status' => 2,
-            'cssClass' => 'error',
-            'msg' => 'Invalid User',
-            'description' => '<div class="error-container">Login is in use or invalid</div>'
-            ),
-        array(
-            'status' => 3,
-            'msg' => 'Fail',
-            'cssClass' => 'error',
-            'description' => '<div class="error-container">Email in use or invalid</div>'
-            )
-        );
-
     public $scripts = array();
 
     /**
@@ -184,10 +153,12 @@ abstract Class AjaxLogin {
 
         $email = is_null( $email ) ? $email : $_POST['email'];
 
-        if ( filter_var( $email, FILTER_VALIDATE_EMAIL ) ) {
-            $msg = email_exists( $email ) ? $this->status[3] : null;
+        if ( ! filter_var( $email, FILTER_VALIDATE_EMAIL ) ) {
+            $msg = $this->status('email_invalid');
+        } else if ( email_exists( $email ) ){
+            $msg = $this->status('email_in_use');
         } else {
-            $msg = $this->status[3];
+            $msg = $this->status('email_valid');
         }
 
         if ( $is_ajax ){
@@ -208,12 +179,16 @@ abstract Class AjaxLogin {
      */
     public function validate_username( $username=null, $is_ajax=true ) {
 
-        $username = empty( $_POST['login'] ) ? $username : $_POST['login'];
+        $username = empty( $_POST['login'] ) ? esc_attr( $username ) : $_POST['login'];
 
-        if ( validate_username( $username ) && ! is_object( get_user_by( 'login', $username ) ) ) {
-            $msg = null;
+        $user_id = username_exists( $username );
+
+        if ( $user_id ){
+            $msg = $this->status('username_exists');
+        } elseif ( validate_username( $username ) ) {
+            $msg = $this->status('valid_username');
         } else {
-            $msg =$this->status[2];
+            $msg =$this->status('invalid_username');
         }
 
         if ( $is_ajax ){
@@ -279,7 +254,7 @@ abstract Class AjaxLogin {
             'register_handle' => get_option('ajax_login_register_advanced_usage_register'),
             'redirect' => $redirect_url,
             'dialog_width' => $width[ $key ],
-            'match_error' => __('Passwords do not match.','ajax_login_register'),
+            'match_error' => $this->status('passwords_do_not_match','description'),
             'is_user_logged_in' => is_user_logged_in() ? 1 : 0,
             'wp_logout_url' => wp_logout_url( site_url() ),
             'logout_text' => __('Logout', 'ajax_login_register' )
@@ -293,6 +268,78 @@ abstract Class AjaxLogin {
         if ( ! empty( $this->styles ) ){
             foreach( $this->styles as $style )
                 wp_enqueue_style( $style['handle'], plugin_dir_url( dirname( __FILE__ ) ) . 'assets/' . $style['file'] );
+        }
+    }
+
+
+    /**
+     * Validation status responses
+     */
+    public function status( $key=null, $value=null ){
+
+        $status = array(
+
+            'valid_username' => array(
+                'description' => null,
+                'cssClass' => 'noon',
+                'code' => 'success'
+                ),
+            'username_exists' => array(
+                'description' => 'Invalid username',
+                'cssClass' => 'error-container',
+                'code' => 'error'
+                ),
+            'invalid_username' => array(
+                'description' => __( 'Invalid username', 'ajax_login_register' ),
+                'cssClass' => 'error-container',
+                'code' => 'error'
+                ),
+
+            'incorrect_password' => array(
+                'description' => 'Invalid',
+                'cssClass' => 'error-container',
+                'code' => 'error'
+                ),
+            'passwords_do_not_match' => array(
+                'description' => __('Passwords do not match.','ajax_login_register'),
+                'cssClass' =>'error-container',
+                'code' => 'error'
+                ),
+
+            'email_valid' => array(
+                'description' => null,
+                'cssClass' => 'noon',
+                'code' => 'success'
+                ),
+            'email_invalid' => array(
+                'description' => __( 'Invalid Email', 'ajax_login_register' ),
+                'cssClass' => 'error-container',
+                'code' => 'error'
+                ),
+            'email_in_use' => array(
+                'description' => __( 'Invalid Email', 'ajax_login_register' ),
+                'cssClass' => 'error-container',
+                'code' => 'error'
+                ),
+
+            'success_login' => array(
+                'description' => __( 'Success! One moment while we log you in...', 'ajax_login_register' ),
+                'cssClass' => 'success-container',
+                'code' => 'success_login'
+                ),
+            'success_registration' => array(
+                'description' => __( 'Success! One moment while we log you in...', 'ajax_login_register' ),
+                'cssClass' => 'noon',
+                'code' => 'success_registration'
+                )
+            );
+
+        $status = apply_filters( 'ajax_login_register_status_codes', $status );
+
+        if ( empty( $value ) ){
+            return $status[ $key ];
+        } else {
+            return $status[ $key ][ $value ];
         }
     }
 }

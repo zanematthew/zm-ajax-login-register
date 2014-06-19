@@ -1,7 +1,7 @@
 jQuery( document ).ready(function( $ ){
 
 
-    window.zMAjaxLoginRegister = {
+    var zMAjaxLoginRegister = {
         reload: function(){
             location.href = _ajax_login_settings.redirect;
         }
@@ -9,14 +9,22 @@ jQuery( document ).ready(function( $ ){
 
 
     window.ajax_login_register_show_message = function( form_obj, msg ) {
-        if ( msg == null ) {
-            jQuery('.ajax-login-register-msg-target').fadeOut('fast');
+        if ( msg.code == 'success_login' || msg.code == 'success_registration' ){
+            jQuery('.ajax-login-register-msg-target', form_obj).addClass( msg.cssClass );
+            jQuery('.ajax-login-register-msg-target', form_obj).fadeIn().html( msg.description );
+            zMAjaxLoginRegister.reload();
+        } else if ( msg.description == '' ){
+            zMAjaxLoginRegister.reload();
+        } else {
+            if ( msg.cssClass == 'noon' ){
+                jQuery('.ajax-login-register-status-container').hide();
+            } else {
+                jQuery('.ajax-login-register-status-container').show();
+            }
+
+            jQuery('.ajax-login-register-msg-target', form_obj).addClass( msg.cssClass );
+            jQuery('.ajax-login-register-msg-target', form_obj).fadeIn().html( msg.description );
         }
-
-        if ( ! msg ) return;
-
-        jQuery('.ajax-login-register-msg-target', form_obj).toggleClass( msg.cssClass );
-        jQuery('.ajax-login-register-msg-target', form_obj).fadeIn().html( msg.description );
     };
 
 

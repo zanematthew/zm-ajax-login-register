@@ -81,11 +81,8 @@ Class Register Extends AjaxLogin {
         $valid['username'] = $this->validate_username( $user['login'], false );
         $user_id = null;
 
-        if ( $valid['email']['status'] == 1 // default error
-            || $valid['username']['status'] == 2 // invalid user
-            || $valid['username']['status'] == 3 // invalid email
-            ) {
-            $msg = $this->status[2]; // invalid user
+        if ( $valid['email']['code'] == 'error' ) {
+            $msg = $this->status('invalid_username'); // invalid user
         } else {
 
             $user_id = wp_create_user( $user['login'], $user['password'], $user['email'] );
@@ -103,9 +100,9 @@ Class Register Extends AjaxLogin {
 
                 wp_update_user( array( 'ID' => $user_id, 'role' => 'subscriber' ) );
                 $wp_signon = wp_signon( array( 'user_login' => $user['login'], 'user_password' => $user['password'], 'remember' => true ), false );
-                $msg = $this->status[0]; // success
+                $msg = $this->status('success_registration'); // success
             } else {
-                $msg = $this->status[2]; // invalid user
+                $msg = $this->status('invalid_username'); // invalid user
             }
         }
 

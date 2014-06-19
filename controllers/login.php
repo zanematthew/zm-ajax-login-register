@@ -93,7 +93,8 @@ Class Login Extends AjaxLogin {
          * If signon is successful we print the user name if not we print "0" for
          * false
          */
-        $status = is_wp_error( $user ) ? $this->status[1] : $this->status[0];
+        $status = is_wp_error( $user ) ? $this->status( $user->get_error_code() ) : $this->status('success_login');
+
 
         if ( $is_ajax ) {
             wp_send_json( $status );
@@ -120,7 +121,7 @@ Class Login Extends AjaxLogin {
 
         if ( empty( $user['username'] ) ){
 
-            $msg = $this->status[3];
+            $msg = $this->status('invalid_username');
 
         } else {
 
@@ -139,7 +140,7 @@ Class Login Extends AjaxLogin {
             $logged_in = $this->login_submit( $user_obj->user_login, $password, false );
 
             if ( $logged_in == true ){
-                $msg = $this->status[0];
+                $msg = $this->status('success_login');
             } else {
                 die("\nSomething to do here");
             }

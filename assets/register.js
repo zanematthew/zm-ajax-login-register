@@ -51,13 +51,18 @@ jQuery( document ).ready(function( $ ){
         if ( value == match_value ) {
             $( '.register_button', $form ).removeAttr('disabled');
             $( '.register_button', $form ).animate({ opacity: 1 });
-            msg = null;
+            msg = {
+                "cssClass": "noon",
+                "description": null,
+                "code": "success"
+            };
         } else {
             $( '.register_button', $form ).attr('disabled',true);
             $( '.register_button', $form ).animate({ opacity: 0.5 });
             msg = {
-                "cssClass": "error",
-                "description": "<div class='error-container'>"+_ajax_login_settings.match_error+"</div>"
+                "cssClass": "error-container",
+                "description": _ajax_login_settings.match_error,
+                "code": "error"
             };
         }
 
