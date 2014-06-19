@@ -9,7 +9,7 @@ Class Register Extends AjaxLogin {
     /**
      * Array of scripts, note name, must match FILE name!
      */
-    public $scripts = array( array( 'handle' => 'zm-register-css', 'file' => 'register.js' ) );
+    public $scripts = array( array( 'handle' => 'zm-register-js', 'file' => 'register.js' ) );
 
 
     /**
@@ -107,8 +107,7 @@ Class Register Extends AjaxLogin {
         }
 
         if ( $is_ajax ) {
-            print json_encode( $msg );
-            die();
+            wp_send_json( $msg );
         } else {
             return $msg;
         }
