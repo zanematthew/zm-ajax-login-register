@@ -14,7 +14,6 @@ abstract Class AjaxLogin {
      * WordPress hooks to be ran during init
      */
     public function __construct(){
-        add_action( 'wp_enqueue_scripts', array( &$this, 'enqueue_scripts' ) );
 
         add_action( 'wp_head', array( &$this, 'header' ) );
 
@@ -209,66 +208,6 @@ abstract Class AjaxLogin {
         check_ajax_referer( $_POST['referer'],'security');
         load_template( plugin_dir_path( dirname( __FILE__ ) ) . "views/" . $_POST['template'] . '.php' );
         die();
-    }
-
-
-    /**
-     * Loads our default CSS and JS along with controller specific CSS and JS
-     */
-    public function enqueue_scripts( $scripts=null ){
-
-        if ( empty( $this->scripts ) ) return;
-
-        $dependencies = array(
-            'jquery',
-            'jquery-ui-dialog'
-        );
-
-        wp_enqueue_style( 'ajax-login-style', plugin_dir_url( dirname( __FILE__ ) ) . "assets/style.css" );
-        wp_enqueue_style( 'jquery-ui-custom', plugin_dir_url( dirname( __FILE__ ) ) . "assets/jquery-ui.css" );
-        wp_enqueue_script( 'ajax-login-script', plugin_dir_url( dirname( __FILE__ ) ) . 'assets/scripts.js', $dependencies  );
-
-        $redirect_url = get_option('ajax_login_register_redirect');
-        $redirect_url = empty( $redirect_url ) ? site_url($_SERVER['REQUEST_URI']) : $redirect_url;
-        $redirect_url = apply_filters( 'zm_ajax_login_redirect', $redirect_url );
-        $width = array(
-            'default' => 265,
-            'wide' => 440,
-            'extra_buttons' => 666
-            );
-
-        $style = get_option('ajax_login_register_default_style');
-        $fb_button = get_option('ajax_login_register_facebook');
-
-        if ( $style == 'wide' && $fb_button ){
-            $key = 'extra_buttons';
-        } elseif ( $style == 'wide' ){
-            $key = 'wide';
-        } else {
-            $key = 'default';
-        }
-
-        wp_localize_script( 'ajax-login-script', '_ajax_login_settings', array(
-            'ajaxurl' => admin_url("admin-ajax.php"),
-            'login_handle' => get_option('ajax_login_register_advanced_usage_login'),
-            'register_handle' => get_option('ajax_login_register_advanced_usage_register'),
-            'redirect' => $redirect_url,
-            'dialog_width' => $width[ $key ],
-            'match_error' => $this->status('passwords_do_not_match','description'),
-            'is_user_logged_in' => is_user_logged_in() ? 1 : 0,
-            'wp_logout_url' => wp_logout_url( site_url() ),
-            'logout_text' => __('Logout', 'ajax_login_register' )
-            ) );
-
-
-
-        foreach( $this->scripts as $script )
-            wp_enqueue_script( $script['handle'], plugin_dir_url( dirname( __FILE__ ) ) . 'assets/' . $script['file'], array('jquery')  );
-
-        if ( ! empty( $this->styles ) ){
-            foreach( $this->styles as $style )
-                wp_enqueue_style( $style['handle'], plugin_dir_url( dirname( __FILE__ ) ) . 'assets/' . $style['file'] );
-        }
     }
 
 

@@ -7,18 +7,6 @@
 Class Register Extends AjaxLogin {
 
     /**
-     * Array of scripts, note name, must match FILE name!
-     */
-    public $scripts = array( array( 'handle' => 'zm-register-js', 'file' => 'register.js' ) );
-
-
-    /**
-     * Array of stylesheets, note name, must match FILE name!
-     */
-    public $styles = array( array( 'handle' => 'zm-register-css', 'file' => 'register.css' ) );
-
-
-    /**
      * Run the following methods when this class is loaded
      */
     public function __construct(){

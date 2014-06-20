@@ -6,17 +6,6 @@
  */
 Class Login Extends AjaxLogin {
 
-    /**
-     * Array of JavaScript, note name, must match FILE name!
-     */
-    public $scripts = array( array( 'handle' => 'zm-login-js', 'file' => 'login.js' ) );
-
-
-    /**
-     * Array of stylesheets, note name, must match FILE name!
-     */
-    public $styles = array( array( 'handle' => 'zm-login-css', 'file' => 'login.css' ) );
-
 
     /**
      * Run the following methods when this class is loaded
