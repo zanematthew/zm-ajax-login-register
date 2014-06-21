@@ -73,8 +73,7 @@ jQuery( document ).ready(function( $ ){
             type: "POST",
             url: _ajax_login_settings.ajaxurl,
             success: function( msg ){
-                console.log( msg );
-                // ajax_login_register_show_message( $form, msg );
+                ajax_login_register_show_message( $form, msg );
             }
         });
     });

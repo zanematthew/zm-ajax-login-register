@@ -66,8 +66,7 @@ jQuery( document ).ready(function( $ ){
             };
         }
 
-        console.log( msg );
-        // ajax_login_register_show_message( $form, msg );
+        ajax_login_register_show_message( $form, msg );
      });
 
 
