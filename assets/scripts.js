@@ -1,12 +1,40 @@
-jQuery( document ).ready(function( $ ){
+var zMAjaxLoginRegister = {
+    reload: function(){
+        location.href = _ajax_login_settings.redirect;
+    },
 
+    // Confirm passwords match
+    confirm_password: function( my_obj ){
 
-    var zMAjaxLoginRegister = {
-        reload: function(){
-            location.href = _ajax_login_settings.redirect;
+        $obj = jQuery( my_obj );
+        value = $obj.val().trim();
+
+        if ( value == '' ) return;
+
+        $form = $obj.parents('form');
+
+        match_value = jQuery('.user_password', $form).val();
+
+        if ( value == match_value ) {
+            msg = {
+                "cssClass": "noon",
+                "description": null,
+                "code": "success"
+            };
+        } else {
+            msg = {
+                "cssClass": "error-container",
+                "description": _ajax_login_settings.match_error,
+                "code": "error"
+            };
         }
-    };
 
+        return msg;
+    }
+};
+
+
+jQuery( document ).ready(function( $ ){
 
     window.ajax_login_register_show_message = function( form_obj, msg ) {
         if ( msg.code == 'success_login' || msg.code == 'success_registration' ){

@@ -37,36 +37,20 @@ jQuery( document ).ready(function( $ ){
         });
     }
 
+
     /**
      * Confirms that two input fields match
      */
-    $( document ).on('blur', '.user_confirm_password', function(){
-        if ( $.trim( $(this).val() ) == '' ) return;
-
+    $( document ).on('keyup', '.user_confirm_password', function(){
         $form = $(this).parents('form');
 
-        match_value = $('.user_password', $form).val();
-        value = $( this ).val();
-
-        if ( value == match_value ) {
-            $( '.register_button', $form ).removeAttr('disabled');
-            $( '.register_button', $form ).animate({ opacity: 1 });
-            msg = {
-                "cssClass": "noon",
-                "description": null,
-                "code": "success"
-            };
-        } else {
+        if ( $(this).val() == '' ){
             $( '.register_button', $form ).attr('disabled',true);
             $( '.register_button', $form ).animate({ opacity: 0.5 });
-            msg = {
-                "cssClass": "error-container",
-                "description": _ajax_login_settings.match_error,
-                "code": "error"
-            };
+        } else {
+            $( '.register_button', $form ).removeAttr('disabled');
+            $( '.register_button', $form ).animate({ opacity: 1 });
         }
-
-        ajax_login_register_show_message( $form, msg );
      });
 
 
@@ -77,17 +61,23 @@ jQuery( document ).ready(function( $ ){
     $( document ).on('submit', '.register_form', function( event ){
         event.preventDefault();
 
-        $.ajax({
-            data: "action=register_submit&" + $( this ).serialize(),
-            dataType: 'json',
-            type: "POST",
-            url: _ajax_login_settings.ajaxurl,
-            success: function( msg ) {
-                ajax_login_register_show_message( $(this), msg );
-                if ( msg.status == 0 )
-                    zMAjaxLoginRegister.reload();
-            }
-        });
+        passwords_match = zMAjaxLoginRegister.confirm_password('.user_confirm_password');
+
+        if ( passwords_match.code == 'error' ){
+            ajax_login_register_show_message( $(this), msg );
+        } else {
+            $.ajax({
+                data: "action=register_submit&" + $( this ).serialize(),
+                dataType: 'json',
+                type: "POST",
+                url: _ajax_login_settings.ajaxurl,
+                success: function( msg ) {
+                    ajax_login_register_show_message( $(this), msg );
+                    if ( msg.status == 0 )
+                        zMAjaxLoginRegister.reload();
+                }
+            });
+        }
     });
 
     $( document ).on('click', '.already-registered-handle', function(){
