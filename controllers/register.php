@@ -69,7 +69,9 @@ Class Register Extends AjaxLogin {
         $valid['username'] = $this->validate_username( $user['login'], false );
         $user_id = null;
 
-        if ( $valid['email']['code'] == 'error' ) {
+        if ( $valid['username']['code'] == 'error' ){
+            $msg = $this->status('invalid_username'); // invalid user
+        } else if ( $valid['email']['code'] == 'error' ) {
             $msg = $this->status('invalid_username'); // invalid user
         } else {
 

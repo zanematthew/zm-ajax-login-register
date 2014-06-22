@@ -180,19 +180,19 @@ abstract Class AjaxLogin {
 
         $username = empty( $_POST['login'] ) ? esc_attr( $username ) : $_POST['login'];
 
-        $user_id = username_exists( $username );
-
-        if ( $user_id ){
-            $msg = $this->status('username_exists');
-        } elseif ( validate_username( $username ) ) {
-            $msg = $this->status('valid_username');
+        if ( validate_username( $username ) ) {
+            $user_id = username_exists( $username );
+            if ( $user_id ){
+                $msg = $this->status('username_exists');
+            } else {
+                $msg = $this->status('valid_username');
+            }
         } else {
-            $msg =$this->status('invalid_username');
+            $msg = $this->status('invalid_username');
         }
 
         if ( $is_ajax ){
-            print json_encode( $msg );
-            die();
+            wp_send_json( $msg );
         } else {
             return $msg;
         }
@@ -229,6 +229,11 @@ abstract Class AjaxLogin {
                 'code' => 'error'
                 ),
             'invalid_username' => array(
+                'description' => __( 'Invalid username', 'ajax_login_register' ),
+                'cssClass' => 'error-container',
+                'code' => 'error'
+                ),
+            'username_does_not_exists' => array(
                 'description' => __( 'Invalid username', 'ajax_login_register' ),
                 'cssClass' => 'error-container',
                 'code' => 'error'

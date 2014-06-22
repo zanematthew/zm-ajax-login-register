@@ -65,25 +65,23 @@ Class Login Extends AjaxLogin {
          */
         if ( $is_ajax ) check_ajax_referer('login_submit','security');
 
-
-        /**
-         * Build our array of credentials to be passed into wp_signon.
-         * Default is to look for $_POST variables
-         */
-        $creds = array(
-            'user_login'    => empty( $_POST['user_login'] ) ? $user_login : sanitize_text_field( $_POST['user_login'] ),
-            'user_password' => empty( $_POST['password'] ) ? $password : sanitize_text_field( $_POST['password'] ),
-            'remember'      => isset( $_POST['rememberme'] ) ? null : true
-            );
-        $user = wp_signon( $creds, false );
-
-
-        /**
-         * If signon is successful we print the user name if not we print "0" for
-         * false
-         */
-        $status = is_wp_error( $user ) ? $this->status( $user->get_error_code() ) : $this->status('success_login');
-
+        // Currently wp_signon returns the same error code 'invalid_username' if
+        // a username does not exists or is invalid
+        if ( validate_username( $_POST['user_login'] ) ){
+            if ( username_exists( $_POST['user_login'] ) ){
+                $creds = array(
+                    'user_login'    => empty( $_POST['user_login'] ) ? $user_login : sanitize_text_field( $_POST['user_login'] ),
+                    'user_password' => empty( $_POST['password'] ) ? $password : sanitize_text_field( $_POST['password'] ),
+                    'remember'      => isset( $_POST['rememberme'] ) ? null : true
+                    );
+                $user = wp_signon( $creds, false );
+                $status = is_wp_error( $user ) ? $this->status( $user->get_error_code() ) : $this->status('success_login');
+            } else {
+                $status = $this->status('username_does_not_exists');
+            }
+        } else {
+            $status = $this->status('invalid_username');
+        }
 
         if ( $is_ajax ) {
             wp_send_json( $status );
