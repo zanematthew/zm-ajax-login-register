@@ -1,6 +1,13 @@
 var zMAjaxLoginRegister = {
-    reload: function(){
-        location.href = _ajax_login_settings.redirect;
+
+    reload: function( my_obj ){
+        if ( my_obj.hasClass('login_form') && _ajax_login_settings.redirect.login.url != "undefined" ){
+            location.href = _ajax_login_settings.redirect.login.url;
+        } else if ( my_obj.hasClass('register_form') && _ajax_login_settings.redirect.registration.url != "undefined" ){
+            location.href = _ajax_login_settings.redirect.registration.url;
+        } else {
+            location.href = _ajax_login_settings.redirect;
+        }
     },
 
     // Confirm passwords match
@@ -40,9 +47,9 @@ jQuery( document ).ready(function( $ ){
         if ( msg.code == 'success_login' || msg.code == 'success_registration' ){
             jQuery('.ajax-login-register-msg-target', form_obj).addClass( msg.cssClass );
             jQuery('.ajax-login-register-msg-target', form_obj).fadeIn().html( msg.description );
-            zMAjaxLoginRegister.reload();
+            zMAjaxLoginRegister.reload( form_obj );
         } else if ( msg.description == '' ){
-            zMAjaxLoginRegister.reload();
+            zMAjaxLoginRegister.reload( form_obj );
         } else {
             if ( msg.cssClass == 'noon' ){
                 jQuery('.ajax-login-register-status-container').hide();

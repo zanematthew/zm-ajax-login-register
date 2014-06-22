@@ -68,7 +68,7 @@ function zm_ajax_login_register_localized_js(){
         $key = 'default';
     }
 
-    $localized = array(
+    $defaults = array(
         'ajaxurl' => admin_url("admin-ajax.php"),
         'login_handle' => get_option('ajax_login_register_advanced_usage_login'),
         'register_handle' => get_option('ajax_login_register_advanced_usage_register'),
@@ -79,6 +79,9 @@ function zm_ajax_login_register_localized_js(){
         'wp_logout_url' => wp_logout_url( site_url() ),
         'logout_text' => __('Logout', 'ajax_login_register' )
         );
+
+    $localized = apply_filters( 'zm_ajax_login_register_localized_js_boo', $defaults );
+
     return $localized;
 }
 

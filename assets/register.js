@@ -73,8 +73,6 @@ jQuery( document ).ready(function( $ ){
                 url: _ajax_login_settings.ajaxurl,
                 success: function( msg ) {
                     ajax_login_register_show_message( $(this), msg );
-                    if ( msg.status == 0 )
-                        zMAjaxLoginRegister.reload();
                 }
             });
         }

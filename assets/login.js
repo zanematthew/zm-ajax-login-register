@@ -80,6 +80,7 @@ jQuery( document ).ready(function( $ ){
                      * @note Not all users have user names, but all have email
                      * @note Must set global to false to prevent gloabl ajax methods
                      */
+                     var $this = $(this);
                     $.ajax({
                         data: {
                             action: "facebook_login",
@@ -93,7 +94,7 @@ jQuery( document ).ready(function( $ ){
                         url: _ajax_login_settings.ajaxurl,
                         success: function( msg ){
                             $('.fb-login-container').append( msg.description );
-                            zMAjaxLoginRegister.reload();
+                            ajax_login_register_show_message( $this, msg );
                         }
                     });
                 });
