@@ -98,7 +98,7 @@ here: https://developers.facebook.com/apps/YOUR_APP_ID/summary
 == Changelog ==
 
 = 1.0.7 =
-
+ * Enhancement: UI for enabling and disabling user registration button, [#44](https://github.com/zanematthew/zm-ajax-login-register/issues/44).
  * Enhancement: Login dialog has a link to open the registration dialog and vice versa [issue #16](https://github.com/zanematthew/zm-ajax-login-register/issues/16)
 
 = 1.0.6 =
