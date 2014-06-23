@@ -14,7 +14,6 @@ $style = get_option( 'ajax_login_register_default_style' );
     <div id="icon-options-general" class="icon32"><br></div>
     <h2><?php _e( 'Ajax Login &amp; Register Settings', 'ajax_login_register' );?></h2>
     <form action="options.php" method="post" class="form newsletter-settings-form">
-        <?php settings_fields('ajax_login_register'); ?>
 
         <h3><?php _e( 'General Settings', 'ajax_login_register' ); ?></h3>
         <table class="form-table">
@@ -61,6 +60,9 @@ $style = get_option( 'ajax_login_register_default_style' );
                 </tr>
             <?php endforeach; ?>
         </table>
+        <?php settings_fields('ajax_login_register'); ?>
+        <?php do_action('ajax_login_register_below_settings'); ?>
+
         <?php submit_button(); ?>
     </form>
 </div>

@@ -80,7 +80,7 @@ function zm_ajax_login_register_localized_js(){
         'logout_text' => __('Logout', 'ajax_login_register' )
         );
 
-    $localized = apply_filters( 'zm_ajax_login_register_localized_js_boo', $defaults );
+    $localized = apply_filters( 'zm_ajax_login_register_localized_js', $defaults );
 
     return $localized;
 }
