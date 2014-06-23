@@ -1,9 +1,9 @@
 var zMAjaxLoginRegister = {
 
     reload: function( my_obj ){
-        if ( my_obj.hasClass('login_form') && _ajax_login_settings.redirect.login.url != "undefined" ){
+        if ( my_obj.hasClass('login_form') &&  typeof _ajax_login_settings.redirect.login !== 'undefined' ){
             location.href = _ajax_login_settings.redirect.login.url;
-        } else if ( my_obj.hasClass('register_form') && _ajax_login_settings.redirect.registration.url != "undefined" ){
+        } else if ( my_obj.hasClass('register_form') && typeof _ajax_login_settings.redirect.registration !== 'undefined' ){
             location.href = _ajax_login_settings.redirect.registration.url;
         } else {
             location.href = _ajax_login_settings.redirect;
