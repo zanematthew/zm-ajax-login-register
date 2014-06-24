@@ -49,7 +49,7 @@ add_action( 'wp_enqueue_scripts', 'zm_ajax_login_register_enqueue_scripts');
 
 function zm_ajax_login_register_localized_js(){
     $redirect_url = get_option('ajax_login_register_redirect');
-    $redirect_url = empty( $redirect_url ) ? site_url($_SERVER['REQUEST_URI']) : $redirect_url;
+    $redirect_url = empty( $redirect_url ) ? network_site_url($_SERVER['REQUEST_URI']) : $redirect_url;
     $redirect_url = apply_filters( 'zm_ajax_login_redirect', $redirect_url );
     $width = array(
         'default' => 265,
