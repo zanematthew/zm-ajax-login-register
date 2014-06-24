@@ -46,6 +46,7 @@ jQuery( document ).ready(function( $ ){
      */
     $( document ).on( 'click', '.fb-login', function( event ){
         event.preventDefault();
+        var $form_obj = $(this).parents('form');
 
         /**
          * Doc code from FB, shows fb pop-up box
@@ -80,7 +81,6 @@ jQuery( document ).ready(function( $ ){
                      * @note Not all users have user names, but all have email
                      * @note Must set global to false to prevent gloabl ajax methods
                      */
-                     var $this = $(this);
                     $.ajax({
                         data: {
                             action: "facebook_login",
@@ -93,8 +93,7 @@ jQuery( document ).ready(function( $ ){
                         type: "POST",
                         url: _ajax_login_settings.ajaxurl,
                         success: function( msg ){
-                            $('.fb-login-container').append( msg.description );
-                            ajax_login_register_show_message( $this, msg );
+                            ajax_login_register_show_message( $form_obj, msg );
                         }
                     });
                 });

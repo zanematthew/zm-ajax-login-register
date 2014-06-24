@@ -63,16 +63,20 @@ Class Login Extends AjaxLogin {
         /**
          * Verify the AJAX request
          */
-        if ( $is_ajax ) check_ajax_referer('login_submit','security');
-
+        if ( $is_ajax ) check_ajax_referer('login_submit','security');       
+        
+        $username = empty( $_POST['user_login'] ) ? $user_login : sanitize_text_field( $_POST['user_login'] );
+        $password = empty( $_POST['password'] ) ? $password : sanitize_text_field( $_POST['password'] );
+        $remember = empty( $_POST['password'] ) ? $password : sanitize_text_field( $_POST['password'] );
+        
         // Currently wp_signon returns the same error code 'invalid_username' if
         // a username does not exists or is invalid
-        if ( validate_username( $_POST['user_login'] ) ){
-            if ( username_exists( $_POST['user_login'] ) ){
+        if ( validate_username( $username ) ){
+            if ( username_exists( $username ) ){
                 $creds = array(
-                    'user_login'    => empty( $_POST['user_login'] ) ? $user_login : sanitize_text_field( $_POST['user_login'] ),
-                    'user_password' => empty( $_POST['password'] ) ? $password : sanitize_text_field( $_POST['password'] ),
-                    'remember'      => isset( $_POST['rememberme'] ) ? null : true
+                    'user_login'    => $username,
+                    'user_password' => $password,
+                    'remember'      => $remember
                     );
                 $user = wp_signon( $creds, false );
                 $status = is_wp_error( $user ) ? $this->status( $user->get_error_code() ) : $this->status('success_login');
@@ -115,7 +119,6 @@ Class Login Extends AjaxLogin {
             // Get our user object, if this user does not exists we create it
             $user_obj = get_user_by( 'email', $user['email'] );
 
-
             if ( $user_obj == false ){
                 $register_obj = New Register;
                 $user_obj = $register_obj->create_facebook_user( $user );
@@ -125,6 +128,7 @@ Class Login Extends AjaxLogin {
             // Log our FB user in
             $password = get_usermeta( $user_obj->ID, '_random' );
             $logged_in = $this->login_submit( $user_obj->user_login, $password, false );
+
 
             if ( $logged_in == true ){
                 $msg = $this->status('success_login');
