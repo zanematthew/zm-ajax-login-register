@@ -43,6 +43,27 @@ var zMAjaxLoginRegister = {
 
 jQuery( document ).ready(function( $ ){
 
+    window.zMAjaxLoginDialog = {
+        open: function(){
+            $('#ajax-login-register-login-dialog').dialog('open');
+
+            $.ajax({
+                type: "POST",
+                url: _ajax_login_settings.ajaxurl,
+                data: {
+                    action: 'load_template',
+                    referer: 'login_form',
+                    template: 'login-form',
+                    security: $('#ajax-login-register-login-dialog').attr('data-security')
+                },
+                success: function( msg ){
+                    $( "#ajax-login-register-login-target" ).fadeIn().html( msg ); // Give a smooth fade in effect
+                }
+            });
+        }
+    };
+
+
     window.ajax_login_register_show_message = function( form_obj, msg ) {
         if ( msg.code == 'success_login' || msg.code == 'success_registration' ){
             jQuery('.ajax-login-register-msg-target', form_obj).addClass( msg.cssClass );
@@ -125,14 +146,20 @@ jQuery( document ).ready(function( $ ){
         modal: true
     });
 
+    $( '#ajax-login-register-dialog, #ajax-login-register-login-dialog' ).dialog( "option", "position", {
+        my: "center top",
+        at: "center top+5%",
+        of: 'body'
+    });
+
 
     /**
      * When the user scrolls close the dialog box
      */
-    if ( $('.ajax-login-register-container').length ) {
-        $( window ).on('scroll',function(){
-            $('.ajax-login-register-container').dialog('close');
-        });
-    }
+    // if ( $('.ajax-login-register-container').length ) {
+    //     $( window ).on('scroll',function(){
+    //         $('.ajax-login-register-container').dialog('close');
+    //     });
+    // }
 
 });

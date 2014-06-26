@@ -54,7 +54,8 @@ function zm_ajax_login_register_localized_js(){
     $width = array(
         'default' => 265,
         'wide' => 440,
-        'extra_buttons' => 666
+        'extra_buttons' => 666,
+        'mobile' => 300
         );
 
     $style = get_option('ajax_login_register_default_style');
@@ -62,6 +63,8 @@ function zm_ajax_login_register_localized_js(){
 
     if ( $style == 'wide' && $fb_button ){
         $key = 'extra_buttons';
+    } elseif( wp_is_mobile() ) {
+        $key = 'mobile';
     } elseif ( $style == 'wide' ){
         $key = 'wide';
     } else {

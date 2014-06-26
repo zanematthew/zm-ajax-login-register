@@ -169,17 +169,21 @@ body {
     }
 
 
+/*= Default Form Styling
+-------------------------------------------------------------- */
+.form-wrapper {
+    float: left;
+    width: 100%;
+    margin: 0 0 20px 0;
+    }
 
-/*= Defualt Wide Styling
+
+/*= Default Wide Styling
 -------------------------------------------------------------- */
 .wide .fb-login-container {
     width: 35%;
     float: left;
     margin: 22px 0 0;
-    }
-
-.wide .form-wrapper {
-    float: left;
     }
 
 .wide .form-wrapper input[type="text"],
@@ -190,3 +194,22 @@ body {
 .wide .button-container input[type="submit"]{
     float: right;
     }
+
+.ui-dialog .form-wrapper {
+    margin: 0;
+    }
+
+
+/*= Media Queries
+-------------------------------------------------------------- */
+@media screen and (max-width: 782px) {
+    .hentry .ajax-login-default-form-container input[type="text"],
+    .hentry .ajax-login-default-form-container input[type="password"] {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .hentry .ajax-login-default-form-container input[type="text"],
+    .hentry .ajax-login-default-form-container input[type="password"] {}
+}
