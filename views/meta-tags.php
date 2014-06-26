@@ -1,14 +1,31 @@
-<!-- Start: Ajax Login Register Meta Tags -->
 <?php if ( get_option('ajax_login_register_facebook') ) : ?>
-    <?php $a = New Login; $fb = $a->get_settings(); foreach( $fb['facebook'] as $setting ) : ?>
-        <meta property="<?php echo ( $setting['key'] == 'admins' || $setting['key'] == 'app_id' ) ? 'fb:' : 'og:'; ?><?php print $setting['key']; ?>" content="<?php print get_option( $setting['key'] ); ?>" />
-        <?php $app_id = $setting['key'] == 'app_id' ? get_option( $setting['key'] ) : null; ?>
+    <!-- Start: Ajax Login Register Facebook meta tags -->
+    <?php
+    $a = New Login;
+    $fb = $a->get_settings();
+    foreach( $fb['facebook'] as $setting ) :
+
+        if ( $setting['key'] == 'admins' || $setting['key'] == 'app_id' ) {
+            $key = 'fb';
+        } else {
+            $key = 'og';
+        }
+
+        $value = get_option( $setting['key'] );
+
+        ?>
+        <?php if ( ! empty( $value ) ) : ?>
+            <meta property="<?php echo $key; ?>:<?php echo $value; ?>" content="<?php print $value; ?>" />
+        <?php endif; ?>
     <?php endforeach; ?>
     <meta property="og:title" content="<?php wp_title( '|', true, 'right' ); ?>" />
+    <!-- End: Ajax Login Register Facebook meta tags -->
 <?php endif; ?>
 
-<script type="text/javascript">
-    <?php if ( get_option('ajax_login_register_facebook') ) : ?>
+<?php if ( get_option('ajax_login_register_facebook') ) : ?>
+    <?php $app_id = $setting['key'] == 'app_id' ? get_option( $setting['key'] ) : null; ?>
+    <!-- Start: Ajax Login Register Facebook script -->
+    <script type="text/javascript">
         window.fbAsyncInit = function() {
             FB.init({
                 appId      : <?php print $app_id; ?>, // App ID
@@ -25,8 +42,15 @@
             js.src = "//connect.facebook.net/en_US/all.js";
             ref.parentNode.insertBefore(js, ref);
         }(document));
-    <?php endif; ?>
-</script>
+    </script>
+    <!-- End: Ajax Login Register Facebook script -->
+<?php endif; ?>
 
-<style type="text/css"><?php echo wp_kses_stripslashes( get_option('ajax_login_register_additional_styling') ); ?></style>
-<!-- End: Ajax Login Register Meta Tags -->
+<?php $styling = get_option('ajax_login_register_additional_styling');
+if ( $styling ) : ?>
+<!-- Start: Ajax Login Register Additional Styling -->
+<style type="text/css">
+    <?php echo wp_kses_stripslashes( $styling ); ?>
+</style>
+<!-- End: Ajax Login Register Additional Styling -->
+<?php endif; ?>
