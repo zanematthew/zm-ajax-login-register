@@ -152,14 +152,4 @@ jQuery( document ).ready(function( $ ){
         of: 'body'
     });
 
-
-    /**
-     * When the user scrolls close the dialog box
-     */
-    // if ( $('.ajax-login-register-container').length ) {
-    //     $( window ).on('scroll',function(){
-    //         $('.ajax-login-register-container').dialog('close');
-    //     });
-    // }
-
 });
