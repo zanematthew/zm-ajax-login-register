@@ -122,17 +122,19 @@ Class Register Extends AjaxLogin {
     // Create Facebook User
     //
     public function create_facebook_user( $user=array() ){
-        // Generate password: wp_generate_password
-        $random_password = wp_generate_password();
 
-        // Create user with random password
-        $user_id = wp_create_user( $user['username'], $random_password, $user['email'] );
+        $user['user_pass'] = wp_generate_password();
+        $user['user_registered'] = date('Y-m-d H:i:s');
+        $user['role'] = "subscriber";
 
-        if ( ! is_wp_error( $user_id ) ){
+        $user_id = wp_insert_user( $user );
 
+        if ( is_wp_error( $user_id ) ){
+            return $user_id;
+        } else {
             // Store random password as user meta
-            $meta_id = add_user_meta( $user_id, '_random', $random_password );
-
+            $meta_id = add_user_meta( $user_id, '_random', $user['user_pass'] );
+            
             // Setup this user if this is Multisite/Networking
             if ( is_multisite() ){
                 $this->multisite_setup( $user_id );
