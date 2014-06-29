@@ -29,19 +29,21 @@
         window.fbAsyncInit = function() {
             FB.init({
                 appId      : <?php print $app_id; ?>, // App ID
-                channelUrl : '//'+location.origin+'/channel.html', // Channel File
-                status     : true, // check login status
-                cookie     : true, // enable cookies to allow the server to access the session
-                xfbml      : true  // parse XFBML
+                cookie     : true,  // enable cookies to allow the server to access the session
+                xfbml      : true,  // parse XFBML
+                version    : 'v2.0' // use version 2.0
             });
         };
-        (function(d){
-            var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-            if (d.getElementById(id)) {return;}
-            js = d.createElement('script'); js.id = id; js.async = true;
-            js.src = "//connect.facebook.net/en_US/all.js";
-            ref.parentNode.insertBefore(js, ref);
-        }(document));
+        
+        // Load the SDK asynchronously
+        // This is updated as the old version went to all.js
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
     </script>
     <!-- End: Ajax Login Register Facebook script -->
 <?php endif; ?>
