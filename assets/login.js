@@ -82,7 +82,6 @@ jQuery( document ).ready(function( $ ){
                     $.ajax({
                         data: {
                             action: "facebook_login",
-                            fb_id: fb_response.id,
                             fb_response: fb_response,
                             security: $('#facebook_security').val()
                         },
