@@ -103,11 +103,15 @@ Class Login Extends AjaxLogin {
     public function facebook_login(){
 
         check_ajax_referer( 'facebook-nonce', 'security' );
-
+        
+        // Map our FB response fields to the correct user fields as found in wp_update_user
         $user = array(
-            'username' => $_POST['username'],
-            'email' => $_POST['email'],
-            'fb_id' => $_POST['fb_id']
+            'username'   => $_POST['fb_response']['id'],
+            'user_login' => $_POST['fb_response']['id'],
+            'first_name' => $_POST['fb_response']['first_name'],
+            'last_name'  => $_POST['fb_response']['last_name'],
+            'user_email' => $_POST['fb_response']['email'],
+            'user_url'   => $_POST['fb_response']['link'],
             );
 
         if ( empty( $user['username'] ) ){
@@ -115,27 +119,26 @@ Class Login Extends AjaxLogin {
             $msg = $this->status('invalid_username');
 
         } else {
-
-            // Get our user object, if this user does not exists we create it
-            $user_obj = get_user_by( 'email', $user['email'] );
+            
+            // If older version use this
+            // $user_obj = get_user_by( 'email', $user['email'] );
+            
+            $user_obj = get_user_by( 'login', $user['user_login'] );
 
             if ( $user_obj == false ){
                 $register_obj = New Register;
                 $user_obj = $register_obj->create_facebook_user( $user );
-            }
-            //
-
+            }            
+	
             // Log our FB user in
             $password = get_usermeta( $user_obj->ID, '_random' );
             $logged_in = $this->login_submit( $user_obj->user_login, $password, false );
-
 
             if ( $logged_in == true ){
                 $msg = $this->status('success_login');
             } else {
                 die("\nSomething to do here");
             }
-
         }
 
         wp_send_json( $msg );
