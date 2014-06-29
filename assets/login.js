@@ -53,12 +53,17 @@ jQuery( document ).ready(function( $ ){
          *
          * @url https://developers.facebook.com/docs/reference/javascript/FB.login/
          */
+         // Better to check via?
+         // FB.api('/me/permissions', function( response ){});
+
+         // Since WordPress requires the email we cannot continue if they
+         // do not provide their email address 
         FB.login( function( response ) {
             /**
              * If we get a successful authorization response we handle it
              * note the "scope" parameter.
              */
-            if ( response.authResponse ) {
+            if ( response.authResponse.grantedScopes == "public_profile,email,contact_email" ){
 
                 /**
                  * "me" refers to the current FB user, console.log( response )
@@ -66,13 +71,6 @@ jQuery( document ).ready(function( $ ){
                  */
                 FB.api('/me', function(response) {
                     var fb_response = response;
-
-                    /**
-                     * Yes, bad, very bad!
-                     */
-                    email = response.email;
-                    var user_login = email.split("@");
-                    user_login = user_login[0];
 
                     /**
                      * Make an Ajax request to the "facebook_login" function
@@ -84,9 +82,8 @@ jQuery( document ).ready(function( $ ){
                     $.ajax({
                         data: {
                             action: "facebook_login",
-                            username: user_login,
                             fb_id: fb_response.id,
-                            email: fb_response.email,
+                            fb_response: fb_response,
                             security: $('#facebook_security').val()
                         },
                         global: false,
@@ -105,7 +102,8 @@ jQuery( document ).ready(function( $ ){
              * See the following for full list:
              * @url https://developers.facebook.com/docs/authentication/permissions/
              */
-            scope: 'email'
+            scope: 'email',
+            return_scopes: true
         });
     });
 
