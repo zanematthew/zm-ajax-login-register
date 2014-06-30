@@ -5,7 +5,7 @@
     $fb = $a->get_settings();
     foreach( $fb['facebook'] as $setting ) :
 
-        if ( $setting['key'] == 'admins' || $setting['key'] == 'app_id' ) {
+        if ( $setting['key'] == 'app_id' ) {
             $key = 'fb';
         } else {
             $key = 'og';
@@ -34,7 +34,7 @@
                 version    : 'v2.0' // use version 2.0
             });
         };
-        
+
         // Load the SDK asynchronously
         // This is updated as the old version went to all.js
         (function(d, s, id) {

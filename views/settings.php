@@ -30,11 +30,15 @@ $style = get_option( 'ajax_login_register_default_style' );
 
         <h3><?php _e( 'Facebook Settings', 'ajax_login_register' ); ?></h3>
         <table class="form-table" id="facebook-settings">
+        <?php _e('<p>In order to use Facebook login you will need to Create a Facebook App, by visiting <a href="https://developers.facebook.com/">Facebook Developers</a>. Once you have created your Facebook App you are now ready to enter your "site URL" as seen in Facebook Developer App Settings and your App ID.</p>', 'ajax_login_register' ); ?>
+        <?php _e('<p>For detailed instructions visit the <a href="http://support.zanematthew.com/how-to/zm-ajax-login-register/adding-facebook-settings/" target="_blank">How To add Facebook Settings to AJAX Login &amp; Register</a>, feel free to contact us via our <a href="http://support.zanematthew.com/forum/zm-ajax-login-register/">Support Forum</a> if you need additional help.</p>', 'ajax_login_register' ); ?>
+
             <?php foreach( $settings['facebook'] as $setting ) : ?>
                 <tr valign="top">
                     <th scope="row"><?php print $setting['label']; ?></th>
                     <td>
                         <?php echo $a->build_input( $setting['type'], $setting['key'] ); ?>
+                        <p class="description"><?php echo $setting['description']; ?></p>
                     </td>
                 </tr>
             <?php endforeach; ?>
