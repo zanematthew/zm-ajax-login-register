@@ -98,10 +98,17 @@ here: https://developers.facebook.com/apps/YOUR_APP_ID/summary
 == Changelog ==
 
 = 1.0.7 =
- * Enhancement: Facebook OG tags should no longer be duplicate, they can be left blank if another plugin is already loading them [#42](https://github.com/zanematthew/zm-ajax-login-register/issues/42)
- * Enhancement: UI for enabling and disabling user registration button, [#44](https://github.com/zanematthew/zm-ajax-login-register/issues/44).
- * Enhancement: Login dialog has a link to open the registration dialog and vice versa [issue #16](https://github.com/zanematthew/zm-ajax-login-register/issues/16)
- * Bug: Improved mobile support for dialogs, [#46](https://github.com/zanematthew/zm-ajax-login-register/issues/46)
+
+ * Enhancement: Added "usage" section to the settings page, [#21](https://github.com/zanematthew/zm-ajax-login-register/issues/21)
+ * Enhancement: Added Facebook Login instructions, [#51](https://github.com/zanematthew/zm-ajax-login-register/issues/51)
+ * Enhancement: Improved Facebook Login set-up by updating to v2.0 SDK, [#50](https://github.com/zanematthew/zm-ajax-login-register/issues/50)
+ * Enhancement: Facebook Login with phone number is now supported, [#52](https://github.com/zanematthew/zm-ajax-login-register/issues/52)
+ * Enhancement: Facebook Login now saves; first name, last name, and Facebook URL with the user profile, [#50](https://github.com/zanematthew/zm-ajax-login-register/issues/50)
+ * Enhancement: Facebook OG tags should no longer be duplicate, they can be left blank if another plugin is already implementing them [#42](https://github.com/zanematthew/zm-ajax-login-register/issues/42)
+ * Enhancement: New users can now link to the Registration form from the Login form and existing users can link from the Registration form to the Login form, [#16](https://github.com/zanematthew/zm-ajax-login-register/issues/16)
+ * Enhancement: Improved user registration interaction, [#44](https://github.com/zanematthew/zm-ajax-login-register/issues/44).
+ * Enhancement: Improved support for Login and Register dialogs on mobile devices, [46](https://github.com/zanematthew/zm-ajax-login-register/issues/46)
+ * Bug: Fixing bug were some users reported user name existed with Facebook Login, [#48](https://github.com/zanematthew/zm-ajax-login-register/issues/48)
 
 = 1.0.6 =
 
