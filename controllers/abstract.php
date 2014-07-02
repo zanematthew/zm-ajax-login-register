@@ -83,7 +83,7 @@ abstract Class AjaxLogin {
                     'key' => 'url',
                     'label' => __('URL','ajax_login_register'),
                     'type' => 'text',
-                    'description' => __('This is the URL you have set in your Facebook Developer App Settins','ajax_login_register')
+                    'description' => __('This is the URL you have set in your Facebook Developer App Settings','ajax_login_register')
                     ),
                 array(
                     'key' => 'app_id',
