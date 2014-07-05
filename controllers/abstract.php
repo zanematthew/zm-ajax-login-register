@@ -97,11 +97,11 @@ abstract Class AjaxLogin {
                 array(
                     'key' => 'ajax_login_register_facebook',
                     'label' => __('Enable Facebook Login','ajax_login_register'),
-                    'description' => __('By disabling this your Facebook settings will still be saved.','ajax_login_register')
+                    'description' => __('By disabling this, your Facebook settings will still be saved.','ajax_login_register')
                 ),
                 array(
                     'key' => 'ajax_login_register_keep_me_logged_in',
-                    'label' => __('Disable keep me logged in', 'ajax_login_register'),
+                    'label' => __('Disable "keep me logged in"', 'ajax_login_register'),
                     'description' => __('Use this option to disable the check box shown to keep users logged in.','ajax_login_register')
                     )
             );
@@ -221,7 +221,7 @@ abstract Class AjaxLogin {
                 'code' => 'success'
                 ),
             'username_exists' => array(
-                'description' => 'Invalid username',
+                'description' => __('Invalid username', 'ajax_login_register'),
                 'cssClass' => 'error-container',
                 'code' => 'error'
                 ),

@@ -13,7 +13,7 @@ $style = get_option( 'ajax_login_register_default_style' );
 <div class="wrap">
     <div id="icon-options-general" class="icon32"><br></div>
     <h2><?php _e( 'AJAX Login &amp; Register Settings', 'ajax_login_register' );?></h2>
-    <h3>Usage</h3>
+    <h3><?php _e('Usage', 'ajax_login_register'); ?></h3>
     <?php _e('<p>To create a login page using shortcode; add the following shortcode <code>ajax_login</code> for the login page or <code>ajax_register</code> for the registration page to any Page or Post.</p><p>To create a login or registration dialog box do the following; create a menu item, assign a custom class name, then add that custom class name to the field: <em>Login Handle</em> for login or <em>Register Handle</em> for the registration page found in the settings below.</p><p><em>Note your theme must support custom menus</em></p><p><em>Note your site will need to be open to registration</em></p>', 'ajax_login_register'); ?>
     <form action="options.php" method="post" class="form newsletter-settings-form">
 

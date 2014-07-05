@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: zM Ajax Login & Register\n"
-"POT-Creation-Date: 2014-07-02 09:28-0500\n"
+"POT-Creation-Date: 2014-07-05 12:01-0500\n"
 "PO-Revision-Date: \n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -18,7 +18,7 @@ msgstr ""
 # "handle" refiere a lugar donde el usario puede tomar la acción de acceder la página seleccionada
 #: controllers/abstract.php:51
 msgid "Login Handle"
-msgstr "Lugar reservado para acceder"
+msgstr "Lugar reservado para acceder o iniciar sesión "
 
 # tecla o escribir a máquina
 #: controllers/abstract.php:53 controllers/abstract.php:59
@@ -48,13 +48,12 @@ msgstr "Estilos adicionales"
 # o hecho a la medida
 #: controllers/abstract.php:65
 msgid "Type your custom CSS styles that are applied to the dialog boxes."
-msgstr "Tecla tus estilos de CSS a la medida para los cuadro de diálogo"
+msgstr "Tecla tus estilos de CSS a la medida para los cuadros de diálogo"
 
 #: controllers/abstract.php:69
 msgid "Redirect After Login URL"
 msgstr "Redirige después de tu url para acceder"
 
-# Zane to remove Slug from this---
 #: controllers/abstract.php:71
 msgid ""
 "Enter the URL or slug you want users redirected to after login, example: "
@@ -76,6 +75,8 @@ msgstr "URL"
 #: controllers/abstract.php:86
 msgid "This is the URL you have set in your Facebook Developer App Settings"
 msgstr ""
+"Este es el url que has designado en tus ajustes de desarollador en Facebook "
+"(Facebook Developer App Settings)"
 
 #: controllers/abstract.php:90
 msgid "App ID"
@@ -84,6 +85,9 @@ msgstr "DNI de aplicación"
 #: controllers/abstract.php:92
 msgid "This is the App ID as seen in your Facebook Developer App Dashboard"
 msgstr ""
+"Este es tu DNI de Aplicación que se encuentra en tu panel de indicadores "
+"para desarolladores de aplicaciones de Facebook (Facebook Developer App "
+"Dashboard)"
 
 #: controllers/abstract.php:99
 msgid "Enable Facebook Login"
@@ -91,12 +95,13 @@ msgstr "Activa acceso a Facebook"
 
 # by disabling this, your facebook setttings will still be saved.
 #: controllers/abstract.php:100
-msgid "By disabling this your Facebook settings will still be saved."
+msgid "By disabling this, your Facebook settings will still be saved."
 msgstr "Si desactivas esto,  los ajustes de Facebook todavia se guardarán. "
 
+# Should read—disable, keep me logged in.
 #: controllers/abstract.php:104
-msgid "Disable keep me logged in"
-msgstr "Inutiliza y mantenme con acceso"
+msgid "Disable \"keep me logged in\""
+msgstr "Inutiliza y con acceso"
 
 #: controllers/abstract.php:105
 msgid "Use this option to disable the check box shown to keep users logged in."
@@ -104,29 +109,26 @@ msgstr ""
 "Usa esta opción para inutilizar la casilla de verificación que mantiene a "
 "los usuarios con acceso."
 
-#: controllers/abstract.php:229 controllers/abstract.php:234
+#: controllers/abstract.php:224 controllers/abstract.php:229
+#: controllers/abstract.php:234
 msgid "Invalid username"
-msgstr ""
+msgstr " Usario inválido"
 
 #: controllers/abstract.php:245
 msgid "Passwords do not match."
 msgstr "Contraseñas no corresponden."
 
 #: controllers/abstract.php:256 controllers/abstract.php:261
-#, fuzzy
 msgid "Invalid Email"
-msgstr "Correo electrónico"
+msgstr "Correo electrónico inválido"
 
 #: controllers/abstract.php:267 controllers/abstract.php:272
 msgid "Success! One moment while we log you in..."
-msgstr ""
+msgstr "¡Éxito!"
 
-# fix this sentence in english.
-# Ajax login and registration? (exclude the ;)
 #: controllers/admin.php:57 controllers/admin.php:58
-#, fuzzy
 msgid "AJAX Login &amp; Register"
-msgstr "Accede Ajax &amp registro"
+msgstr "AJAX Login &amp; Register"
 
 #: plugin.php:83 views/login-form.php:11 views/register-form.php:13
 msgid "Logout"
@@ -152,17 +154,23 @@ msgstr "Nombre de usario"
 msgid "Password"
 msgstr "Contraseña"
 
+# Instead should read: “are you a member?”
 #: views/login-form.php:29
-msgid "Not a member?"
-msgstr ""
+msgid "Are you a member?"
+msgstr "¿Eres miembro?"
 
 #: views/login-form.php:34
 msgid "Keep me logged in"
 msgstr "Mantenme con acceso"
 
+# Lost password? Did you forget your password?
 #: views/login-form.php:36
-msgid "Lost Password"
-msgstr "contraseña perdida"
+msgid "Forgot Password"
+msgstr "¿Olvidaste tu contraseña?"
+
+#: views/register-dialog.php:7 views/register-form.php:41
+msgid "Register"
+msgstr "Regístrate"
 
 #: views/register-form.php:13
 msgid "You are already registered"
@@ -177,13 +185,8 @@ msgid "Confirm Password"
 msgstr "Confirma la contraseña"
 
 #: views/register-form.php:39
-#, fuzzy
 msgid "Already registered?"
-msgstr "Ya estas registrado"
-
-#: views/register-form.php:41
-msgid "Register"
-msgstr "Regístrate"
+msgstr "¿Te has registrado anteriormente? "
 
 # Inscripción o registración
 #: views/register-form.php:48
@@ -191,59 +194,97 @@ msgid "Registration is currently closed."
 msgstr "Registración esta actualmente cerrada"
 
 #: views/settings.php:15
-#, fuzzy
 msgid "AJAX Login &amp; Register Settings"
-msgstr "Accede Ajax &amp ajustes de registración"
+msgstr "Ajustes de AJAX Login &amp; Register"
+
+#: views/settings.php:16
+msgid "Usage"
+msgstr "Uso"
 
 #: views/settings.php:17
 msgid ""
 "<p>To create a login page using shortcode; add the following shortcode "
 "<code>ajax_login</code> for the login page or <code>ajax_register</code> for "
-"the registration page to any Page or Post.</p>"
+"the registration page to any Page or Post.</p><p>To create a login or "
+"registration dialog box do the following; create a menu item, assign a "
+"custom class name, then add that custom class name to the field: <em>Login "
+"Handle</em> for login or <em>Register Handle</em> for the registration page "
+"found in the settings below.</p><p><em>Note your theme must support custom "
+"menus</em></p><p><em>Note your site will need to be open to registration</"
+"em></p>"
 msgstr ""
-
-#: views/settings.php:18
-msgid ""
-"<p>To create a login or registration dialog box do the following; create a "
-"menu item, assign a custom class name, then add that custom class name to "
-"the field: <em>Login Handle</em> for login or <em>Register Handle</em> for "
-"the registration page found in the settings below.</p>"
-msgstr ""
-
-#: views/settings.php:19
-msgid "<p><em>Note your theme must support custom menus</em></p>"
-msgstr ""
+"<p>Usa este código corto para añadir una página que inicia una "
+"sesión<code>ajax_login</code> (iniciar sesión) o usa <code>ajax_register</"
+"code> para activar la página de registración. Puedes usar estas en cualquier "
+"página o entrada.</p><p> Para crear una caja de dialogo que inicia la sesión "
+"o registración haz lo siguiente; crea un artículo de menú, asigna nombre de "
+"la clase a medida para el área para iniciar la sesión o para la página de "
+"registración encontrada en los ajustes avanzados.</p><p><em> Importante: tu "
+"tema tiene que permitir menús a la medida</em></p><p><em>Importante: tu "
+"sitio web debe de permitir registración</em></p>"
 
 #: views/settings.php:20
-msgid "<p><em>Note your site will need to be open to registration</em></p>"
-msgstr ""
-
-#: views/settings.php:24
 msgid "General Settings"
 msgstr "Ajustes generales"
 
 # o configuraciones de Facebook.
-#: views/settings.php:37
+#: views/settings.php:33
 msgid "Facebook Settings"
 msgstr "Ajustes del Facebook"
 
-#: views/settings.php:39
+#: views/settings.php:35
 msgid ""
-"<p>In order to use Facebook login you will need to Create a Facebook App, by "
-"visiting <a href=\"https://developers.facebook.com/\">Facebook Developers</"
-"a>. Once you have created your Facebook App you are now ready to enter your "
-"\"site URL\" as seen in Facebook Developer App Settings and your App ID.</p>"
+"<p>Once you have created your Facebook App, go to your Facebook Developer "
+"App Settings and add your site URL(s) to the App Domains field. Then, copy "
+"your App ID and paste into your App ID field in the zM AJAX Login & Register "
+"Facebook settings.</p><p>In order to use Facebook login you will need to "
+"Create a Facebook App, by visiting <a href=\"https://developers.facebook.com/"
+"\">Facebook Developers</a>. Once you have created your Facebook App you are "
+"now ready to enter your \"site URL\" as seen in Facebook Developer App "
+"Settings and your App ID.</p><p>For detailed instructions visit the <a href="
+"\"http://support.zanematthew.com/how-to/zm-ajax-login-register/adding-"
+"facebook-settings/\" target=\"_blank\">How To add Facebook Settings to AJAX "
+"Login &amp; Register</a>, feel free to contact us via our <a href=\"http://"
+"support.zanematthew.com/forum/zm-ajax-login-register/\">Support Forum</a> if "
+"you need additional help.</p>"
 msgstr ""
+"<p>Después que hayas creado tu aplicación de Facebook, ve a tus ajustes de "
+"programador (Facebook Developer App Settings) y añade el url de tu "
+"dominio(s) en la sección llamada \"App Domains\". Luego, copia tu DNI de "
+"aplicación y pega en la sección llamada \"App ID\" ubicado en zM AJAX Login "
+"& Register Ajustes de Facebook.</p><p>Para activar el login de Facebook, "
+"primero tienes que crear una aplicación de Facebook. Puedes crear la "
+"aplicación visitando <a href=\"https://developers.facebook.com/\">Facebook "
+"Developers.</a></p><p>Para instrucciones detalladas visita <a href=\"http://"
+"support.zanematthew.com/how-to/zm-ajax-login-register/adding-facebook-"
+"settings/\" target=\"_blank\">How To add Facebook Settings to AJAX Login "
+"&amp; Register.</a></p><p>Si tienes preguntas o necesitas ayuda, contáctenos "
+"por medio de nuestro <a href=\"http://support.zanematthew.com/forum/zm-ajax-"
+"login-register/\">Foro De Apoyo.</a></p>"
 
-#: views/settings.php:40
-msgid ""
-"<p>For detailed instructions visit the <a href=\"http://support.zanematthew."
-"com/how-to/zm-ajax-login-register/adding-facebook-settings/\" target=\"_blank"
-"\">How To add Facebook Settings to AJAX Login &amp; Register</a>, feel free "
-"to contact us via our <a href=\"http://support.zanematthew.com/forum/zm-ajax-"
-"login-register/\">Support Forum</a> if you need additional help.</p>"
-msgstr ""
-
-#: views/settings.php:53
+#: views/settings.php:47
 msgid "Advanced Usage"
 msgstr "Uso avanzado"
+
+#, fuzzy
+#~ msgid "Additional Options"
+#~ msgstr "Estilos adicionales"
+
+#, fuzzy
+#~ msgid "Logo"
+#~ msgstr "Cerrar sesión"
+
+# o configuraciones de Facebook.
+#, fuzzy
+#~ msgid "Basic Settings"
+#~ msgstr "Ajustes del Facebook"
+
+# fix this sentence in english.
+# Ajax login and registration? (exclude the ;)
+#, fuzzy
+#~ msgid "Ajax Login &amp; Register"
+#~ msgstr "Accede Ajax &amp registro"
+
+#, fuzzy
+#~ msgid "Ajax Login &amp; Register Settings"
+#~ msgstr "Accede Ajax &amp ajustes de registración"
