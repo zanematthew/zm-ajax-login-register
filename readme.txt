@@ -97,6 +97,10 @@ here: https://developers.facebook.com/apps/YOUR_APP_ID/summary
 
 == Changelog ==
 
+= 1.0.8 =
+
+ * Translation: Adding Albanian translation via [shpberisha](http://www.twitter.com/shpberisha)
+
 = 1.0.7 =
 
  * Enhancement: Added "usage" section to the settings page, [#21](https://github.com/zanematthew/zm-ajax-login-register/issues/21)
