@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: zM Ajax Login & Register\n"
-"POT-Creation-Date: 2014-07-22 20:59+0400\n"
-"PO-Revision-Date: 2014-07-23 00:46+0400\n"
+"POT-Creation-Date: 2014-07-26 13:19+0400\n"
+"PO-Revision-Date: 2014-07-26 13:25+0400\n"
 "Last-Translator: Artem Belov <artbelov@live.ru>\n"
 "Language-Team: Artem Belov <artbelov@live.ru>\n"
 "Language: ru_RU\n"
@@ -18,15 +18,14 @@ msgstr ""
 
 #: controllers/abstract.php:51
 msgid "Login Handle"
-msgstr "CSS селектор авторизации"
+msgstr "Селектор авторизации"
 
 #: controllers/abstract.php:53 controllers/abstract.php:59
 msgid ""
 "Type the class name or ID of the element you want to launch the dialog box "
 "when clicked, example"
 msgstr ""
-"Введите имя CSS класса или ID, который будет присвоен диалоговому окну, "
-"например"
+"Введите класс или ID, который будет присвоен диалоговому окну, например"
 
 #: controllers/abstract.php:53
 msgid ".login-link"
@@ -34,7 +33,7 @@ msgstr ".login-link"
 
 #: controllers/abstract.php:57
 msgid "Register Handle"
-msgstr "CSS селектор регистрации"
+msgstr "Селектор регистрации"
 
 #: controllers/abstract.php:59
 msgid ".register-link"
@@ -42,24 +41,22 @@ msgstr ".register-link"
 
 #: controllers/abstract.php:63
 msgid "Additional Styling"
-msgstr "Дополнительные стили"
+msgstr "Произвольные CSS стили"
 
 #: controllers/abstract.php:65
 msgid "Type your custom CSS styles that are applied to the dialog boxes."
-msgstr ""
-"Введите ваши пользовательские CSS стили, которые применятся к диалоговых "
-"окнам"
+msgstr "Введите произвольные CSS стили, которые применятся к диалоговым окнам"
 
 #: controllers/abstract.php:69
 msgid "Redirect After Login URL"
-msgstr "URL перенаправления после авторизации"
+msgstr "Редирект после авторизации"
 
 #: controllers/abstract.php:71
 msgid ""
 "Enter the URL or slug you want users redirected to after login, example: "
 msgstr ""
-"Введите URL адрес или путь, на который пользователи будут перенаправляться "
-"после авторизации, например:"
+"Введите URL или путь, на который пользователи будут перенаправлены после "
+"авторизации, например:"
 
 #: controllers/abstract.php:71
 msgid "http://site.com/, /dashboard/, /wp-admin/"
@@ -71,30 +68,27 @@ msgstr "Макет формы"
 
 #: controllers/abstract.php:84
 msgid "URL"
-msgstr "URL Адрес"
+msgstr "URL"
 
 #: controllers/abstract.php:86
 msgid "This is the URL you have set in your Facebook Developer App Settings"
-msgstr ""
-"Это URL адрес, который Вы установили в панели управления приложения в "
-"Facebook"
+msgstr "URL, который Вы установили в панели управления приложения в Facebook"
 
 #: controllers/abstract.php:90
 msgid "App ID"
-msgstr "ID Приложения"
+msgstr "ID приложения"
 
 #: controllers/abstract.php:92
 msgid "This is the App ID as seen in your Facebook Developer App Dashboard"
-msgstr ""
-"Это ID приложения, указанный в вашей панели управления приложением в Facebook"
+msgstr "ID приложения, указанный в Вашей панели управления в Facebook"
 
 #: controllers/abstract.php:99
 msgid "Enable Facebook Login"
-msgstr "Включить авторизацию через Facebook"
+msgstr "Авторизация через Facebook"
 
 #: controllers/abstract.php:100
 msgid "By disabling this, your Facebook settings will still be saved."
-msgstr "При отключении этой опции настройки Facebook не будут изменены"
+msgstr "При отключении опции настройки Facebook не будут изменены"
 
 #: controllers/abstract.php:104
 msgid "Disable \"keep me logged in\""
@@ -102,7 +96,7 @@ msgstr "Отключить \"Запомнить меня\""
 
 #: controllers/abstract.php:105
 msgid "Use this option to disable the check box shown to keep users logged in."
-msgstr "Используйте эту опцию, чтобы отключить пункт \"Запомнить меня\""
+msgstr "Используйте опцию, чтобы отключить пункт \"Запомнить меня\""
 
 #: controllers/abstract.php:224 controllers/abstract.php:229
 #: controllers/abstract.php:234
@@ -151,7 +145,7 @@ msgstr "Пароль"
 
 #: views/login-form.php:29
 msgid "Are you a member?"
-msgstr "Уже авторизаваны?"
+msgstr "Уже зарегистрированы?"
 
 #: views/login-form.php:34
 msgid "Keep me logged in"
@@ -191,7 +185,7 @@ msgstr "Настройки AJAX авторизации и регистрации
 
 #: views/settings.php:16
 msgid "Usage"
-msgstr "Обычное использование"
+msgstr "Использование"
 
 #: views/settings.php:17
 msgid ""
@@ -207,22 +201,22 @@ msgid ""
 msgstr ""
 "<p>Используйте шорткод <code>ajax_login</code> для отображения формы входа "
 "или <code>ajax_register</code> для отображения формы регистрации на любой "
-"странице или в электронном письме.</p> <p>Чтобы создать форму авторизации "
-"или регистрации в диалоговом окне необходимо выполнить следующие действия: "
-"создать пункт меню, с возможностю назначить ему имя CSS класса, а затем "
-"добавить в соответствующее поле <em>CSS класс формы авторизации</em> для "
-"входа в систему или <em>CSS класс формы регистрации</em> для страницы "
-"регистрации найденного в настройках, которые указаны ниже.</"
-"p><p><em>Примечание: Ваша тема должна поддерживать пользовательские меню, а "
-"сайт должен быть открыты для регистрации.</em></p>"
+"странице или электронном письме.</p><p>Чтобы создать форму авторизации или "
+"регистрации в диалоговом окне необходимо выполнить следующие действия: "
+"создать пункт меню, с возможностью назначить ему имя CSS класса, а затем "
+"добавить в соответствующее поле <em>Селектор авторизации</em> для входа в "
+"систему или <em>Селектор регистрации</em> для страницы регистрации в "
+"настройках, которые указаны ниже.</p><p><em>Примечание: Ваша тема должна "
+"поддерживать пользовательские меню, а сайт должен быть открыт для "
+"регистрации.</em></p>"
 
 #: views/settings.php:20
 msgid "General Settings"
-msgstr "Основные настройки"
+msgstr "Настройки"
 
 #: views/settings.php:33
 msgid "Facebook Settings"
-msgstr "Настройки авторизации через Facebook"
+msgstr "Настройки Facebook"
 
 #: views/settings.php:35
 msgid ""
@@ -240,19 +234,19 @@ msgid ""
 "support.zanematthew.com/forum/zm-ajax-login-register/\">Support Forum</a> if "
 "you need additional help.</p>"
 msgstr ""
-"<p>Как только вы создали свой ​​Facebook приложение, перейдите в настройки и "
-"добавьте свой URL адрес сайта в поле \"App Domains\". Затем, скопируйте свой ​​"
-"идентификатор в поле App ID в гм AJAX Войти и Регистрация Facebook настроек."
-"</p> <p>Для того, чтобы использовать Facebook, войдите вам нужно будет "
+"<p>Как только Вы создали своё Faceebook приложение, перейдите в его "
+"настройки и добавьте URL сайта в поле \"App Domains\". Затем, скопируйте ​​"
+"идентификатор в поле App ID в настройки AJAX авторизации и регистрации.</"
+"p><p>Для того, чтобы использовать авторизацию через Facebook, Вам необходимо "
 "создать Facebook приложение, посетив <a href=\"https://developers.facebook."
-"com/\">Facebook Developers</a>. После того, как Вы создали своё Facebook "
-"приложение, Вы можете ввести \"URL сайта\", который указан в настройках "
-"Facebook приложения, а также App ID.</p> <p>Для получения подробных "
-"инструкций посетите <a href=\"http://support.zanematthew.com/how-to/zm-ajax-"
-"login-register/adding-facebook-settings/\" target=\"_blank\">как добавить "
-"настройки Facebook в AJAX авторизация и регистрация</a>, не стесняйтесь "
-"связаться с нами через <a href=\"http://support.zanematthew.com/forum/zm-"
-"ajax-login-register/\">форум поддержки</a>, если Вы нуждаетесь в помощи.</p>"
+"com/\">Facebook Developers</a>. Затем, Вы можете ввести \"Site URL\", в "
+"настройках Facebook приложения, а также узнать App ID.</p><p>Для получения "
+"более подробной инструкции, посетите страницу «<a href=\"http://support."
+"zanematthew.com/how-to/zm-ajax-login-register/adding-facebook-settings/\" "
+"target=\"_blank\">как добавить настройки Facebook приложения</a>». Не "
+"стесняйтесь связаться с нами через <a href=\"http://support.zanematthew.com/"
+"forum/zm-ajax-login-register/\">форум поддержки</a>, если Вы нуждаетесь в "
+"помощи.</p>"
 
 #: views/settings.php:47
 msgid "Advanced Usage"
