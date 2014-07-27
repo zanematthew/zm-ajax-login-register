@@ -8,7 +8,6 @@ Class Admin Extends AjaxLogin {
     public function __construct(){
         add_action( 'admin_init', array( &$this, 'admin_init' ) );
         add_action( 'admin_menu', array( &$this, 'admin_menu' ) );
-        add_action( 'admin_enqueue_scripts', array( &$this, 'enqueue_scripts') );
     }
 
     /**
@@ -80,17 +79,6 @@ Class Admin Extends AjaxLogin {
      */
     public function load_template(){
         load_template( plugin_dir_path( dirname( __FILE__ ) ) . 'views/settings.php');
-    }
-
-
-    /**
-     * Load admin CSS/JS only on our settings page
-     */
-    public function enqueue_scripts(){
-        $screen = get_current_screen();
-        if ( $screen->id == 'settings_page_ajax-login-register-settings' ){
-            wp_enqueue_style( 'ajax-login-register-admin-css', plugin_dir_url( dirname( __FILE__ ) ) . 'assets/admin.css' );
-        }
     }
 }
 new Admin;
