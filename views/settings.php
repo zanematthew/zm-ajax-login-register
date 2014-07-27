@@ -24,7 +24,7 @@ $style = get_option( 'ajax_login_register_default_style' );
                     <th scope="row"><?php print $setting['label']; ?></th>
                     <td>
                         <input type="checkbox" name="<?php print $setting['key']; ?>" id="<?php print $setting['key']; ?>" <?php checked( get_option( $setting['key'], "off" ), "on" ); ?> />
-                        <p class="description"><?php echo $setting['description']; ?></p>
+                        <label for="<?php print $setting['key']; ?>"><?php echo $setting['description']; ?></label>
                     </td>
                 </tr>
             <?php endforeach; ?>
