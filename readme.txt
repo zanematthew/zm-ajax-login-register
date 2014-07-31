@@ -100,6 +100,7 @@ here: https://developers.facebook.com/apps/YOUR_APP_ID/summary
 = 1.0.8 =
 
  * Translation: Adding Albanian translation via [shpberisha](http://www.twitter.com/shpberisha)
+ * Translation: Updating Russian translatoin via [artbelov](https://github.com/artbelov)
 
 = 1.0.7 =
 
