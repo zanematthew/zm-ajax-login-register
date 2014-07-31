@@ -99,6 +99,7 @@ here: https://developers.facebook.com/apps/YOUR_APP_ID/summary
 
 = 1.0.8 =
 
+ * Enhancement: Various UI improvements, [#58](https://github.com/zanematthew/zm-ajax-login-register/pull/58)
  * Translation: Adding Albanian translation via [shpberisha](http://www.twitter.com/shpberisha)
  * Translation: Updating Russian translatoin via [artbelov](https://github.com/artbelov)
 
