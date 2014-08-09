@@ -102,6 +102,8 @@ here: https://developers.facebook.com/apps/YOUR_APP_ID/summary
  * Enhancement: Various UI improvements, [#58](https://github.com/zanematthew/zm-ajax-login-register/pull/58)
  * Translation: Adding Albanian translation via [shpberisha](http://www.twitter.com/shpberisha)
  * Translation: Updating Russian translatoin via [artbelov](https://github.com/artbelov)
+ * Translation: Adding Brazilian Portuguese
+ * Translation: Adding Persian language
 
 = 1.0.7 =
 
