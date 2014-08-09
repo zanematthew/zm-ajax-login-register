@@ -104,6 +104,7 @@ here: https://developers.facebook.com/apps/YOUR_APP_ID/summary
  * Translation: Updating Russian translatoin via [artbelov](https://github.com/artbelov)
  * Translation: Adding Brazilian Portuguese
  * Translation: Adding Persian language
+ * Translation: Adding Croatian
 
 = 1.0.7 =
 
