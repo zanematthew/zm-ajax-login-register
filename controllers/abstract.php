@@ -211,7 +211,7 @@ abstract Class AjaxLogin {
     /**
      * Validation status responses
      */
-    public function status( $key=null, $value=null ){
+    static function status( $key=null, $value=null ){
 
         $status = array(
 
