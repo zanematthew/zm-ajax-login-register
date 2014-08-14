@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: zM Ajax Login & Register\n"
-"POT-Creation-Date: 2014-07-05 12:01-0500\n"
+"POT-Creation-Date: 2014-08-14 16:09-0500\n"
 "PO-Revision-Date: \n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -126,7 +126,7 @@ msgstr "Correo electrónico inválido"
 msgid "Success! One moment while we log you in..."
 msgstr "¡Éxito!"
 
-#: controllers/admin.php:57 controllers/admin.php:58
+#: controllers/admin.php:56 controllers/admin.php:57
 msgid "AJAX Login &amp; Register"
 msgstr "AJAX Login &amp; Register"
 
@@ -134,7 +134,12 @@ msgstr "AJAX Login &amp; Register"
 msgid "Logout"
 msgstr "Cerrar sesión"
 
-#: views/login-dialog.php:8
+#: plugin.php:84
+#, fuzzy
+msgid "Close"
+msgstr "Cerrar"
+
+#: views/login-dialog.php:8 views/login-form.php:38
 msgid "Login"
 msgstr "Acceso"
 
@@ -239,14 +244,14 @@ msgid ""
 "your App ID and paste into your App ID field in the zM AJAX Login & Register "
 "Facebook settings.</p><p>In order to use Facebook login you will need to "
 "Create a Facebook App, by visiting <a href=\"https://developers.facebook.com/"
-"\">Facebook Developers</a>. Once you have created your Facebook App you are "
-"now ready to enter your \"site URL\" as seen in Facebook Developer App "
-"Settings and your App ID.</p><p>For detailed instructions visit the <a href="
-"\"http://support.zanematthew.com/how-to/zm-ajax-login-register/adding-"
-"facebook-settings/\" target=\"_blank\">How To add Facebook Settings to AJAX "
-"Login &amp; Register</a>, feel free to contact us via our <a href=\"http://"
-"support.zanematthew.com/forum/zm-ajax-login-register/\">Support Forum</a> if "
-"you need additional help.</p>"
+"\" target=\"_blank\">Facebook Developers</a>. Once you have created your "
+"Facebook App you are now ready to enter your \"site URL\" as seen in "
+"Facebook Developer App Settings and your App ID.</p><p>For detailed "
+"instructions visit the <a href=\"http://zanematthew.com/ajax-login-register-"
+"help-videos/\" target=\"_blank\">How To add Facebook Settings to AJAX Login "
+"&amp; Register</a>, feel free to contact us via our <a href=\"http://support."
+"zanematthew.com/forum/zm-ajax-login-register/\" target=\"_blank\">Support "
+"Forum</a> if you need additional help.</p>"
 msgstr ""
 "<p>Después que hayas creado tu aplicación de Facebook, ve a tus ajustes de "
 "programador (Facebook Developer App Settings) y añade el url de tu "

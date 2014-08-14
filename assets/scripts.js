@@ -143,7 +143,8 @@ jQuery( document ).ready(function( $ ){
         width: _ajax_login_settings.dialog_width,
         resizable: false,
         draggable: false,
-        modal: true
+        modal: true,
+        closeText: _ajax_login_settings.close_text
     });
 
     $( '#ajax-login-register-dialog, #ajax-login-register-login-dialog' ).dialog( "option", "position", {

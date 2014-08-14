@@ -35,7 +35,7 @@
                 <?php endif; ?>
                 <span class="meta">| <a href="<?php echo wp_lostpassword_url(); ?>" title="<?php _e('Forgot Password','ajax_login_register' ); ?>"><?php _e('Forgot Password','ajax_login_register'); ?></a></span>
                 <div class="button-container">
-                    <input class="login_button green" type="submit" value="Login" accesskey="p" name="submit" />
+                    <input class="login_button green" type="submit" value="<?php _e('Login','ajax_login_register'); ?>" accesskey="p" name="submit" />
                 </div>
             </div>
         </form>
