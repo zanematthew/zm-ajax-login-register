@@ -103,8 +103,9 @@ here: https://developers.facebook.com/apps/YOUR_APP_ID/summary
  * Bug: Fixing PHP Strict Standards issue, [#56](https://github.com/zanematthew/zm-ajax-login-register/issues/56)
  * Enhancement: Various UI improvements, [#58](https://github.com/zanematthew/zm-ajax-login-register/pull/58)
  * Enhancement: Facebook Developer and support links open in new window, updated support link
+ * Translation: Adding Serbian translation via [ogi](http://firstsiteguide.com/), [#63](https://github.com/zanematthew/zm-ajax-login-register/issues/63)
  * Translation: Adding Albanian translation via [shpberisha](http://www.twitter.com/shpberisha)
- * Translation: Updating Russian translatoin via [artbelov](https://github.com/artbelov)
+ * Translation: Updating Russian translation via [artbelov](https://github.com/artbelov)
  * Translation: Adding Brazilian Portuguese
  * Translation: Adding Persian language
  * Translation: Adding Croatian

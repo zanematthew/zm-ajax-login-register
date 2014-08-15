@@ -237,7 +237,7 @@ abstract Class AjaxLogin {
                 ),
 
             'incorrect_password' => array(
-                'description' => 'Invalid',
+                'description' => __( 'Invalid', 'ajax_login_register' ),
                 'cssClass' => 'error-container',
                 'code' => 'error'
                 ),
