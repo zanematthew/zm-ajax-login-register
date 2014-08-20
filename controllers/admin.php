@@ -8,6 +8,7 @@ Class Admin Extends AjaxLogin {
     public function __construct(){
         add_action( 'admin_init', array( &$this, 'admin_init' ) );
         add_action( 'admin_menu', array( &$this, 'admin_menu' ) );
+        add_filter( 'plugin_action_links', array( &$this, 'plugin_action_links'), 10, 2 );
     }
 
     /**
@@ -79,6 +80,18 @@ Class Admin Extends AjaxLogin {
      */
     public function load_template(){
         load_template( plugin_dir_path( dirname( __FILE__ ) ) . 'views/settings.php');
+    }
+
+
+    public function plugin_action_links( $links, $current_plugin_file ){
+        $this_plugin_file = dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/plugin.php';
+
+        if ( $current_plugin_file == $this_plugin_file ){
+            $links['ajax_login_register_support'] = sprintf('<a href="http://support.zanematthew.com/" title="%1$s">%1$s</a>', esc_attr__('Support', 'ajax_login_register') );
+            $links['ajax_login_register_pro'] = sprintf('<a href="http://store.zanematthew.com/downloads/zm-ajax-login-register-pro/" title="%1$s">%1$s</a>', esc_attr__('Pro Version', 'ajax_login_register') );
+        }
+
+        return $links;
     }
 }
 new Admin;
