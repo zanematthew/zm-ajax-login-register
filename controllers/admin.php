@@ -9,8 +9,8 @@ Class Admin Extends AjaxLogin {
      * WordPress hooks to be ran during init
      */
     public function __construct(){
-        $this->upsale_text_link = 'http://store.zanematthew.com/downloads/zm-ajax-login-register-pro/?utm_source=utm_source%3Dwordpress.org&utm_medium=utm_medium%3Dalr_plugin_link&utm_content=utm_content%3Dtextlink&utm_campaign=utm_campaign%3Dwp_pro_upsell_link';
-        $this->upsale_banner_link = null;
+        $this->upsale_text_link = 'http://store.zanematthew.com/downloads/zm-ajax-login-register-pro/?utm_source=wordpress.org&utm_medium=alr_plugin&utm_content=textlink&utm_campaign=alr_pro_upsell_link';
+        $this->upsale_banner_link = 'http://store.zanematthew.com/downloads/zm-ajax-login-register-pro/?utm_source=wordpress&utm_medium=alr_plugin&utm_content=bannerlink&utm_campaign=alr_pro_upsell_banner';
 
         add_action( 'admin_init', array( &$this, 'admin_init' ) );
         add_action( 'admin_menu', array( &$this, 'admin_menu' ) );
