@@ -10,7 +10,7 @@ $style = get_option( 'ajax_login_register_default_style' );
 
 ?>
 
-<div class="wrap">
+<div class="wrap" id="ajax-login-register-settings-wrapper">
     <div id="icon-options-general" class="icon32"><br></div>
     <h2><?php _e( 'AJAX Login &amp; Register Settings', 'ajax_login_register' );?></h2>
     <div class="main">
