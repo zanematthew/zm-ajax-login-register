@@ -1,7 +1,7 @@
 === zM Ajax Login & Register ===
 
 Contributors: ZaneMatthew, dvk
-Donate link: http://zanematthew.com/
+Donate link: http://zanematthew.com/donate/
 Tags: admin, AJAX, login, manage, modal, password, plugin, redirect, register, username, Facebook
 Requires at least: 3.5
 Tested up to: 3.9
