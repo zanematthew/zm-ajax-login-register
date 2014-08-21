@@ -2,14 +2,21 @@
 
 Class Admin Extends AjaxLogin {
 
+    public $upsale_text_link;
+    public $upsale_banner_link;
+
     /**
      * WordPress hooks to be ran during init
      */
     public function __construct(){
+        $this->upsale_text_link = 'http://store.zanematthew.com/downloads/zm-ajax-login-register-pro/?utm_source=utm_source%3Dwordpress.org&utm_medium=utm_medium%3Dalr_plugin_link&utm_content=utm_content%3Dtextlink&utm_campaign=utm_campaign%3Dwp_pro_upsell_link';
+        $this->upsale_banner_link = null;
+
         add_action( 'admin_init', array( &$this, 'admin_init' ) );
         add_action( 'admin_menu', array( &$this, 'admin_menu' ) );
         add_filter( 'plugin_action_links', array( &$this, 'plugin_action_links'), 10, 2 );
         add_action( 'admin_notices', array( &$this, 'admin_notice' ) );
+        add_action( 'admin_enqueue_scripts', array( &$this, 'admin_enqueue_scripts' ) );
     }
 
     /**
@@ -17,8 +24,6 @@ Class Admin Extends AjaxLogin {
      */
     public function admin_init(){
         $this->register_settings();
-        $this->upsale_text_link = 'http://store.zanematthew.com/downloads/zm-ajax-login-register-pro/?utm_source=utm_source%3Dwordpress.org&utm_medium=utm_medium%3Dalr_plugin_link&utm_content=utm_content%3Dtextlink&utm_campaign=utm_campaign%3Dwp_pro_upsell_link';
-        $this->upsale_banner_link = null;
     }
 
 
@@ -107,13 +112,24 @@ Class Admin Extends AjaxLogin {
      * note the option 'ajax_login_register_plugin_notice_shown', is removed
      * during the 'register_deactivation_hook', see 'ajax_login_register_deactivate()'
      */
-    function admin_notice(){
+    public function admin_notice(){
         if ( ! get_option('ajax_login_register_plugin_notice_shown') && is_plugin_active( 'zm-ajax-login-register/plugin.php' ) ){
             printf('<div class="updated"><p>%1$s %2$s</p></div>',
                 __('Thanks for installing zM AJAX Login & Register, be sure to check out the features in the', 'ajax_login_register'),
                 '<a href="' . $this->upsale_text_link . '" target="_blank">Pro version</a>.'
             );
             update_option('ajax_login_register_plugin_notice_shown', 'true');
+        }
+    }
+
+
+    /**
+     * Enqueue our Admin styles only on the ajax login register setting page
+     */
+    public function admin_enqueue_scripts(){
+        $screen = get_current_screen();
+        if ( $screen->id == 'settings_page_ajax-login-register-settings' ){
+            wp_enqueue_style( 'ajax-login-register-admin-style', dirname( plugin_dir_url( __FILE__ ) ) . '/assets/admin.css' );
         }
     }
 }
