@@ -89,6 +89,16 @@ function zm_ajax_login_register_localized_js(){
     return $localized;
 }
 
+
+/**
+ * When the plugin is deactivated remove the shown notice option
+ */
+function ajax_login_register_deactivate(){
+    delete_option( 'ajax_login_register_plugin_notice_shown' );
+}
+register_deactivation_hook( __FILE__, 'ajax_login_register_deactivate' );
+
+
 /**
  * Include our abstract which is a Class of shared Methods for our Classes.
  */

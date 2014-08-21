@@ -9,6 +9,7 @@ Class Admin Extends AjaxLogin {
         add_action( 'admin_init', array( &$this, 'admin_init' ) );
         add_action( 'admin_menu', array( &$this, 'admin_menu' ) );
         add_filter( 'plugin_action_links', array( &$this, 'plugin_action_links'), 10, 2 );
+        add_action( 'admin_notices', array( &$this, 'admin_notice' ) );
     }
 
     /**
@@ -16,6 +17,8 @@ Class Admin Extends AjaxLogin {
      */
     public function admin_init(){
         $this->register_settings();
+        $this->upsale_text_link = 'http://store.zanematthew.com/downloads/zm-ajax-login-register-pro/?utm_source=utm_source%3Dwordpress.org&utm_medium=utm_medium%3Dalr_plugin_link&utm_content=utm_content%3Dtextlink&utm_campaign=utm_campaign%3Dwp_pro_upsell_link';
+        $this->upsale_banner_link = null;
     }
 
 
@@ -83,15 +86,35 @@ Class Admin Extends AjaxLogin {
     }
 
 
+    /**
+     * Add our links to the plugin page, these show under the plugin in the table view.
+     *
+     * @param $links(array) The links coming in as an array
+     * @param $current_plugin_file(string) This is the "plugin basename", i.e., my-plugin/plugin.php
+     */
     public function plugin_action_links( $links, $current_plugin_file ){
-        $this_plugin_file = dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/plugin.php';
-
-        if ( $current_plugin_file == $this_plugin_file ){
-            $links['ajax_login_register_support'] = sprintf('<a href="http://support.zanematthew.com/" title="%1$s">%1$s</a>', esc_attr__('Support', 'ajax_login_register') );
-            $links['ajax_login_register_pro'] = sprintf('<a href="http://store.zanematthew.com/downloads/zm-ajax-login-register-pro/" title="%1$s">%1$s</a>', esc_attr__('Pro Version', 'ajax_login_register') );
+        if ( $current_plugin_file == 'zm-ajax-login-register/plugin.php' ){
+            $links['ajax_login_register_settings'] = '<a href="' . admin_url( 'options-general.php?page=ajax-login-register-settings' ) . '">' . esc_attr__( 'General Settings', 'ajax_login_register' ) . '</a>';
+            $links['ajax_login_register_pro'] = sprintf('<a href="%2$s" title="%1$s" target="_blank">%1$s</a>', esc_attr__('Pro Version', 'ajax_login_register'), $this->upsale_text_link );
         }
 
         return $links;
+    }
+
+
+    /**
+     * Show an admin notice when the plugin is activated
+     * note the option 'ajax_login_register_plugin_notice_shown', is removed
+     * during the 'register_deactivation_hook', see 'ajax_login_register_deactivate()'
+     */
+    function admin_notice(){
+        if ( ! get_option('ajax_login_register_plugin_notice_shown') && is_plugin_active( 'zm-ajax-login-register/plugin.php' ) ){
+            printf('<div class="updated"><p>%1$s %2$s</p></div>',
+                __('Thanks for installing zM AJAX Login & Register, be sure to check out the features in the', 'ajax_login_register'),
+                '<a href="' . $this->upsale_text_link . '" target="_blank">Pro version</a>.'
+            );
+            update_option('ajax_login_register_plugin_notice_shown', 'true');
+        }
     }
 }
 new Admin;
