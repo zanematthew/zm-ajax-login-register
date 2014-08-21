@@ -4,7 +4,7 @@ Contributors: ZaneMatthew, dvk
 Donate link: http://zanematthew.com/donate/
 Tags: admin, AJAX, login, manage, modal, password, plugin, redirect, register, username, Facebook
 Requires at least: 3.5
-Tested up to: 3.9
+Tested up to: 3.9.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -24,28 +24,49 @@ Feel free to contact us and will add any additional hooks you need. The forms us
 
 If you've enabled the Facebook login or register, from your settings, the Facebook button will display in the form. Each user that logins with Facebook will be register as a "subscriber" and their Facebook profile picture will be used as their avatar.
 
-* [Support](http://support.zanematthew.com/forum/zm-ajax-login-register/)
-* [GitHub Repository](https://github.com/zanematthew/zm-ajax-login-register)
-
 = Features =
 
-* Now available in Russian thanks to [artbelov](https://github.com/artbelov), Spanish and French thanks to [Thomas G](https://twitter.com/Jukd)
 * Facebook login support
 * Redirect users to a custom URL or page after login, such as; "Dashboard" or "Welcome"
 * AJAX verification for username and email accounts
 * Choose between different styles: stacked (default) or wide
 * Advanced usage includes: Assign login and register modals to menu items, support for custom CSS, several hooks are available as well
+* Now available in Russian thanks to [artbelov](https://github.com/artbelov), Spanish and French thanks to [Thomas G](https://twitter.com/Jukd)
+
+= Additional Features =
+
+Interested in more features? View our [Pro Version](http://zanematthew.com/products/zm-ajax-login-register-pro/), which includes the following:
+
+* Force user login – Create your own private site
+* Independent Redirect – Send existing users to a "dashboard" page, or new users to a "welcome" page.
+* Free dedicated support for 1-year
+* Additional features to come!
 
 = Usage =
 
-**Note your site will need to be open to registration**
+*Note your site will need to be open to registration.*
+
+**Shortcode**
+
+The following implies for creating a login or register page.
 
 1. Create a page
 1. Add the following shortcode `[ajax_login]` or `[ajax_register]`
+1. Publish the page
 
-Advanced usage allows you to use any menu item to launch the login and register modal boxes.
 
-**Note your page must support custom menus**
+**Facebook Integration**
+
+1. Create a Facebook App
+1. Add your Facebook App ID
+1. Add the URL your Facebook App is associated with
+
+Additionally we've created [AJAX Login & Register WordPress Plugin help videos](http://zanematthew.com/ajax-login-register-help-videos/) to aid in the process
+
+
+**Dialogs/Modals**
+
+*Note your page must support custom menus*
 
 1. Create a menu item; such as "login" you can set the URL to # if need be
 1. Assign a unique class name to the menu item. If you do not see the "class name section", click on the "Screen options" in the upper corner and check the box for "CSS Classes"
@@ -55,7 +76,14 @@ Advanced usage allows you to use any menu item to launch the login and register 
 1. Paste the CSS class name in the appropriate field, either "Login Handle" or "Register Handle"
 1. Save the settings
 
-**Additionally you can assign a URL to a page the user is redirected to once logged in. The default is the site home page**
+*Additionally you can assign a URL to a page the user is redirected to once logged in. The default is the site home page.*
+
+= Support =
+
+Please use the following resources for support.
+
+* [Dedicated Support Forum](http://support.zanematthew.com/forum/zm-ajax-login-register/)
+* [GitHub Repository](https://github.com/zanematthew/zm-ajax-login-register)
 
 == Installation ==
 
@@ -63,7 +91,6 @@ Advanced usage allows you to use any menu item to launch the login and register 
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Create a page called "login" or "register"
 1. Add the shortcode `[ajax_login]` or `[ajax_register]` (make sure your site is set to "anyone can register") to any post or page
-
 
 == Frequently Asked Questions ==
 
@@ -80,6 +107,19 @@ Ensure that you have the setting "Enable Facebook Login" checked.
 Please check your settings in WordPress Admin -> Settings -> AJax Login & Register with the settings found
 here: https://developers.facebook.com/apps/YOUR_APP_ID/summary
 
+Additionally you can view our [AJAX Login & Register WordPress Plugin help videos](http://zanematthew.com/ajax-login-register-help-videos/)
+
+= I've added the shortcode, yet I see a message that says "Registration is currently closed."? =
+
+Your seeing this message because your site is not open for registration. In order to open your site for registration, do the following:
+
+*Note the following does **not** apply to WordPress Networking. For WordPress Networking please consult your Network admin.*
+
+1. Log into your WordPress admin
+1. Click on "Settings"
+1. Click on "General"
+1. Click the checkbox for "Anyone can register"
+1. Click "Save"
 
 == Screenshots ==
 
