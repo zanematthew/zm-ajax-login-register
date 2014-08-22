@@ -2,15 +2,15 @@
 
 Class Admin Extends AjaxLogin {
 
-    public $upsale_text_link;
-    public $upsale_banner_link;
+    public $campaign_text_link;
+    public $campaign_banner_link;
 
     /**
      * WordPress hooks to be ran during init
      */
     public function __construct(){
-        $this->upsale_text_link = 'http://store.zanematthew.com/downloads/zm-ajax-login-register-pro/?utm_source=wordpress.org&utm_medium=alr_plugin&utm_content=textlink&utm_campaign=alr_pro_upsell_link';
-        $this->upsale_banner_link = 'http://store.zanematthew.com/downloads/zm-ajax-login-register-pro/?utm_source=wordpress&utm_medium=alr_plugin&utm_content=bannerlink&utm_campaign=alr_pro_upsell_banner';
+        $this->campaign_text_link = 'http://zanematthew.com/products/zm-ajax-login-register-pro/?utm_source=wordpress&utm_medium=alr_plugin&utm_content=textlink&utm_campaign=alr_pro_upsell_text';
+        $this->campaign_banner_link = 'http://zanematthew.com/products/zm-ajax-login-register-pro/?utm_source=wordpress&utm_medium=alr_plugin&utm_content=bannerlink&utm_campaign=alr_pro_upsell_banner';
 
         add_action( 'admin_init', array( &$this, 'admin_init' ) );
         add_action( 'admin_menu', array( &$this, 'admin_menu' ) );
@@ -100,7 +100,7 @@ Class Admin Extends AjaxLogin {
     public function plugin_action_links( $links, $current_plugin_file ){
         if ( $current_plugin_file == 'zm-ajax-login-register/plugin.php' ){
             $links['ajax_login_register_settings'] = '<a href="' . admin_url( 'options-general.php?page=ajax-login-register-settings' ) . '">' . esc_attr__( 'General Settings', 'ajax_login_register' ) . '</a>';
-            $links['ajax_login_register_pro'] = sprintf('<a href="%2$s" title="%1$s" target="_blank">%1$s</a>', esc_attr__('Pro Version', 'ajax_login_register'), $this->upsale_text_link );
+            $links['ajax_login_register_pro'] = sprintf('<a href="%2$s" title="%1$s" target="_blank">%1$s</a>', esc_attr__('Pro Version', 'ajax_login_register'), $this->campaign_text_link );
         }
 
         return $links;
@@ -116,7 +116,7 @@ Class Admin Extends AjaxLogin {
         if ( ! get_option('ajax_login_register_plugin_notice_shown') && is_plugin_active( 'zm-ajax-login-register/plugin.php' ) ){
             printf('<div class="updated"><p>%1$s %2$s</p></div>',
                 __('Thanks for installing zM AJAX Login & Register, be sure to check out the features in the', 'ajax_login_register'),
-                '<a href="' . $this->upsale_text_link . '" target="_blank">Pro version</a>.'
+                '<a href="' . $this->campaign_text_link . '" target="_blank">Pro version</a>.'
             );
             update_option('ajax_login_register_plugin_notice_shown', 'true');
         }

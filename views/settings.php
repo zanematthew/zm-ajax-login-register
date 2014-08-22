@@ -73,8 +73,8 @@ $style = get_option( 'ajax_login_register_default_style' );
     </div>
 
     <div class="sidebar">
-        <a href="<?php echo $a->upsale_banner_link; ?>" title="<?php _e('Upgrade to the Pro version','ajax_login_register' ); ?>"><img src="<?php echo dirname( plugin_dir_url( __FILE__ ) ); ?>/assets/images/rectangular-banner-240x400.png" /></a>
+        <a href="<?php echo $a->campaign_banner_link; ?>" title="<?php _e('Upgrade to the Pro version','ajax_login_register' ); ?>"><img src="<?php echo dirname( plugin_dir_url( __FILE__ ) ); ?>/assets/images/rectangular-banner-240x400.png" /></a>
         <p><?php _e('Remove these ads?','ajax_login_register'); ?><br />
-        <a href="<?php echo $a->upsale_text_link; ?>" title="<?php _e('Remove this ad, upgrade to Pro','ajax_login_register'); ?>"><?php _e('Upgrade to Login &amp; Register Pro', 'ajax_login_register' ); ?> &raquo;</a></p>
+        <a href="<?php echo $a->campaign_text_link; ?>" title="<?php _e('Remove this ad, upgrade to Pro','ajax_login_register'); ?>"><?php _e('Upgrade to Login &amp; Register Pro', 'ajax_login_register' ); ?> &raquo;</a></p>
     </div>
 </div>
