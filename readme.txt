@@ -149,6 +149,7 @@ Your seeing this message because your site is not open for registration. In orde
  * Translation: Adding Brazilian Portuguese
  * Translation: Adding Persian language
  * Translation: Adding Croatian
+ * Translation: Adding traditional Chinese (front end only), via [Pull Request](https://github.com/zanematthew/zm-ajax-login-register/pull/71)
 
 = 1.0.7 =
 
