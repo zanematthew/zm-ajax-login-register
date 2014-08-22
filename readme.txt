@@ -162,6 +162,7 @@ Your seeing this message because your site is not open for registration. In orde
  * Bug: Fixing broken link, [#66](https://github.com/zanematthew/zm-ajax-login-register/issues/66)
  * Bug: Close text in modals is now translation ready, [#62](https://github.com/zanematthew/zm-ajax-login-register/issues/62)
  * Bug: Fixing PHP Strict Standards issue, [#56](https://github.com/zanematthew/zm-ajax-login-register/issues/56)
+ * Enhancement: Name spacing classes
  * Enhancement: Various UI improvements, [#58](https://github.com/zanematthew/zm-ajax-login-register/pull/58)
  * Enhancement: Facebook Developer and support links open in new window, updated support link
  * Enhancement: Adding plugin notices, [#68](https://github.com/zanematthew/zm-ajax-login-register/issues/68)
