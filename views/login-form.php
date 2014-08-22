@@ -31,9 +31,9 @@
                 $keep_logged_in = get_option('ajax_login_register_keep_me_logged_in');
                 if ( $keep_logged_in != "on") : ?>
                     <input type="checkbox" name="rememberme" />
-                    <span class="meta"><?php _e('Keep me logged in','ajax_login_register'); ?></span>
+                    <span class="meta"><?php _e('Keep me logged in','ajax_login_register'); ?> | </span>
                 <?php endif; ?>
-                <span class="meta">| <a href="<?php echo wp_lostpassword_url(); ?>" title="<?php _e('Forgot Password','ajax_login_register' ); ?>"><?php _e('Forgot Password','ajax_login_register'); ?></a></span>
+                <span class="meta"><a href="<?php echo wp_lostpassword_url(); ?>" title="<?php _e('Forgot Password','ajax_login_register' ); ?>"><?php _e('Forgot Password','ajax_login_register'); ?></a></span>
                 <div class="button-container">
                     <input class="login_button green" type="submit" value="<?php _e('Login','ajax_login_register'); ?>" accesskey="p" name="submit" />
                 </div>
