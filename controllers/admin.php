@@ -1,6 +1,6 @@
 <?php
 
-Class Admin Extends AjaxLogin {
+Class ajax_login_register_Admin Extends AjaxLogin {
 
     public $campaign_text_link;
     public $campaign_banner_link;
@@ -133,4 +133,4 @@ Class Admin Extends AjaxLogin {
         }
     }
 }
-new Admin;
+new ajax_login_register_Admin;

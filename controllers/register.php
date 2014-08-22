@@ -4,7 +4,7 @@
  * This is file is responsible for custom logic needed by all templates. NO
  * admin code should be placed in this file.
  */
-Class Register Extends AjaxLogin {
+Class ajax_login_register_Register Extends AjaxLogin {
 
     /**
      * Run the following methods when this class is loaded
@@ -134,7 +134,7 @@ Class Register Extends AjaxLogin {
         } else {
             // Store random password as user meta
             $meta_id = add_user_meta( $user_id, '_random', $user['user_pass'] );
-            
+
             // Setup this user if this is Multisite/Networking
             if ( is_multisite() ){
                 $this->multisite_setup( $user_id );
@@ -144,4 +144,4 @@ Class Register Extends AjaxLogin {
         return get_user_by( 'id', $user_id );
     }
 }
-new Register;
+new ajax_login_register_Register;

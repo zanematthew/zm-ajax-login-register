@@ -4,7 +4,7 @@
  * This is file is responsible for custom logic needed by all templates. NO
  * admin code should be placed in this file.
  */
-Class Login Extends AjaxLogin {
+Class ajax_login_register_Login Extends AjaxLogin {
 
 
     /**
@@ -63,12 +63,12 @@ Class Login Extends AjaxLogin {
         /**
          * Verify the AJAX request
          */
-        if ( $is_ajax ) check_ajax_referer('login_submit','security');       
-        
+        if ( $is_ajax ) check_ajax_referer('login_submit','security');
+
         $username = empty( $_POST['user_login'] ) ? $user_login : sanitize_text_field( $_POST['user_login'] );
         $password = empty( $_POST['password'] ) ? $password : sanitize_text_field( $_POST['password'] );
         $remember = empty( $_POST['password'] ) ? $password : sanitize_text_field( $_POST['password'] );
-        
+
         // Currently wp_signon returns the same error code 'invalid_username' if
         // a username does not exists or is invalid
         if ( validate_username( $username ) ){
@@ -103,7 +103,7 @@ Class Login Extends AjaxLogin {
     public function facebook_login(){
 
         check_ajax_referer( 'facebook-nonce', 'security' );
-        
+
         // Map our FB response fields to the correct user fields as found in wp_update_user
         $user = array(
             'username'   => $_POST['fb_response']['id'],
@@ -119,17 +119,17 @@ Class Login Extends AjaxLogin {
             $msg = $this->status('invalid_username');
 
         } else {
-            
+
             // If older version use this
             // $user_obj = get_user_by( 'email', $user['email'] );
-            
+
             $user_obj = get_user_by( 'login', $user['user_login'] );
 
             if ( $user_obj == false ){
-                $register_obj = New Register;
+                $register_obj = New ajax_login_register_Register;
                 $user_obj = $register_obj->create_facebook_user( $user );
-            }            
-	
+            }
+
             // Log our FB user in
             $password = get_usermeta( $user_obj->ID, '_random' );
             $logged_in = $this->login_submit( $user_obj->user_login, $password, false );
@@ -155,4 +155,4 @@ Class Login Extends AjaxLogin {
     }
 
 }
-new Login;
+new ajax_login_register_Login;

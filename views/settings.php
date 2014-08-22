@@ -4,7 +4,7 @@
  * @todo Remove get_option() and settings_fields( 'my-settings-group' ); with do_settings_sections( 'my-plugin' );
  */
 
-$a = New Admin;
+$a = New ajax_login_register_Admin;
 $settings = $a->get_settings();
 $style = get_option( 'ajax_login_register_default_style' );
 

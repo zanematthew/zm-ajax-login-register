@@ -1,7 +1,7 @@
 <?php if ( get_option('ajax_login_register_facebook') ) : ?>
     <!-- Start: Ajax Login Register Facebook meta tags -->
     <?php
-    $a = New Login;
+    $a = New ajax_login_register_Login;
     $fb = $a->get_settings();
     foreach( $fb['facebook'] as $setting ) :
 
