@@ -159,10 +159,13 @@ Your seeing this message because your site is not open for registration. In orde
 
 = 1.0.8 =
 
+ * Bug: Fixing broken link, [#66](https://github.com/zanematthew/zm-ajax-login-register/issues/66)
  * Bug: Close text in modals is now translation ready, [#62](https://github.com/zanematthew/zm-ajax-login-register/issues/62)
  * Bug: Fixing PHP Strict Standards issue, [#56](https://github.com/zanematthew/zm-ajax-login-register/issues/56)
  * Enhancement: Various UI improvements, [#58](https://github.com/zanematthew/zm-ajax-login-register/pull/58)
  * Enhancement: Facebook Developer and support links open in new window, updated support link
+ * Enhancement: Adding plugin notices, [#68](https://github.com/zanematthew/zm-ajax-login-register/issues/68)
+ * Enhancement: Updated various parts of the plugin description, [#70](https://github.com/zanematthew/zm-ajax-login-register/issues/70)
  * Translation: Adding Serbian translation via [ogi](http://firstsiteguide.com/), [#63](https://github.com/zanematthew/zm-ajax-login-register/issues/63)
  * Translation: Adding Albanian translation via [shpberisha](http://www.twitter.com/shpberisha)
  * Translation: Updating Russian translation via [artbelov](https://github.com/artbelov)
