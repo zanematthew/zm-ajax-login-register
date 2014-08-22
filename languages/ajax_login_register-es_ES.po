@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: zM Ajax Login & Register\n"
-"POT-Creation-Date: 2014-08-14 16:09-0500\n"
+"POT-Creation-Date: 2014-08-22 12:11-0500\n"
 "PO-Revision-Date: \n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -11,14 +11,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.6.5\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x;_ex;_nx;esc_attr__;esc_attr_e;esc_attr_x;"
+"esc_html__;esc_html_e;esc_html_x;_n_noop;_nx_noop;translate_nooped_plural\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
 # "handle" refiere a lugar donde el usario puede tomar la acción de acceder la página seleccionada
 #: controllers/abstract.php:51
 msgid "Login Handle"
-msgstr "Lugar reservado para acceder o iniciar sesión "
+msgstr "Lugar reservado para iniciar sesión "
 
 # tecla o escribir a máquina
 #: controllers/abstract.php:53 controllers/abstract.php:59
@@ -52,7 +53,7 @@ msgstr "Tecla tus estilos de CSS a la medida para los cuadros de diálogo"
 
 #: controllers/abstract.php:69
 msgid "Redirect After Login URL"
-msgstr "Redirige después de tu url para acceder"
+msgstr "Redirige después del url que inicia sesión"
 
 #: controllers/abstract.php:71
 msgid ""
@@ -101,7 +102,7 @@ msgstr "Si desactivas esto,  los ajustes de Facebook todavia se guardarán. "
 # Should read—disable, keep me logged in.
 #: controllers/abstract.php:104
 msgid "Disable \"keep me logged in\""
-msgstr "Inutiliza y con acceso"
+msgstr "Inutiliza y mantenerme conectado"
 
 #: controllers/abstract.php:105
 msgid "Use this option to disable the check box shown to keep users logged in."
@@ -112,7 +113,11 @@ msgstr ""
 #: controllers/abstract.php:224 controllers/abstract.php:229
 #: controllers/abstract.php:234
 msgid "Invalid username"
-msgstr " Usario inválido"
+msgstr "Usario inválido"
+
+#: controllers/abstract.php:240
+msgid "Invalid"
+msgstr "inválido"
 
 #: controllers/abstract.php:245
 msgid "Passwords do not match."
@@ -126,22 +131,37 @@ msgstr "Correo electrónico inválido"
 msgid "Success! One moment while we log you in..."
 msgstr "¡Éxito!"
 
-#: controllers/admin.php:56 controllers/admin.php:57
+#: controllers/admin.php:65 controllers/admin.php:66
 msgid "AJAX Login &amp; Register"
 msgstr "AJAX Login &amp; Register"
+
+#: controllers/admin.php:102 views/settings.php:21
+msgid "General Settings"
+msgstr "Ajustes generales"
+
+#: controllers/admin.php:103
+msgid "Pro Version"
+msgstr "Versión Pro"
+
+#: controllers/admin.php:118
+msgid ""
+"Thanks for installing zM AJAX Login & Register, be sure to check out the "
+"features in the"
+msgstr ""
+"Gracias por instalar zM AJAX Login & Register, Asegúrate de revisar las "
+"funciones de la versión Pro."
 
 #: plugin.php:83 views/login-form.php:11 views/register-form.php:13
 msgid "Logout"
 msgstr "Cerrar sesión"
 
 #: plugin.php:84
-#, fuzzy
 msgid "Close"
 msgstr "Cerrar"
 
 #: views/login-dialog.php:8 views/login-form.php:38
 msgid "Login"
-msgstr "Acceso"
+msgstr "Iniciar sesión"
 
 #: views/login-dialog.php:9 views/register-dialog.php:8
 msgid "Loading..."
@@ -149,11 +169,11 @@ msgstr "Cargando…"
 
 #: views/login-form.php:11
 msgid "You are already logged in"
-msgstr "Ya estas con acceso"
+msgstr "Ya estas conectado"
 
 #: views/login-form.php:27 views/register-form.php:31
 msgid "User Name"
-msgstr "Nombre de usario"
+msgstr "Nombre de usuario"
 
 #: views/login-form.php:28 views/register-form.php:36
 msgid "Password"
@@ -166,7 +186,7 @@ msgstr "¿Eres miembro?"
 
 #: views/login-form.php:34
 msgid "Keep me logged in"
-msgstr "Mantenme con acceso"
+msgstr "Mantenerme conectado"
 
 # Lost password? Did you forget your password?
 #: views/login-form.php:36
@@ -202,11 +222,11 @@ msgstr "Registración esta actualmente cerrada"
 msgid "AJAX Login &amp; Register Settings"
 msgstr "Ajustes de AJAX Login &amp; Register"
 
-#: views/settings.php:16
+#: views/settings.php:17
 msgid "Usage"
 msgstr "Uso"
 
-#: views/settings.php:17
+#: views/settings.php:18
 msgid ""
 "<p>To create a login page using shortcode; add the following shortcode "
 "<code>ajax_login</code> for the login page or <code>ajax_register</code> for "
@@ -228,16 +248,12 @@ msgstr ""
 "tema tiene que permitir menús a la medida</em></p><p><em>Importante: tu "
 "sitio web debe de permitir registración</em></p>"
 
-#: views/settings.php:20
-msgid "General Settings"
-msgstr "Ajustes generales"
-
 # o configuraciones de Facebook.
-#: views/settings.php:33
+#: views/settings.php:34
 msgid "Facebook Settings"
 msgstr "Ajustes del Facebook"
 
-#: views/settings.php:35
+#: views/settings.php:36
 msgid ""
 "<p>Once you have created your Facebook App, go to your Facebook Developer "
 "App Settings and add your site URL(s) to the App Domains field. Then, copy "
@@ -267,9 +283,25 @@ msgstr ""
 "por medio de nuestro <a href=\"http://support.zanematthew.com/forum/zm-ajax-"
 "login-register/\">Foro De Apoyo.</a></p>"
 
-#: views/settings.php:47
+#: views/settings.php:48
 msgid "Advanced Usage"
 msgstr "Uso avanzado"
+
+#: views/settings.php:76
+msgid "Upgrade to the Pro version"
+msgstr "Actualiza a la versión Pro "
+
+#: views/settings.php:77
+msgid "Remove these ads?"
+msgstr "¿Quieres eliminar estos anuncios?"
+
+#: views/settings.php:78
+msgid "Remove this ad, upgrade to Pro"
+msgstr "Remueve este anuncio y actualiza a la versión Pro"
+
+#: views/settings.php:78
+msgid "Upgrade to Login &amp; Register Pro"
+msgstr "Actualiza a Login &amp; Register Pro"
 
 #, fuzzy
 #~ msgid "Additional Options"
@@ -283,12 +315,6 @@ msgstr "Uso avanzado"
 #, fuzzy
 #~ msgid "Basic Settings"
 #~ msgstr "Ajustes del Facebook"
-
-# fix this sentence in english.
-# Ajax login and registration? (exclude the ;)
-#, fuzzy
-#~ msgid "Ajax Login &amp; Register"
-#~ msgstr "Accede Ajax &amp registro"
 
 #, fuzzy
 #~ msgid "Ajax Login &amp; Register Settings"
