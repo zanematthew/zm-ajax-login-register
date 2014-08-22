@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: zM Ajax Login & Register\n"
 "POT-Creation-Date: 2014-08-22 12:11-0500\n"
 "PO-Revision-Date: \n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: Diana Velasquez <diana@zanematthew.com>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.5\n"
+"X-Generator: Poedit 1.6.4\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: __;_e;_n;_x;_ex;_nx;esc_attr__;esc_attr_e;esc_attr_x;"
 "esc_html__;esc_html_e;esc_html_x;_n_noop;_nx_noop;translate_nooped_plural\n"
@@ -27,7 +27,7 @@ msgid ""
 "Type the class name or ID of the element you want to launch the dialog box "
 "when clicked, example"
 msgstr ""
-"Tecla el nombre de clase o el DNI del elemento que quieres lanzar en el "
+"Indica el nombre de clase o el DNI del elemento que quieres lanzar en el "
 "cuadro de diálogo cuando hagas un clic, por ejemplo: "
 
 #: controllers/abstract.php:53
@@ -36,7 +36,7 @@ msgstr ".login-link"
 
 #: controllers/abstract.php:57
 msgid "Register Handle"
-msgstr "Lugar reservado para el enlace de inscripción o registración"
+msgstr "Lugar reservado para el enlace de inscripción o registración "
 
 #: controllers/abstract.php:59
 msgid ".register-link"
@@ -49,7 +49,7 @@ msgstr "Estilos adicionales"
 # o hecho a la medida
 #: controllers/abstract.php:65
 msgid "Type your custom CSS styles that are applied to the dialog boxes."
-msgstr "Tecla tus estilos de CSS a la medida para los cuadros de diálogo"
+msgstr "Indica tus estilos de CSS a la medida para los cuadros de diálogo"
 
 #: controllers/abstract.php:69
 msgid "Redirect After Login URL"
@@ -58,7 +58,7 @@ msgstr "Redirige después del url que inicia sesión"
 #: controllers/abstract.php:71
 msgid ""
 "Enter the URL or slug you want users redirected to after login, example: "
-msgstr "Rellena el url al que quieres dirigir después de iniciar, por ejemplo "
+msgstr "Indica el url al que quieres dirigir después de iniciar, por ejemplo "
 
 # not translatable?
 #: controllers/abstract.php:71
@@ -92,7 +92,7 @@ msgstr ""
 
 #: controllers/abstract.php:99
 msgid "Enable Facebook Login"
-msgstr "Activa acceso a Facebook"
+msgstr "Activa ingreso/acceso a Facebook"
 
 # by disabling this, your facebook setttings will still be saved.
 #: controllers/abstract.php:100
@@ -113,7 +113,7 @@ msgstr ""
 #: controllers/abstract.php:224 controllers/abstract.php:229
 #: controllers/abstract.php:234
 msgid "Invalid username"
-msgstr "Usario inválido"
+msgstr "Usuario inválido"
 
 #: controllers/abstract.php:240
 msgid "Invalid"
@@ -182,7 +182,7 @@ msgstr "Contraseña"
 # Instead should read: “are you a member?”
 #: views/login-form.php:29
 msgid "Are you a member?"
-msgstr "¿Eres miembro?"
+msgstr "¿Aún no eres miembro?"
 
 #: views/login-form.php:34
 msgid "Keep me logged in"
@@ -277,11 +277,11 @@ msgstr ""
 "primero tienes que crear una aplicación de Facebook. Puedes crear la "
 "aplicación visitando <a href=\"https://developers.facebook.com/\">Facebook "
 "Developers.</a></p><p>Para instrucciones detalladas visita <a href=\"http://"
-"support.zanematthew.com/how-to/zm-ajax-login-register/adding-facebook-"
-"settings/\" target=\"_blank\">How To add Facebook Settings to AJAX Login "
-"&amp; Register.</a></p><p>Si tienes preguntas o necesitas ayuda, contáctenos "
-"por medio de nuestro <a href=\"http://support.zanematthew.com/forum/zm-ajax-"
-"login-register/\">Foro De Apoyo.</a></p>"
+"zanematthew.com/ajax-login-register-help-videos/\" target=\"_blank\">Como "
+"añadir ajustes de Facebook a AJAX Login &amp; Register.</a></p><p>Si tienes "
+"preguntas o necesitas ayuda, contáctenos por medio de nuestro <a href="
+"\"http://support.zanematthew.com/forum/zm-ajax-login-register/\">Foro De "
+"Apoyo.</a></p>"
 
 #: views/settings.php:48
 msgid "Advanced Usage"
