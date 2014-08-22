@@ -42,6 +42,26 @@ Interested in more features? View our [Pro Version](http://zanematthew.com/produ
 * Free dedicated support for 1-year
 * Additional features to come!
 
+= Translations =
+
+zM AJAX Login & Register is available in the following languages. Thanks to the respective contributors:
+
+* Albanian via [shpberisha](http://www.twitter.com/shpberisha)
+* Brazilian Portuguese via [PageLab Pull Request](https://github.com/zanematthew/zm-ajax-login-register/pull/59)
+* Chinese (front end only), via [Pull Request](https://github.com/zanematthew/zm-ajax-login-register/pull/71)
+* Croatian via Fran
+* French via [@jukd](https://twitter.com/jukd)
+* Persian (Iran) language via Behzad
+* Russian via [artbelov](https://github.com/artbelov)
+* Serbian via [ogi](http://firstsiteguide.com/)
+* Spanish via [dvk](http://profiles.wordpress.org/dvk/)
+
+Interested in contributing a translation? Please reach out to us via:
+
+* Send us a [tweet](http://twitter.com/zanematthew)
+* Submit a Pull Request via [GitHub](http://github.com/zanematthew/zm-ajax-login-register)
+* Direct [contact](http://zanematthew.com/contact)
+
 = Usage =
 
 *Note your site will need to be open to registration.*
@@ -139,7 +159,7 @@ Your seeing this message because your site is not open for registration. In orde
 
 = 1.0.8 =
 
- * Bug: Close text in modals is now translation read, [#62](https://github.com/zanematthew/zm-ajax-login-register/issues/62)
+ * Bug: Close text in modals is now translation ready, [#62](https://github.com/zanematthew/zm-ajax-login-register/issues/62)
  * Bug: Fixing PHP Strict Standards issue, [#56](https://github.com/zanematthew/zm-ajax-login-register/issues/56)
  * Enhancement: Various UI improvements, [#58](https://github.com/zanematthew/zm-ajax-login-register/pull/58)
  * Enhancement: Facebook Developer and support links open in new window, updated support link
