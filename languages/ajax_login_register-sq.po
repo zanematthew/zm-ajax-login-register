@@ -1,0 +1,288 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: zM Ajax Login & Register\n"
+"POT-Creation-Date: 2014-07-05 12:01-0500\n"
+"PO-Revision-Date: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+# "handle" refiere a lugar donde el usario puede tomar la acción de acceder la página seleccionada
+#: controllers/abstract.php:51
+msgid "Login Handle"
+msgstr "Pjesë e rezervuar per identifikimin"
+
+# tecla o escribir a máquina
+#: controllers/abstract.php:53 controllers/abstract.php:59
+msgid ""
+"Type the class name or ID of the element you want to launch the dialog box "
+"when clicked, example"
+msgstr ""
+"Vendosni CSS class ose ID të elementit ku do klikohet për të hapur dritaren "
+"popup me ajax, përshembull"
+
+#: controllers/abstract.php:53
+msgid ".login-link"
+msgstr ".login-link"
+
+#: controllers/abstract.php:57
+msgid "Register Handle"
+msgstr "Pjesë e rezervuar për regjistrimin"
+
+#: controllers/abstract.php:59
+msgid ".register-link"
+msgstr ".register-link"
+
+#: controllers/abstract.php:63
+msgid "Additional Styling"
+msgstr "CSS Shtesë"
+
+# o hecho a la medida
+#: controllers/abstract.php:65
+msgid "Type your custom CSS styles that are applied to the dialog boxes."
+msgstr "Këtu vendosni stilin tuaj CSS për të shtuar efekte të tjera në popup."
+
+#: controllers/abstract.php:69
+msgid "Redirect After Login URL"
+msgstr "Adresa URL mbas identifikimit"
+
+#: controllers/abstract.php:71
+msgid ""
+"Enter the URL or slug you want users redirected to after login, example: "
+msgstr ""
+"Vendosni adresën URL ku do të drejtoj përdoruesit mbas identifikimit, "
+"përshembull:"
+
+# not translatable?
+#: controllers/abstract.php:71
+msgid "http://site.com/, /dashboard/, /wp-admin/"
+msgstr "http://faqja.com/, /dashboard/, /wp-admin/"
+
+#: controllers/abstract.php:75
+msgid "Form Layout"
+msgstr "Skema e formularit"
+
+#: controllers/abstract.php:84
+msgid "URL"
+msgstr "URL"
+
+#: controllers/abstract.php:86
+msgid "This is the URL you have set in your Facebook Developer App Settings"
+msgstr "Kjo është URL-ja që keni vendosur në (Facebook Developer App Settings)"
+
+#: controllers/abstract.php:90
+msgid "App ID"
+msgstr "ID i Aplikacionit"
+
+#: controllers/abstract.php:92
+msgid "This is the App ID as seen in your Facebook Developer App Dashboard"
+msgstr ""
+"Kjo është është ID e aplikacionit që ndodhet në Facebook (Facebook Developer "
+"App Dashboard)"
+
+#: controllers/abstract.php:99
+msgid "Enable Facebook Login"
+msgstr "Lejo Identifikimin me Facebook"
+
+# by disabling this, your facebook setttings will still be saved.
+#: controllers/abstract.php:100
+msgid "By disabling this, your Facebook settings will still be saved."
+msgstr "Nëse e dizaktivizoni këtë,ndryshimet do qëndrojnë të ruajtura. "
+
+# Should read—disable, keep me logged in.
+#: controllers/abstract.php:104
+msgid "Disable \"keep me logged in\""
+msgstr "Dizaktivizim i \"Më ruaj të dhënat\""
+
+#: controllers/abstract.php:105
+msgid "Use this option to disable the check box shown to keep users logged in."
+msgstr ""
+"Ky opsion përdoret për ti dhënë mundësinë përdoruesve që të ruajn "
+"identifikimin e tyre në kompjutër."
+
+#: controllers/abstract.php:224 controllers/abstract.php:229
+#: controllers/abstract.php:234
+msgid "Invalid username"
+msgstr "Emër i gabuar"
+
+#: controllers/abstract.php:245
+msgid "Passwords do not match."
+msgstr "Fjalëkalimet nuk përshtaten."
+
+#: controllers/abstract.php:256 controllers/abstract.php:261
+msgid "Invalid Email"
+msgstr "Email jo e vlefshme"
+
+#: controllers/abstract.php:267 controllers/abstract.php:272
+msgid "Success! One moment while we log you in..."
+msgstr "U identifikuat me sukses!"
+
+#: controllers/admin.php:57 controllers/admin.php:58
+msgid "AJAX Login &amp; Register"
+msgstr "Identifikim &amp; Regjistrim Ajax"
+
+#: plugin.php:83 views/login-form.php:11 views/register-form.php:13
+msgid "Logout"
+msgstr "Dilni"
+
+#: views/login-dialog.php:8
+msgid "Login"
+msgstr "Identifikohu"
+
+#: views/login-dialog.php:9 views/register-dialog.php:8
+msgid "Loading..."
+msgstr "Po Karikohet…"
+
+#: views/login-form.php:11
+msgid "You are already logged in"
+msgstr "Ju jeni të identifikuar"
+
+#: views/login-form.php:27 views/register-form.php:31
+msgid "User Name"
+msgstr "Emri (Username)"
+
+#: views/login-form.php:28 views/register-form.php:36
+msgid "Password"
+msgstr "Fjalëkalimi"
+
+# Instead should read: “are you a member?”
+#: views/login-form.php:29
+msgid "Are you a member?"
+msgstr "Jeni Antarë?"
+
+#: views/login-form.php:34
+msgid "Keep me logged in"
+msgstr "Më ruaj të dhënat"
+
+# Lost password? Did you forget your password?
+#: views/login-form.php:36
+msgid "Forgot Password"
+msgstr "Fjalëkalim i harruar?"
+
+#: views/register-dialog.php:7 views/register-form.php:41
+msgid "Register"
+msgstr "Regjistrohu"
+
+#: views/register-form.php:13
+msgid "You are already registered"
+msgstr "Ju jeni të regjistruar"
+
+#: views/register-form.php:32
+msgid "Email"
+msgstr "Emaili"
+
+#: views/register-form.php:37
+msgid "Confirm Password"
+msgstr "Konfirmo fjalëkalimin"
+
+#: views/register-form.php:39
+msgid "Already registered?"
+msgstr "Jeni të regjistruar? "
+
+# Inscripción o registración
+#: views/register-form.php:48
+msgid "Registration is currently closed."
+msgstr "Regjistrimet jan të mbyllura"
+
+#: views/settings.php:15
+msgid "AJAX Login &amp; Register Settings"
+msgstr "Opsionet e Identifikim &amp; Regjistrim Ajax"
+
+#: views/settings.php:16
+msgid "Usage"
+msgstr "Përdorimi"
+
+#: views/settings.php:17
+msgid ""
+"<p>To create a login page using shortcode; add the following shortcode "
+"<code>ajax_login</code> for the login page or <code>ajax_register</code> for "
+"the registration page to any Page or Post.</p><p>To create a login or "
+"registration dialog box do the following; create a menu item, assign a "
+"custom class name, then add that custom class name to the field: <em>Login "
+"Handle</em> for login or <em>Register Handle</em> for the registration page "
+"found in the settings below.</p><p><em>Note your theme must support custom "
+"menus</em></p><p><em>Note your site will need to be open to registration</"
+"em></p>"
+msgstr ""
+"<p>Për të krijuar një faqe identifikimi duke përdorur shortcode vendosni "
+"kodin <code>ajax_login</code> (për identifikim) ose përdorni kodin "
+"<code>ajax_register</code> për të krijuar një faqe regjistrimi në ndonjë "
+"faqe ose postim.</p><p> Për të krijuar një popup identifikimi ose "
+"regjistrimi me ajax ndiqni këto hapa; krijoni një element menuje, Shtoni një "
+"class,mëpas vendoseni tek pjesa e rezervuar për identifikim classin qe "
+"shtuat ose ate egzistues.</p><p><em> Shënim: Pamja juaj duhet të ketë menu "
+"support</em></p><p><em>Shënim: faqja juaj duhet të jetë e hapur për "
+"regjistrime</em></p>"
+
+#: views/settings.php:20
+msgid "General Settings"
+msgstr "Opsionet gjenerale"
+
+# o configuraciones de Facebook.
+#: views/settings.php:33
+msgid "Facebook Settings"
+msgstr "Regullimet e Facebook"
+
+#: views/settings.php:35
+msgid ""
+"<p>Once you have created your Facebook App, go to your Facebook Developer "
+"App Settings and add your site URL(s) to the App Domains field. Then, copy "
+"your App ID and paste into your App ID field in the zM AJAX Login & Register "
+"Facebook settings.</p><p>In order to use Facebook login you will need to "
+"Create a Facebook App, by visiting <a href=\"https://developers.facebook.com/"
+"\">Facebook Developers</a>. Once you have created your Facebook App you are "
+"now ready to enter your \"site URL\" as seen in Facebook Developer App "
+"Settings and your App ID.</p><p>For detailed instructions visit the <a href="
+"\"http://support.zanematthew.com/how-to/zm-ajax-login-register/adding-"
+"facebook-settings/\" target=\"_blank\">How To add Facebook Settings to AJAX "
+"Login &amp; Register</a>, feel free to contact us via our <a href=\"http://"
+"support.zanematthew.com/forum/zm-ajax-login-register/\">Support Forum</a> if "
+"you need additional help.</p>"
+msgstr ""
+"<p>Mbase të keni krijuar një Facebook App, shkoni tek Facebook Developer App "
+"Settings dhe shtoni URL-në tuaj tek pjesa e App Domain. Kopjoni ID të "
+"aplikacionit dhe ngjiteni tek Regullimet e Facebook të Shtojcës Identifikim "
+"dhe Regjistrim ajax në wordpressin tuaj.</p><p>Që të përdorni Identifikimin "
+"me facebook duhet të krijoni një  Facebook App, vizitoni <a href=\"https://"
+"developers.facebook.com/\">Facebook Developers</a>. Sapo të keni krijuar një "
+"Facebook APP jeni gati për të vendosur \"URL-në\" tek Facebook Developer App "
+"Settings dhe App ID.</p><p>Për më tepër <a href=\"http://support.zanematthew."
+"com/how-to/zm-ajax-login-register/adding-facebook-settings/\" target=\"_blank"
+"\">How To add Facebook Settings to AJAX Login &amp; Register</a>, Na "
+"kontaktoni falas <a href=\"http://support.zanematthew.com/forum/zm-ajax-"
+"login-register/\">Support Forum</a> Nëse keni nevoj për ndihmë shtesë.</p>"
+
+#: views/settings.php:47
+msgid "Advanced Usage"
+msgstr "Përdorim i avancuar"
+
+#, fuzzy
+#~ msgid "Additional Options"
+#~ msgstr "Estilos adicionales"
+
+#, fuzzy
+#~ msgid "Logo"
+#~ msgstr "Cerrar sesión"
+
+# o configuraciones de Facebook.
+#, fuzzy
+#~ msgid "Basic Settings"
+#~ msgstr "Ajustes del Facebook"
+
+# fix this sentence in english.
+# Ajax login and registration? (exclude the ;)
+#, fuzzy
+#~ msgid "Ajax Login &amp; Register"
+#~ msgstr "Accede Ajax &amp registro"
+
+#, fuzzy
+#~ msgid "Ajax Login &amp; Register Settings"
+#~ msgstr "Accede Ajax &amp ajustes de registración"

@@ -1,0 +1,9 @@
+/*= Login Wide Styling Dialog
+-------------------------------------------------------------- */
+.ajax-login-register-login-dialog .wide .fb-login-container {
+    width: auto;
+    }
+
+.ajax-login-register-login-dialog .wide .form-wrapper {
+    width: 405px;
+    }

@@ -1,0 +1,261 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: zM AJAX Login & Register\n"
+"POT-Creation-Date: 2014-08-22 10:50-0500\n"
+"PO-Revision-Date: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.6.5\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x;_ex;_nx;esc_attr__;esc_attr_e;esc_attr_x;"
+"esc_html__;esc_html_e;esc_html_x;_n_noop;_nx_noop;translate_nooped_plural\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: controllers/abstract.php:51
+msgid "Login Handle"
+msgstr ""
+
+#: controllers/abstract.php:53 controllers/abstract.php:59
+msgid ""
+"Type the class name or ID of the element you want to launch the dialog box "
+"when clicked, example"
+msgstr ""
+
+#: controllers/abstract.php:53
+msgid ".login-link"
+msgstr ""
+
+#: controllers/abstract.php:57
+msgid "Register Handle"
+msgstr ""
+
+#: controllers/abstract.php:59
+msgid ".register-link"
+msgstr ""
+
+#: controllers/abstract.php:63
+msgid "Additional Styling"
+msgstr ""
+
+#: controllers/abstract.php:65
+msgid "Type your custom CSS styles that are applied to the dialog boxes."
+msgstr ""
+
+#: controllers/abstract.php:69
+msgid "Redirect After Login URL"
+msgstr ""
+
+#: controllers/abstract.php:71
+msgid ""
+"Enter the URL or slug you want users redirected to after login, example: "
+msgstr ""
+
+#: controllers/abstract.php:71
+msgid "http://site.com/, /dashboard/, /wp-admin/"
+msgstr ""
+
+#: controllers/abstract.php:75
+msgid "Form Layout"
+msgstr ""
+
+#: controllers/abstract.php:84
+msgid "URL"
+msgstr ""
+
+#: controllers/abstract.php:86
+msgid "This is the URL you have set in your Facebook Developer App Settings"
+msgstr ""
+
+#: controllers/abstract.php:90
+msgid "App ID"
+msgstr ""
+
+#: controllers/abstract.php:92
+msgid "This is the App ID as seen in your Facebook Developer App Dashboard"
+msgstr ""
+
+#: controllers/abstract.php:99
+msgid "Enable Facebook Login"
+msgstr ""
+
+#: controllers/abstract.php:100
+msgid "By disabling this, your Facebook settings will still be saved."
+msgstr ""
+
+#: controllers/abstract.php:104
+msgid "Disable \"keep me logged in\""
+msgstr ""
+
+#: controllers/abstract.php:105
+msgid "Use this option to disable the check box shown to keep users logged in."
+msgstr ""
+
+#: controllers/abstract.php:224 controllers/abstract.php:229
+#: controllers/abstract.php:234
+msgid "Invalid username"
+msgstr ""
+
+#: controllers/abstract.php:240
+msgid "Invalid"
+msgstr ""
+
+#: controllers/abstract.php:245
+msgid "Passwords do not match."
+msgstr ""
+
+#: controllers/abstract.php:256 controllers/abstract.php:261
+msgid "Invalid Email"
+msgstr ""
+
+#: controllers/abstract.php:267 controllers/abstract.php:272
+msgid "Success! One moment while we log you in..."
+msgstr ""
+
+#: controllers/admin.php:65 controllers/admin.php:66
+msgid "AJAX Login &amp; Register"
+msgstr ""
+
+#: controllers/admin.php:102 views/settings.php:21
+msgid "General Settings"
+msgstr ""
+
+#: controllers/admin.php:103
+msgid "Pro Version"
+msgstr ""
+
+#: controllers/admin.php:118
+msgid ""
+"Thanks for installing zM AJAX Login & Register, be sure to check out the "
+"features in the"
+msgstr ""
+
+#: plugin.php:83 views/login-form.php:11 views/register-form.php:13
+msgid "Logout"
+msgstr ""
+
+#: plugin.php:84
+msgid "Close"
+msgstr ""
+
+#: views/login-dialog.php:8 views/login-form.php:38
+msgid "Login"
+msgstr ""
+
+#: views/login-dialog.php:9 views/register-dialog.php:8
+msgid "Loading..."
+msgstr ""
+
+#: views/login-form.php:11
+msgid "You are already logged in"
+msgstr ""
+
+#: views/login-form.php:27 views/register-form.php:31
+msgid "User Name"
+msgstr ""
+
+#: views/login-form.php:28 views/register-form.php:36
+msgid "Password"
+msgstr ""
+
+#: views/login-form.php:29
+msgid "Are you a member?"
+msgstr ""
+
+#: views/login-form.php:34
+msgid "Keep me logged in"
+msgstr ""
+
+#: views/login-form.php:36
+msgid "Forgot Password"
+msgstr ""
+
+#: views/register-dialog.php:7 views/register-form.php:41
+msgid "Register"
+msgstr ""
+
+#: views/register-form.php:13
+msgid "You are already registered"
+msgstr ""
+
+#: views/register-form.php:32
+msgid "Email"
+msgstr ""
+
+#: views/register-form.php:37
+msgid "Confirm Password"
+msgstr ""
+
+#: views/register-form.php:39
+msgid "Already registered?"
+msgstr ""
+
+#: views/register-form.php:48
+msgid "Registration is currently closed."
+msgstr ""
+
+#: views/settings.php:15
+msgid "AJAX Login &amp; Register Settings"
+msgstr ""
+
+#: views/settings.php:17
+msgid "Usage"
+msgstr ""
+
+#: views/settings.php:18
+msgid ""
+"<p>To create a login page using shortcode; add the following shortcode "
+"<code>ajax_login</code> for the login page or <code>ajax_register</code> for "
+"the registration page to any Page or Post.</p><p>To create a login or "
+"registration dialog box do the following; create a menu item, assign a "
+"custom class name, then add that custom class name to the field: <em>Login "
+"Handle</em> for login or <em>Register Handle</em> for the registration page "
+"found in the settings below.</p><p><em>Note your theme must support custom "
+"menus</em></p><p><em>Note your site will need to be open to registration</"
+"em></p>"
+msgstr ""
+
+#: views/settings.php:34
+msgid "Facebook Settings"
+msgstr ""
+
+#: views/settings.php:36
+msgid ""
+"<p>Once you have created your Facebook App, go to your Facebook Developer "
+"App Settings and add your site URL(s) to the App Domains field. Then, copy "
+"your App ID and paste into your App ID field in the zM AJAX Login & Register "
+"Facebook settings.</p><p>In order to use Facebook login you will need to "
+"Create a Facebook App, by visiting <a href=\"https://developers.facebook.com/"
+"\" target=\"_blank\">Facebook Developers</a>. Once you have created your "
+"Facebook App you are now ready to enter your \"site URL\" as seen in "
+"Facebook Developer App Settings and your App ID.</p><p>For detailed "
+"instructions visit the <a href=\"http://zanematthew.com/ajax-login-register-"
+"help-videos/\" target=\"_blank\">How To add Facebook Settings to AJAX Login "
+"&amp; Register</a>, feel free to contact us via our <a href=\"http://support."
+"zanematthew.com/forum/zm-ajax-login-register/\" target=\"_blank\">Support "
+"Forum</a> if you need additional help.</p>"
+msgstr ""
+
+#: views/settings.php:48
+msgid "Advanced Usage"
+msgstr ""
+
+#: views/settings.php:76
+msgid "Upgrade to the Pro version"
+msgstr ""
+
+#: views/settings.php:77
+msgid "Remove these ads?"
+msgstr ""
+
+#: views/settings.php:78
+msgid "Remove this ad, upgrade to Pro"
+msgstr ""
+
+#: views/settings.php:78
+msgid "Upgrade to Login &amp; Register Pro"
+msgstr ""

@@ -1,0 +1,293 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: zM AJAX Login & Register\n"
+"POT-Creation-Date: 2014-08-22 10:56-0500\n"
+"PO-Revision-Date: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: sr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.6.5\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: controllers/abstract.php:51
+msgid "Login Handle"
+msgstr "Upravljaj Login-om"
+
+#: controllers/abstract.php:53 controllers/abstract.php:59
+msgid ""
+"Type the class name or ID of the element you want to launch the dialog box "
+"when clicked, example"
+msgstr ""
+"Unesite naziv klase ili ID elementa koji želite da prikažete u okviru za "
+"dijalog, kad neko klikne na njega, primer."
+
+#: controllers/abstract.php:53
+msgid ".login-link"
+msgstr ".login-link"
+
+#: controllers/abstract.php:57
+msgid "Register Handle"
+msgstr "Register Upravljanje"
+
+#: controllers/abstract.php:59
+msgid ".register-link"
+msgstr ".register-link"
+
+#: controllers/abstract.php:63
+msgid "Additional Styling"
+msgstr "dodatno stilizovanje"
+
+#: controllers/abstract.php:65
+msgid "Type your custom CSS styles that are applied to the dialog boxes."
+msgstr ""
+"Unesite svoje prilagođene CSS stilove koji se primenjuju na okvire za "
+"dijalog."
+
+#: controllers/abstract.php:69
+msgid "Redirect After Login URL"
+msgstr "Preusmerite URL nakon prijavljivanja"
+
+#: controllers/abstract.php:71
+msgid ""
+"Enter the URL or slug you want users redirected to after login, example: "
+msgstr ""
+"Unesite URL ili slug gde želite da preusmerite korisnike nakon "
+"prijavljivanja, na primer:"
+
+#: controllers/abstract.php:71
+msgid "http://site.com/, /dashboard/, /wp-admin/"
+msgstr "http://site.com/, /dashboard/, /wp-admin/"
+
+#: controllers/abstract.php:75
+msgid "Form Layout"
+msgstr "Izgled obrasca"
+
+#: controllers/abstract.php:84
+msgid "URL"
+msgstr "URL"
+
+#: controllers/abstract.php:86
+msgid "This is the URL you have set in your Facebook Developer App Settings"
+msgstr ""
+"To je URL koji ste podesili u Postavkama programera Facebook aplikacija"
+
+#: controllers/abstract.php:90
+msgid "App ID"
+msgstr "ID aplikacije"
+
+#: controllers/abstract.php:92
+msgid "This is the App ID as seen in your Facebook Developer App Dashboard"
+msgstr ""
+"Ovo je ID aplikacije prikazan kao na komandnoj tabli programera Facebook "
+"aplikacija"
+
+#: controllers/abstract.php:99
+msgid "Enable Facebook Login"
+msgstr "Aktiviraj prijavljivanje na Facebook"
+
+#: controllers/abstract.php:100
+msgid "By disabling this, your Facebook settings will still be saved."
+msgstr ""
+"Čak i ako deaktivirate ovu opciju, vaše Facebook postavke biće sačuvane."
+
+#: controllers/abstract.php:104
+msgid "Disable \"keep me logged in\""
+msgstr "Deaktiviraj opciju “ostavi me prijavljenog”"
+
+#: controllers/abstract.php:105
+msgid "Use this option to disable the check box shown to keep users logged in."
+msgstr ""
+"Upotrebite ovu opciju da biste deaktivirali polje za ostavljanje korisnika "
+"prijavljenim."
+
+#: controllers/abstract.php:224 controllers/abstract.php:229
+#: controllers/abstract.php:234
+msgid "Invalid username"
+msgstr "Nevažeće korisničko ime"
+
+#: controllers/abstract.php:240
+msgid "Invalid"
+msgstr "Nevažeći"
+
+#: controllers/abstract.php:245
+msgid "Passwords do not match."
+msgstr "Lozinke se ne podudaraju"
+
+#: controllers/abstract.php:256 controllers/abstract.php:261
+msgid "Invalid Email"
+msgstr "Nevažeći email"
+
+#: controllers/abstract.php:267 controllers/abstract.php:272
+msgid "Success! One moment while we log you in..."
+msgstr "Uspeli ste! Sačekajte trenutak dok vas prijavimo..."
+
+#: controllers/admin.php:65 controllers/admin.php:66
+msgid "AJAX Login &amp; Register"
+msgstr "AJAX Login &amp; Register"
+
+#: controllers/admin.php:118
+msgid ""
+"Thanks for installing zM AJAX Login & Register, be sure to check out the "
+"features in the"
+msgstr ""
+
+#: plugin.php:83 views/login-form.php:11 views/register-form.php:13
+msgid "Logout"
+msgstr "Odjavi me"
+
+#: plugin.php:84
+msgid "Close"
+msgstr "Zatvoriti"
+
+#: views/login-dialog.php:8 views/login-form.php:38
+msgid "Login"
+msgstr "Prijavi me"
+
+#: views/login-dialog.php:9 views/register-dialog.php:8
+msgid "Loading..."
+msgstr "Učitavanje..."
+
+#: views/login-form.php:11
+msgid "You are already logged in"
+msgstr "Već ste prijavljeni"
+
+#: views/login-form.php:27 views/register-form.php:31
+msgid "User Name"
+msgstr "Korisničko ime"
+
+#: views/login-form.php:28 views/register-form.php:36
+msgid "Password"
+msgstr "Lozinka"
+
+#: views/login-form.php:29
+msgid "Are you a member?"
+msgstr "Jeste li član?"
+
+#: views/login-form.php:34
+msgid "Keep me logged in"
+msgstr "Ostavi me prijavljenog"
+
+#: views/login-form.php:36
+msgid "Forgot Password"
+msgstr "Zaboravljena lozinka"
+
+#: views/register-dialog.php:7 views/register-form.php:41
+msgid "Register"
+msgstr "Registrujte se"
+
+#: views/register-form.php:13
+msgid "You are already registered"
+msgstr "Već ste registrovani"
+
+#: views/register-form.php:32
+msgid "Email"
+msgstr "Email"
+
+#: views/register-form.php:37
+msgid "Confirm Password"
+msgstr "Potvrdi lozinku"
+
+#: views/register-form.php:39
+msgid "Already registered?"
+msgstr "Već ste registrovani?"
+
+#: views/register-form.php:48
+msgid "Registration is currently closed."
+msgstr "Registracija je trenutno zatvorena."
+
+#: views/settings.php:15
+msgid "AJAX Login &amp; Register Settings"
+msgstr "AJAX Login &amp; Register Postavke"
+
+#: views/settings.php:17
+msgid "Usage"
+msgstr "Upotreba"
+
+#: views/settings.php:18
+msgid ""
+"<p>To create a login page using shortcode; add the following shortcode "
+"<code>ajax_login</code> for the login page or <code>ajax_register</code> for "
+"the registration page to any Page or Post.</p><p>To create a login or "
+"registration dialog box do the following; create a menu item, assign a "
+"custom class name, then add that custom class name to the field: <em>Login "
+"Handle</em> for login or <em>Register Handle</em> for the registration page "
+"found in the settings below.</p><p><em>Note your theme must support custom "
+"menus</em></p><p><em>Note your site will need to be open to registration</"
+"em></p>"
+msgstr ""
+"<p>Da biste kreirali stranicu za prijavljivanje koristeći kratki kod; "
+"dodajte sledeći kratki kod <code>ajax_login</code> za stranicu "
+"prijavljivanja ili <code>ajax_register</code> za stranicu registrovanja bilo "
+"koje stranice ili posta.</p><p>Da biste kreirali okvir za registraciju ili "
+"okvir za dijalog, uradite sledeće; kreirajte jedinicu menija, dodelite "
+"naziv  prilagođene klase, a zatim dodajte taj naziv prilagođene klase polju: "
+"<em>Login Handle</em> za prijavljivanje ili <em>Register Handle</em> za "
+"stranicu registracije u postavkama koje slede.</p><p><em>Ne zaboravite da "
+"vaša tema mora podržavati prilagođeni meni</em></p><p><em>Zapamtite, vaš "
+"sajt će morati da bude otvoren za registraciju.</em></p>"
+
+#: views/settings.php:21
+msgid "General Settings"
+msgstr "Opšte postavke"
+
+#: views/settings.php:34
+msgid "Facebook Settings"
+msgstr "Facebook postavke"
+
+#: views/settings.php:36
+msgid ""
+"<p>Once you have created your Facebook App, go to your Facebook Developer "
+"App Settings and add your site URL(s) to the App Domains field. Then, copy "
+"your App ID and paste into your App ID field in the zM AJAX Login & Register "
+"Facebook settings.</p><p>In order to use Facebook login you will need to "
+"Create a Facebook App, by visiting <a href=\"https://developers.facebook.com/"
+"\" target=\"_blank\">Facebook Developers</a>. Once you have created your "
+"Facebook App you are now ready to enter your \"site URL\" as seen in "
+"Facebook Developer App Settings and your App ID.</p><p>For detailed "
+"instructions visit the <a href=\"http://zanematthew.com/ajax-login-register-"
+"help-videos/\" target=\"_blank\">How To add Facebook Settings to AJAX Login "
+"&amp; Register</a>, feel free to contact us via our <a href=\"http://support."
+"zanematthew.com/forum/zm-ajax-login-register/\" target=\"_blank\">Support "
+"Forum</a> if you need additional help.</p>"
+msgstr ""
+"<p>Kad kreirate svoje Facebook postavke, idite na postavke za programere "
+"Facebook aplikacija i unesite URL(ove) svog sajta u polje domena aplikacija. "
+"Zatim kopirajte svoj App ID i nalepite ga u App ID polju u Facebook "
+"postavkama za zM AJAX Login & Register. </p><p>Da biste koristili Facebook "
+"prijavljivanje, morate kreirati Facebook aplikaciju tako što ćete posetiti "
+"<a href=\"https://developers.facebook.com/\">Facebook Developers</a>. Kad "
+"kreirate Facebook App, spremni ste da unesete \"URL svog sajta\" i ID "
+"aplikacije kao što je prikazano u postavkama programera Facebook aplikacija. "
+"Za detaljnije uputstvo, posetite  <a href=\"http://support.zanematthew.com/"
+"how-to/zm-ajax-login-register/adding-facebook-settings/\" target=\"_blank"
+"\">How To add Facebook Settings to AJAX Login &amp; Register</a>, slobodno "
+"nam pišite na <a href=\"http://support.zanematthew.com/forum/zm-ajax-login-"
+"register/\">Support Forum</a> ako vam je potrebna dodatna pomoć.</p>"
+
+#: views/settings.php:48
+msgid "Advanced Usage"
+msgstr "Napredna upotreba"
+
+#: views/settings.php:76
+msgid "Upgrade to the Pro version"
+msgstr ""
+
+#: views/settings.php:77
+msgid "Remove these ads?"
+msgstr ""
+
+#: views/settings.php:78
+msgid "Remove this ad, upgrade to Pro"
+msgstr ""
+
+#: views/settings.php:78
+#, fuzzy
+msgid "Upgrade to Login &amp; Register Pro"
+msgstr "AJAX Login &amp; Register"

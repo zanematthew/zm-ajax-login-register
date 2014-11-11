@@ -1,0 +1,9 @@
+#ajax-login-register-settings-wrapper .main {
+    float: left;
+    width: 70%;
+    }
+
+#ajax-login-register-settings-wrapper .sidebar {
+    float: right;
+    width: 30%;
+    }

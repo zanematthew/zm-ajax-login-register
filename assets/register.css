@@ -1,0 +1,57 @@
+.ajax-login-register-status-container {
+    clear: both;
+    float: left;
+    width: 100%;
+    font-size: 12px;
+    }
+
+
+/*= Wide Styling Page
+-------------------------------------------------------------- */
+.ajax-login-register-login-container .wide .form-wrapper {
+    width: 375px;
+    }
+
+
+.ajax-login-register-register-container .wide .fb-login-container {
+    width: 190px;
+    }
+
+.ajax-login-register-register-container .wide .form-wrapper {
+    width: 415px;
+    }
+
+.ajax-login-register-register-container .wide .noon {
+    margin: 0 13px 14px 0;
+    float: left;
+    }
+
+.ajax-login-register-register-container .wide .form-wrapper input[type="text"],
+.ajax-login-register-register-container .wide .form-wrapper input[type="password"] {
+    width: 181px;
+    }
+
+.ajax-login-register-register-container .wide .ajax-login-register-status-container {
+    /*margin: 0 auto 20px 13px;*/
+    width: 400px;
+    }
+
+
+
+/*= Wide Styling Dialog
+-------------------------------------------------------------- */
+.ajax-login-register-dialog .wide .fb-login-container {
+    width: auto;
+    }
+
+.ajax-login-register-dialog .wide .ajax-login-register-status-container {
+    min-height: 0;
+    }
+
+.ajax-login-register-dialog .wide .button-container {
+    margin-left: -15px;
+    }
+
+.ui-dialog .ajax-login-default-form-container .error-container {
+    width: 205px;
+    }
