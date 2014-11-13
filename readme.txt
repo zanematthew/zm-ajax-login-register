@@ -159,6 +159,7 @@ Your seeing this message because your site is not open for registration. In orde
 
 = 1.0.9 =
 
+ * Enhancement: Adding placeholder values for front end forms, [88](https://github.com/zanematthew/zm-ajax-login-register/issues/88)
  * Translation: Adding German translation, via Jonas Meier
 
 = 1.0.8 =
