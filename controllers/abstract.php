@@ -54,7 +54,7 @@ abstract Class AjaxLogin {
                 ),
                 array(
                     'key' => 'ajax_login_register_exclude_roles',
-                    'label' => __('Are there any Roles you don\'t want to show?','ajax_login_register'),
+                    'label' => __('Hide Roles?','ajax_login_register'),
                     'type' => 'textarea',
                     'description' => __('If you have selected "Allow User to Select Role" then you can exclude Roles from that list by selecting them here.','ajax_login_register'),
                 ),
