@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This is the template for our register form. It should contain as less logic as possible
+ * This is the template for our register form. It should contain as little logic as possible.
  */
 
 ?>
@@ -30,6 +30,19 @@
                     </div>
                     <div class="noon"><label><?php _e('User Name', 'ajax_login_register'); ?></label><input type="text" required placeholder="<?php _e('User Name', 'ajax_login_register'); ?>" name="login" class="user_login" /></div>
                     <div class="noon"><label><?php _e('Email', 'ajax_login_register'); ?></label><input type="text" required name="email" class="user_email ajax-login-register-validate-email" placeholder="<?php _e('Email', 'ajax_login_register'); ?>" /></div>
+                    
+                    <?php if ( get_option('ajax_login_register_show_role') == true ) { ?>
+	                    <div class="noon"><label><?php _e('Role', 'ajax_login_register'); ?></label>
+	                    	<select name="role" class="user_role">
+							  <?php foreach (get_editable_roles() as $role_name => $role_info): ?>
+							  	<?php if( in_array( $role_name, get_option('ajax_login_register_exclude_roles') ) ) { ?>
+							    <option value="<?php echo $role_name ?>"><?php echo ucwords($role_name); ?></option>
+							    <?php } ?>
+							  <?php endforeach; ?>
+							  
+							</select>
+	                    </div>
+	               	<?php } ?>
 
                     <?php do_action( 'zm_ajax_login_register_below_email_field' ); ?>
 

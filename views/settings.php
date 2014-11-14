@@ -51,16 +51,35 @@ $style = get_option( 'ajax_login_register_default_style' );
                     <tr valign="top">
                         <th scope="row"><?php print $setting['label']; ?></th>
                             <td>
-                            <?php if ( $setting['key'] == 'ajax_login_register_default_style' ) : ?>
+                            <?php if ( $setting['key'] == 'ajax_login_register_default_style' ) { ?>
                                 <select name="ajax_login_register_default_style">
                                     <?php foreach( array('default','wide') as $option ) : ?>
                                         <option value="<?php print $option; ?>" <?php selected( $style, $option ); ?>><?php print ucfirst( $option );?></option>
                                     <?php endforeach; ?>
                                 </select>
-                            <?php else : ?>
+
+	                            <?php
+	                            } elseif ( $setting['key'] == 'ajax_login_register_exclude_roles' ) {
+		                            ?>
+									<p><label><?php echo $setting['description']; ?></label></p>
+									
+	                            	<select multiple="multiple" name="<?php print $setting['key']; ?>[]" id="<?php print $setting['key']; ?>[]" >
+										<?php foreach ( get_editable_roles() as $role_name => $role_info) { ?>
+											
+												<option value="<?php echo $role_name ?>" <?php if( in_array( $role_name, get_option('ajax_login_register_exclude_roles') ) ) echo ' selected="selected"'?>>
+													<?php echo ucwords($role_name); ?>
+												</option>
+								
+										<?php } ?>
+									</select>
+							<?php
+                            } elseif ( $setting['key'] == 'ajax_login_register_show_role' ) { ?>
+                                <input type="checkbox" name="<?php print $setting['key']; ?>" id="<?php print $setting['key']; ?>" <?php checked( get_option( $setting['key'], "off" ), "on" ); ?> />
+                                <label for="<?php print $setting['key']; ?>"><?php echo $setting['description']; ?></label>
+                            <?php } else { ?>
                                 <?php echo $a->build_input( $setting['type'], $setting['key'] ); ?>
                                 <p class="description"><?php echo $setting['description']; ?></p>
-                            <?php endif; ?>
+                            <?php } ?>
                         </td>
                     </tr>
                 <?php endforeach; ?>

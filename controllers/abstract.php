@@ -47,6 +47,18 @@ abstract Class AjaxLogin {
     public function get_settings(){
         $settings['advanced_usage'] = array(
                 array(
+                    'key' => 'ajax_login_register_show_role',
+                    'label' => __('Allow User to Select Role?','ajax_login_register'),
+                    'type' => 'checkbox',
+                    'description' => __('By enabling this option Users will be able to choose their role at the time of registration.','ajax_login_register')
+                ),
+                array(
+                    'key' => 'ajax_login_register_exclude_roles',
+                    'label' => __('Hide Roles?','ajax_login_register'),
+                    'type' => 'textarea',
+                    'description' => __('If you have selected "Allow User to Select Role" then you can exclude Roles from that list by selecting them here.','ajax_login_register'),
+                ),
+                array(
                     'key' => 'ajax_login_register_advanced_usage_login',
                     'label' => __('Login Handle','ajax_login_register'),
                     'type' => 'text',
@@ -73,7 +85,7 @@ abstract Class AjaxLogin {
                 array(
                     'key' => 'ajax_login_register_default_style',
                     'label' => __('Form Layout','ajax_login_register'),
-                    'type' => 'text',
+                    'type' => 'select',
                     'description' => ''
                     )
                 );
@@ -103,7 +115,7 @@ abstract Class AjaxLogin {
                     'key' => 'ajax_login_register_keep_me_logged_in',
                     'label' => __('Disable "keep me logged in"', 'ajax_login_register'),
                     'description' => __('Use this option to disable the check box shown to keep users logged in.','ajax_login_register')
-                    )
+                )
             );
 
         return $settings;

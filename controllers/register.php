@@ -62,12 +62,14 @@ Class ajax_login_register_Register Extends AjaxLogin {
             'login'    => empty( $_POST['login'] ) ? $login : sanitize_text_field( $_POST['login'] ),
             'email'    => empty( $_POST['email'] ) ? $email : sanitize_text_field( $_POST['email'] ),
             'password' => empty( $_POST['password'] ) ? $password : sanitize_text_field( $_POST['password'] ),
+            'role'    => empty( $_POST['role'] ) ? $role : sanitize_text_field( $_POST['role'] ),
             'fb_id'    => empty( $_POST['fb_id'] ) ? false : sanitize_text_field( $_POST['fb_id'] )
         );
 
         $valid['email'] = $this->validate_email( $user['email'], false );
         $valid['username'] = $this->validate_username( $user['login'], false );
         $user_id = null;
+        $role = $_POST['role'];
 
         if ( $valid['username']['code'] == 'error' ){
             $msg = $this->status('invalid_username'); // invalid user
@@ -88,7 +90,7 @@ Class ajax_login_register_Register Extends AjaxLogin {
                     $this->multisite_setup( $user_id );
                 }
 
-                wp_update_user( array( 'ID' => $user_id, 'role' => 'subscriber' ) );
+                wp_update_user( array( 'ID' => $user_id, 'role' => $role ) );
                 $wp_signon = wp_signon( array( 'user_login' => $user['login'], 'user_password' => $user['password'], 'remember' => true ), false );
                 $msg = $this->status('success_registration'); // success
             } else {
