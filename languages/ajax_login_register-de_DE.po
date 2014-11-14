@@ -1,191 +1,195 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: zM AJAX Login & Register\n"
-"POT-Creation-Date: 2014-11-13 10:46-0500\n"
+"POT-Creation-Date: 2014-11-13 10:40-0500\n"
 "PO-Revision-Date: \n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
-"Language: pt_BR\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.6.5\n"
-"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x;_ex;_nx;esc_attr__;esc_attr_e;esc_attr_x;"
+"esc_html__;esc_html_e;esc_html_x;_n_noop;_nx_noop;translate_nooped_plural\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: controllers/abstract.php:51
 msgid "Login Handle"
-msgstr "Ativador do login"
+msgstr ""
 
 #: controllers/abstract.php:53 controllers/abstract.php:59
 msgid ""
 "Type the class name or ID of the element you want to launch the dialog box "
 "when clicked, example"
 msgstr ""
-"Adicione o nome da classe ou o ID do elemento a partir do qual você deseja "
-"ativar a caixa de diálogo quando clicada, por exemplo"
+"Gib den Klassen-Namen oder die ID ein, welche gestartet werden soll wenn die "
+"Dialog-Box geklickt wird. Beispiel:"
 
 #: controllers/abstract.php:53
 msgid ".login-link"
-msgstr ".link-login"
+msgstr ""
 
 #: controllers/abstract.php:57
 msgid "Register Handle"
-msgstr "Ativador do registro"
+msgstr ""
 
 #: controllers/abstract.php:59
 msgid ".register-link"
-msgstr ".link-registro"
+msgstr ""
 
 #: controllers/abstract.php:63
 msgid "Additional Styling"
-msgstr "Estilização adicional"
+msgstr "Zusätzliche CSS-Anpassung"
 
 #: controllers/abstract.php:65
 msgid "Type your custom CSS styles that are applied to the dialog boxes."
-msgstr ""
-"Adicione os estilos CSS personalizados que serão aplicados às caixas de "
-"diálogo."
+msgstr "Spezielles Css für Dialog-Boxen eingeben."
 
 #: controllers/abstract.php:69
 msgid "Redirect After Login URL"
-msgstr "URL de redirecionamento após o login"
+msgstr "Weiterleitung-URL nach Anmeldung"
 
 #: controllers/abstract.php:71
 msgid ""
 "Enter the URL or slug you want users redirected to after login, example: "
 msgstr ""
-"Insira a URL ou o atalho de página para o qual deseja redirecionar os "
-"usuários após o login, por exemplo:"
+"Gib die URL an, an die Benutzer nach der Anmeldung weitergeleitet werden "
+"sollen, Beispiel:"
 
 #: controllers/abstract.php:71
 msgid "http://site.com/, /dashboard/, /wp-admin/"
-msgstr "http://site.com/, /dashboard/, /wp-admin/"
+msgstr ""
 
 #: controllers/abstract.php:75
 msgid "Form Layout"
-msgstr "Layout do formulário"
+msgstr "Formular Layout"
 
 #: controllers/abstract.php:84
 msgid "URL"
-msgstr "URL"
+msgstr ""
 
 #: controllers/abstract.php:86
 msgid "This is the URL you have set in your Facebook Developer App Settings"
-msgstr ""
-"Esta é a URL que você configurou nas Configurações de Aplicativo dos "
-"Desenvolvedor do Facebook"
+msgstr "In der Facebook Entwickler-App/Einstellungen  vermerkte URL"
 
 #: controllers/abstract.php:90
 msgid "App ID"
-msgstr "ID do aplicativo"
+msgstr ""
 
 #: controllers/abstract.php:92
 msgid "This is the App ID as seen in your Facebook Developer App Dashboard"
 msgstr ""
-"Este é o ID do aplicativo como visto no painel do Desenvolvedor de "
-"Aplicativos do Facebook"
+"Das ist die App ID, die im Facebook Developer App Dashboard zu sehen ist"
 
 #: controllers/abstract.php:99
 msgid "Enable Facebook Login"
-msgstr "Habilitar login do Facebook"
+msgstr "Facebook Login einschalten"
 
 #: controllers/abstract.php:100
 msgid "By disabling this, your Facebook settings will still be saved."
-msgstr "Ao disabilitar isto, as suas configurações do Facebook serão salvas."
+msgstr "Durch Ausschalten werden deine Facebook Einstellungen gesichert."
 
 #: controllers/abstract.php:104
 msgid "Disable \"keep me logged in\""
-msgstr "Disabilitar \"Mantenha-me logado\""
+msgstr "\"Eingeloggt bleiben\" ausschalten"
 
 #: controllers/abstract.php:105
 msgid "Use this option to disable the check box shown to keep users logged in."
 msgstr ""
-"Use esta opção para disabilitar a caixa de seleção apresentada para manter "
-"os usuários logados."
+"Nutze diese Option um die Auswahlbox zum angemeldet Bleiben auszuschalten."
 
 #: controllers/abstract.php:224 controllers/abstract.php:229
 #: controllers/abstract.php:234
 msgid "Invalid username"
-msgstr "Nome de usuário inválido"
+msgstr "Falscher Benutzername"
 
 #: controllers/abstract.php:240
-#, fuzzy
 msgid "Invalid"
-msgstr "Email inválido"
+msgstr "Falsch"
 
 #: controllers/abstract.php:245
 msgid "Passwords do not match."
-msgstr "As senhas não conferem."
+msgstr "Passwörter stimmen nicht überein."
 
 #: controllers/abstract.php:256 controllers/abstract.php:261
 msgid "Invalid Email"
-msgstr "Email inválido"
+msgstr "Falsche Email-Adresse"
 
 #: controllers/abstract.php:267 controllers/abstract.php:272
 msgid "Success! One moment while we log you in..."
-msgstr "Sucesso! Um momento enquanto fazemos os seu login..."
+msgstr "Erfolg! Einen Moment solange wir Sie einloggen..."
 
 #: controllers/admin.php:65 controllers/admin.php:66
 msgid "AJAX Login &amp; Register"
-msgstr "Login AJAX &amp; Registrar"
+msgstr "AJAX Login &amp; Register"
+
+#: controllers/admin.php:102 views/settings.php:21
+msgid "General Settings"
+msgstr "Generelle Einstellungen"
+
+#: controllers/admin.php:103
+msgid "Pro Version"
+msgstr "Pro Version"
 
 #: controllers/admin.php:118
 msgid ""
 "Thanks for installing zM AJAX Login & Register, be sure to check out the "
 "features in the"
 msgstr ""
+"Danke für die Installation von zM AJAX Login & Register, prüfe die Features "
+"der"
 
 #: plugin.php:83 views/login-form.php:11 views/register-form.php:13
 msgid "Logout"
-msgstr "Sair"
+msgstr "Logout"
 
 #: plugin.php:84
 msgid "Close"
-msgstr ""
+msgstr "Schließen"
 
 #: views/login-dialog.php:8 views/login-form.php:38
 msgid "Login"
-msgstr "Entrar"
+msgstr "Login"
 
 #: views/login-dialog.php:9 views/register-dialog.php:8
 msgid "Loading..."
-msgstr "Carregando..."
+msgstr "Lade..."
 
 #: views/login-form.php:11
 msgid "You are already logged in"
-msgstr "Você já está logado"
+msgstr "Sie sind bereits eingeloggt"
 
 #: views/login-form.php:27 views/register-form.php:31
 msgid "User Name"
-msgstr "Nome de usuário"
+msgstr "Benutzername"
 
 #: views/login-form.php:28 views/register-form.php:36
 msgid "Password"
-msgstr "Senha"
+msgstr "Passwort"
 
 #: views/login-form.php:29
 msgid "Are you a member?"
-msgstr "Você é um membro?"
+msgstr "Noch kein Benutzer?"
 
 #: views/login-form.php:34
 msgid "Keep me logged in"
-msgstr "Mantenha-me logado"
+msgstr "Eingeloggt bleiben"
 
 #: views/login-form.php:36
 msgid "Forgot Password"
-msgstr "Esqueci a senha"
+msgstr "Passwort vergessen"
 
 #: views/register-dialog.php:7 views/register-form.php:41
 msgid "Register"
-msgstr "Registrar"
+msgstr "Registrieren"
 
 #: views/register-form.php:13
 msgid "You are already registered"
-msgstr "Você já está registrado"
+msgstr "Sie sind bereits registriert"
 
 #: views/register-form.php:32
 msgid "Email"
@@ -193,23 +197,23 @@ msgstr "Email"
 
 #: views/register-form.php:37
 msgid "Confirm Password"
-msgstr "Confirmar senha"
+msgstr "Passwort bestätigen"
 
 #: views/register-form.php:39
 msgid "Already registered?"
-msgstr "Já se registrou?"
+msgstr "Bereits registriert?"
 
 #: views/register-form.php:48
 msgid "Registration is currently closed."
-msgstr "O registro está fechado no momento."
+msgstr "Die Registrierung ist momentan nicht verfügbar."
 
 #: views/settings.php:15
 msgid "AJAX Login &amp; Register Settings"
-msgstr "Login AJAX &amp; Configurações do registro"
+msgstr "AJAX Login &amp; Register Einstellungen"
 
 #: views/settings.php:17
 msgid "Usage"
-msgstr "Utilização"
+msgstr "Benutzung"
 
 #: views/settings.php:18
 msgid ""
@@ -223,28 +227,23 @@ msgid ""
 "menus</em></p><p><em>Note your site will need to be open to registration</"
 "em></p>"
 msgstr ""
-"<p>Para criar uma página de login utilizando o shortcode, adicione o "
-"shortcode <code>ajax_login</code> para a página de login ou  "
-"<code>ajax_register</code> para a página de registro em qualquer página ou "
-"artigo.</p><p>Para criar uma caixa de diálogo de login ou registro, proceda "
-"da seguinte forma: crie um item de menu e atribua um nome de classe "
-"personalizado. Em seguida, adicione a classe personalizada ao campo: "
-"<em>Ativação do login</em> para o login ou <em>Ativação do registro</em> "
-"para a página de registro encontrada nas configurações abaixo.</"
-"p><p><em>Lembre que seu tema precisa dar suporte à menus personalizados</"
-"em></p><p><em>Note também que o seu site precisará estar aberto para "
-"registro.</em></p>"
-
-#: views/settings.php:21
-msgid "General Settings"
-msgstr "Configurações gerais"
+"<p>Fügen Sie folgenden shortcode zu jeder beliebigen Seite oder jedem "
+"Beitrag hinzu, um eine Login-Seite zu erstellen: <code>ajax_login</code> für "
+"eine Login-Seite oder <code>ajax_register</code> für eine Registrierungs-"
+"Seite.</p><p>Erledigen Sie folgendes um eine Login- oder Registrierungs-"
+"Dialogbox zu erstellen: Erstellen Sie ein Menü-Element, weisen Sie einen "
+"benutzerdefinierten Klassennamen zu, dann fügen den Klassennamen folgendem "
+"Feld hinzu: <em>Login Handle</em> für das Login oder <em>Register Handle</"
+"em> für die Registrierungs-Seite. Diese sind in den Einstellungen unten zu "
+"finden.</p><p><em>Ihr Theme muss benutzerdefinierte Menüs unterstützen!</"
+"em></p><p><em>Ihre Wordpress-Seite muss die öffentliche Registrierung "
+"zulassen!</em></p>"
 
 #: views/settings.php:34
 msgid "Facebook Settings"
-msgstr "Configurações do Facebook"
+msgstr "Facebook Einstellungen"
 
 #: views/settings.php:36
-#, fuzzy
 msgid ""
 "<p>Once you have created your Facebook App, go to your Facebook Developer "
 "App Settings and add your site URL(s) to the App Domains field. Then, copy "
@@ -260,40 +259,41 @@ msgid ""
 "zanematthew.com/forum/zm-ajax-login-register/\" target=\"_blank\">Support "
 "Forum</a> if you need additional help.</p>"
 msgstr ""
-"<p>Uma vez que você criar o seu aplicativo do Facebook, vá até as "
-"configurações do desenvolvedor de aplicativos do Facebook e adicione a(s) "
-"sua(s) URL(s) ao campo Domínios do Aplicativo. Em seguida, copie o seu ID de "
-"aplicativo e cole-o no campo ID do Aplicativo nas configurações do Facebook "
-"do zM Login e Registro AJAX.</p><p>Para utilizar o login do Facebook você "
-"precisa criar um aplicativo do Facebook visitando a página de <a href="
-"\"https://developers.facebook.com/\">Desenvolvedores do Facebook</a>. Uma "
-"vez criado o seu aplicativo Facebook, você está pronto para entrar a sua "
-"\"URL do site\" e ID do aplicativo como visto nas configurações do "
-"desenvolvedor de aplicativos do Facebook.</p><p>Para instruções detalhadas, "
-"visite <a href=\"http://support.zanematthew.com/how-to/zm-ajax-login-"
-"register/adding-facebook-settings/\" target=\"_blank\">Como adicionar "
-"configurações do Facebook ao Login e Registro AJAX</a>. Sinta-se à vontade "
-"para entrar em contato por meio do nosso feel free to contact us via our <a "
-"href=\"http://support.zanematthew.com/forum/zm-ajax-login-register/\">Forum "
-"de suporte</a> se você necessitar de ajuda adicional.</p>"
+"<p>Nachdem Sie Ihre Facebook-App erstellt haben, gehen Sie zu Ihren App-"
+"Entwickler-Einstellungen und fügen Ihre Site-URL(s) dem App-Domain-Feld "
+"hinzu. Dann kopieren Sie Ihre App-ID  und fügen sie in das App ID Feld in "
+"den zM AJAX Login & Register Facebook Einstellungen ein.</p><p>Um das "
+"Facebook Login benutzen zu können, müssen Sie eine Facebook App erstellen, "
+"indem Sie <a href=\"https://developers.facebook.com/\" target=\"_blank"
+"\">Facebook Developers</a> besuchen. Wenn Sie Ihre Facebook App erstellt "
+"haben sind Sie bereit ihre  \"site URL\" wie es in den Facebook Developer "
+"App Einstellungen und Ihrer App ID zu sehen ist zu besuchen.</p><p>Für eine "
+"detailierte Anleitung besuchen Sie <a href=\"http://zanematthew.com/ajax-"
+"login-register-help-videos/\" target=\"_blank\">How To add Facebook Settings "
+"to AJAX Login &amp; Register</a>, kontaktieren Sie uns via <a href=\"http://"
+"support.zanematthew.com/forum/zm-ajax-login-register/\" target=\"_blank"
+"\">Support Forum</a> wenn Sie zusätzliche Hilfe benötigen.</p>"
 
 #: views/settings.php:48
 msgid "Advanced Usage"
-msgstr "Utiilzação avançada"
+msgstr "Erweiterte Einstellungen"
 
 #: views/settings.php:76
 msgid "Upgrade to the Pro version"
-msgstr ""
+msgstr "Upgrade zur Pro Version"
 
 #: views/settings.php:77
 msgid "Remove these ads?"
-msgstr ""
+msgstr "Entferne diese Werbung?"
 
 #: views/settings.php:78
 msgid "Remove this ad, upgrade to Pro"
-msgstr ""
+msgstr "Entferne diese Werbung, upgrade zu Pro"
 
 #: views/settings.php:78
-#, fuzzy
 msgid "Upgrade to Login &amp; Register Pro"
-msgstr "Login AJAX &amp; Registrar"
+msgstr "Upgrade to Login &amp; Register Pro"
+
+#, fuzzy
+#~ msgid " Password"
+#~ msgstr "Passwort"
