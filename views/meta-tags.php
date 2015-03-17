@@ -28,7 +28,7 @@
     <script type="text/javascript">
         window.fbAsyncInit = function() {
             FB.init({
-                appId      : <?php print $app_id; ?>, // App ID
+                appId      : "<?php esc_attr_e( $app_id ); ?>", // App ID
                 cookie     : true,  // enable cookies to allow the server to access the session
                 xfbml      : true,  // parse XFBML
                 version    : 'v2.0' // use version 2.0
