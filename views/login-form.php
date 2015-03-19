@@ -24,8 +24,8 @@
                 <div class="ajax-login-register-status-container">
                     <div class="ajax-login-register-msg-target"></div>
                 </div>
-                <div class="noon"><label><?php _e('User Name','ajax_login_register'); ?></label><input type="text" name="user_login" size="30" placeholder="<?php _e('User Name', 'ajax_login_register'); ?>" required /></div>
-                <div class="noon"><label><?php _e('Password','ajax_login_register'); ?></label><input type="password" name="password" size="30" placeholder="<?php _e('Password', 'ajax_login_register'); ?>" required /></div>
+                <div class="noon"><label><?php _e('User Name','ajax_login_register'); ?></label><input type="text" autocorrect="none" autocapitalize="none" name="user_login" size="30" placeholder="<?php _e('User Name', 'ajax_login_register'); ?>" required /></div>
+                <div class="noon"><label><?php _e('Password','ajax_login_register'); ?></label><input type="password" autocorrect="none" autocapitalize="none" name="password" size="30" placeholder="<?php _e('Password', 'ajax_login_register'); ?>" required /></div>
                 <div class="noon"><a href="#" class="not-a-member-handle"><?php echo apply_filters( 'ajax_login_not_a_member_text', __('Are you a member?','ajax_login_register') ); ?></a></div>
                 <?php
                 $keep_logged_in = get_option('ajax_login_register_keep_me_logged_in');

@@ -55,7 +55,6 @@ body {
     letter-spacing: 0.1em;
     padding: 5px;
     margin: 0;
-    text-transform: lowercase;
     }
 
 .ajax-login-default-form-container input[type="submit"]:hover {
