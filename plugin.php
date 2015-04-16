@@ -123,3 +123,4 @@ require_once 'controllers/register.php';
  * Load the login class
  */
 require_once 'controllers/login.php';
+
