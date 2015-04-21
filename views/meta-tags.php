@@ -17,8 +17,7 @@
         <?php if ( ! empty( $value ) ) : ?>
             <meta property="<?php echo $key; ?>:<?php echo $value; ?>" content="<?php print $value; ?>" />
         <?php endif; ?>
-    <?php endforeach; ?>
-    <meta property="og:title" content="<?php wp_title( '|', true, 'right' ); ?>" />
+    <?php endforeach; ?>    
     <!-- End: Ajax Login Register Facebook meta tags -->
 <?php endif; ?>
 
