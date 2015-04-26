@@ -20,6 +20,7 @@ jQuery( document ).ready(function( $ ){
             };
 
             $.ajax({
+                global: false,
                 data: data,
                 type: "POST",
                 url: _ajax_login_settings.ajaxurl,
@@ -67,6 +68,7 @@ jQuery( document ).ready(function( $ ){
             ajax_login_register_show_message( $(this), msg );
         } else {
             $.ajax({
+                global: false,
                 data: "action=register_submit&" + $( this ).serialize(),
                 dataType: 'json',
                 type: "POST",

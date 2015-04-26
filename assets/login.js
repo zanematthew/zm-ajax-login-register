@@ -5,6 +5,7 @@ jQuery( document ).ready(function( $ ){
             $('#ajax-login-register-login-dialog').dialog('open');
 
             $.ajax({
+                global: false,
                 type: "POST",
                 url: _ajax_login_settings.ajaxurl,
                 data: {
@@ -29,6 +30,7 @@ jQuery( document ).ready(function( $ ){
         event.preventDefault();
         var $this = $(this);
         $.ajax({
+            global: false,
             data: "action=login_submit&" + $this.serialize(),
             type: "POST",
             url: _ajax_login_settings.ajaxurl,

@@ -48,6 +48,7 @@ jQuery( document ).ready(function( $ ){
             $('#ajax-login-register-login-dialog').dialog('open');
 
             $.ajax({
+                global: false,
                 type: "POST",
                 url: _ajax_login_settings.ajaxurl,
                 data: {
@@ -95,6 +96,7 @@ jQuery( document ).ready(function( $ ){
         $form = $this.parents('form');
 
         $.ajax({
+            global: false,
             data: "action=validate_email&email=" + $this.val(),
             dataType: 'json',
             type: "POST",
@@ -124,6 +126,7 @@ jQuery( document ).ready(function( $ ){
         $form = $(this).parents('form');
 
         $.ajax({
+            global: false,
             data: "action=validate_username&login=" + $( this ).val(),
             dataType: 'json',
             type: "POST",
