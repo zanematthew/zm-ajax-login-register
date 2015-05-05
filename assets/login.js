@@ -59,13 +59,18 @@ jQuery( document ).ready(function( $ ){
          // FB.api('/me/permissions', function( response ){});
 
          // Since WordPress requires the email we cannot continue if they
-         // do not provide their email address 
+         // do not provide their email address
         FB.login( function( response ) {
             /**
              * If we get a successful authorization response we handle it
              * note the "scope" parameter.
              */
-            if ( response.authResponse.grantedScopes == "public_profile,email,contact_email" ){
+            var requested_scopes = ['public_profile','email','contact_email'];
+            var response_scopes = $.map( response.authResponse.grantedScopes.split(","), $.trim );
+            var diff = $( requested_scopes ).not( response_scopes ).get();
+            var granted_access = diff.length;
+
+            if ( ! granted_access ){
 
                 /**
                  * "me" refers to the current FB user, console.log( response )
