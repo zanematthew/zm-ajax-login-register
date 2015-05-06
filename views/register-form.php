@@ -12,7 +12,7 @@
         <?php if ( is_user_logged_in() ) : ?>
             <p><?php printf('%s <a href="%s" title="%s">%s</a>', __('You are already registered','ajax_login_register'), wp_logout_url( site_url() ), __('Logout', 'ajax_login_register'), __('Logout', 'ajax_login_register') ); ?></p>
         <?php else : ?>
-            <form action="javascript://" name="registerform" class="ajax-login-default-form-container register_form <?php print get_option('ajax_login_register_default_style'); ?>" data-alr_register_security="<?php echo wp_create_nonce( 'register_submit' ); ?>">
+            <form action="javascript://" name="registerform" class="ajax-login-default-form-container register_form <?php print get_option('ajax_login_register_default_style'); ?>" data-alr_register_security="<?php echo wp_create_nonce( 'setup_new_user' ); ?>">
 
                 <?php if ( get_option('ajax_login_register_facebook') ) : ?>
                     <div class="fb-login-container">

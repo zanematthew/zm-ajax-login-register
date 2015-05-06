@@ -283,4 +283,83 @@ abstract Class AjaxLogin {
             return $status[ $key ][ $value ];
         }
     }
+
+
+    /**
+     * Adds the user to the networked blog they are currently visiting
+     *
+     * @since 1.0.9
+     * @param $user_id
+     * @return true, wp_error object
+     */
+    public function multisite_setup( $user_id=null ){
+
+        $added_to_blog = add_user_to_blog(
+            get_current_blog_id(),
+            $user_id,
+            apply_filters( 'ajax_login_register_default_role', get_option('default_role') )
+        );
+
+        return $added_to_blog;
+
+    }
+
+
+    /**
+     * Handles creating a new user using native WordPress functions,
+     * and signs the user on if successful.
+     *
+     * @uses wp_parse_args
+     * @uses apply_filters
+     * @uses update_user_meta
+     * @uses is_multisite
+     * @uses wp_signon
+     * @uses wp_new_user_notification
+     *
+     * @param $user (array) User array as seen
+     *  in: http://codex.wordpress.org/Function_Reference/wp_insert_user
+     * @param $password (string) The password to be used
+     *
+     * @return $user_id (mixed) False on failure, user_id on success
+     */
+    public function create_user( $user=null, $password=null ){
+
+        $user = wp_parse_args( $user, array(
+            'role' => apply_filters( 'ajax_login_register_default_role', get_option('default_role') ),
+            'user_registered' => date('Y-m-d H:i:s'),
+            'user_email' => $user['email']
+            ) );
+
+        $user_id = wp_insert_user( $user );
+
+        if ( is_wp_error( $user_id ) ) {
+
+            $user_id = false;
+
+        } else {
+
+            // update_user_meta( $user_id, 'show_admin_bar_front', 'false' );
+            if ( ! empty( $user['fb_id'] ) ){
+                update_user_meta( $user_id, 'fb_id', $user['fb_id'] );
+            }
+
+            if ( is_multisite() ){
+                $this->multisite_setup( $user_id );
+            }
+
+            $wp_signon = wp_signon( array(
+                'user_login' => $user['user_login'],
+                'user_password' => $user['user_pass'],
+                'remember' => true ),
+            false );
+
+            wp_new_user_notification( $user_id );
+
+            do_action( 'zm_ajax_login_after_successfull_registration', $user_id );
+
+        }
+
+        return $user_id;
+
+    }
 }

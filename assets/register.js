@@ -71,7 +71,7 @@ jQuery( document ).ready(function( $ ){
         } else {
             $.ajax({
                 global: false,
-                data: "action=register_submit&" + $this.serialize() + "&security=" + $this.data('alr_register_security'),
+                data: "action=setup_new_user&" + $this.serialize() + "&security=" + $this.data('alr_register_security'),
                 dataType: 'json',
                 type: "POST",
                 url: _ajax_login_settings.ajaxurl,
