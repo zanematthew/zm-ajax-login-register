@@ -75,6 +75,12 @@ abstract Class AjaxLogin {
                     'label' => __('Form Layout','ajax_login_register'),
                     'type' => 'text',
                     'description' => ''
+                    ),
+                array(
+                    'key' => 'ajax_login_register_force_check_password',
+                    'label' => __('Force Check Password','ajax_login_register'),
+                    'type' => 'checkbox',
+                    'description' => __('Use this option if your are experiencing compatibility issues with other login and or register plugins.','ajax_login_register')
                     )
                 );
 
@@ -127,6 +133,10 @@ abstract Class AjaxLogin {
 
             case 'text':
                 $field = '<input type="text" name="' . $key . '" id="' . $key . '" class="regular-text" value="' . esc_attr( get_option( $key ) ) . '" />';
+                break;
+
+            case 'checkbox' :
+                $field = '<input type="checkbox" name="' . $key . '" id="' . $key . '" ' . checked( get_option( $key, "off" ), "on", false ) . '/>';
                 break;
 
             case 'select':

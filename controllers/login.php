@@ -72,14 +72,34 @@ Class ajax_login_register_Login Extends AjaxLogin {
         // Currently wp_signon returns the same error code 'invalid_username' if
         // a username does not exists or is invalid
         if ( validate_username( $username ) ){
+
             if ( username_exists( $username ) ){
-                $creds = array(
-                    'user_login'    => $username,
-                    'user_password' => $password,
-                    'remember'      => $remember
-                    );
-                $user = wp_signon( $creds, false );
-                $status = is_wp_error( $user ) ? $this->status( $user->get_error_code() ) : $this->status('success_login');
+
+                // if option force check password
+                if ( get_option( 'ajax_login_register_force_check_password' ) ){
+
+                    $user = get_user_by( 'login', $username );
+                    if ( wp_check_password( $password, $user->data->user_pass, $user->ID ) ){
+
+                        $status = $this->status('success_login');
+                        wp_signon( array(
+                            'user_login'    => $username,
+                            'user_password' => $password,
+                            'remember'      => $remember
+                            ), false );
+                    }
+
+                } else {
+
+                    $creds = array(
+                        'user_login'    => $username,
+                        'user_password' => $password,
+                        'remember'      => $remember
+                        );
+                    $user = wp_signon( $creds, false );
+                    $status = is_wp_error( $user ) ? $this->status( $user->get_error_code() ) : $this->status('success_login');
+                }
+
             } else {
                 $status = $this->status('username_does_not_exists');
             }
