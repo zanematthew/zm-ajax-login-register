@@ -131,7 +131,7 @@ Class ajax_login_register_Login Extends AjaxLogin {
             }
 
             // Log our FB user in
-            $password = get_usermeta( $user_obj->ID, '_random' );
+            $password = get_user_meta( $user_obj->ID, '_random' );
             $logged_in = $this->login_submit( $user_obj->user_login, $password, false );
 
             if ( $logged_in == true ){
