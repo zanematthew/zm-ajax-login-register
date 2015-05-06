@@ -186,7 +186,7 @@ Class ajax_login_register_Login Extends AjaxLogin {
     }
 
 }
-function alr_login_class(){
+function ajax_login_register_plugins_loaded_login(){
     new ajax_login_register_Login;
 }
-add_action( 'plugins_loaded', 'alr_login_class' );
+add_action( 'plugins_loaded', 'ajax_login_register_plugins_loaded_login' );

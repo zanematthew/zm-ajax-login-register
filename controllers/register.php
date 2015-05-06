@@ -148,4 +148,7 @@ Class ajax_login_register_Register Extends AjaxLogin {
         return $user_obj;
     }
 }
-new ajax_login_register_Register;
+function ajax_login_register_plugins_loaded_register(){
+    new ajax_login_register_Register;
+}
+add_action( 'plugins_loaded', 'ajax_login_register_plugins_loaded_register' );
