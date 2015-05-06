@@ -10,17 +10,14 @@
     <?php if ( is_user_logged_in() ) : ?>
         <p><?php printf("%s <a href=%s title='%s'>%s</a>", __('You are already logged in','ajax_login_register'), wp_logout_url( site_url() ), __('Logout','ajax_login_register'), __('Logout','ajax_login_register') );?></p>
     <?php else : ?>
-        <form action="javascript://" class="ajax-login-default-form-container login_form <?php print get_option('ajax_login_register_default_style'); ?>">
+        <form action="javascript://" class="ajax-login-default-form-container login_form <?php print get_option('ajax_login_register_default_style'); ?>" data-alr_login_security="<?php echo wp_create_nonce( 'login_submit' ); ?>">
             <?php if ( get_option('ajax_login_register_facebook') && get_option('users_can_register') ) : ?>
                 <div class="fb-login-container">
-                    <a href="#" class="fb-login"><img src="<?php print plugin_dir_url( dirname( __FILE__ ) ); ?>assets/images/fb-login-button.png" /></a>
+                    <a href="#" class="fb-login" data-alr_facebook_security="<?php echo wp_create_nonce( 'facebook-nonce' ); ?>"><img src="<?php print plugin_dir_url( dirname( __FILE__ ) ); ?>assets/images/fb-login-button.png" /></a>
                 </div>
             <?php endif; ?>
             <div class="form-wrapper">
-                <?php
-                wp_nonce_field( 'facebook-nonce', 'facebook_security' );
-                wp_nonce_field( 'login_submit', 'security' );
-                ?>
+
                 <div class="ajax-login-register-status-container">
                     <div class="ajax-login-register-msg-target"></div>
                 </div>

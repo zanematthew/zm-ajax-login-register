@@ -60,21 +60,23 @@ jQuery( document ).ready(function( $ ){
      * When the form is submitted process the AJAX request.
      */
     $( document ).on('submit', '.register_form', function( event ){
+
         event.preventDefault();
+        var $this = $( this );
 
         passwords_match = zMAjaxLoginRegister.confirm_password('.user_confirm_password');
 
         if ( passwords_match.code == 'error' ){
-            ajax_login_register_show_message( $(this), msg );
+            ajax_login_register_show_message( $this, msg );
         } else {
             $.ajax({
                 global: false,
-                data: "action=register_submit&" + $( this ).serialize(),
+                data: "action=register_submit&" + $this.serialize() + "&security=" + $this.data('alr_register_security'),
                 dataType: 'json',
                 type: "POST",
                 url: _ajax_login_settings.ajaxurl,
                 success: function( msg ) {
-                    ajax_login_register_show_message( $(this), msg );
+                    ajax_login_register_show_message( $this, msg );
                 }
             });
         }

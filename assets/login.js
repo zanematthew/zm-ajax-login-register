@@ -31,7 +31,7 @@ jQuery( document ).ready(function( $ ){
         var $this = $(this);
         $.ajax({
             global: false,
-            data: "action=login_submit&" + $this.serialize(),
+            data: "action=login_submit&" + $this.serialize() + "&security=" + $this.data('alr_login_security'),
             type: "POST",
             url: _ajax_login_settings.ajaxurl,
             success: function( msg ){
@@ -47,8 +47,11 @@ jQuery( document ).ready(function( $ ){
      * Our element we are attaching the 'click' event to is loaded via ajax.
      */
     $( document ).on( 'click', '.fb-login', function( event ){
+
         event.preventDefault();
-        var $form_obj = $(this).parents('form');
+
+        var $form_obj = $( this ).parents('form'),
+            $this = $( this );
 
         /**
          * Doc code from FB, shows fb pop-up box
@@ -90,7 +93,7 @@ jQuery( document ).ready(function( $ ){
                         data: {
                             action: "facebook_login",
                             fb_response: fb_response,
-                            security: $('#facebook_security').val()
+                            security: $this.data('alr_facebook_security')
                         },
                         global: false,
                         type: "POST",
