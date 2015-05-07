@@ -48,9 +48,29 @@ add_action( 'wp_enqueue_scripts', 'zm_ajax_login_register_enqueue_scripts');
 
 
 function zm_ajax_login_register_localized_js(){
+
+
     $redirect_url = get_option('ajax_login_register_redirect');
-    $redirect_url = empty( $redirect_url ) ? network_site_url($_SERVER['REQUEST_URI']) : $redirect_url;
-    $redirect_url = apply_filters( 'zm_ajax_login_redirect', $redirect_url );
+
+    // Just use the current page
+    if ( empty( $redirect_url ) ){
+        global $wp;
+        $formatted_url = trailingslashit( add_query_arg( '', '', network_site_url( $wp->request ) ) );
+    }
+
+    // This is just a slug, and doesn't have http(s), so lets add it
+    elseif ( strpos( $redirect_url, 'http' ) === false ) {
+        $formatted_url = network_site_url( $redirect_url );
+    }
+
+    // Just use what ever they entered
+    else {
+
+        $formatted_url = esc_url( $redirect_url );
+    }
+
+    $redirect_url = apply_filters( 'zm_ajax_login_redirect', $formatted_url );
+
     $width = array(
         'default' => 265,
         'wide' => 440,
