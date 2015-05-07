@@ -11,6 +11,8 @@
  */
 
 
+define( 'AJAX_LOGIN_REGISTER_VERSION', '1.0.9' );
+
 
 /**
  * Plugin initial setup
@@ -115,9 +117,26 @@ function zm_ajax_login_register_localized_js(){
  * When the plugin is deactivated remove the shown notice option
  */
 function ajax_login_register_deactivate(){
+
     delete_option( 'ajax_login_register_plugin_notice_shown' );
+    delete_option( 'ajax_login_register_version' );
+
 }
 register_deactivation_hook( __FILE__, 'ajax_login_register_deactivate' );
+
+
+function ajax_login_register_activate(){
+
+    $version = update_option( 'ajax_login_register_version', AJAX_LOGIN_REGISTER_VERSION );
+
+    if ( $version == '1.0.9' ){
+
+        // Remove the legacy option 'admins', which was used for Facebook admin IDs
+        delete_option( 'admins' );
+    }
+
+}
+register_activation_hook( __FILE__, 'ajax_login_register_activate' );
 
 
 /**
