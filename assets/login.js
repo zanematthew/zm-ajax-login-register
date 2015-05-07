@@ -1,26 +1,5 @@
 jQuery( document ).ready(function( $ ){
 
-    window.zMAjaxLoginDialog = {
-        open: function(){
-            $('#ajax-login-register-login-dialog').dialog('open');
-
-            $.ajax({
-                global: false,
-                type: "POST",
-                url: _ajax_login_settings.ajaxurl,
-                data: {
-                    action: 'load_template',
-                    referer: 'login_form',
-                    template: 'login-form',
-                    security: $('#ajax-login-register-login-dialog').attr('data-security')
-                },
-                success: function( msg ){
-                    $( "#ajax-login-register-login-target" ).fadeIn().html( msg ); // Give a smooth fade in effect
-                }
-            });
-        }
-    };
-
     /**
      * We hook into the form submission and submit it via ajax.
      * the action maps to our php function, which is added as
@@ -129,16 +108,22 @@ jQuery( document ).ready(function( $ ){
             $this.attr( 'href', _ajax_login_settings.wp_logout_url );
 
         } else {
+
             $( document ).on('click', _ajax_login_settings.login_handle, function( event ){
 
                 event.preventDefault();
-                zMAjaxLoginDialog.open();
+                zMAjaxLoginRegister.open_login();
+
+                if ( ! _ajax_login_settings.pre_load_forms.length ){
+                    zMAjaxLoginRegister.load_login();
+                }
 
             });
         }
     }
 
-    $( document ).on('click', '.not-a-member-handle', function(){
+    $( document ).on('click', '.not-a-member-handle', function( e ){
+        e.preventDefault();
         $('#ajax-login-register-login-dialog').dialog('close');
         zMAjaxLoginRegisterDialog.open();
     });

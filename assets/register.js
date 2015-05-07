@@ -8,33 +8,14 @@ jQuery( document ).ready(function( $ ){
         $(this).closest('.ajax-login-register-container').dialog('close');
     });
 
-    window.zMAjaxLoginRegisterDialog = {
-        open: function(){
-            $('#ajax-login-register-dialog').dialog('open');
-
-            var data = {
-                action: 'load_template',
-                template: 'register-form',
-                referer: 'register_form',
-                security:  $('#ajax-login-register-dialog').attr('data-security')
-            };
-
-            $.ajax({
-                global: false,
-                data: data,
-                type: "POST",
-                url: _ajax_login_settings.ajaxurl,
-                success: function( msg ){
-                    $( "#ajax-login-register-target" ).fadeIn().html( msg ); // Give a smooth fade in effect
-                }
-            });
-        }
-    };
 
     if ( _ajax_login_settings.register_handle.length ){
         $( document ).on('click', _ajax_login_settings.register_handle, function( event ){
             event.preventDefault();
-            zMAjaxLoginRegisterDialog.open();
+            zMAjaxLoginRegister.open_register();
+            if ( ! _ajax_login_settings.pre_load_forms.length ){
+                zMAjaxLoginRegister.load_register();
+            }
         });
     }
 

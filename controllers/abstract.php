@@ -81,6 +81,12 @@ abstract Class AjaxLogin {
                     'label' => __('Force Check Password','ajax_login_register'),
                     'type' => 'checkbox',
                     'description' => __('Use this option if your are experiencing compatibility issues with other login and or register plugins.','ajax_login_register')
+                    ),
+                array(
+                    'key' => 'ajax_login_register_pre_load_forms',
+                    'label' => __('Pre-load Forms','ajax_login_register'),
+                    'type' => 'checkbox',
+                    'description' => __('Setting this option will pre-load the forms, allowing them to be loaded prior to being clicked on.','ajax_login_register')
                     )
                 );
 

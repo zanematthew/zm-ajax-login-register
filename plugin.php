@@ -81,7 +81,8 @@ function zm_ajax_login_register_localized_js(){
         'is_user_logged_in' => is_user_logged_in() ? 1 : 0,
         'wp_logout_url' => wp_logout_url( site_url() ),
         'logout_text' => __('Logout', 'ajax_login_register' ),
-        'close_text' => __('Close', 'ajax_login_register' )
+        'close_text' => __('Close', 'ajax_login_register' ),
+        'pre_load_forms' => get_option( 'ajax_login_register_pre_load_forms' )
         );
 
     $localized = apply_filters( 'zm_ajax_login_register_localized_js', $defaults );

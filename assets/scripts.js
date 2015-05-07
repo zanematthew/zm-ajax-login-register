@@ -37,32 +37,63 @@ var zMAjaxLoginRegister = {
         }
 
         return msg;
+    },
+
+    open_login: function(){
+
+        jQuery('#ajax-login-register-login-dialog').dialog('open');
+
+    },
+
+    //
+    load_login: function(){
+        jQuery.ajax({
+            global: false,
+            type: "POST",
+            url: _ajax_login_settings.ajaxurl,
+            data: {
+                action: 'load_template',
+                referer: 'login_form',
+                template: 'login-form',
+                security: jQuery('#ajax-login-register-login-dialog').attr('data-security')
+            },
+            success: function( msg ){
+                jQuery( "#ajax-login-register-login-target" ).fadeIn().html( msg ); // Give a smooth fade in effect
+            }
+        });
+    },
+
+    //
+    open_register: function(){
+
+        jQuery('#ajax-login-register-dialog').dialog('open');
+
+    },
+
+    //
+    load_register: function(){
+
+        var data = {
+            action: 'load_template',
+            template: 'register-form',
+            referer: 'register_form',
+            security:  jQuery('#ajax-login-register-dialog').attr('data-security')
+        };
+
+        jQuery.ajax({
+            global: false,
+            data: data,
+            type: "POST",
+            url: _ajax_login_settings.ajaxurl,
+            success: function( msg ){
+                jQuery( "#ajax-login-register-target" ).fadeIn().html( msg ); // Give a smooth fade in effect
+            }
+        });
     }
 };
 
 
 jQuery( document ).ready(function( $ ){
-
-    window.zMAjaxLoginDialog = {
-        open: function(){
-            $('#ajax-login-register-login-dialog').dialog('open');
-
-            $.ajax({
-                global: false,
-                type: "POST",
-                url: _ajax_login_settings.ajaxurl,
-                data: {
-                    action: 'load_template',
-                    referer: 'login_form',
-                    template: 'login-form',
-                    security: $('#ajax-login-register-login-dialog').attr('data-security')
-                },
-                success: function( msg ){
-                    $( "#ajax-login-register-login-target" ).fadeIn().html( msg ); // Give a smooth fade in effect
-                }
-            });
-        }
-    };
 
 
     window.ajax_login_register_show_message = function( form_obj, msg ) {
@@ -155,5 +186,10 @@ jQuery( document ).ready(function( $ ){
         at: "center top+5%",
         of: 'body'
     });
+
+    if ( _ajax_login_settings.pre_load_forms.length ){
+        zMAjaxLoginRegister.load_login();
+        zMAjaxLoginRegister.load_register();
+    }
 
 });
