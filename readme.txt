@@ -162,8 +162,22 @@ Your seeing this message because your site is not open for registration. In orde
 
 = 1.0.9 =
 
- * Enhancement: Adding placeholder values for front end forms, [88](https://github.com/zanematthew/zm-ajax-login-register/issues/88)
+ * Maintenance: Removed deprecated function, [#103](https://github.com/zanematthew/zm-ajax-login-register/issues/103)
+ * Maintenance: Removing unused options, [#53](https://github.com/zanematthew/zm-ajax-login-register/issues/53)
+ * Translation: Added Romanian translation via (Dumitru)[http://www.vtube.ro], [#100](https://github.com/zanematthew/zm-ajax-login-register/issues/100)
+ * Translation: Added Italian translation via Francesco D'Alia, [#99](https://github.com/zanematthew/zm-ajax-login-register/issues/99)
  * Translation: Adding German translation, via Jonas Meier
+ * Feature: Disabled global AJAX callbacks, [#98](https://github.com/zanematthew/zm-ajax-login-register/issues/98)
+ * Feature: Add new setting to pre-load dialog boxes, [#80](https://github.com/zanematthew/zm-ajax-login-register/issues/80)
+ * Enhancement: Adding placeholder values for front end forms, [88](https://github.com/zanematthew/zm-ajax-login-register/issues/88)
+ * Compatibility: Adding better support for Limit Login Attempts, and other plugins that interact with the login, register process, [#77](https://github.com/zanematthew/zm-
+ * Compatibility: Removed the not needed Facebook meta og title tag, [#89](https://github.com/zanematthew/zm-ajax-login-register/issues/89)
+ * Bug: Disabled auto-complete for login and password field, [#97](https://github.com/zanematthew/zm-ajax-login-register/issues/97)
+ * Bug: Better sanitizing of Facebook App ID, [#96](https://github.com/zanematthew/zm-ajax-login-register/issues/96)
+ * Bug: Better handling of default redirect, [#95](https://github.com/zanematthew/zm-ajax-login-register/issues/95)
+ * Bug: Fixed bug that prevented default new user notices from being sent, [#92](https://github.com/zanematthew/zm-ajax-login-register/issues/92)
+ * Bug: Allowing for case sensitive passwords, [#82](https://github.com/zanematthew/zm-ajax-login-register/issues/82)
+ * Bug: Addressed issue with duplicate HTML IDs, [#14](https://github.com/zanematthew/zm-ajax-login-register/issues/14)
 
 = 1.0.8 =
 
