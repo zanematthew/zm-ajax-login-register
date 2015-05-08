@@ -4,7 +4,7 @@ Contributors: ZaneMatthew, dvk
 Donate link: http://zanematthew.com/donate/
 Tags: admin, AJAX, login, manage, modal, password, plugin, redirect, register, username, Facebook
 Requires at least: 3.5
-Tested up to: 3.9.2
+Tested up to: 4.2.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
