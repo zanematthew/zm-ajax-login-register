@@ -218,8 +218,19 @@ abstract Class AjaxLogin {
      * @package AJAX
      */
     public function load_template(){
+
         check_ajax_referer( $_POST['referer'],'security');
-        load_template( plugin_dir_path( dirname( __FILE__ ) ) . "views/" . $_POST['template'] . '.php' );
+
+        $file_name = sanitize_file_name( $_POST['template'] );
+        $valid_file_names = array(
+            'login-form',
+            'register-form'
+            );
+
+        if ( in_array( $file_name, $valid_file_names ) ){
+            load_template( plugin_dir_path( dirname( __FILE__ ) ) . "views/" . $file_name . '.php' );
+        }
+
         die();
     }
 
