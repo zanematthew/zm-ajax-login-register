@@ -160,6 +160,10 @@ Your seeing this message because your site is not open for registration. In orde
 
 == Changelog ==
 
+= 1.1.0 =
+
+ * Security fix to prevent a local file inclusion vulnerability, and XSS attacks.
+
 = 1.0.9 =
 
  * Maintenance: Removed deprecated function, [#103](https://github.com/zanematthew/zm-ajax-login-register/issues/103)
