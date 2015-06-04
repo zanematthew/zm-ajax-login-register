@@ -63,8 +63,9 @@ jQuery( document ).ready(function( $ ){
         }
     });
 
-    $( document ).on('click', '.already-registered-handle', function(){
+    $( document ).on('click', '.already-registered-handle', function(e){
+        e.preventDefault();
         $('#ajax-login-register-dialog').dialog('close');
-        zMAjaxLoginDialog.open();
+        zMAjaxLoginRegister.open_login();
     });
 });
