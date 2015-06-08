@@ -125,6 +125,6 @@ jQuery( document ).ready(function( $ ){
     $( document ).on('click', '.not-a-member-handle', function( e ){
         e.preventDefault();
         $('#ajax-login-register-login-dialog').dialog('close');
-        zMAjaxLoginRegisterDialog.open();
+        zMAjaxLoginRegister.open_register();
     });
 });

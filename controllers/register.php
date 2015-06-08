@@ -139,8 +139,6 @@ Class ajax_login_register_Register Extends AjaxLogin {
 
         } else {
 
-            // Store random password as user meta
-            add_user_meta( $user_id, '_random', $user_pass );
             $user_obj = get_user_by( 'id', $user_id );
 
         }
