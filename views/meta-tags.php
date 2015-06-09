@@ -19,20 +19,17 @@
         <?php endif; ?>
     <?php endforeach; ?>    
     <!-- End: Ajax Login Register Facebook meta tags -->
-<?php endif; ?>
-
-<?php if ( get_option('ajax_login_register_facebook') ) : ?>
-    <?php $app_id = $setting['key'] == 'app_id' ? get_option( $setting['key'] ) : null; ?>
-    <!-- Start: Ajax Login Register Facebook script -->
-    <script type="text/javascript">
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId      : "<?php esc_attr_e( $app_id ); ?>", // App ID
-                cookie     : true,  // enable cookies to allow the server to access the session
-                xfbml      : true,  // parse XFBML
-                version    : 'v2.0' // use version 2.0
-            });
-        };
+	<?php $app_id = get_option( 'app_id' ) ; ?>
+	<!-- Start: Ajax Login Register Facebook script -->
+	<script type="text/javascript">
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId      : "<?php esc_attr_e( $app_id ); ?>", // App ID
+				cookie     : true,  // enable cookies to allow the server to access the session
+				xfbml      : true,  // parse XFBML
+				version    : 'v2.0' // use version 2.0
+			});
+		};
 
         // Load the SDK asynchronously
         // This is updated as the old version went to all.js
