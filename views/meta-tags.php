@@ -27,7 +27,7 @@
 				appId      : "<?php esc_attr_e( $app_id ); ?>", // App ID
 				cookie     : true,  // enable cookies to allow the server to access the session
 				xfbml      : true,  // parse XFBML
-				version    : 'v2.0' // use version 2.0
+				version    : 'v2.3' // use version 2.3
 			});
 		};
 
@@ -37,7 +37,7 @@
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
             js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
+            js.src = "//connect.facebook.net/<?php echo $locale = get_locale() ? $locale : 'en_US';?>/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
