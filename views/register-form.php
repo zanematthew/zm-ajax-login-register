@@ -16,7 +16,7 @@
 
                 <?php if ( get_option('ajax_login_register_facebook') ) : ?>
                     <div class="fb-login-container">
-                        <a href="#" class="fb-login" data-alr_facebook_security="<?php echo wp_create_nonce('facebook-nonce'); ?>"><img src="<?php print plugin_dir_url( dirname( __FILE__ ) ); ?>assets/images/fb-login-button.png" /></a>
+                        <a href="#" class="fb-login" data-alr_facebook_security="<?php echo wp_create_nonce('facebook-nonce'); ?>"><?php _e( 'Log in using Facebook', 'ajax_login_register' ); ?></a>
                     </div>
                 <?php endif; ?>
 

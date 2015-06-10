@@ -13,7 +13,7 @@
         <form action="javascript://" class="ajax-login-default-form-container login_form <?php print get_option('ajax_login_register_default_style'); ?>" data-alr_login_security="<?php echo wp_create_nonce( 'login_submit' ); ?>">
             <?php if ( get_option('ajax_login_register_facebook') && get_option('users_can_register') ) : ?>
                 <div class="fb-login-container">
-                    <a href="#" class="fb-login" data-alr_facebook_security="<?php echo wp_create_nonce( 'facebook-nonce' ); ?>"><img src="<?php print plugin_dir_url( dirname( __FILE__ ) ); ?>assets/images/fb-login-button.png" /></a>
+                    <a href="#" class="fb-login" data-alr_facebook_security="<?php echo wp_create_nonce( 'facebook-nonce' ); ?>"><?php _e( 'Log in using Facebook', 'ajax_login_register' ); ?></a>
                 </div>
             <?php endif; ?>
             <div class="form-wrapper">

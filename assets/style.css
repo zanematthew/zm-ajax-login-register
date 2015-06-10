@@ -146,6 +146,46 @@ body {
     margin-top: 15px;
     }
 
+.ajax-login-default-form-container a.fb-login:before {
+    background-image: url('images/fb-icon.png');
+    content: ".";
+    color: #425EAC;
+    height: 32px;
+    width: 32px;
+    display: inline-block;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin-right: 5px;
+    text-shadow: none;
+    text-align: center;
+    }
+
+.ajax-login-default-form-container a.fb-login {
+    font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+    text-decoration: none;
+    background: #4c69ba;
+    background: -webkit-gradient(linear, center top, center bottom, from(#4c69ba), to(#3b55a0));
+    background: -webkit-linear-gradient(#4c69ba, #3b55a0);
+    border-color: #4c69ba;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 0 -1px 0 #354c8c;
+    color: #fff;
+    font-size: 13px;
+    padding: 5px 8px 5px 5px;
+    border-radius: 4px;
+    margin: 0;
+    clear: both;
+    display: inline-block;
+    line-height: 2.4em;
+    }
+
+.ajax-login-default-form-container a.fb-login:hover {
+    background: -webkit-gradient(linear, center top, center bottom, from(#5b7bd5), to(#4864b1));
+    background: -webkit-linear-gradient(#5b7bd5, #4864b1);
+    cursor: pointer;
+    }
+
+
 
 /*= Shortcode
 -------------------------------------------------------------- */
