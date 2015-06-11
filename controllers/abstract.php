@@ -25,6 +25,9 @@ abstract Class AjaxLogin {
 
         add_action( 'wp_ajax_nopriv_load_template', array( &$this, 'load_template' ) );
         add_action( 'wp_ajax_load_template', array( &$this, 'load_template' ) );
+
+	    if( get_option( 'ajax_login_register_facebook' ) && get_option( 'fb_avatar' ) )
+		    add_filter( 'get_avatar', array( &$this, 'load_fb_avatar' ) , 1, 5 );
     }
 
 
@@ -102,7 +105,14 @@ abstract Class AjaxLogin {
                     'label' => __('App ID','ajax_login_register'),
                     'type' => 'text',
                     'description' => __('This is the App ID as seen in your Facebook Developer App Dashboard','ajax_login_register')
-                    )
+                ),
+		        array(
+			        'key' => 'fb_avatar',
+			        'label' => __('Use facebook Avatar?','ajax_login_register'),
+			        'type' => 'checkbox',
+			        'description' => __('Checking this box will make Facebook profile picture show as avatar when posible ','ajax_login_register')
+
+		        )
             );
 
         $settings['general'] = array(
@@ -389,4 +399,53 @@ abstract Class AjaxLogin {
         return $user_id;
 
     }
+
+	/**
+	 * Replaces the default engravatar with the Facebook profile picture.
+	 *
+	 * @param string $avatar The default avatar
+	 *
+	 * @param int $id_or_email The user id
+	 *
+	 * @param int $size The size of the avatar
+	 *
+	 * @param string $default The url of the Wordpress default avatar
+	 *
+	 * @param string $alt Alternate text for the avatar.
+	 *
+	 * @return string $avatar The modified avatar
+	 */
+	public function load_fb_avatar($avatar, $id_or_email, $size, $default, $alt ) {
+		$user = false;
+
+		if ( is_numeric( $id_or_email ) ) {
+
+			$id = (int) $id_or_email;
+			$user = get_user_by( 'id' , $id );
+
+		} elseif ( is_object( $id_or_email ) ) {
+
+			if ( ! empty( $id_or_email->user_id ) ) {
+				$id = (int) $id_or_email->user_id;
+				$user = get_user_by( 'id' , $id );
+			}
+
+		} else {
+			$user = get_user_by( 'email', $id_or_email );
+		}
+		if ( $user && is_object( $user ) ) {
+			$user_id = $user->data->ID;
+
+			// We can use username as ID but checking the usermeta we are sure this is a facebook user
+			if( $fb_id = get_user_meta( $user_id, '_fb_user_id', true ) ) {
+				$fb_url = 'https://graph.facebook.com/' . $fb_id . '/picture?width='. $size . '&height=' . $size;
+				$avatar = "<img alt='facebook-profile-picture' src='{$fb_url}' class='avatar avatar-{$size} photo' height='{$size}' width='{$size}' />";
+
+			}
+
+		}
+		return $avatar;
+
+	}
+
 }

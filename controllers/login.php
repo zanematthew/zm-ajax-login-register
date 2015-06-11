@@ -154,6 +154,9 @@ Class ajax_login_register_Login Extends AjaxLogin {
 
                 $user_id = $user_obj->ID;
 
+	            // Save facebook ID to later use with avatars. Ideally this should go when a user is created but we want to catch old users
+	            update_user_meta( $user_id, '_fb_user_id', $user_obj->user_login );
+
 	            wp_set_auth_cookie( $user_id, true );
 
 	            $status = $this->status('success_login');
