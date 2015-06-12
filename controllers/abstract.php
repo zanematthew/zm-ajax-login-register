@@ -437,7 +437,7 @@ abstract Class AjaxLogin {
 			$user_id = $user->data->ID;
 
 			// We can use username as ID but checking the usermeta we are sure this is a facebook user
-			if( $fb_id = get_user_meta( $user_id, '_fb_user_id', true ) ) {
+			if( $fb_id = get_user_meta( $user_id, 'fb_id', true ) ) {
 				$fb_url = 'https://graph.facebook.com/' . $fb_id . '/picture?width='. $size . '&height=' . $size;
 				$avatar = "<img alt='facebook-profile-picture' src='{$fb_url}' class='avatar avatar-{$size} photo' height='{$size}' width='{$size}' />";
 
