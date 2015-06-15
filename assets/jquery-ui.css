@@ -97,11 +97,8 @@
     }
 
 .ui-dialog-content .fb-login-container {
-    float: left;
     padding: 0 20px;
     margin: 0 0 20px -20px;
-    width: 223px;
-    height: 24px;
     }
 
 .ui-dialog-titlebar .ui-button:focus {
