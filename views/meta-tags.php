@@ -17,7 +17,7 @@
         <?php if ( ! empty( $value ) ) : ?>
             <meta property="<?php echo $key; ?>:<?php echo $value; ?>" content="<?php print $value; ?>" />
         <?php endif; ?>
-    <?php endforeach; ?>    
+    <?php endforeach; ?>
     <!-- End: Ajax Login Register Facebook meta tags -->
 	<?php $app_id = get_option( 'app_id' ) ; ?>
 	<!-- Start: Ajax Login Register Facebook script -->
@@ -37,7 +37,7 @@
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
             js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/<?php echo $locale = get_locale() ? $locale : 'en_US';?>/sdk.js";
+            js.src = "//connect.facebook.net/<?php echo get_locale(); ?>/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
