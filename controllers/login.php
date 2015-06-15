@@ -132,6 +132,7 @@ Class ajax_login_register_Login Extends AjaxLogin {
             'last_name'  => $_POST['fb_response']['last_name'],
             'email'      => $_POST['fb_response']['email'],
             'user_url'   => $_POST['fb_response']['link'],
+            'fb_id'      => $_POST['fb_response']['id']
             );
 
         if ( empty( $user['username'] ) ){

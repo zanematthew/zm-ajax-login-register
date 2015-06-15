@@ -108,7 +108,7 @@ abstract Class AjaxLogin {
                 ),
 		        array(
 			        'key' => 'fb_avatar',
-			        'label' => __('Use facebook Avatar?','ajax_login_register'),
+			        'label' => __('Use Facebook Avatar','ajax_login_register')
 			        'type' => 'checkbox',
 			        'description' => __('Checking this box will make Facebook profile picture show as avatar when posible ','ajax_login_register')
 
