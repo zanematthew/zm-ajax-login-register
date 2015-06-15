@@ -161,6 +161,15 @@ Your seeing this message because your site is not open for registration. In orde
 
 == Changelog ==
 
+= 1.1.1 =
+
+ * Translation: Adding Ukrainian via Ivanak from [Coupofy](http://www.coupofy.com/)
+ * Translation: Adding simplified Chinese [via Pull request](https://github.com/zanematthew/zm-ajax-login-register/pull/104)
+ * Enhancement: Facebook Avatar support [pull #109](https://github.com/zanematthew/zm-ajax-login-register/pull/109)
+ * Enhancement: New (translatable) Facebook login button
+ * Enhancement: Utilizing less user meta [pull #107](https://github.com/zanematthew/zm-ajax-login-register/pull/107)
+
+
 = 1.1.0 =
 
  * Security fix to prevent a local file inclusion vulnerability, and XSS attacks.
