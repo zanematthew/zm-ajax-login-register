@@ -55,19 +55,23 @@ function zm_ajax_login_register_localized_js(){
     $redirect_url = get_option('ajax_login_register_redirect');
 
     // Just use the current page
-    if ( empty( $redirect_url ) ){
-        global $wp;
-        $formatted_url = trailingslashit( add_query_arg( '', '', network_site_url( $wp->request ) ) );
-    }
+	if ( empty( $redirect_url ) ){
+		global $wp;
+		if ( $wp->query_string ) {
+			$formatted_url = add_query_arg( $wp->query_string, '', home_url( $wp->request ) );
+		}
+		else {
+			$formatted_url = trailingslashit( add_query_arg( '', '', home_url( $wp->request ) ) );
+		}
+	}
 
     // This is just a slug, and doesn't have http(s), so lets add it
     elseif ( strpos( $redirect_url, 'http' ) === false ) {
-        $formatted_url = network_site_url( $redirect_url );
+        $formatted_url = home_url( $redirect_url );
     }
 
     // Just use what ever they entered
     else {
-
         $formatted_url = esc_url( $redirect_url );
     }
 
