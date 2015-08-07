@@ -10,8 +10,45 @@
  * License: GPL V2 or Later
  */
 
+define( 'ALR_URL', plugin_dir_url( __FILE__ ) );
+define( 'ALR_PATH', plugin_dir_path( __FILE__ ) );
+define( 'ALR_NAMESPACE', 'alr' );
+define( 'ALR_TEXT_DOMAIN', 'ajax_login_register' );
+define( 'ALR_VERSION', '1.0.0' );
+define( 'ALR_PLUGIN_FILE', __FILE__ );
+define( 'ALR_PRODUCT_NAME', 'ZM AJAX Login Regiser' ); // Must match download title in EDD store!
+define( 'ALR_AUTHOR', 'Zane Matthew' );
 
-define( 'AJAX_LOGIN_REGISTER_VERSION', '1.1.1' );
+require ALR_PATH . 'lib/lumber/lumber.php';
+require ALR_PATH . 'lib/quilt/quilt.php';
+
+require ALR_PATH . 'settings.php';
+
+require ALR_PATH . 'deprecated.php';
+
+require ALR_PATH . 'src/ALRLogin/ALRLogin.php';
+require ALR_PATH . 'src/ALRDesign/ALRDesign.php';
+require ALR_PATH . 'src/ALRSocial/ALRSocial.php';
+require ALR_PATH . 'src/ALRMisc/ALRMisc.php';
+require ALR_PATH . 'src/ALRRedirect/ALRRedirect.php';
+
+
+function alr_init(){
+
+    global $alr_settings_obj;
+    $alr_settings_obj = new Quilt(
+        ALR_NAMESPACE,
+        array(),
+        'plugin'
+    );
+
+    global $alr_settings;
+    $alr_settings = $alr_settings_obj->getSaneOptions();
+
+    do_action( ALR_NAMESPACE . '_init' );
+
+}
+add_action( 'init', 'alr_init' );
 
 
 /**

@@ -1,0 +1,9 @@
+[submodule "lib/quilt"]
+	path = lib/quilt
+	url = git@labs.zanematthew.com:zm/quilt.git
+[submodule "lib/lumber"]
+	path = lib/lumber
+	url = git@labs.zanematthew.com:zm/lumber.git
+[submodule "lib/zm-dependency-container"]
+	path = lib/zm-dependency-container
+	url = git@labs.zanematthew.com:zm/zm-dependency-container.git
