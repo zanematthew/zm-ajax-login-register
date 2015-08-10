@@ -63,7 +63,7 @@ Class ajax_login_register_Login Extends AjaxLogin {
         /**
          * Verify the AJAX request
          */
-        if ( $is_ajax ) check_ajax_referer('login_submit','security');
+        // if ( $is_ajax ) check_ajax_referer('login_submit','security');
 
         $username = empty( $_POST['user_login'] ) ? $user_login : sanitize_text_field( $_POST['user_login'] );
         $password = empty( $_POST['password'] ) ? $password : sanitize_text_field( $_POST['password'] );
@@ -122,7 +122,7 @@ Class ajax_login_register_Login Extends AjaxLogin {
      */
     public function facebook_login(){
 
-        check_ajax_referer( 'facebook-nonce', 'security' );
+        // check_ajax_referer( 'facebook-nonce', 'security' );
 
         // Map our FB response fields to the correct user fields as found in wp_update_user
         $user = array(

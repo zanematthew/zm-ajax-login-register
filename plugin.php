@@ -21,12 +21,16 @@ define( 'ALR_AUTHOR', 'Zane Matthew' );
 
 require ALR_PATH . 'lib/lumber/lumber.php';
 require ALR_PATH . 'lib/quilt/quilt.php';
+require ALR_PATH . 'lib/zm-dependency-container/zm-dependency-container.php';
 
 require ALR_PATH . 'settings.php';
 
 require ALR_PATH . 'deprecated.php';
 
-require ALR_PATH . 'src/ALRLogin/ALRLogin.php';
+require ALR_PATH . 'src/ALRCore/ALRHtml.php';
+require ALR_PATH . 'src/ALRCore/ALRLogin.php';
+require ALR_PATH . 'src/ALRCore/ALRRegister.php';
+
 require ALR_PATH . 'src/ALRDesign/ALRDesign.php';
 require ALR_PATH . 'src/ALRSocial/ALRSocial.php';
 require ALR_PATH . 'src/ALRMisc/ALRMisc.php';

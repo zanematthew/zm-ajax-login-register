@@ -251,3 +251,43 @@ body {
     .hentry .ajax-login-default-form-container input[type="text"],
     .hentry .ajax-login-default-form-container input[type="password"] {}
 }
+
+
+/* Login New */
+.alr_login_container {}
+
+/* deprecated */
+.noon {}
+
+/* all checkboxes */
+.alr_checkbox_container {}
+
+/* all checkboxes ONLY on the login form */
+.alr_login_checkbox_container {}
+
+/* all fields */
+.alr_login_field_container {}
+
+.alr_ul_container {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    }
+
+.alr_ul_container li {
+    display: inline;
+    margin: 0 10px 0 0;
+    }
+
+.alr_ul_container li:last-child {
+    margin: 0;
+    }
+
+.alr_ul_container li a {}
+
+
+/* Default form */
+.alr_form_container .alr_checkbox_field {
+    float: left;
+    margin: 5px 10px 0 0;
+    }
