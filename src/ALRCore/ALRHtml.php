@@ -4,9 +4,12 @@ Class ALRHtml {
 
     public function buildFormFieldsHtml( $fields=null, $prefix=null, $order=null ){
 
-        // Use this filter to add additional classes
+        // Use this filter to add additional classes for the parent/container of each
+        // form field
         $default_classes = apply_filters( $prefix . '_form_classes', array() );
         $html = null;
+
+        $order = apply_filters( $prefix . '_order_fields', array_keys( $fields ) );
 
         foreach( $order as $key ){
 
@@ -20,51 +23,57 @@ Class ALRHtml {
 
             } else {
 
+
                 do_action( $key . '_above_field' );
 
-                $args = wp_parse_args( $fields[ $key ], array(
+
+                // filter
+                $args = wp_parse_args( $fields[ $key ], apply_filters( $prefix . '_fields_args', array(
                     'extra' => null,
                     'required' => null,
                     'size' => null,
                     'name' => $key,
                     'id' => $prefix . '_' . sanitize_title( $key ),
-                    'class' => ALR_NAMESPACE . '_' . esc_attr( $fields[ $key ]['type'] ) . '_field',
+                    'classes' => array(
+                        ALR_NAMESPACE . '_' . esc_attr( $fields[ $key ]['type'] ) . '_field',
+                        ALR_NAMESPACE . '_form_field'
+                        ),
                     'placeholder' => esc_attr( $fields[ $key ]['title'] ),
                     'type' => esc_attr( $fields[ $key ]['type'] ),
                     'html' => null
-                    ) );
+                    ) ) );
 
-                $classes = array_merge( $default_classes, array(
-                    'noon',
+                $container_classes = array_merge( $default_classes, apply_filters( $prefix . '_field_container_classes', array(
                     ALR_NAMESPACE . '_' . $args['type'] . '_container',
-                    $prefix . '_' . $args['type'] . '_container',
-                    $args['class'] . '_container'
-                    ) );
+                    $prefix . '_' . $args['type'] . '_container'
+                    ) ) );
 
-                $html .= '<div class="' . implode( " ", $classes ) . '">';
+                $field_classes = implode( " ", $args['classes'] );
+
+                $html .= '<div class="' . implode( " ", $container_classes ) . '">';
 
                 switch ( $fields[ $key ]['type'] ) {
 
                     case 'text':
                         $html .= '<label for="' . $args['id'] . '">' . $args['title'] . '</label>';
-                        $html .= '<input type="text" name="' . $args['name'] . '" id="' . $args['id'] . '" class="' . $args['class'] . '" placeholder="' . $args['placeholder'] . '" ' . $args['extra'] . ' />';
+                        $html .= '<input type="text" name="' . $args['name'] . '" id="' . $args['id'] . '" class="' . $field_classes . '" placeholder="' . $args['placeholder'] . '" ' . $args['extra'] . ' />';
                         $html .= PHP_EOL;
                         break;
 
                     case 'password':
                         $html .= '<label for="' . $args['id'] . '">' . $args['title'] . '</label>';
-                        $html .= '<input type="password" name="' . $args['name'] . '" id="' . $args['id'] . '" class="' . $args['class'] . '" placeholder="' . $args['placeholder'] . '" ' . $args['extra'] . ' />';
+                        $html .= '<input type="password" name="' . $args['name'] . '" id="' . $args['id'] . '" class="' . $field_classes . '" placeholder="' . $args['placeholder'] . '" ' . $args['extra'] . ' />';
                         $html .= PHP_EOL;
                         break;
 
                     case 'email':
                         $html .= '<label for="' . $args['id'] . '">' . $args['title'] . '</label>';
-                        $html .= '<input autocorrect="none" autocapitalize="none" type="email" name="' . $args['name'] . '" id="' . $args['id'] . '" class="' . $args['class'] . '" placeholder="' . $args['placeholder'] . '" ' . $args['extra'] . ' />';
+                        $html .= '<input autocorrect="none" autocapitalize="none" type="email" name="' . $args['name'] . '" id="' . $args['id'] . '" class="' . $field_classes . '" placeholder="' . $args['placeholder'] . '" ' . $args['extra'] . ' />';
                         $html .= PHP_EOL;
                         break;
 
                     case 'checkbox':
-                        $html .= '<input type="checkbox" name="' . $args['name'] . '" id="' . $args['id'] . '" class="' . $args['class'] . '" ' . $args['extra'] . ' />';
+                        $html .= '<input type="checkbox" name="' . $args['name'] . '" id="' . $args['id'] . '" class="' . $field_classes . '" ' . $args['extra'] . ' />';
                         $html .= '<label for="' . $args['id'] . '">' . $args['title'] . '</label>';
                         $html .= PHP_EOL;
                         break;
@@ -97,13 +106,14 @@ Class ALRHtml {
 
             $html = null;
             foreach( $links as $key => $value ){
-                 $args = wp_parse_args( $value, array(
+                 $args = wp_parse_args( $value, apply_filters( $prefix . '_link_args', array(
                     'href' => '#',
                     'class' => 'foo',
                     'title' => esc_attr( $value['text'] ),
                     'text' => esc_attr( $value['text'] ),
-                    'id' => $prefix . '_' . sanitize_title( $value['text'] )
-                    ) );
+                    'id' => $prefix . '_' . sanitize_title( $value['text'] ),
+                    'name' => $key
+                    ) ) );
 
                 $classes = array(
                     'noon',

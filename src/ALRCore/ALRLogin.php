@@ -12,15 +12,14 @@ Class ALRLogin {
 
     public function init(){
 
-        add_shortcode( 'ajax_login_two', array( &$this, 'shortcode' ) );
+        add_shortcode( 'ajax_login_v2', array( &$this, 'shortcode' ) );
 
     }
 
 
     public function shortcode(){
 
-        // Use this to filter HTML, just target the specific array by key
-        $fields = apply_filters( $this->prefix . '_fields', array(
+        $fields = array(
             $this->prefix . '_user_name' => array(
                 'title' => 'User Name',
                 'type' => 'text',
@@ -35,27 +34,27 @@ Class ALRLogin {
                 'title' => 'Keep Me Logged In',
                 'type' => 'checkbox'
                 )
-            ) );
+            );
 
-        $order = apply_filters( $this->prefix . '_order_fields', array_keys( $fields ) );
-        $fields_html = $this->_alr_html->buildFormFieldsHtml( $fields, $this->prefix, $order );
+        $fields_html = $this->_alr_html->buildFormFieldsHtml( $fields, $this->prefix );
 
-        $links = apply_filters( $this->prefix . '_form_links', array(
+        $links = array(
             $this->prefix . '_not_a_member' => array(
                 'href' => '#',
                 'class' => 'not-a-member-handle',
-                'text' => apply_filters( 'ajax_login_not_a_member_text', __('Are you a member?','ajax_login_register') ),
+                'text' => __( 'Are you a member?', ALR_TEXT_DOMAIN ),
                 ),
             $this->prefix . '_lost_password_url' => array(
                 'href' => wp_lostpassword_url(),
                 'class' => '',
-                'text' => __('Forgot Password','ajax_login_register')
+                'text' => __( 'Forgot Password',ALR_TEXT_DOMAIN )
                 )
-        ) );
+        );
 
         $links_html = $this->_alr_html->buildFormHtmlLinks( $links, $this->prefix );
 
 
+        // Maybe remove these
         $container_classes = apply_filters( $this->prefix . '_form_container_classes', array(
             ALR_NAMESPACE . '_form_container',
             $this->prefix . '_form_container'
@@ -66,7 +65,6 @@ Class ALRLogin {
             get_option('ajax_login_register_default_style')
             ) );
 
-        global $alr_settings;
         ob_start(); ?>
 
         <!-- Login Form -->
@@ -84,15 +82,6 @@ Class ALRLogin {
             <?php else : ?>
 
                 <form action="javascript://" class="<?php echo implode( " ", $form_classes ); ?>" data-alr_login_security="<?php echo wp_create_nonce( 'login_submit' ); ?>">
-
-                    <?php if ( $alr_settings['alr_social_fb_enabled']
-                          && get_option('users_can_register') ) : ?>
-
-                        <div class="fb-login-container">
-                            <a href="#" class="fb-login" data-alr_facebook_security="<?php echo wp_create_nonce( 'facebook-nonce' ); ?>"><?php _e( 'Log in using Facebook', ALR_TEXT_DOMAIN ); ?></a>
-                        </div>
-
-                    <?php endif; ?>
 
                     <div class="form-wrapper">
 
