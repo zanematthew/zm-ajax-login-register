@@ -27,6 +27,7 @@ require ALR_PATH . 'settings.php';
 
 require ALR_PATH . 'deprecated.php';
 
+require ALR_PATH . 'src/ALRCore/ALRHelpers.php';
 require ALR_PATH . 'src/ALRCore/ALRHtml.php';
 require ALR_PATH . 'src/ALRCore/ALRLogin.php';
 require ALR_PATH . 'src/ALRCore/ALRRegister.php';
