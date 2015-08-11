@@ -5,7 +5,9 @@ Class ALRLogin {
     public function __construct( ZM_Dependency_Container $di ){
 
         $this->_alr_html = $di->get_instance( 'html', 'ALRHtml', null );
+        $this->_alr_helpers = $di->get_instance( 'html', 'ALRHelpers', null );
         $this->prefix = 'alr_login';
+
         add_action( 'alr_init', array( &$this, 'init' ) );
 
     }
@@ -13,6 +15,8 @@ Class ALRLogin {
     public function init(){
 
         add_shortcode( 'ajax_login_v2', array( &$this, 'shortcode' ) );
+        add_action( 'wp_ajax_login_submit', array( &$this, 'loginSubmit' ) );
+        add_action( 'wp_ajax_nopriv_login_submit', array( &$this, 'loginSubmit' ) );
 
     }
 
@@ -103,6 +107,92 @@ Class ALRLogin {
         <!-- End Login Form -->
 
         <?php return ob_get_clean();
+    }
+
+
+    /**
+     * Processes credentials to pass into wp_signon to log a user into WordPress.
+     *
+     * @uses check_ajax_referer()
+     * @uses wp_signon()
+     * @uses is_wp_error()
+     *
+     * @param $user_login (string) Defaults to $_POST['user_login']
+     * @param $password (string)
+     * @param $is_ajax (bool) Process as an AJAX request
+     * @package AJAX
+     *
+     * @return userlogin on success; 0 on false;
+     */
+    public function loginSubmit( $user_login=null, $password=null, $is_ajax=true ) {
+
+        /**
+         * Verify the AJAX request
+         */
+        // if ( $is_ajax ) check_ajax_referer('login_submit','security');
+
+        $args = array(
+            'login' => sanitize_user( $_POST['alr_login_user_name'] ),
+            'password' => $_POST['alr_login_password'],
+            'remember' => ( $_POST['remember'] == 'on' ) ? true : false
+        );
+
+        // Currently wp_signon returns the same error code 'invalid_username' if
+        // a username does not exists or is invalid
+        if ( validate_username( $args['login'] ) ){
+
+            if ( username_exists( $args['login'] ) ){
+
+                // if option force check password
+                global $alr_settings;
+
+                if ( $alr_settings['alr_misc_force_check_password'] == 'on' ){
+
+                    $user = get_user_by( 'login', $args['login'] );
+                    if ( wp_check_password( $args['password'], $user->data->user_pass, $user->ID ) ){
+
+                        $status = $this->_alr_helpers->status('success_login');
+                        wp_signon( array(
+                            'user_login'    => $args['login'],
+                            'user_password' => $args['password'],
+                            'remember'      => $args['remember']
+                            ), false );
+                    }
+
+                } else {
+
+                    $creds = array(
+                        'user_login'    => $args['login'],
+                        'user_password' => $args['password'],
+                        'remember'      => $args['remember']
+                        );
+
+                    $user = wp_signon( $creds, false );
+
+                    if ( is_wp_error( $user ) ){
+                        $status = $this->_alr_helpers->status( $user->get_error_code() );
+                    } else {
+                        $status = $this->_alr_helpers->status('success_login');
+                    }
+                }
+
+            } else {
+
+                $status = $this->_alr_helpers->status('username_does_not_exists');
+
+            }
+
+        } else {
+
+            $status = $this->_alr_helpers->status('invalid_username');
+
+        }
+
+        if ( $is_ajax ) {
+            wp_send_json( $status );
+        } else {
+            return $status;
+        }
     }
 }
 
