@@ -121,6 +121,18 @@
     }
 
 
+.alr_design_wide .alr_form_field_container {
+    width: 50%;
+    float: left;
+    }
+
+.alr_design_wide .alr_login_checkbox_container {
+    clear: both;
+    width: 100%;
+    margin: 0;
+    }
+
+
 
 .ajax-login-default-form-container input[type="button"].text {
     background: none;
