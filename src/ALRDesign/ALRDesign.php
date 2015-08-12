@@ -10,8 +10,9 @@ Class ALRDesign {
 
         $this->prefix = 'alr_design';
 
-        add_filter( 'quilt_' . ALR_NAMESPACE. '_settings', array( &$this, 'settings') );
+        add_action( 'wp_head', array( &$this, 'header' ) );
 
+        add_filter( 'quilt_' . ALR_NAMESPACE. '_settings', array( &$this, 'settings') );
         add_filter( 'alr_login_form_links', array( &$this, 'filterLoginLinks' ) );
         add_filter( 'alr_login_fields', array( &$this, 'filterLoginFields' ) );
 
@@ -107,5 +108,22 @@ Class ALRDesign {
         return $fields;
 
     }
+
+
+    public function header(){
+
+        global $alr_settings;
+
+        ?>
+
+        <?php if ( ! empty( $alr_settings[ $this->prefix . '_login_additonal_styling'] ) ) : ?>
+            <!-- Start: ALR Additional Styling -->
+            <style type="text/css">
+                <?php echo $alr_settings[ $this->prefix . '_login_additonal_styling']; ?>
+            </style>
+            <!-- End: ALR Additional Styling -->
+        <?php endif; ?>
+
+    <?php }
 }
 new ALRDesign();

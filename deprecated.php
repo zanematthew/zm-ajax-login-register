@@ -11,8 +11,6 @@ add_filter( 'alr_login_form_container_classes', 'alr_legacy_form_container_class
 
 // do_action( 'zm_ajax_login_register_below_email_field' );
 
-// Legacy register email field classes
-// user_email ajax-login-register-validate-email
 
 // Add legacy classes to register form
 function alr_register_field_filter( $field ){
@@ -88,3 +86,54 @@ function alr_login_links_args_filter( $link ){
     }
 }
 add_filter( 'alr_login_links_args', 'alr_login_links_args_filter' );
+
+
+function alr_localized_js_filter( $localized ){
+
+    // Apply the legacy filter
+    $localized['redirect'] = apply_filters( 'zm_ajax_login_redirect', $localized['redirect'] );
+
+        $width = array(
+        'default' => 265,
+        'wide' => 440,
+        'extra_buttons' => 666,
+        'mobile' => 300
+        );
+
+    $style = get_option('ajax_login_register_default_style');
+    $fb_button = get_option('ajax_login_register_facebook');
+
+    if ( $style == 'wide' && $fb_button ){
+        $key = 'extra_buttons';
+    } elseif( wp_is_mobile() ) {
+        $key = 'mobile';
+    } elseif ( $style == 'wide' ){
+        $key = 'wide';
+    } else {
+        $key = 'default';
+    }
+
+    $localized['dialog_width'] = $width[ $key ];
+
+    $localized = apply_filters( 'zm_ajax_login_register_localized_js', $localized );
+
+    return $localized;
+}
+add_filter( 'alr_localized_js', 'alr_localized_js_filter' );
+
+
+// Apply the legacy filter for the default role
+function alr_register_filter( $role ){
+
+    $role = apply_filters( 'ajax_login_register_default_role', $role );
+
+    return $role;
+
+}
+add_filter( 'alr_register_default_role', 'alr_regsiter_filter' );
+
+
+function alr_register_after_registration(){
+    do_action( 'zm_ajax_login_after_successfull_registration', $user_id );
+}
+add_action( 'alr_register_after_successfull_registration', 'alr_register_after_registration' );

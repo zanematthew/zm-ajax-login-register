@@ -23,8 +23,6 @@ require ALR_PATH . 'lib/lumber/lumber.php';
 require ALR_PATH . 'lib/quilt/quilt.php';
 require ALR_PATH . 'lib/zm-dependency-container/zm-dependency-container.php';
 
-require ALR_PATH . 'settings.php';
-
 require ALR_PATH . 'deprecated.php';
 
 require ALR_PATH . 'src/ALRCore/ALRHelpers.php';
@@ -40,6 +38,8 @@ require ALR_PATH . 'src/ALRRedirect/ALRRedirect.php';
 
 function alr_init(){
 
+    load_plugin_textdomain( ALR_TEXT_DOMAIN, false, plugin_basename(dirname(__FILE__)) . '/languages' );
+
     global $alr_settings_obj;
     $alr_settings_obj = new Quilt(
         ALR_NAMESPACE,
@@ -54,16 +54,6 @@ function alr_init(){
 
 }
 add_action( 'init', 'alr_init' );
-
-
-/**
- * Plugin initial setup
- */
-function zm_ajax_login_register_init(){
-    // Set up localization
-    load_plugin_textdomain( 'ajax_login_register', false, plugin_basename(dirname(__FILE__)) . '/languages' );
-}
-add_action( 'init', 'zm_ajax_login_register_init' );
 
 
 function zm_ajax_login_register_enqueue_scripts(){
@@ -86,73 +76,21 @@ function zm_ajax_login_register_enqueue_scripts(){
     wp_enqueue_style( 'ajax-login-register-register-style', plugin_dir_url( __FILE__ ) . "assets/register.css" );
     wp_enqueue_script( 'ajax-login-register-register-script', plugin_dir_url( __FILE__ ) . 'assets/register.js', $dependencies  );
 
-    wp_localize_script( 'ajax-login-register-script', '_ajax_login_settings', zm_ajax_login_register_localized_js() );
-}
-add_action( 'wp_enqueue_scripts', 'zm_ajax_login_register_enqueue_scripts');
-
-
-function zm_ajax_login_register_localized_js(){
-
-
-    $redirect_url = get_option('ajax_login_register_redirect');
-
-    // Just use the current page
-    if ( empty( $redirect_url ) ){
-        global $wp;
-        $formatted_url = trailingslashit( add_query_arg( '', '', network_site_url( $wp->request ) ) );
-    }
-
-    // This is just a slug, and doesn't have http(s), so lets add it
-    elseif ( strpos( $redirect_url, 'http' ) === false ) {
-        $formatted_url = network_site_url( $redirect_url );
-    }
-
-    // Just use what ever they entered
-    else {
-
-        $formatted_url = esc_url( $redirect_url );
-    }
-
-    $redirect_url = apply_filters( 'zm_ajax_login_redirect', $formatted_url );
-
-    $width = array(
-        'default' => 265,
-        'wide' => 440,
-        'extra_buttons' => 666,
-        'mobile' => 300
-        );
-
-    $style = get_option('ajax_login_register_default_style');
-    $fb_button = get_option('ajax_login_register_facebook');
-
-    if ( $style == 'wide' && $fb_button ){
-        $key = 'extra_buttons';
-    } elseif( wp_is_mobile() ) {
-        $key = 'mobile';
-    } elseif ( $style == 'wide' ){
-        $key = 'wide';
-    } else {
-        $key = 'default';
-    }
-
-    $defaults = array(
+    global $alr_settings;
+    wp_localize_script( 'ajax-login-register-script', '_ajax_login_settings', apply_filters( 'alr_localized_js', array(
         'ajaxurl' => admin_url("admin-ajax.php"),
-        'login_handle' => get_option('ajax_login_register_advanced_usage_login'),
-        'register_handle' => get_option('ajax_login_register_advanced_usage_register'),
-        'redirect' => $redirect_url,
-        'dialog_width' => $width[ $key ],
-        'match_error' => AjaxLogin::status('passwords_do_not_match','description'),
+        'login_handle' => $alr_settings['alr_misc_login_handle'],
+        'register_handle' => $alr_settings['alr_misc_register_handle'],
+        'redirect' => $alr_settings['alr_redirect_redirect_after_login_url'],
+        // 'match_error' => AjaxLogin::status('passwords_do_not_match','description'), // Deprecated
         'is_user_logged_in' => is_user_logged_in() ? 1 : 0,
         'wp_logout_url' => wp_logout_url( site_url() ),
-        'logout_text' => __('Logout', 'ajax_login_register' ),
-        'close_text' => __('Close', 'ajax_login_register' ),
-        'pre_load_forms' => get_option( 'ajax_login_register_pre_load_forms' )
-        );
-
-    $localized = apply_filters( 'zm_ajax_login_register_localized_js', $defaults );
-
-    return $localized;
+        'logout_text' => __( 'Logout', ALR_TEXT_DOMAIN ),
+        'close_text' => __( 'Close', ALR_TEXT_DOMAIN ),
+        'pre_load_forms' => $alr_settings['alr_misc_pre_load_forms']
+        ) ) );
 }
+add_action( 'wp_enqueue_scripts', 'zm_ajax_login_register_enqueue_scripts');
 
 
 /**
@@ -182,26 +120,55 @@ register_activation_hook( __FILE__, 'ajax_login_register_activate' );
 
 
 /**
- * Include our abstract which is a Class of shared Methods for our Classes.
+ * Add our links to the plugin page, these show under the plugin in the table view.
+ *
+ * @param $links(array) The links coming in as an array
+ * @param $current_plugin_file(string) This is the "plugin basename", i.e., my-plugin/plugin.php
  */
-require_once 'controllers/abstract.php';
+function alr_plugin_action_links( $links, $current_plugin_file ){
 
+    // Plugin Table campaign URL
+    $campaign_text_link = 'http://store.zanematthew.com/downloads/zm-ajax-login-register-pro/?utm_source=wordpress.org&utm_medium=alr_plugin&utm_content=textlink&utm_campaign=alr_pro_upsell_link';
 
-/**
- * If the admin is being displayed load the admin class and run it.
- */
-if ( is_admin() ){
-    require_once 'controllers/admin.php';
+    // $this->campaign_banner_link = 'http://store.zanematthew.com/downloads/zm-ajax-login-register-pro/?utm_source=wordpress&utm_medium=alr_plugin&utm_content=bannerlink&utm_campaign=alr_pro_upsell_banner';
+
+    if ( $current_plugin_file == 'zm-ajax-login-register/zm-ajax-login-register.php' ){
+        $links['alr_settings'] = '<a href="' . admin_url( 'options-general.php?page=' . ALR_NAMESPACE ) . '">' . esc_attr__( 'Settings', ALR_NAMESPACE ) . '</a>';
+        $links['client_access_addons'] = sprintf('<a href="%2$s" title="%1$s" target="_blank">%1$s</a>', esc_attr__('Add-ons', ALR_TEXT_DOMAIN ), $campaign_text_link );
+    }
+
+    return $links;
 }
+add_filter( 'plugin_action_links', 'alr_plugin_action_links', 10, 2 );
 
 
-/**
- * If users are allowed to register we require the registration class
- */
-require_once 'controllers/register.php';
+function alr_settings_page_title( $title, $namespace ){
+
+    return 'AJAX Login & Register';
+
+}
+add_filter( 'quilt_alr_page_title', 'alr_settings_page_title', 15, 2 );
 
 
-/**
- * Load the login class
- */
-require_once 'controllers/login.php';
+function alr_settings_menu_title( $title, $namespace ){
+
+    return 'AJAX Login & Register 2.0';
+
+}
+add_filter( 'quilt_alr_menu_title', 'alr_settings_menu_title', 15, 2 );
+
+
+function alr_settings_footer_content( $content ){
+    $settings_campaign_url = 'http://store.zanematthew.com/downloads/tag/client-access-add-ons/?utm_source=WordPress&utm_medium=Settings%20Footer&utm_campaign=Client%20Access%20Add-ons';
+
+    return sprintf( '%s | v%s | <a href="%s" target="_blank">%s</a> | <a href="%s" target="_blank">%s</a>',
+        __( 'Thank you for using ZM AJAX Login & Register', ALR_NAMESPACE ),
+        ALR_VERSION,
+        esc_url( 'http://support.zanematthew.com/forum/zm-ajax-login-register/'),
+        __( 'Support', ALR_NAMESPACE ),
+        esc_url( $settings_campaign_url ),
+        __( 'Add-ons', ALR_NAMESPACE )
+        );
+
+}
+add_filter( 'quilt_alr_footer', 'alr_settings_footer_content', 15, 2 );

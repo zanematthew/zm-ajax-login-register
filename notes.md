@@ -12,6 +12,7 @@
 * [x] Form functionality/settings/etc.
 * [ ] JS
 * [x] Styling (for now ALL new JS is just added to style.css)
+* [x] Get working
 
 ### Deprecated
 
@@ -31,6 +32,7 @@
 * [x] Wrangle CSS classes
 * [x] Wrangle JS classes (These are added via a filter in deprecated.php)
 * [x] Fire deprecated hooks via filter
+* [ ] Get working
 
 # Modals
 
@@ -41,4 +43,27 @@
 
 # Post
 
-* [ ] Everything `$_POST` has changed, and needs a filter
+* [x] Everything `$_POST` has changed, and needs a filter
+
+
+# Test
+
+* [ ] Login Shortcode
+* [ ] Login Modal
+* [ ] Login FB
+* [ ] Login responsive
+
+* [ ] Register Shortcode
+* [ ] Register Modal
+* [ ] Register FB
+* [ ] Register responsive
+
+* [ ] Translations
+* [ ] Import
+* [ ] Filters old
+* [ ] Filters new
+* [ ] Actions old
+* [ ] Actions new
+* [ ] Comment (all files)
+* [ ] Document filters
+* [ ] Document Actions

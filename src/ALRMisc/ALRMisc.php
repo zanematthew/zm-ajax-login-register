@@ -33,12 +33,14 @@ Class ALRMisc {
                     'id' => $this->prefix . '_login_handle',
                     'title' => __( 'Login Handle', ALR_TEXT_DOMAIN ),
                     'type' => 'fancyText',
+                    'std' => '',
                     'desc' => __( 'Type the class name or ID of the element you want to launch the dialog box when clicked, example <code>.login-link</code>', ALR_TEXT_DOMAIN )
                 ),
                 array(
                     'id' => $this->prefix . '_register_handle',
                     'title' => __( 'Register Handle', ALR_TEXT_DOMAIN ),
                     'type' => 'fancyText',
+                    'std' => '',
                     'desc' => __( 'Type the class name or ID of the element you want to launch the dialog box when clicked, example <code>.register-link</code>', ALR_TEXT_DOMAIN )
                 ),
                 array(

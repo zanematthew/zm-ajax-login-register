@@ -5,7 +5,7 @@ Class ALRLogin {
     public function __construct( ZM_Dependency_Container $di ){
 
         $this->_alr_html = $di->get_instance( 'html', 'ALRHtml', null );
-        $this->_alr_helpers = $di->get_instance( 'html', 'ALRHelpers', null );
+        $this->_alr_helpers = $di->get_instance( 'helpers', 'ALRHelpers', null );
         $this->prefix = 'alr_login';
 
         add_action( 'alr_init', array( &$this, 'init' ) );
@@ -14,9 +14,33 @@ Class ALRLogin {
 
     public function init(){
 
-        add_shortcode( 'ajax_login_v2', array( &$this, 'shortcode' ) );
+        add_shortcode( 'ajax_login', array( &$this, 'shortcode' ) );
         add_action( 'wp_ajax_login_submit', array( &$this, 'loginSubmit' ) );
         add_action( 'wp_ajax_nopriv_login_submit', array( &$this, 'loginSubmit' ) );
+
+        // add_action( 'wp_ajax_nopriv_load_template', array( &$this, 'load_template' ) );
+        // add_action( 'wp_ajax_load_template', array( &$this, 'load_template' ) );
+        /**
+         * Load the login form via an AJAX request.
+         *
+         * @package AJAX
+         */
+        // public function load_template(){
+
+        //     check_ajax_referer( $_POST['referer'],'security');
+
+        //     $file_name = sanitize_file_name( $_POST['template'] );
+        //     $valid_file_names = array(
+        //         'login-form',
+        //         'register-form'
+        //         );
+
+        //     if ( in_array( $file_name, $valid_file_names ) ){
+        //         load_template( plugin_dir_path( dirname( __FILE__ ) ) . "views/" . $file_name . '.php' );
+        //     }
+
+        //     die();
+        // }
 
     }
 
