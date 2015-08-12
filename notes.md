@@ -28,7 +28,7 @@
 ## Register
 
 * [x] Derive via array
-* [ ] Wrangle HTML containers
+* [x] Wrangle HTML containers
 * [x] Wrangle CSS classes
 * [x] Wrangle JS classes (These are added via a filter in deprecated.php)
 * [x] Fire deprecated hooks via filter
@@ -48,15 +48,15 @@
 
 # Test
 
-* [ ] Login Shortcode
+* [x] Login Shortcode
 * [ ] Login Modal
 * [ ] Login FB
-* [ ] Login responsive
+* [x] Login responsive
 
-* [ ] Register Shortcode
+* [x] Register Shortcode
 * [ ] Register Modal
 * [ ] Register FB
-* [ ] Register responsive
+* [x] Register responsive
 
 * [ ] Translations
 * [ ] Import
@@ -70,7 +70,8 @@
 
 # Setting -- Design
 
-* [ ] Form Layout
+* [x] Form Layout
+* [x] Form Layout (mobile)
 * [x] Additional Styling
 * [x] Disable "keep me logged in"
 * [x] Remove Registration
