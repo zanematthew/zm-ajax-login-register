@@ -91,7 +91,7 @@ Class ALRHtml {
                         break;
 
                     case 'submit':
-                        $html .= '<input type="submit" value="' . $args['value'] . '" id="' . $args['id'] . '" class="' . $field_classes . '" name="' . $args['name'] . '" />';
+                        $html .= '<input type="submit" value="' . $args['value'] . '" id="' . $args['id'] . '" class="' . $field_classes . '" name="' . $args['name'] . '" ' . $args['extra'] . '/>';
                         $html .= PHP_EOL;
                         break;
 

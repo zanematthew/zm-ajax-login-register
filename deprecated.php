@@ -32,18 +32,33 @@ function alr_register_field_filter( $field ){
         $field['classes'][] = 'user_confirm_password';
     }
 
+    if ( $field['name'] == 'alr_register_submit_button' ){
+        $field['classes'][] = 'register_button green';
+    }
+
+
     return $field;
 }
 add_filter( 'alr_register_fields_args', 'alr_register_field_filter' );
 
 
-function alr_login_field_filter( $fields ){
+function alr_register_container_classes( $classes ){
 
-    if ( $fields['name'] == 'alr_login_submit_button' ){
-        $fields['classes'][] = 'login_button green';
+    $classes[] = 'ajax-login-register-register-container';
+
+    return $classes;
+
+}
+add_filter( 'alr_register_form_container_classes', 'alr_register_container_classes' );
+
+
+function alr_login_field_filter( $field ){
+
+    if ( $field['name'] == 'alr_login_submit_button' ){
+        $field['classes'][] = 'login_button green';
     }
 
-    return $fields;
+    return $field;
 
 }
 add_filter( 'alr_login_fields_args', 'alr_login_field_filter' );
@@ -56,6 +71,15 @@ function alr_login_button_container_filter( $classes ){
 
 }
 add_filter( 'alr_login_button_container_classes', 'alr_login_button_container_filter' );
+
+
+function alr_register_button_container_filter( $classes ){
+
+    $classes[] = 'button-container';
+    return $classes;
+
+}
+add_filter( 'alr_register_button_container_classes', 'alr_register_button_container_filter' );
 
 
 // Add legacy classes to the login form fields
@@ -169,3 +193,14 @@ function alr_login_form_container_classes( $classes ){
 
 }
 add_filter( 'alr_login_form_classes', 'alr_login_form_container_classes' );
+
+
+
+function alr_register_form_container_classes_filter( $classes ){
+
+    $classes[] = 'ajax-login-default-form-container register_form';
+
+    return $classes;
+
+}
+add_filter( 'alr_register_form_classes', 'alr_register_form_container_classes_filter' );

@@ -16,6 +16,7 @@ Class ALRDesign {
         add_filter( 'alr_login_form_links', array( &$this, 'filterLoginLinks' ) );
         add_filter( 'alr_login_form_fields', array( &$this, 'filterLoginFields' ) );
         add_filter( 'alr_login_form_container_classes', array( &$this, 'loginClasses' ) );
+        add_filter( 'alr_register_form_container_classes', array( &$this, 'registerClasses' ) );
 
     }
 
@@ -119,6 +120,17 @@ Class ALRDesign {
 
 
     public function loginClasses( $classes ){
+
+        global $alr_settings;
+
+        $classes[] = $alr_settings[ $this->prefix . '_login_form_layout' ];
+
+        return $classes;
+
+    }
+
+
+    public function registerClasses( $classes ){
 
         global $alr_settings;
 

@@ -72,7 +72,6 @@ function zm_ajax_login_register_enqueue_scripts(){
     wp_enqueue_script( 'ajax-login-register-login-script', plugin_dir_url( __FILE__ ) . 'assets/login.js', $dependencies  );
 
     // Register
-    wp_enqueue_style( 'ajax-login-register-register-style', plugin_dir_url( __FILE__ ) . "assets/register.css" );
     wp_enqueue_script( 'ajax-login-register-register-script', plugin_dir_url( __FILE__ ) . 'assets/register.js', $dependencies  );
 
     global $alr_settings;

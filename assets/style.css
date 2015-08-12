@@ -219,30 +219,10 @@
 
 /*= Default Wide Styling
 -------------------------------------------------------------- */
-.wide .fb-login-container {
-    width: 35%;
-    float: left;
-    margin: 22px 0 0;
-    }
 
-.wide .form-wrapper input[type="text"],
-.wide .form-wrapper input[type="password"] {
-    width: 95%;
-    }
 
 .ui-dialog .form-wrapper {
     margin: 0;
-    }
-
-
-/*= Login Wide Styling Dialog
--------------------------------------------------------------- */
-.ajax-login-register-login-dialog .wide .fb-login-container {
-    width: auto;
-    }
-
-.ajax-login-register-login-dialog .wide .form-wrapper {
-    width: 405px;
     }
 
 
@@ -255,3 +235,15 @@
 @media screen and (max-width: 600px) {
 
 }
+
+
+.ajax-login-register-status-container {
+    clear: both;
+    float: left;
+    width: 100%;
+    font-size: 12px;
+    }
+
+.ui-dialog .ajax-login-default-form-container .error-container {
+    width: 205px;
+    }

@@ -30,7 +30,7 @@ Class ALRRegister {
     public function shortcode(){
 
         // No filter here, filter in the buildFormFieldsHtml instead
-        $fields = array(
+        $fields_html = $this->_alr_html->buildFormFieldsHtml( array(
             $this->prefix . '_user_name' => array(
                 'title' => 'User Name',
                 'type' => 'text',
@@ -51,25 +51,42 @@ Class ALRRegister {
                 'type' => 'password',
                 'extra' => 'autocorrect="none" autocapitalize="none"'
                 )
-            );
+            ), $this->prefix );
 
-        $fields_html = $this->_alr_html->buildFormFieldsHtml( $fields, $this->prefix );
-
-        $links = array(
+        $links_html = $this->_alr_html->buildFormHtmlLinks( array(
             $this->prefix . '_not_a_member' => array(
                 'href' => '#',
                 'class' => 'already-registered-handle',
                 'text' => __( 'Already registered?', ALR_TEXT_DOMAIN ),
                 )
-            );
+            ), $this->prefix );
 
-        $links_html = $this->_alr_html->buildFormHtmlLinks( $links, $this->prefix );
+        $buttons_html = $this->_alr_html->buildFormFieldsHtml( array(
+            $this->prefix . '_submit_button' => array(
+                'title' => 'Register',
+                'type' => 'submit',
+                'extra' => 'disabled'
+                )
+            ), $this->prefix );
+
+        $container_classes = apply_filters( $this->prefix . '_form_container_classes', array(
+            ALR_NAMESPACE . '_form_container',
+            $this->prefix . '_form_container'
+            ) );
+
+        $form_classes = apply_filters( $this->prefix . '_form_classes', array(
+            ALR_NAMESPACE . '_form'
+            ) );
+
+        $button_container_classes = apply_filters( $this->prefix . '_button_container_classes', array(
+            ALR_NAMESPACE . '_button_container'
+            ) );
 
         ob_start(); ?>
 
         <!-- Register Modal -->
         <?php if ( get_option('users_can_register') ) : ?>
-            <div class="ajax-login-register-register-container">
+            <div class="<?php echo implode( " ", $container_classes ); ?>">
                 <?php if ( is_user_logged_in() ) : ?>
                     <p><?php printf('%s <a href="%s" title="%s">%s</a>',
                         __( 'You are already registered', ALR_TEXT_DOMAIN ),
@@ -78,7 +95,7 @@ Class ALRRegister {
                         __( 'Logout', ALR_TEXT_DOMAIN )
                     ); ?></p>
                 <?php else : ?>
-                    <form action="javascript://" name="registerform" class="ajax-login-default-form-container register_form <?php print get_option('ajax_login_register_default_style'); ?>" data-alr_register_security="<?php echo wp_create_nonce( 'setup_new_user' ); ?>">
+                    <form action="javascript://" name="registerform" class="<?php echo implode( " " , $form_classes ); ?>" data-alr_register_security="<?php echo wp_create_nonce( 'setup_new_user' ); ?>">
 
                         <div class="form-wrapper">
                             <div class="ajax-login-register-status-container">
@@ -88,9 +105,10 @@ Class ALRRegister {
                             <?php echo $fields_html; ?>
                             <?php echo $links_html; ?>
 
-                            <div class="button-container">
-                                <input class="register_button green" type="submit" value="<?php _e('Register', ALR_TEXT_DOMAIN ); ?>" accesskey="p" name="register" disabled />
+                            <div class="<?php echo implode( " ", $button_container_classes ); ?>">
+                                <?php echo $buttons_html; ?>
                             </div>
+
                         </div>
                     </form>
                 <?php endif; ?>

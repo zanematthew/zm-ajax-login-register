@@ -93,7 +93,9 @@ Class ALRLogin {
             $this->prefix . '_form_container'
             ) );
 
-        $form_classes = apply_filters( $this->prefix . '_form_classes', array() );
+        $form_classes = apply_filters( $this->prefix . '_form_classes', array(
+            ALR_NAMESPACE . '_form'
+            ) );
 
         $button_container_classes = apply_filters( $this->prefix . '_button_container_classes', array(
             ALR_NAMESPACE . '_button_container'
