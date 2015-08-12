@@ -1,36 +1,46 @@
-body {
-    height: 100%;
-}
-
-/*= Default Forms
--------------------------------------------------------------- */
-.ajax-login-default-form-container label {
+.alr_label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
     }
 
-.ajax-login-register-container .meta {
-    color: #A6A6A6;
-    font-size: 11px;
-    font-weight: 300;
-    font-family: helvetica;
-    line-height: 1.2em;
+.alr_ul_container {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
     }
 
-.ajax-login-default-form-container input[type="password"]:hover,
-.ajax-login-default-form-container input[type="text"]:hover {
+.alr_ul_container li {
+    display: inline;
+    margin: 0 10px 0 0;
+    }
+
+.alr_ul_container li:last-child {
+    margin: 0;
+    }
+
+.alr_checkbox_field {
+    float: left;
+    margin: 5px 10px 0 0;
+    width: auto;
+    }
+
+.alr_email_field:hover,
+.alr_password_field:hover,
+.alr_text_field:hover {
     border-color: #aaa;
     }
 
-.ajax-login-default-form-container input[type="password"]:focus,
-.ajax-login-default-form-container input[type="text"]:focus {
+.alr_email_field:focus,
+.alr_password_field:focus,
+.alr_text_field:focus {
     border-color: #999;
     outline: none;
     }
 
-.ajax-login-default-form-container input[type="password"],
-.ajax-login-default-form-container input[type="text"] {
+.alr_email_field,
+.alr_password_field,
+.alr_text_field {
     -webkit-transition-property: border-color;
     -moz-transition-property: border-color;
     -o-transition-property: border-color;
@@ -57,26 +67,30 @@ body {
     margin: 0;
     }
 
-.ajax-login-default-form-container input[type="submit"]:hover {
+.alr_form_field_container {
+    margin: 0 0 15px 0;
+    }
+
+.alr_form_container input[type="submit"]:hover {
     color: #008000;
     }
 
-.ajax-login-default-form-container input[type="submit"]:active {
+.alr_form_container input[type="submit"]:active {
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) inset;
     -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) inset;
     border: 1px solid #CFCFCF;
     }
 
-.ajax-login-default-form-container input[type="submit"]:disabled:hover {
+.alr_form_container input[type="submit"]:disabled:hover {
     cursor: default;
     }
 
-.ajax-login-default-form-container input[type="submit"]:disabled {
+.alr_form_container input[type="submit"]:disabled {
     cursor: pointer;
     opacity: 0.5;
     }
 
-.ajax-login-default-form-container input[type="submit"] {
+.alr_form_container input[type="submit"] {
     -webkit-transition-property: background-image;
     -webkit-transition-duration: 0.3s;
     -webkit-transition-timing-function: linear;
@@ -99,15 +113,14 @@ body {
     border: 1px solid #CFCFCF;
     }
 
-.ajax-login-default-form-container .button-container {
+.alr_button_container {
     float: left;
     padding: 0;
     width: 100%;
+    margin: 20px 0 0;
     }
 
-.ajax-login-default-form-container .noon {
-    margin: 0 0 15px 0;
-    }
+
 
 .ajax-login-default-form-container input[type="button"].text {
     background: none;
@@ -140,10 +153,6 @@ body {
     background-color: #DFF0D8;
     border: 1px solid #BBD1BB;
     padding: 8px 35px 8px 14px;
-    }
-
-.login_form .button-container {
-    margin-top: 15px;
     }
 
 .ajax-login-default-form-container a.fb-login:before {
@@ -187,26 +196,6 @@ body {
 
 
 
-/*= Shortcode
--------------------------------------------------------------- */
-.hentry .ajax-login-default-form-container input[type="text"],
-.hentry .ajax-login-default-form-container input[type="password"] {
-    width: 300px;
-    }
-
-.hentry .fb-login-container {
-    margin: 0 0 20px;
-    }
-
-.hentry .wide .button-container input[type="submit"] {
-    float: left;
-    }
-
-.hentry .ajax-login-register-register-container .wide .fb-login-container {
-    margin: 43px 0 0;
-    }
-
-
 /*= Default Form Styling
 -------------------------------------------------------------- */
 .form-wrapper {
@@ -229,92 +218,28 @@ body {
     width: 95%;
     }
 
-.wide .button-container input[type="submit"]{
-    float: right;
-    }
-
 .ui-dialog .form-wrapper {
     margin: 0;
+    }
+
+
+/*= Login Wide Styling Dialog
+-------------------------------------------------------------- */
+.ajax-login-register-login-dialog .wide .fb-login-container {
+    width: auto;
+    }
+
+.ajax-login-register-login-dialog .wide .form-wrapper {
+    width: 405px;
     }
 
 
 /*= Media Queries
 -------------------------------------------------------------- */
 @media screen and (max-width: 782px) {
-    .hentry .ajax-login-default-form-container input[type="text"],
-    .hentry .ajax-login-default-form-container input[type="password"] {
-        width: 100%;
-    }
+
 }
 
 @media screen and (max-width: 600px) {
-    .hentry .ajax-login-default-form-container input[type="text"],
-    .hentry .ajax-login-default-form-container input[type="password"] {}
+
 }
-
-
-/* Login New */
-.alr_login_container {}
-
-/* deprecated */
-.noon {}
-
-/* all checkboxes */
-.alr_checkbox_container {}
-
-/* all checkboxes ONLY on the login form */
-.alr_login_checkbox_container {}
-
-/* all fields */
-.alr_login_field_container {}
-
-.alr_ul_container {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    }
-
-.alr_ul_container li {
-    display: inline;
-    margin: 0 10px 0 0;
-    }
-
-.alr_ul_container li:last-child {
-    margin: 0;
-    }
-
-.alr_ul_container li a {}
-
-
-/* Default form */
-.alr_form_container .alr_checkbox_field {
-    float: left;
-    margin: 5px 10px 0 0;
-    }
-
-.alr_form_field {
-    -webkit-transition-property: border-color;
-    -moz-transition-property: border-color;
-    -o-transition-property: border-color;
-    -ms-transition-property: border-color;
-    transition-property: border-color;
-    -webkit-transition-duration: 0.3s;
-    -moz-transition-duration: 0.3s;
-    -o-transition-duration: 0.3s;
-    -ms-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-timing-function: linear;
-    -moz-transition-timing-function: linear;
-    -o-transition-timing-function: linear;
-    -ms-transition-timing-function: linear;
-    transition-timing-function: linear;
-    width: 95%;
-    margin: 0 0 15px 0;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 0px;
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    padding: 5px;
-    margin: 0;
-    }

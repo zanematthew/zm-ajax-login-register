@@ -67,3 +67,30 @@
 * [ ] Comment (all files)
 * [ ] Document filters
 * [ ] Document Actions
+
+# Setting -- Design
+
+* [ ] Form Layout
+* [x] Additional Styling
+* [x] Disable "keep me logged in"
+* [x] Remove Registration
+* [x] Remove Forgot Password
+
+# Setting -- Social
+
+* [ ] FB Enable
+* [ ] FB URL
+* [ ] FB App ID
+* [ ] FB Avatar
+
+# Setting -- Misc.
+
+* [ ] Advanced Usage
+* [ ] Login Handle
+* [ ] Register Handle
+* [ ] Force Check Password
+* [ ] Pre-load Forms
+
+# Setting -- Redirect
+
+* [x] Redirect After Login URL

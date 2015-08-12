@@ -15,6 +15,7 @@ Class ALRDesign {
         add_filter( 'quilt_' . ALR_NAMESPACE. '_settings', array( &$this, 'settings') );
         add_filter( 'alr_login_form_links', array( &$this, 'filterLoginLinks' ) );
         add_filter( 'alr_login_form_fields', array( &$this, 'filterLoginFields' ) );
+        add_filter( 'alr_login_form_container_classes', array( &$this, 'loginClasses' ) );
 
     }
 
@@ -33,10 +34,10 @@ Class ALRDesign {
                     'id' => $this->prefix . '_login_form_layout',
                     'title' => __( 'Form Layout', ALR_TEXT_DOMAIN ),
                     'type' => 'select',
-                    'std' => 'default',
+                    'std' => $this->prefix . '_default',
                     'options' => array(
-                        'default' => __( 'Default', ALR_TEXT_DOMAIN ),
-                        'wide' => __( 'Wide', ALR_TEXT_DOMAIN )
+                        $this->prefix . '_default' => __( 'Default', ALR_TEXT_DOMAIN ),
+                        $this->prefix . '_wide' => __( 'Wide', ALR_TEXT_DOMAIN )
                         )
                 ),
                 array(
@@ -115,6 +116,17 @@ Class ALRDesign {
         <?php endif; ?>
 
     <?php }
+
+
+    public function loginClasses( $classes ){
+
+        global $alr_settings;
+
+        $classes[] = $alr_settings[ $this->prefix . '_login_form_layout' ];
+
+        return $classes;
+
+    }
 
 }
 new ALRDesign();

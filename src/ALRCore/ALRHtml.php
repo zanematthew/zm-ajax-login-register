@@ -4,13 +4,17 @@ Class ALRHtml {
 
     public function buildFormFieldsHtml( $fields=null, $prefix=null, $order=null ){
 
+        // Use this filter to add/remove fields
         $fields = apply_filters( $prefix . '_form_fields', $fields );
 
         // Use this filter to add additional classes for the parent/container of each
         // form field
-        $default_classes = apply_filters( $prefix . '_form_classes', array() );
+        $default_classes = apply_filters( $prefix . '_field_container_classes', array(
+            ALR_NAMESPACE . '_form_field_container'
+            ) );
         $html = null;
 
+        // Used to change the order
         $order = apply_filters( $prefix . '_order_fields', array_keys( $fields ) );
 
         foreach( $order as $key ){
@@ -35,20 +39,21 @@ Class ALRHtml {
                     'required' => null,
                     'size' => null,
                     'name' => $key,
-                    'id' => $prefix . '_' . sanitize_title( $key ),
+                    'id' => sanitize_title( $key ),
                     'classes' => array(
                         ALR_NAMESPACE . '_' . esc_attr( $fields[ $key ]['type'] ) . '_field',
                         ALR_NAMESPACE . '_form_field'
                         ),
                     'placeholder' => esc_attr( $fields[ $key ]['title'] ),
                     'type' => esc_attr( $fields[ $key ]['type'] ),
-                    'html' => null
+                    'html' => null,
+                    'value' => esc_attr( $fields[ $key ]['title'] )
                     ) ) );
 
-                $container_classes = array_merge( $default_classes, apply_filters( $prefix . '_field_container_classes', array(
+                $container_classes = array_merge( $default_classes, array(
                     ALR_NAMESPACE . '_' . $args['type'] . '_container',
                     $prefix . '_' . $args['type'] . '_container'
-                    ) ) );
+                    ) );
 
                 $field_classes = implode( " ", $args['classes'] );
 
@@ -57,31 +62,36 @@ Class ALRHtml {
                 switch ( $fields[ $key ]['type'] ) {
 
                     case 'text':
-                        $html .= '<label for="' . $args['id'] . '">' . $args['title'] . '</label>';
+                        $html .= '<label for="' . $args['id'] . '" class="' . ALR_NAMESPACE . '_label">' . $args['title'] . '</label>';
                         $html .= '<input type="text" name="' . $args['name'] . '" id="' . $args['id'] . '" class="' . $field_classes . '" placeholder="' . $args['placeholder'] . '" ' . $args['extra'] . ' />';
                         $html .= PHP_EOL;
                         break;
 
                     case 'password':
-                        $html .= '<label for="' . $args['id'] . '">' . $args['title'] . '</label>';
+                        $html .= '<label for="' . $args['id'] . '" class="' . ALR_NAMESPACE . '_label">' . $args['title'] . '</label>';
                         $html .= '<input type="password" name="' . $args['name'] . '" id="' . $args['id'] . '" class="' . $field_classes . '" placeholder="' . $args['placeholder'] . '" ' . $args['extra'] . ' />';
                         $html .= PHP_EOL;
                         break;
 
                     case 'email':
-                        $html .= '<label for="' . $args['id'] . '">' . $args['title'] . '</label>';
+                        $html .= '<label for="' . $args['id'] . '" class="' . ALR_NAMESPACE . '_label">' . $args['title'] . '</label>';
                         $html .= '<input autocorrect="none" autocapitalize="none" type="email" name="' . $args['name'] . '" id="' . $args['id'] . '" class="' . $field_classes . '" placeholder="' . $args['placeholder'] . '" ' . $args['extra'] . ' />';
                         $html .= PHP_EOL;
                         break;
 
                     case 'checkbox':
                         $html .= '<input type="checkbox" name="' . $args['name'] . '" id="' . $args['id'] . '" class="' . $field_classes . '" ' . $args['extra'] . ' />';
-                        $html .= '<label for="' . $args['id'] . '">' . $args['title'] . '</label>';
+                        $html .= '<label for="' . $args['id'] . '" class="' . ALR_NAMESPACE . '_label">' . $args['title'] . '</label>';
                         $html .= PHP_EOL;
                         break;
 
                     case 'html':
                         $html .= $args['html'];
+                        $html .= PHP_EOL;
+                        break;
+
+                    case 'submit':
+                        $html .= '<input type="submit" value="' . $args['value'] . '" id="' . $args['id'] . '" class="' . $field_classes . '" name="' . $args['name'] . '" />';
                         $html .= PHP_EOL;
                         break;
 
@@ -120,7 +130,6 @@ Class ALRHtml {
                     ) ) );
 
                 $classes = array(
-                    'noon',
                     ALR_NAMESPACE . '_link',
                     $prefix . '_link',
                     $args['class']

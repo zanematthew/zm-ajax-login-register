@@ -47,7 +47,9 @@ Class ALRLogin {
 
     public function shortcode(){
 
-        $fields = array(
+
+        // Build various HTML elements
+        $fields_html = $this->_alr_html->buildFormFieldsHtml( array(
             $this->prefix . '_user_name' => array(
                 'title' => 'User Name',
                 'type' => 'text',
@@ -62,11 +64,9 @@ Class ALRLogin {
                 'title' => 'Keep Me Logged In',
                 'type' => 'checkbox'
                 )
-            );
+            ), $this->prefix );
 
-        $fields_html = $this->_alr_html->buildFormFieldsHtml( $fields, $this->prefix );
-
-        $links = array(
+        $links_html = $this->_alr_html->buildFormHtmlLinks( array(
             $this->prefix . '_not_a_member' => array(
                 'href' => '#',
                 'class' => 'not-a-member-handle',
@@ -77,20 +77,26 @@ Class ALRLogin {
                 'class' => '',
                 'text' => __( 'Forgot Password',ALR_TEXT_DOMAIN )
                 )
-        );
+            ), $this->prefix );
 
-        $links_html = $this->_alr_html->buildFormHtmlLinks( $links, $this->prefix );
+        $buttons_html = $this->_alr_html->buildFormFieldsHtml( array(
+            $this->prefix . '_submit_button' => array(
+                'title' => 'Login',
+                'type' => 'submit'
+                )
+            ), $this->prefix );
 
 
-        // Maybe remove these
+        // Assign various CSS classes to be filterable via themes/plugins/add-ons
         $container_classes = apply_filters( $this->prefix . '_form_container_classes', array(
             ALR_NAMESPACE . '_form_container',
             $this->prefix . '_form_container'
             ) );
 
-        $form_classes = apply_filters( $this->prefix . '_form_classes', array(
-            'ajax-login-default-form-container login_form',
-            get_option('ajax_login_register_default_style')
+        $form_classes = apply_filters( $this->prefix . '_form_classes', array() );
+
+        $button_container_classes = apply_filters( $this->prefix . '_button_container_classes', array(
+            ALR_NAMESPACE . '_button_container'
             ) );
 
         ob_start(); ?>
@@ -120,8 +126,8 @@ Class ALRLogin {
                         <?php echo $fields_html; ?>
                         <?php echo $links_html; ?>
 
-                        <div class="button-container">
-                            <input class="login_button green" type="submit" value="<?php _e('Login',ALR_TEXT_DOMAIN); ?>" accesskey="p" name="submit" />
+                        <div class="<?php echo implode( " ", $button_container_classes ); ?>">
+                            <?php echo $buttons_html; ?>
                         </div>
                     </div>
 
