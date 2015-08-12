@@ -4,6 +4,8 @@ Class ALRHtml {
 
     public function buildFormFieldsHtml( $fields=null, $prefix=null, $order=null ){
 
+        $fields = apply_filters( $prefix . '_form_fields', $fields );
+
         // Use this filter to add additional classes for the parent/container of each
         // form field
         $default_classes = apply_filters( $prefix . '_form_classes', array() );
@@ -101,6 +103,8 @@ Class ALRHtml {
 
 
     public function buildFormHtmlLinks( $links=null, $prefix=null ){
+
+        $links = apply_filters( $prefix . '_form_links', $links );
 
         if ( $links ){
 

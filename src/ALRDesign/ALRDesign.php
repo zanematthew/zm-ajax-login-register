@@ -14,7 +14,7 @@ Class ALRDesign {
 
         add_filter( 'quilt_' . ALR_NAMESPACE. '_settings', array( &$this, 'settings') );
         add_filter( 'alr_login_form_links', array( &$this, 'filterLoginLinks' ) );
-        add_filter( 'alr_login_fields', array( &$this, 'filterLoginFields' ) );
+        add_filter( 'alr_login_form_fields', array( &$this, 'filterLoginFields' ) );
 
     }
 
@@ -45,34 +45,24 @@ Class ALRDesign {
                     'type' => 'css',
                     'desc' => __( 'Type your custom CSS styles that are applied to the dialog boxes.', ALR_TEXT_DOMAIN )
                 ),
-                array(
-                    'id' => $this->prefix . '_login_disable_keep_me_logged_in',
-                    'title' => __( 'Disable "keep me logged in"', ALR_TEXT_DOMAIN ),
-                    'desc' => __( 'Use this option to disable the check box shown to keep users logged in.', ALR_TEXT_DOMAIN ),
-                    'std' => 'off',
-                    'type' => 'checkbox'
-                ),
 
                 // Show/hide certain fields
                 array(
                     'id' => $this->prefix . '_login_disable_keep_me_logged_in',
                     'title' => __( 'Disable "keep me logged in"', ALR_TEXT_DOMAIN ),
                     'desc' => __( 'Use this option to disable the check box shown to keep users logged in.', ALR_TEXT_DOMAIN ),
-                    'std' => 'off',
                     'type' => 'checkbox'
                 ),
                 array(
                     'id' => $this->prefix . '_login_disable_register',
                     'title' => __( 'Remove Registration', ALR_TEXT_DOMAIN ),
                     'desc' => __( 'This prevents users from being able to register on the login page.', ALR_TEXT_DOMAIN ),
-                    'std' => 'off',
                     'type' => 'checkbox'
                 ),
                 array(
                     'id' => $this->prefix . '_login_disable_forgot_password',
                     'title' => __( 'Remove Forgot Password', ALR_TEXT_DOMAIN ),
                     'desc' => __( 'This prevents users from being able to use the "forgot password".', ALR_TEXT_DOMAIN ),
-                    'std' => 'off',
                     'type' => 'checkbox'
                 )
             )
@@ -87,10 +77,10 @@ Class ALRDesign {
 
         global $alr_settings;
 
-        if ( $alr_settings[ $this->prefix . '_login_disable_register'] == 'on' )
+        if ( ! empty( $alr_settings[ $this->prefix . '_login_disable_register'] ) )
             unset( $links['alr_login_not_a_member'] );
 
-        if ( $alr_settings[ $this->prefix . '_login_disable_forgot_password'] == 'on' )
+        if ( ! empty( $alr_settings[ $this->prefix . '_login_disable_forgot_password'] ) )
             unset( $links['alr_login_lost_password_url'] );
 
         return $links;
@@ -102,7 +92,7 @@ Class ALRDesign {
 
         global $alr_settings;
 
-        if ( $alr_settings[ $this->prefix . '_login_disable_keep_me_logged_in'] == 'on' )
+        if ( ! empty( $alr_settings[ $this->prefix . '_login_disable_keep_me_logged_in'] ) )
             unset( $fields['alr_login_keep_me_logged_in'] );
 
         return $fields;
@@ -125,5 +115,6 @@ Class ALRDesign {
         <?php endif; ?>
 
     <?php }
+
 }
 new ALRDesign();

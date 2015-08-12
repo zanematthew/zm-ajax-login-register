@@ -32,7 +32,7 @@
 * [x] Wrangle CSS classes
 * [x] Wrangle JS classes (These are added via a filter in deprecated.php)
 * [x] Fire deprecated hooks via filter
-* [ ] Get working
+* [x] Get working
 
 # Modals
 
