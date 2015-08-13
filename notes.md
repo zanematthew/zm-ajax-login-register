@@ -49,7 +49,7 @@
 # Test
 
 * [x] Login Shortcode
-* [ ] Login Modal
+* [x] Login Modal
 * [ ] Login FB
 * [x] Login responsive
 
@@ -86,10 +86,9 @@
 
 # Setting -- Misc.
 
-* [ ] Advanced Usage
 * [ ] Login Handle
 * [ ] Register Handle
-* [ ] Force Check Password
+* [x] Force Check Password
 * [ ] Pre-load Forms
 
 # Setting -- Redirect

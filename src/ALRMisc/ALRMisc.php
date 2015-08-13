@@ -46,16 +46,24 @@ Class ALRMisc {
                 array(
                     'id' => $this->prefix . '_force_check_password',
                     'title' => __( 'Force Check Password', ALR_TEXT_DOMAIN ),
-                    'type' => 'checkbox',
-                    'std' => 'off',
-                    'desc' => __( 'Use this option if your are experiencing compatibility issues with other login and or register plugins.', ALR_TEXT_DOMAIN )
+                    'type' => 'fancySelect',
+                    'std' => $this->prefix . '_no',
+                    'desc' => __( 'Use this option if your are experiencing compatibility issues with other login and or register plugins.', ALR_TEXT_DOMAIN ),
+                    'options' => array(
+                        $this->prefix . '_yes' => 'Yes',
+                        $this->prefix . '_no' => 'No'
+                        )
 
                 ),
                 array(
                     'id' => $this->prefix . '_pre_load_forms',
                     'title' => __( 'Pre-load Forms', ALR_TEXT_DOMAIN ),
-                    'type' => 'checkbox',
-                    'std' => 'off',
+                    'type' => 'fancySelect',
+                    'std' => $this->prefix . '_no',
+                    'options' => array(
+                        $this->prefix . '_yes' => 'Yes',
+                        $this->prefix . '_no' => 'No'
+                        ),
                     'desc' => __( 'Setting this option will pre-load the forms, allowing them to be loaded prior to being clicked on.', ALR_TEXT_DOMAIN )
                 )
             )

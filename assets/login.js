@@ -100,6 +100,8 @@ jQuery( document ).ready(function( $ ){
      */
     if ( _ajax_login_settings.login_handle.length ){
 
+
+        // Set the "login" text to be "logout" if the user is logged in.
         if ( _ajax_login_settings.is_user_logged_in == 1 ){
 
             $this = $( _ajax_login_settings.login_handle ).children('a');
@@ -107,14 +109,20 @@ jQuery( document ).ready(function( $ ){
             $this.html( _ajax_login_settings.logout_text );
             $this.attr( 'href', _ajax_login_settings.wp_logout_url );
 
-        } else {
+        }
+
+        // Open the dialog when they click on it.
+        else {
 
             $( document ).on('click', _ajax_login_settings.login_handle, function( event ){
 
                 event.preventDefault();
                 zMAjaxLoginRegister.open_login();
 
-                if ( ! _ajax_login_settings.pre_load_forms.length ){
+                // There's a setting to either load the container div, then have the
+                // forms load inside via AJAX, or to have them already loaded, and "hidden"
+                // via display:none.
+                if ( _ajax_login_settings.pre_load_forms == 'alr_misc_no' ){
                     zMAjaxLoginRegister.load_login();
                 }
 

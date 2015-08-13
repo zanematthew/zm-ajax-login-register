@@ -56,7 +56,7 @@
     -o-transition-timing-function: linear;
     -ms-transition-timing-function: linear;
     transition-timing-function: linear;
-    width: 95%;
+    width: 100%;
     margin: 0 0 15px 0;
     background: #fff;
     border: 1px solid #ddd;

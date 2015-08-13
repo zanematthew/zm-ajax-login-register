@@ -58,7 +58,8 @@ var zMAjaxLoginRegister = {
                 security: jQuery('#ajax-login-register-login-dialog').attr('data-security')
             },
             success: function( msg ){
-                jQuery( "#ajax-login-register-login-target" ).fadeIn().html( msg ); // Give a smooth fade in effect
+                console.log( msg.data );
+                jQuery( "#ajax-login-register-login-target" ).fadeIn().html( msg.data ); // Give a smooth fade in effect
             }
         });
     },
@@ -187,7 +188,7 @@ jQuery( document ).ready(function( $ ){
         of: 'body'
     });
 
-    if ( _ajax_login_settings.pre_load_forms.length ){
+    if ( _ajax_login_settings.pre_load_forms == 'alr_misc_yes' ){
         zMAjaxLoginRegister.load_login();
         zMAjaxLoginRegister.load_register();
     }

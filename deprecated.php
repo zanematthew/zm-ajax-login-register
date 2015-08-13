@@ -204,3 +204,13 @@ function alr_register_form_container_classes_filter( $classes ){
 
 }
 add_filter( 'alr_register_form_classes', 'alr_register_form_container_classes_filter' );
+
+
+function alr_login_legacy_dialog_classes( $classes ){
+
+    $classes[] = 'ajax-login-register-container';
+
+    return $classes;
+
+}
+add_filter( 'alr_login_dialog_class', 'alr_login_legacy_dialog_classes' );

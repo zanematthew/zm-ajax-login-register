@@ -34,7 +34,7 @@ Class ALRDesign {
                 array(
                     'id' => $this->prefix . '_login_form_layout',
                     'title' => __( 'Form Layout', ALR_TEXT_DOMAIN ),
-                    'type' => 'select',
+                    'type' => 'fancySelect',
                     'std' => $this->prefix . '_default',
                     'options' => array(
                         $this->prefix . '_default' => __( 'Default', ALR_TEXT_DOMAIN ),

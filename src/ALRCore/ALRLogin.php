@@ -17,32 +17,26 @@ Class ALRLogin {
         add_shortcode( 'ajax_login', array( &$this, 'shortcode' ) );
         add_action( 'wp_ajax_login_submit', array( &$this, 'loginSubmit' ) );
         add_action( 'wp_ajax_nopriv_login_submit', array( &$this, 'loginSubmit' ) );
+        add_action( 'wp_head', array( &$this, 'head' ) );
 
-        // add_action( 'wp_ajax_nopriv_load_template', array( &$this, 'load_template' ) );
-        // add_action( 'wp_ajax_load_template', array( &$this, 'load_template' ) );
-        /**
-         * Load the login form via an AJAX request.
-         *
-         * @package AJAX
-         */
-        // public function load_template(){
-
-        //     check_ajax_referer( $_POST['referer'],'security');
-
-        //     $file_name = sanitize_file_name( $_POST['template'] );
-        //     $valid_file_names = array(
-        //         'login-form',
-        //         'register-form'
-        //         );
-
-        //     if ( in_array( $file_name, $valid_file_names ) ){
-        //         load_template( plugin_dir_path( dirname( __FILE__ ) ) . "views/" . $file_name . '.php' );
-        //     }
-
-        //     die();
-        // }
+        add_action( 'wp_ajax_nopriv_load_template', array( &$this, 'load_template' ) );
+        add_action( 'wp_ajax_load_template', array( &$this, 'load_template' ) );
 
     }
+
+
+    /**
+     * Load the login form via an AJAX request.
+     *
+     * @package AJAX
+     */
+    public function load_template(){
+
+        check_ajax_referer( $_POST['referer'], 'security' );
+        wp_send_json_success( do_shortcode( '[ajax_login]' ) );
+
+    }
+
 
 
     public function shortcode(){
@@ -106,7 +100,12 @@ Class ALRLogin {
         <!-- Login Form -->
         <div class="<?php echo implode( " ", $container_classes ); ?>">
 
-            <?php if ( is_user_logged_in() ) : ?>
+            <?php
+
+            // Using this vs. is_user_logged_in(), since the later ALWAYS returns true for AJAX
+            $u = wp_get_current_user();
+
+            if ( $u->user_login ) : ?>
 
                 <p class="<?php echo $this->prefix; ?>_text"><?php printf("%s <a href=%s title='%s'>%s</a>",
                     __('You are already logged in', ALR_TEXT_DOMAIN ), // Text
@@ -161,12 +160,12 @@ Class ALRLogin {
         /**
          * Verify the AJAX request
          */
-        // if ( $is_ajax ) check_ajax_referer('login_submit','security');
+        if ( $is_ajax ) check_ajax_referer('login_submit','security');
 
         $args = array(
             'login' => sanitize_user( $_POST['alr_login_user_name'] ),
             'password' => $_POST['alr_login_password'],
-            'remember' => ( $_POST['remember'] == 'on' ) ? true : false
+            'remember' => empty( $_POST['remember'] ) ? false : ture
         );
 
         // Currently wp_signon returns the same error code 'invalid_username' if
@@ -178,7 +177,8 @@ Class ALRLogin {
                 // if option force check password
                 global $alr_settings;
 
-                if ( $alr_settings['alr_misc_force_check_password'] == 'on' ){
+                // Better to do via a hook from within alr_misc.
+                if ( $alr_settings['alr_misc_force_check_password'] == 'alr_misc_yes' ){
 
                     $user = get_user_by( 'login', $args['login'] );
                     if ( wp_check_password( $args['password'], $user->data->user_pass, $user->ID ) ){
@@ -226,6 +226,23 @@ Class ALRLogin {
             return $status;
         }
     }
+
+
+    public function head(){
+
+        /**
+         * Markup needed for jQuery UI dialog, our form is actually loaded via AJAX
+         */
+        $classes = implode( ' ', apply_filters( $this->prefix . '_dialog_class', array(
+            $this->prefix . '_dialog',
+            ALR_NAMESPACE . '_dialog'
+            ) ) ); ?>
+        <div id="ajax-login-register-login-dialog" class="<?php echo $classes; ?>" title="<?php _e( 'Login', ALR_TEXT_DOMAIN ); ?>" data-security="<?php print wp_create_nonce( 'login_form' ); ?>">
+            <div id="ajax-login-register-login-target" class="ajax-login-register-login-dialog"><?php _e( 'Loading...', ALR_TEXT_DOMAIN ); ?>
+            </div>
+            <?php do_action( $this->prefix . '_after_dialog' ); ?>
+        </div>
+    <?php }
 }
 
 function alr_plugins_loaded_login(){
