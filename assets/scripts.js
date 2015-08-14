@@ -82,23 +82,28 @@ var zMAjaxLoginRegister = {
     //
     load_register: function(){
 
-        var data = {
-            action: 'load_register_template',
-            template: 'register-form',
-            referer: 'register_form',
-            security:  jQuery('#ajax-login-register-dialog').attr('data-security')
-        };
+        if ( jQuery('body').hasClass('logged-in') ){
 
-        jQuery.ajax({
-            global: false,
-            data: data,
-            type: "POST",
-            url: _ajax_login_settings.ajaxurl,
-            success: function( msg ){
+            jQuery( "#ajax-login-register-target" ).fadeIn().html( _ajax_login_settings.registered_text ); // Give a smooth fade in effect
 
-                jQuery( "#ajax-login-register-target" ).fadeIn().html( msg.data ); // Give a smooth fade in effect
-            }
-        });
+        } else {
+            var data = {
+                action: 'load_register_template',
+                template: 'register-form',
+                referer: 'register_form',
+                security:  jQuery('#ajax-login-register-dialog').attr('data-security')
+            };
+
+            jQuery.ajax({
+                global: false,
+                data: data,
+                type: "POST",
+                url: _ajax_login_settings.ajaxurl,
+                success: function( msg ){
+                   jQuery( "#ajax-login-register-target" ).fadeIn().html( msg.data ); // Give a smooth fade in effect
+                }
+            });
+        }
     }
 };
 

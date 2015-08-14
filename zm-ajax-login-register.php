@@ -85,7 +85,8 @@ function zm_ajax_login_register_enqueue_scripts(){
         'logout_text' => __( 'Logout', ALR_TEXT_DOMAIN ),
         'close_text' => __( 'Close', ALR_TEXT_DOMAIN ),
         'pre_load_forms' => $alr_settings['alr_misc_pre_load_forms'],
-        'logged_in_text' => __('You are already logged in', ALR_TEXT_DOMAIN ) // Text
+        'logged_in_text' => __('You are already logged in', ALR_TEXT_DOMAIN ),
+        'registered_text' => __( 'You are already registered', ALR_TEXT_DOMAIN )
         ) ) );
 }
 add_action( 'wp_enqueue_scripts', 'zm_ajax_login_register_enqueue_scripts');

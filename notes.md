@@ -36,8 +36,8 @@
 
 # Modals
 
-* [ ] Get login modal working (HTML)
-* [ ] Get register modal working (HTML)
+* [x] Get login modal working (HTML)
+* [x] Get register modal working (HTML)
 
 * [ ] Check AJAX refer, Something (not) happening when your logged out, and it messes up the check admin ajax
 

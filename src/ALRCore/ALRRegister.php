@@ -34,7 +34,48 @@ Class ALRRegister {
 
     public function shortcode(){
 
-        // No filter here, filter in the buildFormFieldsHtml instead
+        if ( get_option('users_can_register') ) {
+
+            if ( is_user_logged_in() ) {
+
+                $html = sprintf('<p>%s <a href="%s" title="%s">%s</a></p>',
+                    __( 'You are already registered', ALR_TEXT_DOMAIN ),
+                    wp_logout_url( site_url() ),
+                    __( 'Logout', ALR_TEXT_DOMAIN ),
+                    __( 'Logout', ALR_TEXT_DOMAIN )
+                );
+
+            } else {
+
+                $html = $this->getRegisterForm();
+
+            }
+
+        } else {
+
+            $html = __('Registration is currently closed.', ALR_TEXT_DOMAIN );
+
+        }
+
+        return $html;
+    }
+
+
+    // No filter here, filter in the buildFormFieldsHtml instead
+    // Status target
+    // Button and container
+    // Form HTML
+    public function getRegisterForm(){
+
+        $container_classes = implode( " ", apply_filters( $this->prefix . '_form_container_classes', array(
+            ALR_NAMESPACE . '_form_container',
+            $this->prefix . '_form_container'
+            ) ) );
+
+        $form_classes = implode( " ", apply_filters( $this->prefix . '_form_classes', array(
+            ALR_NAMESPACE . '_form'
+            ) ) );
+
         $fields_html = $this->_alr_html->buildFormFieldsHtml( array(
             $this->prefix . '_user_name' => array(
                 'title' => 'User Name',
@@ -74,61 +115,26 @@ Class ALRRegister {
                 )
             ), $this->prefix );
 
-        $container_classes = apply_filters( $this->prefix . '_form_container_classes', array(
-            ALR_NAMESPACE . '_form_container',
-            $this->prefix . '_form_container'
-            ) );
-
-        $form_classes = apply_filters( $this->prefix . '_form_classes', array(
-            ALR_NAMESPACE . '_form'
-            ) );
-
-        $button_container_classes = apply_filters( $this->prefix . '_button_container_classes', array(
+        $button_container_classes = implode( " ", apply_filters( $this->prefix . '_button_container_classes', array(
             ALR_NAMESPACE . '_button_container'
-            ) );
+            ) ) );
 
-        ob_start(); ?>
+        $target_html = '<div class="ajax-login-register-status-container">';
+        $target_html .= '<div class="ajax-login-register-msg-target"></div>';
+        $target_html .= '</div>';
 
-        <!-- Register Modal -->
-        <?php if ( get_option('users_can_register') ) : ?>
-            <div class="<?php echo implode( " ", $container_classes ); ?>">
-                <?php
+        $button_html = '<div class="' . $button_container_classes . '">' . $buttons_html . '</div>';
 
-                // Using this vs. is_user_logged_in(), since the later ALWAYS returns true for AJAX
-                $u = wp_get_current_user();
+        $form_html = '<form action="javascript://" name="registerform" class="' . $form_classes . '" data-alr_register_security="' . wp_create_nonce( 'setup_new_user' ) . '">';
+        $form_html .= '<div class="form-wrapper">';
+        $form_html .= $fields_html . $links_html . $buttons_html;
+        $form_html .= '</div>';
+        $form_html .= '</form>';
 
-                if ( $u->user_login ) : ?>
+        $html = '<div class="' . $container_classes . '">' . $target_html . $form_html . '</div>';
 
-                    <p><?php printf('%s <a href="%s" title="%s">%s</a>',
-                        __( 'You are already registered', ALR_TEXT_DOMAIN ),
-                        wp_logout_url( site_url() ),
-                        __( 'Logout', ALR_TEXT_DOMAIN ),
-                        __( 'Logout', ALR_TEXT_DOMAIN )
-                    ); ?></p>
-                <?php else : ?>
-                    <form action="javascript://" name="registerform" class="<?php echo implode( " " , $form_classes ); ?>" data-alr_register_security="<?php echo wp_create_nonce( 'setup_new_user' ); ?>">
+        return $html;
 
-                        <div class="form-wrapper">
-                            <div class="ajax-login-register-status-container">
-                                <div class="ajax-login-register-msg-target"></div>
-                            </div>
-
-                            <?php echo $fields_html; ?>
-                            <?php echo $links_html; ?>
-
-                            <div class="<?php echo implode( " ", $button_container_classes ); ?>">
-                                <?php echo $buttons_html; ?>
-                            </div>
-
-                        </div>
-                    </form>
-                <?php endif; ?>
-            </div>
-        <?php else : ?>
-            <p><?php _e('Registration is currently closed.', ALR_TEXT_DOMAIN ); ?></p>
-        <?php endif; ?>
-
-        <?php return ob_get_clean();
     }
 
 
@@ -382,8 +388,9 @@ Class ALRRegister {
      */
     public function load_register_template(){
 
-        check_ajax_referer( $_POST['referer'], 'security' );
-        wp_send_json_success( do_shortcode( '[ajax_register]' ) );
+        // check_ajax_referer( $_POST['referer'], 'security' );
+        $msg = $this->getRegisterForm();
+        wp_send_json_success( $msg );
 
     }
 

@@ -68,8 +68,7 @@ Class ALRLogin {
 
 
         $html = sprintf(
-            "<div class='%s'><p class='%s_text'>%s <a href=%s title='%s'>%s</a></p></div>",
-            $container_classes,
+            "<div class=''><p class='%s_text'>%s <a href=%s title='%s'>%s</a></p></div>",
             $this->prefix,
             __('You are already logged in', ALR_TEXT_DOMAIN ), // Text
             wp_logout_url( site_url() ), // URL
