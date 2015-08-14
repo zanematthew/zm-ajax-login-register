@@ -11,11 +11,15 @@ jQuery( document ).ready(function( $ ){
 
     if ( _ajax_login_settings.register_handle.length ){
         $( document ).on('click', _ajax_login_settings.register_handle, function( event ){
+
             event.preventDefault();
+
             zMAjaxLoginRegister.open_register();
-            if ( ! _ajax_login_settings.pre_load_forms.length ){
+
+            if ( _ajax_login_settings.pre_load_forms == 'alr_misc_no' ){
                 zMAjaxLoginRegister.load_register();
             }
+
         });
     }
 

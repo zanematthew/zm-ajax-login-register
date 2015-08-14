@@ -21,7 +21,6 @@ var zMAjaxLoginRegister = {
         $form = $obj.parents('form');
 
         match_value = jQuery('.user_password', $form).val();
-
         if ( value == match_value ) {
             msg = {
                 "cssClass": "noon",
@@ -47,21 +46,30 @@ var zMAjaxLoginRegister = {
 
     //
     load_login: function(){
-        jQuery.ajax({
-            global: false,
-            type: "POST",
-            url: _ajax_login_settings.ajaxurl,
-            data: {
-                action: 'load_template',
-                referer: 'login_form',
-                template: 'login-form',
-                security: jQuery('#ajax-login-register-login-dialog').attr('data-security')
-            },
-            success: function( msg ){
-                console.log( msg.data );
-                jQuery( "#ajax-login-register-login-target" ).fadeIn().html( msg.data ); // Give a smooth fade in effect
-            }
-        });
+
+        if ( jQuery('body').hasClass('logged-in') ){
+
+            jQuery( "#ajax-login-register-login-target" ).fadeIn().html( _ajax_login_settings.logged_in_text );
+
+        } else {
+
+            jQuery.ajax({
+                global: false,
+                type: "POST",
+                url: _ajax_login_settings.ajaxurl,
+                data: {
+                    action: 'load_template',
+                    referer: 'login_form',
+                    template: 'login-form',
+                    security: jQuery('#ajax-login-register-login-dialog').attr('data-security')
+                },
+                success: function( msg ){
+                    console.log( msg );
+                    jQuery( "#ajax-login-register-login-target" ).fadeIn().html( msg.data ); // Give a smooth fade in effect
+                }
+            });
+
+        }
     },
 
     //
@@ -75,7 +83,7 @@ var zMAjaxLoginRegister = {
     load_register: function(){
 
         var data = {
-            action: 'load_template',
+            action: 'load_register_template',
             template: 'register-form',
             referer: 'register_form',
             security:  jQuery('#ajax-login-register-dialog').attr('data-security')
@@ -87,7 +95,8 @@ var zMAjaxLoginRegister = {
             type: "POST",
             url: _ajax_login_settings.ajaxurl,
             success: function( msg ){
-                jQuery( "#ajax-login-register-target" ).fadeIn().html( msg ); // Give a smooth fade in effect
+
+                jQuery( "#ajax-login-register-target" ).fadeIn().html( msg.data ); // Give a smooth fade in effect
             }
         });
     }
@@ -129,7 +138,10 @@ jQuery( document ).ready(function( $ ){
 
         $.ajax({
             global: false,
-            data: "action=validate_email&email=" + $this.val(),
+            data: {
+                action: 'validate_email',
+                alr_register_email: $this.val()
+            },
             dataType: 'json',
             type: "POST",
             url: _ajax_login_settings.ajaxurl,
@@ -159,7 +171,10 @@ jQuery( document ).ready(function( $ ){
 
         $.ajax({
             global: false,
-            data: "action=validate_username&login=" + $( this ).val(),
+            data: {
+                action: 'validate_username',
+                alr_register_user_name: $( this ).val()
+            },
             dataType: 'json',
             type: "POST",
             url: _ajax_login_settings.ajaxurl,

@@ -81,11 +81,11 @@ function zm_ajax_login_register_enqueue_scripts(){
         'register_handle' => $alr_settings['alr_misc_register_handle'],
         'redirect' => $alr_settings['alr_redirect_redirect_after_login_url'],
         // 'match_error' => AjaxLogin::status('passwords_do_not_match','description'), // Deprecated
-        'is_user_logged_in' => is_user_logged_in() ? 1 : 0,
         'wp_logout_url' => wp_logout_url( site_url() ),
         'logout_text' => __( 'Logout', ALR_TEXT_DOMAIN ),
         'close_text' => __( 'Close', ALR_TEXT_DOMAIN ),
-        'pre_load_forms' => $alr_settings['alr_misc_pre_load_forms']
+        'pre_load_forms' => $alr_settings['alr_misc_pre_load_forms'],
+        'logged_in_text' => __('You are already logged in', ALR_TEXT_DOMAIN ) // Text
         ) ) );
 }
 add_action( 'wp_enqueue_scripts', 'zm_ajax_login_register_enqueue_scripts');

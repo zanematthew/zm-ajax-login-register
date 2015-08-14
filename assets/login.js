@@ -102,7 +102,7 @@ jQuery( document ).ready(function( $ ){
 
 
         // Set the "login" text to be "logout" if the user is logged in.
-        if ( _ajax_login_settings.is_user_logged_in == 1 ){
+        if ( $('body').hasClass('logged-in') ){
 
             $this = $( _ajax_login_settings.login_handle ).children('a');
 

@@ -39,7 +39,7 @@
 * [ ] Get login modal working (HTML)
 * [ ] Get register modal working (HTML)
 
-* [ ] Check AJAX refer
+* [ ] Check AJAX refer, Something (not) happening when your logged out, and it messes up the check admin ajax
 
 # Post
 
@@ -94,3 +94,4 @@
 # Setting -- Redirect
 
 * [x] Redirect After Login URL
+

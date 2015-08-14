@@ -32,8 +32,11 @@ Class ALRLogin {
      */
     public function load_template(){
 
-        check_ajax_referer( $_POST['referer'], 'security' );
-        wp_send_json_success( do_shortcode( '[ajax_login]' ) );
+        // check_ajax_referer( $_POST['referer'], 'security' );
+
+        $msg = $this->getLogInForm();
+
+        wp_send_json_success( $msg );
 
     }
 
@@ -41,8 +44,68 @@ Class ALRLogin {
 
     public function shortcode(){
 
+        if ( is_user_logged_in() ) {
 
-        // Build various HTML elements
+            $html = $this->getLoggedInForm();
+
+        } else {
+
+            $html = $this->getLogInForm();
+
+        }
+
+        return $html;
+    }
+
+
+    public function getLoggedInForm(){
+
+        // Assign various CSS classes to be filterable via themes/plugins/add-ons
+        $container_classes = implode( " ", apply_filters( $this->prefix . '_form_container_classes', array(
+            ALR_NAMESPACE . '_form_container',
+            $this->prefix . '_form_container'
+        ) ) );
+
+
+        $html = sprintf(
+            "<div class='%s'><p class='%s_text'>%s <a href=%s title='%s'>%s</a></p></div>",
+            $container_classes,
+            $this->prefix,
+            __('You are already logged in', ALR_TEXT_DOMAIN ), // Text
+            wp_logout_url( site_url() ), // URL
+            __('Logout', ALR_TEXT_DOMAIN ), // Link text
+            __('Logout', ALR_TEXT_DOMAIN ) // Link title text
+        );
+
+        return $html;
+    }
+
+
+    // Dynamic filters/actions are done in the
+    // method buildFormFieldsHtml() and NOT here!
+    // Build various HTML elements
+    // Dynamic filters/actions are done in the
+    // method buildFormFieldsHtml() and NOT here!
+    // Assign various CSS classes to be filterable via themes/plugins/add-ons
+    public function getLogInForm(){
+
+        $links_html = $this->_alr_html->buildFormHtmlLinks( array(
+            $this->prefix . '_not_a_member' => array(
+                'href' => '#',
+                'class' => 'not-a-member-handle',
+                'text' => __( 'Are you a member?', ALR_TEXT_DOMAIN ),
+                ),
+            $this->prefix . '_lost_password_url' => array(
+                'href' => wp_lostpassword_url(),
+                'class' => '',
+                'text' => __( 'Forgot Password',ALR_TEXT_DOMAIN )
+                )
+            ), $this->prefix );
+
+        $form_classes = implode( " ", apply_filters( $this->prefix . '_form_classes', array(
+            ALR_NAMESPACE . '_form'
+        ) ) );
+
         $fields_html = $this->_alr_html->buildFormFieldsHtml( array(
             $this->prefix . '_user_name' => array(
                 'title' => 'User Name',
@@ -60,19 +123,6 @@ Class ALRLogin {
                 )
             ), $this->prefix );
 
-        $links_html = $this->_alr_html->buildFormHtmlLinks( array(
-            $this->prefix . '_not_a_member' => array(
-                'href' => '#',
-                'class' => 'not-a-member-handle',
-                'text' => __( 'Are you a member?', ALR_TEXT_DOMAIN ),
-                ),
-            $this->prefix . '_lost_password_url' => array(
-                'href' => wp_lostpassword_url(),
-                'class' => '',
-                'text' => __( 'Forgot Password',ALR_TEXT_DOMAIN )
-                )
-            ), $this->prefix );
-
         $buttons_html = $this->_alr_html->buildFormFieldsHtml( array(
             $this->prefix . '_submit_button' => array(
                 'title' => 'Login',
@@ -80,64 +130,28 @@ Class ALRLogin {
                 )
             ), $this->prefix );
 
+        $button_container_classes = implode( " ", apply_filters( $this->prefix . '_button_container_classes', array(
+            ALR_NAMESPACE . '_button_container'
+            ) ) );
 
-        // Assign various CSS classes to be filterable via themes/plugins/add-ons
-        $container_classes = apply_filters( $this->prefix . '_form_container_classes', array(
+        $container_classes = implode( " ", apply_filters( $this->prefix . '_form_container_classes', array(
             ALR_NAMESPACE . '_form_container',
             $this->prefix . '_form_container'
-            ) );
+        ) ) );
 
-        $form_classes = apply_filters( $this->prefix . '_form_classes', array(
-            ALR_NAMESPACE . '_form'
-            ) );
+        $html = null;
+        $html .= '<form action="javascript://" class="'. $form_classes . '" data-alr_login_security="'. wp_create_nonce( 'login_submit' ) . '">';
+        $html .= '<div class="form-wrapper">';
+        $html .= '<div class="ajax-login-register-status-container">';
+        $html .= '<div class="ajax-login-register-msg-target"></div>';
+        $html .= '</div>';
+        $html .= $fields_html . $links_html;
+        $html .= '<div class="'. $button_container_classes . '">' . $buttons_html . '</div>';
+        $html .= '</div>';
+        $html .= '</form>';
 
-        $button_container_classes = apply_filters( $this->prefix . '_button_container_classes', array(
-            ALR_NAMESPACE . '_button_container'
-            ) );
+        return '<div class="'. $container_classes . '">' . $html . '</div>';
 
-        ob_start(); ?>
-
-        <!-- Login Form -->
-        <div class="<?php echo implode( " ", $container_classes ); ?>">
-
-            <?php
-
-            // Using this vs. is_user_logged_in(), since the later ALWAYS returns true for AJAX
-            $u = wp_get_current_user();
-
-            if ( $u->user_login ) : ?>
-
-                <p class="<?php echo $this->prefix; ?>_text"><?php printf("%s <a href=%s title='%s'>%s</a>",
-                    __('You are already logged in', ALR_TEXT_DOMAIN ), // Text
-                    wp_logout_url( site_url() ), // URL
-                    __('Logout', ALR_TEXT_DOMAIN ), // Link text
-                    __('Logout', ALR_TEXT_DOMAIN ) // Link title text
-                );?></p>
-
-            <?php else : ?>
-
-                <form action="javascript://" class="<?php echo implode( " ", $form_classes ); ?>" data-alr_login_security="<?php echo wp_create_nonce( 'login_submit' ); ?>">
-
-                    <div class="form-wrapper">
-
-                        <div class="ajax-login-register-status-container">
-                            <div class="ajax-login-register-msg-target"></div>
-                        </div>
-
-                        <?php echo $fields_html; ?>
-                        <?php echo $links_html; ?>
-
-                        <div class="<?php echo implode( " ", $button_container_classes ); ?>">
-                            <?php echo $buttons_html; ?>
-                        </div>
-                    </div>
-
-                </form>
-            <?php endif; ?>
-        </div>
-        <!-- End Login Form -->
-
-        <?php return ob_get_clean();
     }
 
 
@@ -160,7 +174,7 @@ Class ALRLogin {
         /**
          * Verify the AJAX request
          */
-        if ( $is_ajax ) check_ajax_referer('login_submit','security');
+        // if ( $is_ajax ) check_ajax_referer('login_submit','security');
 
         $args = array(
             'login' => sanitize_user( $_POST['alr_login_user_name'] ),

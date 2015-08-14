@@ -22,7 +22,12 @@ Class ALRRegister {
         add_action( 'wp_ajax_nopriv_validate_email', array( &$this,'validateEmail' ) );
         add_action( 'wp_ajax_validate_email', array( &$this,'validateEmail' ) );
 
+        add_action( 'wp_ajax_nopriv_load_register_template', array( &$this, 'load_register_template' ) );
+        add_action( 'wp_ajax_load_register_template', array( &$this, 'load_register_template' ) );
+
         add_shortcode( 'ajax_register', array( &$this, 'shortcode' ) );
+
+        add_action( 'wp_head', array( &$this, 'head' ) );
 
     }
 
@@ -87,7 +92,13 @@ Class ALRRegister {
         <!-- Register Modal -->
         <?php if ( get_option('users_can_register') ) : ?>
             <div class="<?php echo implode( " ", $container_classes ); ?>">
-                <?php if ( is_user_logged_in() ) : ?>
+                <?php
+
+                // Using this vs. is_user_logged_in(), since the later ALWAYS returns true for AJAX
+                $u = wp_get_current_user();
+
+                if ( $u->user_login ) : ?>
+
                     <p><?php printf('%s <a href="%s" title="%s">%s</a>',
                         __( 'You are already registered', ALR_TEXT_DOMAIN ),
                         wp_logout_url( site_url() ),
@@ -314,6 +325,7 @@ Class ALRRegister {
      */
     public function validateUsername( $username=null, $is_ajax=true ) {
 
+
         $username = empty( $_POST['alr_register_user_name'] ) ? esc_attr( $username ) : $_POST['alr_register_user_name'];
 
         if ( validate_username( $username ) ) {
@@ -362,6 +374,36 @@ Class ALRRegister {
         }
     }
 
+
+    /**
+     * Load the login form via an AJAX request.
+     *
+     * @package AJAX
+     */
+    public function load_register_template(){
+
+        check_ajax_referer( $_POST['referer'], 'security' );
+        wp_send_json_success( do_shortcode( '[ajax_register]' ) );
+
+    }
+
+
+    public function head(){
+
+        $classes = implode( ' ', apply_filters( $this->prefix . '_dialog_class', array(
+            $this->prefix . '_dialog',
+            ALR_NAMESPACE . '_dialog'
+            ) ) );
+
+        ?>
+        <?php
+        /**
+         * Markup needed for jQuery UI dialog, our form is actually loaded via AJAX
+         */
+        ?><div id="ajax-login-register-dialog" class="<?php echo $classes; ?>" title="<?php _e( 'Register',  ALR_TEXT_DOMAIN ); ?>" data-security="<?php print wp_create_nonce( 'register_form' ); ?>" style="display: none;">
+            <div id="ajax-login-register-target" class="ajax-login-register-dialog"><?php _e( 'Loading...', ALR_TEXT_DOMAIN ); ?></div>
+        </div>
+    <?php }
 
 }
 
