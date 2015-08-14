@@ -119,19 +119,19 @@ Class ALRRegister {
             ALR_NAMESPACE . '_button_container'
             ) ) );
 
-        $target_html = '<div class="ajax-login-register-status-container">';
-        $target_html .= '<div class="ajax-login-register-msg-target"></div>';
-        $target_html .= '</div>';
-
-        $button_html = '<div class="' . $button_container_classes . '">' . $buttons_html . '</div>';
-
-        $form_html = '<form action="javascript://" name="registerform" class="' . $form_classes . '" data-alr_register_security="' . wp_create_nonce( 'setup_new_user' ) . '">';
-        $form_html .= '<div class="form-wrapper">';
-        $form_html .= $fields_html . $links_html . $buttons_html;
-        $form_html .= '</div>';
-        $form_html .= '</form>';
-
-        $html = '<div class="' . $container_classes . '">' . $target_html . $form_html . '</div>';
+        $html = null;
+        $html .= '<div class="' . $container_classes . '">';
+        $html .= '<div class="ajax-login-register-status-container">';
+        $html .= '<div class="ajax-login-register-msg-target"></div>';
+        $html .= '</div>';
+        $html .= '<form action="javascript://" name="registerform" class="' . $form_classes . '" data-$html ;a=lr_register_security="' . wp_create_nonce( 'setup_new_user' ) . '">';
+        $html .= '<div class="form-wrapper">';
+        $html .= $fields_html;
+        $html .= $links_html;
+        $html .= '<div class="' . $button_container_classes . '">' . $buttons_html . '</div>';
+        $html .= '</div>';
+        $html .= '</form>';
+        $html .= '</div>';
 
         return $html;
 

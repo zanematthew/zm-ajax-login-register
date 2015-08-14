@@ -16,7 +16,7 @@ jQuery( document ).ready(function( $ ){
 
             zMAjaxLoginRegister.open_register();
 
-            if ( _ajax_login_settings.pre_load_forms == 'alr_misc_no' ){
+            if ( _ajax_login_settings.pre_load_forms == 'alr_misc_pre_load_no' ){
                 zMAjaxLoginRegister.load_register();
             }
 
@@ -71,5 +71,8 @@ jQuery( document ).ready(function( $ ){
         e.preventDefault();
         $('#ajax-login-register-dialog').dialog('close');
         zMAjaxLoginRegister.open_login();
+        if ( _ajax_login_settings.pre_load_forms == 'alr_misc_pre_load_no' ){
+            zMAjaxLoginRegister.load_login();
+        }
     });
 });

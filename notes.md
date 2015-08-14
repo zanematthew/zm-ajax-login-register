@@ -86,10 +86,10 @@
 
 # Setting -- Misc.
 
-* [ ] Login Handle
-* [ ] Register Handle
+* [x] Login Handle
+* [x] Register Handle
 * [x] Force Check Password
-* [ ] Pre-load Forms
+* [x] Pre-load Forms
 
 # Setting -- Redirect
 

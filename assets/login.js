@@ -122,7 +122,7 @@ jQuery( document ).ready(function( $ ){
                 // There's a setting to either load the container div, then have the
                 // forms load inside via AJAX, or to have them already loaded, and "hidden"
                 // via display:none.
-                if ( _ajax_login_settings.pre_load_forms == 'alr_misc_no' ){
+                if ( _ajax_login_settings.pre_load_forms == 'alr_misc_pre_load_no' ){
                     zMAjaxLoginRegister.load_login();
                 }
 
@@ -134,5 +134,8 @@ jQuery( document ).ready(function( $ ){
         e.preventDefault();
         $('#ajax-login-register-login-dialog').dialog('close');
         zMAjaxLoginRegister.open_register();
+        if ( _ajax_login_settings.pre_load_forms == 'alr_misc_pre_load_no' ){
+            zMAjaxLoginRegister.load_register();
+        }
     });
 });

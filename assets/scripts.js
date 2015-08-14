@@ -87,6 +87,7 @@ var zMAjaxLoginRegister = {
             jQuery( "#ajax-login-register-target" ).fadeIn().html( _ajax_login_settings.registered_text ); // Give a smooth fade in effect
 
         } else {
+            console.log('loading');
             var data = {
                 action: 'load_register_template',
                 template: 'register-form',
@@ -100,7 +101,8 @@ var zMAjaxLoginRegister = {
                 type: "POST",
                 url: _ajax_login_settings.ajaxurl,
                 success: function( msg ){
-                   jQuery( "#ajax-login-register-target" ).fadeIn().html( msg.data ); // Give a smooth fade in effect
+                    console.log( msg.data );
+                    jQuery( "#ajax-login-register-target" ).fadeIn().html( msg.data ); // Give a smooth fade in effect
                 }
             });
         }
@@ -208,7 +210,7 @@ jQuery( document ).ready(function( $ ){
         of: 'body'
     });
 
-    if ( _ajax_login_settings.pre_load_forms == 'alr_misc_yes' ){
+    if ( _ajax_login_settings.pre_load_forms == 'alr_misc_pre_load_yes' ){
         zMAjaxLoginRegister.load_login();
         zMAjaxLoginRegister.load_register();
     }
