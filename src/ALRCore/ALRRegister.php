@@ -32,7 +32,7 @@ Class ALRRegister {
 
         add_shortcode( 'ajax_register', array( &$this, 'shortcode' ) );
 
-        add_action( 'wp_head', array( &$this, 'head' ) );
+        add_action( 'wp_footer', array( &$this, 'footer' ) );
 
     }
 
@@ -410,11 +410,11 @@ Class ALRRegister {
 
 
     /**
-     * Add the HTML for the register dialog via wp_head.
+     * Add the HTML for the register dialog via wp_footer.
      *
      * @since 2.0.0
      */
-    public function head(){
+    public function footer(){
 
         $classes = implode( ' ', apply_filters( $this->prefix . '_dialog_class', array(
             $this->prefix . '_dialog',

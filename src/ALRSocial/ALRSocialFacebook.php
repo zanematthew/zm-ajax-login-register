@@ -8,15 +8,14 @@ class ALRSocialFacebook {
 
         add_action( 'wp_ajax_facebook_login', array( &$this, 'facebook_login' ) );
         add_action( 'wp_ajax_nopriv_facebook_login', array( &$this, 'facebook_login') );
+        add_action( 'wp_head', array( &$this, 'head' ) );
 
         // if( get_option( 'ajax_login_register_facebook' ) && get_option( 'fb_avatar' ) )
         //     add_filter( 'get_avatar', array( &$this, 'load_fb_avatar' ) , 1, 5 );
 
 
         add_filter( 'alr_login_above_fields', array( &$this, 'aboveLoginFields' ) );
-
-
-        // add_filter( 'alr_login_below_fields', array( &$this, '' ) );
+        add_filter( 'alr_social_settings_fields_tab', array( &$this, 'settings' ) );
     }
 
 
@@ -123,62 +122,26 @@ class ALRSocialFacebook {
     }
 
 
-    public function fbStuff(){ ?>
-
-        <?php if ( get_option('ajax_login_register_facebook') ) : ?>
-        <!-- Start: Ajax Login Register Facebook meta tags -->
-        <?php
-        // $a = New ajax_login_register_Login;
-        // $fb = $a->get_settings();
-        $fb = null;
-        foreach( $fb['facebook'] as $setting ) :
-
-            if ( $setting['key'] == 'app_id' ) {
-                $key = 'fb';
-            } else {
-                $key = 'og';
-            }
-
-            $value = get_option( $setting['key'] );
-
-            ?>
-            <?php if ( ! empty( $value ) ) : ?>
-                <meta property="<?php echo $key; ?>:<?php echo $value; ?>" content="<?php print $value; ?>" />
-            <?php endif; ?>
-        <?php endforeach; ?>
-        <!-- End: Ajax Login Register Facebook meta tags -->
-        <?php $app_id = get_option( 'app_id' ) ; ?>
-        <!-- Start: Ajax Login Register Facebook script -->
-        <script type="text/javascript">
-            window.fbAsyncInit = function() {
-                FB.init({
-                    appId      : "<?php esc_attr_e( $app_id ); ?>", // App ID
-                    cookie     : true,  // enable cookies to allow the server to access the session
-                    xfbml      : true,  // parse XFBML
-                    version    : 'v2.3' // use version 2.3
-                });
-            };
-
-            // Load the SDK asynchronously
-            // This is updated as the old version went to all.js
-            (function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/<?php echo get_locale(); ?>/sdk.js";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-        </script>
-        <!-- End: Ajax Login Register Facebook script -->
-    <?php endif; ?>
-    <?php }
-
-
-    public function aboveLoginFields(){
+    // Is it enabled
+    public function isEnabled(){
 
         global $alr_settings;
 
-        if ( $alr_settings['alr_social_fb_enabled'] == 'off' )
+        if ( $alr_settings[ $this->prefix . '_fb_enabled' ] == 'off' ){
+            $enabled = false;
+        } else {
+            $enabled = true;
+        }
+
+        return $enabled;
+
+    }
+
+
+    // The Fb button
+    public function aboveLoginFields(){
+
+        if ( ! $this->isEnabled() )
             return;
 
         $container_classes = implode( " ", array(
@@ -196,5 +159,97 @@ class ALRSocialFacebook {
         return $html;
 
     }
+
+
+    /**
+     * Filters the default settings, adding the additional settings below.
+     *
+     * @since 1.0.0
+     */
+    public function settings( $current_settings ){
+
+        // Facebook
+        $settings = array(
+            array(
+                'title' => __( 'Facebook Settings', ALR_TEXT_DOMAIN ),
+                'type' => 'header'
+                ),
+            array(
+                'id' => $this->prefix . '_fb_enabled',
+                'type' => 'checkbox',
+                'title' => __( 'Enable', ALR_TEXT_DOMAIN ),
+                'std' => 'off',
+                'desc' => __( 'By enabling this setting visitors will be able to login with Facebook.', ALR_TEXT_DOMAIN )
+            ),
+            array(
+                'id' => $this->prefix . '_fb_url',
+                'type' => 'url',
+                'title' => __( 'URL', ALR_TEXT_DOMAIN ),
+                'desc' => __( 'This is the URL you have set in your Facebook Developer App Settings', ALR_TEXT_DOMAIN )
+            ),
+            array(
+                'id' => $this->prefix . '_fb_app_id',
+                'type' => 'fancyText',
+                'title' => __( 'App ID', ALR_TEXT_DOMAIN ),
+                'desc' => __( 'This is the App ID as seen in your <a href="https://developers.facebook.com/">Facebook Developer</a> App Dashboard. For detailed instructions visit the <a href="http://zanematthew.com/ajax-login-register-help-videos/" target="_blank">How To add Facebook Settings to AJAX Login & Register</a>.', ALR_TEXT_DOMAIN )
+
+            ),
+            array(
+                'id' => $this->prefix . '_fb_use_avatar',
+                'type' => 'checkbox',
+                'title' => __( 'Use Facebook Avatar', ALR_TEXT_DOMAIN ),
+                'desc' => __( 'Checking this box will make Facebook profile picture show as avatar when possible ', ALR_TEXT_DOMAIN )
+            )
+        );
+
+
+        $current_settings = array_merge( $current_settings, $settings );
+
+        return $current_settings;
+
+    }
+
+
+    // add our meta and FB script
+    public function head(){
+
+        if ( ! $this->isEnabled() )
+            return;
+
+        global $alr_settings;
+
+        $fb_url = esc_url( $alr_settings[ $this->prefix . '_fb_url' ] );
+        $app_id = esc_attr( $alr_settings[ $this->prefix . '_fb_app_id' ] );
+
+        ?>
+
+        <!-- Start: <?php echo ALR_NAMESPACE; ?> Facebook meta property -->
+        <meta property="og:<?php echo $fb_url; ?>" content="<?php echo $fb_url; ?>"/>
+        <meta property="fb:<?php echo $app_id; ?>" content="<?php echo $app_id; ?>"/>
+        <!-- End: <?php echo ALR_NAMESPACE; ?> Facebook meta property -->
+
+        <!-- Start: <?php echo ALR_NAMESPACE; ?> Facebook script -->
+        <script type="text/javascript">
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId      : "<?php echo $app_id; ?>", // App ID
+                    cookie     : true,  // enable cookies to allow the server to access the session
+                    xfbml      : true,  // parse XFBML
+                    version    : 'v2.3' // use version 2.3
+                });
+            };
+            // Load the SDK asynchronously
+            // This is updated as the old version went to all.js
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/<?php echo get_locale(); ?>/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <!-- End: <?php echo ALR_NAMESPACE; ?> Facebook script -->
+
+    <?php }
 }
 new ALRSocialFacebook;

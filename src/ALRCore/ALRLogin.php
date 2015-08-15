@@ -32,7 +32,7 @@ Class ALRLogin {
         add_shortcode( 'ajax_login', array( &$this, 'shortcode' ) );
         add_action( 'wp_ajax_login_submit', array( &$this, 'loginSubmit' ) );
         add_action( 'wp_ajax_nopriv_login_submit', array( &$this, 'loginSubmit' ) );
-        add_action( 'wp_head', array( &$this, 'head' ) );
+        add_action( 'wp_footer', array( &$this, 'footer' ) );
 
         add_action( 'wp_ajax_nopriv_load_template', array( &$this, 'load_template' ) );
         add_action( 'wp_ajax_load_template', array( &$this, 'load_template' ) );
@@ -245,13 +245,13 @@ Class ALRLogin {
 
 
     /**
-     * Add the Login HTML dialog box by hooking into wp_head
+     * Add the Login HTML dialog box by hooking into wp_footer
      *
      * @since 2.0.0
      *
      * @return
      */
-    public function head(){
+    public function footer(){
 
         /**
          * Markup needed for jQuery UI dialog, our form is actually loaded via AJAX
