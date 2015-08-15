@@ -31,9 +31,9 @@ Class ALRHtml {
             ALR_NAMESPACE . '_form_field_container'
             ) );
 
-        $html = null;
-
         $order = apply_filters( $prefix . '_order_fields', array_keys( $fields ) );
+
+        $html = null;
 
         foreach( $order as $key ){
 
@@ -47,7 +47,7 @@ Class ALRHtml {
 
             } else {
 
-                do_action( $key . '_above_field' );
+                // do_action( $key . '_above_field' );
 
                 // filter
                 $args = wp_parse_args( $fields[ $key ], apply_filters( $prefix . '_fields_args', array(
@@ -119,12 +119,18 @@ Class ALRHtml {
 
                 $html .= '</div>';
 
-                do_action( $key . '_below_field' );
+                // do_action( $key . '_below_field' );
 
             }
 
         }
-        return $html;
+
+        $above_html = apply_filters( $prefix . '_above_fields', null );
+
+        $below_html = apply_filters( $prefix . '_below_fields', null );
+
+
+        return $above_html . $html . $below_html;
     }
 
 

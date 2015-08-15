@@ -64,15 +64,6 @@ function alr_login_field_filter( $field ){
 add_filter( 'alr_login_fields_args', 'alr_login_field_filter' );
 
 
-function alr_login_button_container_filter( $classes ){
-
-    $classes[] = 'button-container';
-    return $classes;
-
-}
-add_filter( 'alr_login_button_container_classes', 'alr_login_button_container_filter' );
-
-
 function alr_register_button_container_filter( $classes ){
 
     $classes[] = 'button-container';

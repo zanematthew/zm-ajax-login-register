@@ -4,11 +4,19 @@ class ALRSocialFacebook {
 
     public function __construct(){
 
+        $this->prefix = 'alr_social_facebook';
+
         add_action( 'wp_ajax_facebook_login', array( &$this, 'facebook_login' ) );
         add_action( 'wp_ajax_nopriv_facebook_login', array( &$this, 'facebook_login') );
 
         // if( get_option( 'ajax_login_register_facebook' ) && get_option( 'fb_avatar' ) )
         //     add_filter( 'get_avatar', array( &$this, 'load_fb_avatar' ) , 1, 5 );
+
+
+        add_filter( 'alr_login_above_fields', array( &$this, 'aboveLoginFields' ) );
+
+
+        // add_filter( 'alr_login_below_fields', array( &$this, '' ) );
     }
 
 
@@ -164,4 +172,29 @@ class ALRSocialFacebook {
         <!-- End: Ajax Login Register Facebook script -->
     <?php endif; ?>
     <?php }
+
+
+    public function aboveLoginFields(){
+
+        global $alr_settings;
+
+        if ( $alr_settings['alr_social_fb_enabled'] == 'off' )
+            return;
+
+        $container_classes = implode( " ", array(
+            'fb-login-container',
+            ALR_NAMESPACE . '_fb_login_container',
+            $this->prefix . '_fb_login_container'
+            ) );
+
+        $html = sprintf( '<div class="%s"><a href="#" class="fb-login" data-alr_facebook_security="%s">%s</a></div>',
+            $container_classes,
+            wp_create_nonce( 'facebook-nonce' ),
+            __( 'Log in using Facebook', ALR_TEXT_DOMAIN )
+            );
+
+        return $html;
+
+    }
 }
+new ALRSocialFacebook;

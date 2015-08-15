@@ -32,6 +32,7 @@ require ALR_PATH . 'src/ALRCore/ALRRegister.php';
 
 require ALR_PATH . 'src/ALRDesign/ALRDesign.php';
 require ALR_PATH . 'src/ALRSocial/ALRSocial.php';
+require ALR_PATH . 'src/ALRSocial/ALRSocialFacebook.php';
 require ALR_PATH . 'src/ALRMisc/ALRMisc.php';
 require ALR_PATH . 'src/ALRRedirect/ALRRedirect.php';
 

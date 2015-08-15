@@ -129,19 +129,12 @@ Class ALRLogin {
             $this->prefix . '_keep_me_logged_in' => array(
                 'title' => 'Keep Me Logged In',
                 'type' => 'checkbox'
-                )
-            ), $this->prefix );
-
-        $buttons_html = $this->_alr_html->buildFormFieldsHtml( array(
+                ),
             $this->prefix . '_submit_button' => array(
                 'title' => 'Login',
                 'type' => 'submit'
                 )
             ), $this->prefix );
-
-        $button_container_classes = implode( " ", apply_filters( $this->prefix . '_button_container_classes', array(
-            ALR_NAMESPACE . '_button_container'
-            ) ) );
 
         $container_classes = implode( " ", apply_filters( $this->prefix . '_form_container_classes', array(
             ALR_NAMESPACE . '_form_container',
@@ -155,7 +148,6 @@ Class ALRLogin {
         $html .= '<div class="ajax-login-register-msg-target"></div>';
         $html .= '</div>';
         $html .= $fields_html . $links_html;
-        $html .= '<div class="'. $button_container_classes . '">' . $buttons_html . '</div>';
         $html .= '</div>';
         $html .= '</form>';
 
