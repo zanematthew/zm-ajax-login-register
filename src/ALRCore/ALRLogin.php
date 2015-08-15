@@ -2,6 +2,14 @@
 
 Class ALRLogin {
 
+    /**
+     * Init various classes, and run the init action for ALR
+     *
+     * @since 2.0.0
+     *
+     * @param An classes that this class needs
+     * @return
+     */
     public function __construct( ZM_Dependency_Container $di ){
 
         $this->_alr_html = $di->get_instance( 'html', 'ALRHtml', null );
@@ -12,6 +20,13 @@ Class ALRLogin {
 
     }
 
+
+    /**
+     * Various WordPress hooks are fired here
+     *
+     * @since 2.0.0
+     *
+     */
     public function init(){
 
         add_shortcode( 'ajax_login', array( &$this, 'shortcode' ) );
@@ -28,7 +43,8 @@ Class ALRLogin {
     /**
      * Load the login form via an AJAX request.
      *
-     * @package AJAX
+     * @since 2.0.0
+     *
      */
     public function load_template(){
 
@@ -41,12 +57,25 @@ Class ALRLogin {
     }
 
 
-
+    /**
+     * Process the shortcode, either load the login form, or display a message
+     *
+     * @since 2.0.0
+     *
+     * @return
+     */
     public function shortcode(){
 
         if ( is_user_logged_in() ) {
 
-            $html = $this->getLoggedInForm();
+            $html = sprintf(
+                "<p class='%s_text'>%s <a href=%s title='%s'>%s</a></p>",
+                $this->prefix,
+                __('You are already logged in', ALR_TEXT_DOMAIN ), // Text
+                wp_logout_url( site_url() ), // URL
+                __('Logout', ALR_TEXT_DOMAIN ), // Link text
+                __('Logout', ALR_TEXT_DOMAIN ) // Link title text
+            );
 
         } else {
 
@@ -58,34 +87,15 @@ Class ALRLogin {
     }
 
 
-    public function getLoggedInForm(){
-
-        // Assign various CSS classes to be filterable via themes/plugins/add-ons
-        $container_classes = implode( " ", apply_filters( $this->prefix . '_form_container_classes', array(
-            ALR_NAMESPACE . '_form_container',
-            $this->prefix . '_form_container'
-        ) ) );
-
-
-        $html = sprintf(
-            "<div class=''><p class='%s_text'>%s <a href=%s title='%s'>%s</a></p></div>",
-            $this->prefix,
-            __('You are already logged in', ALR_TEXT_DOMAIN ), // Text
-            wp_logout_url( site_url() ), // URL
-            __('Logout', ALR_TEXT_DOMAIN ), // Link text
-            __('Logout', ALR_TEXT_DOMAIN ) // Link title text
-        );
-
-        return $html;
-    }
-
-
-    // Dynamic filters/actions are done in the
-    // method buildFormFieldsHtml() and NOT here!
-    // Build various HTML elements
-    // Dynamic filters/actions are done in the
-    // method buildFormFieldsHtml() and NOT here!
-    // Assign various CSS classes to be filterable via themes/plugins/add-ons
+    /**
+     * Build the Login form HTML.
+     *
+     * Dynamic filters/actions are done in the method buildFormFieldsHtml() and NOT here!
+     *
+     * @since 2.0.0
+     *
+     * @return
+     */
     public function getLogInForm(){
 
         $links_html = $this->_alr_html->buildFormHtmlLinks( array(
@@ -157,6 +167,7 @@ Class ALRLogin {
     /**
      * Processes credentials to pass into wp_signon to log a user into WordPress.
      *
+     * @since 2.0.0.
      * @uses check_ajax_referer()
      * @uses wp_signon()
      * @uses is_wp_error()
@@ -241,6 +252,13 @@ Class ALRLogin {
     }
 
 
+    /**
+     * Add the Login HTML dialog box by hooking into wp_head
+     *
+     * @since 2.0.0
+     *
+     * @return
+     */
     public function head(){
 
         /**
@@ -258,6 +276,10 @@ Class ALRLogin {
     <?php }
 }
 
+
+/**
+ * Once plugins are loaded init our class
+ */
 function alr_plugins_loaded_login(){
 
     new ALRLogin( new ZM_Dependency_Container( null ) );

@@ -26,10 +26,6 @@ Class ALRMisc {
             'title' => __('Misc.', ALR_TEXT_DOMAIN ),
             'fields' => array(
                 array(
-                    'title' => __( 'Advanced Usage', ALR_TEXT_DOMAIN ),
-                    'type' => 'header'
-                ),
-                array(
                     'id' => $this->prefix . '_login_handle',
                     'title' => __( 'Login Handle', ALR_TEXT_DOMAIN ),
                     'type' => 'fancyText',

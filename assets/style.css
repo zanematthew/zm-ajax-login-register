@@ -1,3 +1,11 @@
+.alr_form_container *,
+.alr_form_container *:before,
+.alr_form_container *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    }
+
 .alr_label {
     display: block;
     font-weight: bold;
@@ -124,6 +132,11 @@
 .alr_design_wide .alr_form_field_container {
     width: 50%;
     float: left;
+    padding: 0 10px 0 0;
+    }
+
+.alr_design_wide .alr_form_field_container:last-child {
+    padding: 0;
     }
 
 .alr_design_wide .alr_login_checkbox_container {

@@ -11,6 +11,11 @@ Class ALRRegister {
 
     }
 
+    /**
+     * Run various WordPress actions here
+     *
+     * @since 2.0.0
+     */
     public function init(){
 
         add_action( 'wp_ajax_nopriv_setup_new_user', array( &$this,'setupNewUser' ) );
@@ -32,6 +37,11 @@ Class ALRRegister {
     }
 
 
+    /**
+     * Add the form or show a message via WordPress' shortcode.
+     *
+     * @since 2.0.0
+     */
     public function shortcode(){
 
         if ( get_option('users_can_register') ) {
@@ -61,10 +71,12 @@ Class ALRRegister {
     }
 
 
-    // No filter here, filter in the buildFormFieldsHtml instead
-    // Status target
-    // Button and container
-    // Form HTML
+    /**
+     * Build the registration form.
+     *
+     * @since 2.0.0
+     *
+     */
     public function getRegisterForm(){
 
         $container_classes = implode( " ", apply_filters( $this->prefix . '_form_container_classes', array(
@@ -141,9 +153,8 @@ Class ALRRegister {
     /**
      * Handles setting up new user info and passes it to the appropriate.
      *
+     * @since 2.0.0
      * @uses check_ajax_referer() http://codex.wordpress.org/Function_Reference/check_ajax_referer
-     * @uses get_user_by_email() http://codex.wordpress.org/Function_Reference/get_user_by_email
-     * @uses get_user_by() http://codex.wordpress.org/Function_Reference/get_user_by
      *
      * @param $login
      * @param $password
@@ -215,6 +226,7 @@ Class ALRRegister {
      * Handles creating a new user using native WordPress functions,
      * and signs the user on if successful.
      *
+     * @since 2.0.0
      * @uses wp_parse_args
      * @uses apply_filters
      * @uses update_user_meta
@@ -273,7 +285,7 @@ Class ALRRegister {
     /**
      * Setup a new Facebook User
      *
-     * @since 1.0.9
+     * @since 2.0.0
      * @param $user (array) Containing the values as seen
      *  in: http://codex.wordpress.org/Function_Reference/wp_insert_user
      * @return $user_obj (object) The user_obj as seen
@@ -304,7 +316,7 @@ Class ALRRegister {
     /**
      * Adds the user to the networked blog they are currently visiting
      *
-     * @since 1.0.9
+     * @since 2.0.0
      * @param $user_id
      * @return true, wp_error object
      */
@@ -324,7 +336,7 @@ Class ALRRegister {
     /**
      * Process request to pass variables into WordPress' validate_username();
      *
-     * @since 1.0.0
+     * @since 2.0.0
      * @uses validate_username()
      * @param $username (string)
      * @param $is_ajax (bool) Process as an AJAX request or not.
@@ -357,6 +369,7 @@ Class ALRRegister {
      * Check if an email is "valid" using PHPs filter_var & WordPress
      * email_exists();
      *
+     * @since 2.0.0
      * @param $email (string) Emailt to be validated
      * @param $is_ajax (bool)
      * @todo check ajax refer
@@ -384,6 +397,7 @@ Class ALRRegister {
     /**
      * Load the login form via an AJAX request.
      *
+     * @since 2.0.0
      * @package AJAX
      */
     public function load_register_template(){
@@ -395,6 +409,11 @@ Class ALRRegister {
     }
 
 
+    /**
+     * Add the HTML for the register dialog via wp_head.
+     *
+     * @since 2.0.0
+     */
     public function head(){
 
         $classes = implode( ' ', apply_filters( $this->prefix . '_dialog_class', array(
@@ -414,6 +433,9 @@ Class ALRRegister {
 
 }
 
+/**
+ * Once plugins are loaded init our class
+ */
 function alr_plugins_loaded_register(){
 
     new ALRRegister( new ZM_Dependency_Container( null ) );

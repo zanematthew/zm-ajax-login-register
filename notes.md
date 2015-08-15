@@ -54,7 +54,7 @@
 * [x] Login responsive
 
 * [x] Register Shortcode
-* [ ] Register Modal
+* [x] Register Modal
 * [ ] Register FB
 * [x] Register responsive
 
@@ -65,6 +65,15 @@
 * [ ] Actions old
 * [ ] Actions new
 * [ ] Comment (all files)
+    * [ ] Helpers
+    * [x] Html
+    * [x] Login
+    * [x] Register
+    * [ ] Design
+    * [ ] Misc
+    * [ ] Redirect
+    * [ ] Social
+    * [ ] SocialFacebook
 * [ ] Document filters
 * [ ] Document Actions
 

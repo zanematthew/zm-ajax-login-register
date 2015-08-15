@@ -2,19 +2,37 @@
 
 Class ALRHtml {
 
+    /**
+     * Provides a unified way to build HTML form fields.
+     *
+     * This method also builds dynamic filters AND actions using the following
+     * naming convention:
+     *
+     *      add_filter( "{$prefix}_form_fields" ); Used to add or remove fields
+     *      add_filter( "{$prefix}_field_container_classes" ); Used to add or remove the class names
+     *      add_filter( "{$prefix}_order_fields" ); Used to change the field order
+     *      add_filter( "{$prefix}_fields_args" ); Adjust the HTML attributes for a single field
+     *
+     *
+     *      add_action( "{$key}_above_field" ); $key is the name of the form field
+     *      add_action( "{$key}_below_field" ); $key is the name of the form field
+     * @since 2.0.0
+     *
+     * @param   $fields     (array)     Containing the field an HTML attributes for each field.
+     * @param   $prefix     (string)    The prefix
+     * @param   $order      (array)     The order
+     * @return  The HTML of all form fields, less the form tag.
+     */
     public function buildFormFieldsHtml( $fields=null, $prefix=null, $order=null ){
 
-        // Use this filter to add/remove fields
         $fields = apply_filters( $prefix . '_form_fields', $fields );
 
-        // Use this filter to add additional classes for the parent/container of each
-        // form field
         $default_classes = apply_filters( $prefix . '_field_container_classes', array(
             ALR_NAMESPACE . '_form_field_container'
             ) );
+
         $html = null;
 
-        // Used to change the order
         $order = apply_filters( $prefix . '_order_fields', array_keys( $fields ) );
 
         foreach( $order as $key ){
@@ -29,9 +47,7 @@ Class ALRHtml {
 
             } else {
 
-
                 do_action( $key . '_above_field' );
-
 
                 // filter
                 $args = wp_parse_args( $fields[ $key ], apply_filters( $prefix . '_fields_args', array(
@@ -112,6 +128,21 @@ Class ALRHtml {
     }
 
 
+    /**
+     * Provide a unified way to add links to the bottom of the form.
+     *
+     * Additionally the following filters, actions are dynamically created:
+     *
+     *      add_filter( "{$prefix}_form_links" ); An array of HTML links
+     *      add_filter( "{$prefix}_link_args" ); An array containing the HTML attributes for a
+     *      single link
+     *
+     * @since 2.0.0
+     *
+     * @param   $links      (array)     The HTML links
+     * @param   $prefix     (string)    The unique ID
+     * @return  An HTML UL LI A of links
+     */
     public function buildFormHtmlLinks( $links=null, $prefix=null ){
 
         $links = apply_filters( $prefix . '_form_links', $links );
