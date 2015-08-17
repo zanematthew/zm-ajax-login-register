@@ -12,7 +12,7 @@ jQuery( document ).ready(function( $ ){
             global: false,
             data: "action=login_submit&" + $this.serialize() + "&security=" + $this.data('zm_alr_login_security'),
             type: "POST",
-            url: _ajax_login_settings.ajaxurl,
+            url: _zm_alr_settings.ajaxurl,
             success: function( msg ){
 
                 ajax_login_register_show_message( $this, msg );
@@ -76,7 +76,7 @@ jQuery( document ).ready(function( $ ){
                         },
                         global: false,
                         type: "POST",
-                        url: _ajax_login_settings.ajaxurl,
+                        url: _zm_alr_settings.ajaxurl,
                         success: function( msg ){
                             ajax_login_register_show_message( $form_obj, msg );
                         }
@@ -98,23 +98,23 @@ jQuery( document ).ready(function( $ ){
     /**
      * Open the dialog box based on the handle, send the AJAX request.
      */
-    if ( _ajax_login_settings.login_handle.length ){
+    if ( _zm_alr_settings.login_handle.length ){
 
 
         // Set the "login" text to be "logout" if the user is logged in.
         if ( $('body').hasClass('logged-in') ){
 
-            $this = $( _ajax_login_settings.login_handle ).children('a');
+            $this = $( _zm_alr_settings.login_handle ).children('a');
 
-            $this.html( _ajax_login_settings.logout_text );
-            $this.attr( 'href', _ajax_login_settings.wp_logout_url );
+            $this.html( _zm_alr_settings.logout_text );
+            $this.attr( 'href', _zm_alr_settings.wp_logout_url );
 
         }
 
         // Open the dialog when they click on it.
         else {
 
-            $( document ).on('click', _ajax_login_settings.login_handle, function( event ){
+            $( document ).on('click', _zm_alr_settings.login_handle, function( event ){
 
                 event.preventDefault();
                 zMAjaxLoginRegister.open_login();
@@ -122,7 +122,7 @@ jQuery( document ).ready(function( $ ){
                 // There's a setting to either load the container div, then have the
                 // forms load inside via AJAX, or to have them already loaded, and "hidden"
                 // via display:none.
-                if ( _ajax_login_settings.pre_load_forms == 'zm_alr_misc_pre_load_no' ){
+                if ( _zm_alr_settings.pre_load_forms == 'zm_alr_misc_pre_load_no' ){
                     zMAjaxLoginRegister.load_login();
                 }
 
@@ -134,7 +134,7 @@ jQuery( document ).ready(function( $ ){
         e.preventDefault();
         $('#ajax-login-register-login-dialog').dialog('close');
         zMAjaxLoginRegister.open_register();
-        if ( _ajax_login_settings.pre_load_forms == 'zm_alr_misc_pre_load_no' ){
+        if ( _zm_alr_settings.pre_load_forms == 'zm_alr_misc_pre_load_no' ){
             zMAjaxLoginRegister.load_register();
         }
     });

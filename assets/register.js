@@ -9,14 +9,14 @@ jQuery( document ).ready(function( $ ){
     });
 
 
-    if ( _ajax_login_settings.register_handle.length ){
-        $( document ).on('click', _ajax_login_settings.register_handle, function( event ){
+    if ( _zm_alr_settings.register_handle.length ){
+        $( document ).on('click', _zm_alr_settings.register_handle, function( event ){
 
             event.preventDefault();
 
             zMAjaxLoginRegister.open_register();
 
-            if ( _ajax_login_settings.pre_load_forms == 'zm_alr_misc_pre_load_no' ){
+            if ( _zm_alr_settings.pre_load_forms == 'zm_alr_misc_pre_load_no' ){
                 zMAjaxLoginRegister.load_register();
             }
 
@@ -59,7 +59,7 @@ jQuery( document ).ready(function( $ ){
                 data: "action=setup_new_user&" + $this.serialize() + "&security=" + $this.data('zm_alr_register_security'),
                 dataType: 'json',
                 type: "POST",
-                url: _ajax_login_settings.ajaxurl,
+                url: _zm_alr_settings.ajaxurl,
                 success: function( msg ) {
                     ajax_login_register_show_message( $this, msg );
                 }
@@ -71,7 +71,7 @@ jQuery( document ).ready(function( $ ){
         e.preventDefault();
         $('#ajax-login-register-dialog').dialog('close');
         zMAjaxLoginRegister.open_login();
-        if ( _ajax_login_settings.pre_load_forms == 'zm_alr_misc_pre_load_no' ){
+        if ( _zm_alr_settings.pre_load_forms == 'zm_alr_misc_pre_load_no' ){
             zMAjaxLoginRegister.load_login();
         }
     });

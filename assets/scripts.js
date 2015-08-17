@@ -1,12 +1,12 @@
 var zMAjaxLoginRegister = {
 
     reload: function( my_obj ){
-        if ( my_obj.hasClass('login_form') &&  typeof _ajax_login_settings.redirect.login !== 'undefined' ){
-            location.href = _ajax_login_settings.redirect.login.url;
-        } else if ( my_obj.hasClass('register_form') && typeof _ajax_login_settings.redirect.registration !== 'undefined' ){
-            location.href = _ajax_login_settings.redirect.registration.url;
+        if ( my_obj.hasClass('login_form') &&  typeof _zm_alr_settings.redirect.login !== 'undefined' ){
+            location.href = _zm_alr_settings.redirect.login.url;
+        } else if ( my_obj.hasClass('register_form') && typeof _zm_alr_settings.redirect.registration !== 'undefined' ){
+            location.href = _zm_alr_settings.redirect.registration.url;
         } else {
-            location.href = _ajax_login_settings.redirect;
+            location.href = _zm_alr_settings.redirect;
         }
     },
 
@@ -30,7 +30,7 @@ var zMAjaxLoginRegister = {
         } else {
             msg = {
                 "cssClass": "error-container",
-                "description": _ajax_login_settings.match_error,
+                "description": _zm_alr_settings.match_error,
                 "code": "error"
             };
         }
@@ -49,14 +49,14 @@ var zMAjaxLoginRegister = {
 
         if ( jQuery('body').hasClass('logged-in') ){
 
-            jQuery( "#ajax-login-register-login-target" ).fadeIn().html( _ajax_login_settings.logged_in_text );
+            jQuery( "#ajax-login-register-login-target" ).fadeIn().html( _zm_alr_settings.logged_in_text );
 
         } else {
 
             jQuery.ajax({
                 global: false,
                 type: "POST",
-                url: _ajax_login_settings.ajaxurl,
+                url: _zm_alr_settings.ajaxurl,
                 data: {
                     action: 'load_template',
                     referer: 'login_form',
@@ -84,7 +84,7 @@ var zMAjaxLoginRegister = {
 
         if ( jQuery('body').hasClass('logged-in') ){
 
-            jQuery( "#ajax-login-register-target" ).fadeIn().html( _ajax_login_settings.registered_text ); // Give a smooth fade in effect
+            jQuery( "#ajax-login-register-target" ).fadeIn().html( _zm_alr_settings.registered_text ); // Give a smooth fade in effect
 
         } else {
             console.log('loading');
@@ -99,7 +99,7 @@ var zMAjaxLoginRegister = {
                 global: false,
                 data: data,
                 type: "POST",
-                url: _ajax_login_settings.ajaxurl,
+                url: _zm_alr_settings.ajaxurl,
                 success: function( msg ){
                     console.log( msg.data );
                     jQuery( "#ajax-login-register-target" ).fadeIn().html( msg.data ); // Give a smooth fade in effect
@@ -151,7 +151,7 @@ jQuery( document ).ready(function( $ ){
             },
             dataType: 'json',
             type: "POST",
-            url: _ajax_login_settings.ajaxurl,
+            url: _zm_alr_settings.ajaxurl,
             success: function( msg ){
                 ajax_login_register_show_message( $form, msg );
             }
@@ -184,7 +184,7 @@ jQuery( document ).ready(function( $ ){
             },
             dataType: 'json',
             type: "POST",
-            url: _ajax_login_settings.ajaxurl,
+            url: _zm_alr_settings.ajaxurl,
             success: function( msg ){
                 ajax_login_register_show_message( $form, msg );
             }
@@ -197,11 +197,11 @@ jQuery( document ).ready(function( $ ){
      */
     $('.ajax-login-register-container').dialog({
         autoOpen: false,
-        width: _ajax_login_settings.dialog_width,
+        width: _zm_alr_settings.dialog_width,
         resizable: false,
         draggable: false,
         modal: true,
-        closeText: _ajax_login_settings.close_text
+        closeText: _zm_alr_settings.close_text
     });
 
     $( '#ajax-login-register-dialog, #ajax-login-register-login-dialog' ).dialog( "option", "position", {
@@ -210,7 +210,7 @@ jQuery( document ).ready(function( $ ){
         of: 'body'
     });
 
-    if ( _ajax_login_settings.pre_load_forms == 'zm_alr_misc_pre_load_yes' ){
+    if ( _zm_alr_settings.pre_load_forms == 'zm_alr_misc_pre_load_yes' ){
         zMAjaxLoginRegister.load_login();
         zMAjaxLoginRegister.load_register();
     }
