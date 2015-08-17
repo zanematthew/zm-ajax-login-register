@@ -1,21 +1,17 @@
 <?php
 
-class ALRSocialFacebook {
+Class ALRSocialFacebook {
 
     public function __construct( ZM_Dependency_Container $di ){
 
         $this->prefix = 'alr_social_facebook';
-        $this->_alr_helpers = $di->get_instance( 'helpers', 'ALRHelpers', null );
-        $this->_alr_register = $di->get_instance( 'register', 'ALRRegister', null );
+        $this->_alr_helpers = $di->get_instance( 'helpers', 'ALRHelpers' );
 
         add_action( 'wp_ajax_facebook_login', array( &$this, 'facebook_login' ) );
         add_action( 'wp_ajax_nopriv_facebook_login', array( &$this, 'facebook_login') );
         add_action( 'wp_head', array( &$this, 'head' ) );
 
-        // if( get_option( 'ajax_login_register_facebook' ) && get_option( 'fb_avatar' ) )
-        //     add_filter( 'get_avatar', array( &$this, 'load_fb_avatar' ) , 1, 5 );
-
-
+        add_filter( 'get_avatar', array( &$this, 'load_fb_avatar' ) , 1, 5 );
         add_filter( 'alr_login_above_fields', array( &$this, 'aboveLoginFields' ) );
         add_filter( 'alr_social_settings_fields_tab', array( &$this, 'settings' ) );
     }
@@ -88,9 +84,9 @@ class ALRSocialFacebook {
     public function setupNewFacebookUser( $user=array() ){
 
         $user_pass = wp_generate_password();
-        $user_id = $this->_alr_register->createUser( array_merge( $user, array(
+        $user_id = $this->_alr_helpers->createUser( array_merge( $user, array(
             'user_pass' => $user_pass
-        ) ) );
+        ) ), $this->prefix );
 
         if ( $user_id == false ){
 
@@ -119,7 +115,17 @@ class ALRSocialFacebook {
      *
      * @return string $avatar The modified avatar
      */
-    public function load_fb_avatar($avatar, $id_or_email, $size, $default, $alt ) {
+    public function load_fb_avatar( $avatar, $id_or_email, $size, $default, $alt ) {
+
+        global $alr_settings;
+
+        if ( empty( $alr_settings[ $this->prefix . '_fb_use_avatar' ] )
+            && $alr_settings[ $this->prefix . '_fb_use_avatar' ] != 1 ){
+
+            return $avatar;
+
+        }
+
         $user = false;
 
         if ( is_numeric( $id_or_email ) ) {
@@ -283,4 +289,12 @@ class ALRSocialFacebook {
 
     <?php }
 }
-new ALRSocialFacebook( new ZM_Dependency_Container( null ) );
+/**
+ * Once plugins are loaded init our class
+ */
+function alr_plugins_loaded_social_facebook(){
+
+    new ALRSocialFacebook( new ZM_Dependency_Container( null ) );
+
+}
+add_action( 'plugins_loaded', 'alr_plugins_loaded_social_facebook' );
