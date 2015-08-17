@@ -2,9 +2,11 @@
 
 class ALRSocialFacebook {
 
-    public function __construct(){
+    public function __construct( ZM_Dependency_Container $di ){
 
         $this->prefix = 'alr_social_facebook';
+        $this->_alr_helpers = $di->get_instance( 'helpers', 'ALRHelpers', null );
+        $this->_alr_register = $di->get_instance( 'register', 'ALRRegister', null );
 
         add_action( 'wp_ajax_facebook_login', array( &$this, 'facebook_login' ) );
         add_action( 'wp_ajax_nopriv_facebook_login', array( &$this, 'facebook_login') );
@@ -41,7 +43,7 @@ class ALRSocialFacebook {
 
         if ( empty( $user['username'] ) ){
 
-            $status = $this->status('invalid_username');
+            $status = $this->_alr_helpers->status('invalid_username');
             $user_id = false;
 
         } else {
@@ -51,20 +53,21 @@ class ALRSocialFacebook {
             $user_obj = get_user_by( 'login', $user['user_login'] );
 
             if ( $user_obj == false ){
-                $register_obj = New ajax_login_register_Register;
-                $user_obj = $register_obj->setup_new_facebook_user( $user );
+
+                $user_obj = $this->setupNewFacebookUser( $user );
+
             }
 
             if ( $user_obj ){
 
                 $user_id = $user_obj->ID;
-
                 wp_set_auth_cookie( $user_id, true );
-
-                $status = $this->status('success_login');
+                $status = $this->_alr_helpers->status('success_login');
 
             } else {
-                $status = $this->status('invalid_username');
+
+                $status = $this->_alr_helpers->status('invalid_username');
+
             }
         }
 
@@ -74,16 +77,44 @@ class ALRSocialFacebook {
 
 
     /**
-     * Replaces the default engravatar with the Facebook profile picture.
+     * Setup a new Facebook User
+     *
+     * @since 1.0.9
+     * @param $user (array) Containing the values as seen
+     *  in: http://codex.wordpress.org/Function_Reference/wp_insert_user
+     * @return $user_obj (object) The user_obj as seen
+     *  in: http://codex.wordpress.org/Function_Reference/get_user_by
+     */
+    public function setupNewFacebookUser( $user=array() ){
+
+        $user_pass = wp_generate_password();
+        $user_id = $this->_alr_register->createUser( array_merge( $user, array(
+            'user_pass' => $user_pass
+        ) ) );
+
+        if ( $user_id == false ){
+
+            $user_obj = false;
+
+        } else {
+
+            $user_obj = get_user_by( 'id', $user_id );
+
+        }
+
+        return $user_obj;
+
+    }
+
+
+
+    /**
+     * Replaces the default gravatar with the Facebook profile picture.
      *
      * @param string $avatar The default avatar
-     *
      * @param int $id_or_email The user id
-     *
      * @param int $size The size of the avatar
-     *
-     * @param string $default The url of the Wordpress default avatar
-     *
+     * @param string $default The URL of the WordPress default avatar
      * @param string $alt Alternate text for the avatar.
      *
      * @return string $avatar The modified avatar
@@ -252,4 +283,4 @@ class ALRSocialFacebook {
 
     <?php }
 }
-new ALRSocialFacebook;
+new ALRSocialFacebook( new ZM_Dependency_Container( null ) );
