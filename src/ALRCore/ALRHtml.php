@@ -31,39 +31,51 @@ Class ALRHtml {
             ZM_ALR_NAMESPACE . '_form_field_container'
             ) );
 
-        $order = apply_filters( $prefix . '_order_fields', array_keys( $fields ) );
+
+        // Allow for adding additional fields below
+        $new_fields = array();
+        foreach( $fields as $key => $value ){
+
+            $new_value = apply_filters( 'below_' . $key, null );
+            $new_fields[ $key ] = $value;
+
+            // Add the new value, using the key/
+            if ( $new_value ){
+                $new_fields[ $new_value['key'] ] = $new_value;
+
+                // no need to keep the key around, so we remove it, to avoid later confusion.
+                unset( $new_fields[ $new_value['key'] ]['key'] );
+            }
+
+        }
+
+        $order = apply_filters( $prefix . '_order_fields', array_keys( $new_fields ) );
 
         $html = null;
 
         foreach( $order as $key ){
 
             // Key specific filter?
-            // $field = apply_filters( $prefix . '_filter_field_' . $key, $fields[ $key ] );
+            // $field = apply_filters( $prefix . '_filter_field_' . $key, $new_fields[ $key ] );
 
-            if ( empty( $fields[ $key ] ) ){
+            if ( empty( $new_fields[ $key ] ) ){
 
                 $html .= "invalid key {$key} added for order<br />";
                 $html .= PHP_EOL;
 
             } else {
 
-                // do_action( $key . '_above_field' );
-
                 // filter
-                $args = wp_parse_args( $fields[ $key ], apply_filters( $prefix . '_fields_args', array(
+                $args = wp_parse_args( $new_fields[ $key ], apply_filters( $prefix . '_fields_args', array(
                     'extra' => null,
                     'required' => null,
                     'size' => null,
                     'name' => $key,
                     'id' => sanitize_title( $key ),
-                    'classes' => array(
-                        ZM_ALR_NAMESPACE . '_' . esc_attr( $fields[ $key ]['type'] ) . '_field',
-                        ZM_ALR_NAMESPACE . '_form_field'
-                        ),
-                    'placeholder' => esc_attr( $fields[ $key ]['title'] ),
-                    'type' => esc_attr( $fields[ $key ]['type'] ),
+                    'placeholder' => esc_attr( $new_fields[ $key ]['title'] ),
+                    'type' => esc_attr( $new_fields[ $key ]['type'] ),
                     'html' => null,
-                    'value' => esc_attr( $fields[ $key ]['title'] )
+                    'value' => esc_attr( $new_fields[ $key ]['title'] )
                     ) ) );
 
                 $container_classes = array_merge( $default_classes, array(
@@ -71,11 +83,21 @@ Class ALRHtml {
                     $prefix . '_' . $args['type'] . '_container'
                     ) );
 
+
+                // Handle merging of default form field classes
+                if ( empty( $args['classes'] ) )
+                    $args['classes'] = array();
+
+                $args['classes'] = array_merge( $args['classes'], array(
+                    ZM_ALR_NAMESPACE . '_' . esc_attr( $new_fields[ $key ]['type'] ) . '_field',
+                    ZM_ALR_NAMESPACE . '_form_field'
+                    ) );
+
                 $field_classes = implode( " ", $args['classes'] );
 
                 $html .= '<div class="' . implode( " ", $container_classes ) . '">';
 
-                switch ( $fields[ $key ]['type'] ) {
+                switch ( $new_fields[ $key ]['type'] ) {
 
                     case 'text':
                         $html .= '<label for="' . $args['id'] . '" class="' . ZM_ALR_NAMESPACE . '_label">' . $args['title'] . '</label>';
@@ -157,14 +179,18 @@ Class ALRHtml {
 
             $html = null;
             foreach( $links as $key => $value ){
-                 $args = wp_parse_args( $value, apply_filters( $prefix . '_link_args', array(
+
+                 $args = wp_parse_args( $value ,
+                    array(
                     'href' => '#',
                     'class' => 'foo',
                     'title' => esc_attr( $value['text'] ),
                     'text' => esc_attr( $value['text'] ),
                     'id' => $prefix . '_' . sanitize_title( $value['text'] ),
                     'name' => $key
-                    ) ) );
+                    ) );
+
+                $args = apply_filters( $prefix . '_link_args', $args );
 
                 $classes = array(
                     ZM_ALR_NAMESPACE . '_link',
