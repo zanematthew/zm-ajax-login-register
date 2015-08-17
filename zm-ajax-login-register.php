@@ -68,17 +68,43 @@ function zm_ajax_login_register_enqueue_scripts(){
 
     // Generic
     wp_enqueue_style( 'jquery-ui-custom', plugin_dir_url( __FILE__ ) . "assets/jquery-ui.css" );
-    wp_enqueue_style( 'ajax-login-register-style', plugin_dir_url( __FILE__ ) . "assets/style.css" );
-    wp_enqueue_script( 'ajax-login-register-script', plugin_dir_url( __FILE__ ) . 'assets/scripts.js', $dependencies  );
 
-    // Login
-    wp_enqueue_script( 'ajax-login-register-login-script', plugin_dir_url( __FILE__ ) . 'assets/login.js', $dependencies  );
+    $styles = apply_filters( ZM_ALR_NAMESPACE . '_styles', array(
+        array(
+            'handle' => 'ajax-login-register-style',
+            'url' => plugin_dir_url( __FILE__ ) . "assets/style.css"
+            )
+    ) );
 
-    // Register
-    wp_enqueue_script( 'ajax-login-register-register-script', plugin_dir_url( __FILE__ ) . 'assets/register.js', $dependencies  );
+    foreach( $styles as $style ){
+        wp_enqueue_style( $style['handle'], $style['url'] );
+    }
+
+    $scripts = apply_filters( ZM_ALR_NAMESPACE . '_scripts', array(
+        array(
+            'handle' => 'ajax-login-register-script',
+            'src' => plugin_dir_url( __FILE__ ) . 'assets/scripts.js',
+            'deps' => $dependencies
+        ),
+        array(
+            'handle' => 'ajax-login-register-login-script',
+            'src' => plugin_dir_url( __FILE__ ) . 'assets/login.js',
+            'deps' => $dependencies
+        ),
+        array(
+            'handle' => 'ajax-login-register-register-script',
+            'src' => plugin_dir_url( __FILE__ ) . 'assets/register.js',
+            'deps' => $dependencies
+        )
+    ) );
+
+    foreach( $scripts as $script ){
+        wp_enqueue_script( $script['handle'], $script['src'], $script['deps'] );
+    }
 
     global $zm_alr_settings;
-    wp_localize_script( 'ajax-login-register-script', '_ajax_login_settings', apply_filters( 'zm_alr_localized_js', array(
+
+    wp_localize_script( 'ajax-login-register-script', '_zm_alr_settings', apply_filters( 'zm_alr_localized_js', array(
         'ajaxurl' => admin_url("admin-ajax.php"),
         'login_handle' => $zm_alr_settings['zm_alr_misc_login_handle'],
         'register_handle' => $zm_alr_settings['zm_alr_misc_register_handle'],
