@@ -4,16 +4,16 @@ Class ALRSocialFacebook {
 
     public function __construct( ZM_Dependency_Container $di ){
 
-        $this->prefix = 'alr_social_facebook';
-        $this->_alr_helpers = $di->get_instance( 'helpers', 'ALRHelpers' );
+        $this->prefix = 'zm_alr_social_facebook';
+        $this->_zm_alr_helpers = $di->get_instance( 'helpers', 'ALRHelpers' );
 
         add_action( 'wp_ajax_facebook_login', array( &$this, 'facebook_login' ) );
         add_action( 'wp_ajax_nopriv_facebook_login', array( &$this, 'facebook_login') );
         add_action( 'wp_head', array( &$this, 'head' ) );
 
         add_filter( 'get_avatar', array( &$this, 'load_fb_avatar' ) , 1, 5 );
-        add_filter( 'alr_login_above_fields', array( &$this, 'aboveLoginFields' ) );
-        add_filter( 'alr_social_settings_fields_tab', array( &$this, 'settings' ) );
+        add_filter( 'zm_alr_login_above_fields', array( &$this, 'aboveLoginFields' ) );
+        add_filter( 'zm_alr_social_settings_fields_tab', array( &$this, 'settings' ) );
     }
 
 
@@ -39,7 +39,7 @@ Class ALRSocialFacebook {
 
         if ( empty( $user['username'] ) ){
 
-            $status = $this->_alr_helpers->status('invalid_username');
+            $status = $this->_zm_alr_helpers->status('invalid_username');
             $user_id = false;
 
         } else {
@@ -58,11 +58,11 @@ Class ALRSocialFacebook {
 
                 $user_id = $user_obj->ID;
                 wp_set_auth_cookie( $user_id, true );
-                $status = $this->_alr_helpers->status('success_login');
+                $status = $this->_zm_alr_helpers->status('success_login');
 
             } else {
 
-                $status = $this->_alr_helpers->status('invalid_username');
+                $status = $this->_zm_alr_helpers->status('invalid_username');
 
             }
         }
@@ -84,7 +84,7 @@ Class ALRSocialFacebook {
     public function setupNewFacebookUser( $user=array() ){
 
         $user_pass = wp_generate_password();
-        $user_id = $this->_alr_helpers->createUser( array_merge( $user, array(
+        $user_id = $this->_zm_alr_helpers->createUser( array_merge( $user, array(
             'user_pass' => $user_pass
         ) ), $this->prefix );
 
@@ -117,10 +117,10 @@ Class ALRSocialFacebook {
      */
     public function load_fb_avatar( $avatar, $id_or_email, $size, $default, $alt ) {
 
-        global $alr_settings;
+        global $zm_alr_settings;
 
-        if ( empty( $alr_settings[ $this->prefix . '_fb_use_avatar' ] )
-            && $alr_settings[ $this->prefix . '_fb_use_avatar' ] != 1 ){
+        if ( empty( $zm_alr_settings[ $this->prefix . '_fb_use_avatar' ] )
+            && $zm_alr_settings[ $this->prefix . '_fb_use_avatar' ] != 1 ){
 
             return $avatar;
 
@@ -162,9 +162,9 @@ Class ALRSocialFacebook {
     // Is it enabled
     public function isEnabled(){
 
-        global $alr_settings;
+        global $zm_alr_settings;
 
-        if ( $alr_settings[ $this->prefix . '_fb_enabled' ] == 'off' ){
+        if ( $zm_alr_settings[ $this->prefix . '_fb_enabled' ] == 'off' ){
             $enabled = false;
         } else {
             $enabled = true;
@@ -183,14 +183,14 @@ Class ALRSocialFacebook {
 
         $container_classes = implode( " ", array(
             'fb-login-container',
-            ALR_NAMESPACE . '_fb_login_container',
+            ZM_ALR_NAMESPACE . '_fb_login_container',
             $this->prefix . '_fb_login_container'
             ) );
 
-        $html = sprintf( '<div class="%s"><a href="#" class="fb-login" data-alr_facebook_security="%s">%s</a></div>',
+        $html = sprintf( '<div class="%s"><a href="#" class="fb-login" data-zm_alr_facebook_security="%s">%s</a></div>',
             $container_classes,
             wp_create_nonce( 'facebook-nonce' ),
-            __( 'Log in using Facebook', ALR_TEXT_DOMAIN )
+            __( 'Log in using Facebook', ZM_ALR_TEXT_DOMAIN )
             );
 
         return $html;
@@ -208,34 +208,35 @@ Class ALRSocialFacebook {
         // Facebook
         $settings = array(
             array(
-                'title' => __( 'Facebook Settings', ALR_TEXT_DOMAIN ),
+                'title' => __( 'Facebook Settings', ZM_ALR_TEXT_DOMAIN ),
                 'type' => 'header'
                 ),
             array(
                 'id' => $this->prefix . '_fb_enabled',
                 'type' => 'checkbox',
-                'title' => __( 'Enable', ALR_TEXT_DOMAIN ),
+                'title' => __( 'Enable', ZM_ALR_TEXT_DOMAIN ),
                 'std' => 'off',
-                'desc' => __( 'By enabling this setting visitors will be able to login with Facebook.', ALR_TEXT_DOMAIN )
+                'desc' => __( 'By enabling this setting visitors will be able to login with Facebook.', ZM_ALR_TEXT_DOMAIN )
             ),
             array(
                 'id' => $this->prefix . '_fb_url',
                 'type' => 'url',
-                'title' => __( 'URL', ALR_TEXT_DOMAIN ),
-                'desc' => __( 'This is the URL you have set in your Facebook Developer App Settings', ALR_TEXT_DOMAIN )
+                'title' => __( 'URL', ZM_ALR_TEXT_DOMAIN ),
+                'desc' => __( 'This is the URL you have set in your Facebook Developer App Settings', ZM_ALR_TEXT_DOMAIN )
             ),
             array(
                 'id' => $this->prefix . '_fb_app_id',
                 'type' => 'fancyText',
-                'title' => __( 'App ID', ALR_TEXT_DOMAIN ),
-                'desc' => __( 'This is the App ID as seen in your <a href="https://developers.facebook.com/">Facebook Developer</a> App Dashboard. For detailed instructions visit the <a href="http://zanematthew.com/ajax-login-register-help-videos/" target="_blank">How To add Facebook Settings to AJAX Login & Register</a>.', ALR_TEXT_DOMAIN )
+                'title' => __( 'App ID', ZM_ALR_TEXT_DOMAIN ),
+                'desc' => __( 'This is the App ID as seen in your <a href="https://developers.facebook.com/">Facebook Developer</a> App Dashboard. For detailed instructions visit the <a href="http://zanematthew.com/ajax-login-register-help-videos/" target="_blank">How To add Facebook Settings to AJAX Login & Register</a>.', ZM_ALR_TEXT_DOMAIN )
 
             ),
             array(
                 'id' => $this->prefix . '_fb_use_avatar',
                 'type' => 'checkbox',
-                'title' => __( 'Use Facebook Avatar', ALR_TEXT_DOMAIN ),
-                'desc' => __( 'Checking this box will make Facebook profile picture show as avatar when possible ', ALR_TEXT_DOMAIN )
+                'std' => 'off',
+                'title' => __( 'Use Facebook Avatar', ZM_ALR_TEXT_DOMAIN ),
+                'desc' => __( 'Checking this box will make Facebook profile picture show as avatar when possible ', ZM_ALR_TEXT_DOMAIN )
             )
         );
 
@@ -253,19 +254,19 @@ Class ALRSocialFacebook {
         if ( ! $this->isEnabled() )
             return;
 
-        global $alr_settings;
+        global $zm_alr_settings;
 
-        $fb_url = esc_url( $alr_settings[ $this->prefix . '_fb_url' ] );
-        $app_id = esc_attr( $alr_settings[ $this->prefix . '_fb_app_id' ] );
+        $fb_url = esc_url( $zm_alr_settings[ $this->prefix . '_fb_url' ] );
+        $app_id = esc_attr( $zm_alr_settings[ $this->prefix . '_fb_app_id' ] );
 
         ?>
 
-        <!-- Start: <?php echo ALR_NAMESPACE; ?> Facebook meta property -->
+        <!-- Start: <?php echo ZM_ALR_NAMESPACE; ?> Facebook meta property -->
         <meta property="og:<?php echo $fb_url; ?>" content="<?php echo $fb_url; ?>"/>
         <meta property="fb:<?php echo $app_id; ?>" content="<?php echo $app_id; ?>"/>
-        <!-- End: <?php echo ALR_NAMESPACE; ?> Facebook meta property -->
+        <!-- End: <?php echo ZM_ALR_NAMESPACE; ?> Facebook meta property -->
 
-        <!-- Start: <?php echo ALR_NAMESPACE; ?> Facebook script -->
+        <!-- Start: <?php echo ZM_ALR_NAMESPACE; ?> Facebook script -->
         <script type="text/javascript">
             window.fbAsyncInit = function() {
                 FB.init({
@@ -285,16 +286,16 @@ Class ALRSocialFacebook {
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         </script>
-        <!-- End: <?php echo ALR_NAMESPACE; ?> Facebook script -->
+        <!-- End: <?php echo ZM_ALR_NAMESPACE; ?> Facebook script -->
 
     <?php }
 }
 /**
  * Once plugins are loaded init our class
  */
-function alr_plugins_loaded_social_facebook(){
+function zm_alr_plugins_loaded_social_facebook(){
 
     new ALRSocialFacebook( new ZM_Dependency_Container( null ) );
 
 }
-add_action( 'plugins_loaded', 'alr_plugins_loaded_social_facebook' );
+add_action( 'plugins_loaded', 'zm_alr_plugins_loaded_social_facebook' );

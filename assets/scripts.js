@@ -147,7 +147,7 @@ jQuery( document ).ready(function( $ ){
             global: false,
             data: {
                 action: 'validate_email',
-                alr_register_email: $this.val()
+                zm_alr_register_email: $this.val()
             },
             dataType: 'json',
             type: "POST",
@@ -180,7 +180,7 @@ jQuery( document ).ready(function( $ ){
             global: false,
             data: {
                 action: 'validate_username',
-                alr_register_user_name: $( this ).val()
+                zm_alr_register_user_name: $( this ).val()
             },
             dataType: 'json',
             type: "POST",
@@ -210,7 +210,7 @@ jQuery( document ).ready(function( $ ){
         of: 'body'
     });
 
-    if ( _ajax_login_settings.pre_load_forms == 'alr_misc_pre_load_yes' ){
+    if ( _ajax_login_settings.pre_load_forms == 'zm_alr_misc_pre_load_yes' ){
         zMAjaxLoginRegister.load_login();
         zMAjaxLoginRegister.load_register();
     }

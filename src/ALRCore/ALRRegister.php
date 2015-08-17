@@ -4,10 +4,10 @@ Class ALRRegister {
 
     public function __construct( ZM_Dependency_Container $di ){
 
-        $this->_alr_html = $di->get_instance( 'html', 'ALRHtml', null );
-        $this->_alr_helpers = $di->get_instance( 'helpers', 'ALRHelpers', null );
-        $this->prefix = 'alr_register';
-        add_action( 'alr_init', array( &$this, 'init' ) );
+        $this->_zm_alr_html = $di->get_instance( 'html', 'ALRHtml', null );
+        $this->_zm_alr_helpers = $di->get_instance( 'helpers', 'ALRHelpers', null );
+        $this->prefix = 'zm_alr_register';
+        add_action( 'zm_alr_init', array( &$this, 'init' ) );
 
     }
 
@@ -49,10 +49,10 @@ Class ALRRegister {
             if ( is_user_logged_in() ) {
 
                 $html = sprintf('<p>%s <a href="%s" title="%s">%s</a></p>',
-                    __( 'You are already registered', ALR_TEXT_DOMAIN ),
+                    __( 'You are already registered', ZM_ALR_TEXT_DOMAIN ),
                     wp_logout_url( site_url() ),
-                    __( 'Logout', ALR_TEXT_DOMAIN ),
-                    __( 'Logout', ALR_TEXT_DOMAIN )
+                    __( 'Logout', ZM_ALR_TEXT_DOMAIN ),
+                    __( 'Logout', ZM_ALR_TEXT_DOMAIN )
                 );
 
             } else {
@@ -63,7 +63,7 @@ Class ALRRegister {
 
         } else {
 
-            $html = __('Registration is currently closed.', ALR_TEXT_DOMAIN );
+            $html = __('Registration is currently closed.', ZM_ALR_TEXT_DOMAIN );
 
         }
 
@@ -80,15 +80,15 @@ Class ALRRegister {
     public function getRegisterForm(){
 
         $container_classes = implode( " ", apply_filters( $this->prefix . '_form_container_classes', array(
-            ALR_NAMESPACE . '_form_container',
+            ZM_ALR_NAMESPACE . '_form_container',
             $this->prefix . '_form_container'
             ) ) );
 
         $form_classes = implode( " ", apply_filters( $this->prefix . '_form_classes', array(
-            ALR_NAMESPACE . '_form'
+            ZM_ALR_NAMESPACE . '_form'
             ) ) );
 
-        $fields_html = $this->_alr_html->buildFormFieldsHtml( array(
+        $fields_html = $this->_zm_alr_html->buildFormFieldsHtml( array(
             $this->prefix . '_user_name' => array(
                 'title' => 'User Name',
                 'type' => 'text',
@@ -111,15 +111,15 @@ Class ALRRegister {
                 )
             ), $this->prefix );
 
-        $links_html = $this->_alr_html->buildFormHtmlLinks( array(
+        $links_html = $this->_zm_alr_html->buildFormHtmlLinks( array(
             $this->prefix . '_not_a_member' => array(
                 'href' => '#',
                 'class' => 'already-registered-handle',
-                'text' => __( 'Already registered?', ALR_TEXT_DOMAIN ),
+                'text' => __( 'Already registered?', ZM_ALR_TEXT_DOMAIN ),
                 )
             ), $this->prefix );
 
-        $buttons_html = $this->_alr_html->buildFormFieldsHtml( array(
+        $buttons_html = $this->_zm_alr_html->buildFormFieldsHtml( array(
             $this->prefix . '_submit_button' => array(
                 'title' => 'Register',
                 'type' => 'submit',
@@ -128,7 +128,7 @@ Class ALRRegister {
             ), $this->prefix );
 
         $button_container_classes = implode( " ", apply_filters( $this->prefix . '_button_container_classes', array(
-            ALR_NAMESPACE . '_button_container'
+            ZM_ALR_NAMESPACE . '_button_container'
             ) ) );
 
         $html = null;
@@ -171,9 +171,9 @@ Class ALRRegister {
         // and wp_mail the users password asking to change it.
 
         $user = wp_parse_args( $args, array(
-            'user_login' => $_POST['alr_register_user_name'],
-            'email' => $_POST['alr_register_email'],
-            'user_pass' => $_POST['alr_register_confirm_password']
+            'user_login' => $_POST['zm_alr_register_user_name'],
+            'email' => $_POST['zm_alr_register_email'],
+            'user_pass' => $_POST['zm_alr_register_confirm_password']
             ) );
 
         $valid['email'] = $this->validateEmail( $user['email'], false );
@@ -182,27 +182,27 @@ Class ALRRegister {
 
         if ( $valid['username']['code'] == 'error' ){
 
-            $status = $this->_alr_helpers->status('invalid_username');
+            $status = $this->_zm_alr_helpers->status('invalid_username');
 
         }
 
         elseif ( $valid['email']['code'] == 'error' ){
 
-            $status = $this->_alr_helpers->status('invalid_username');
+            $status = $this->_zm_alr_helpers->status('invalid_username');
 
         } else {
 
             if ( ! isset( $status['code'] ) ){
 
-                $user_id = $this->_alr_helpers->createUser( $user, $this->prefix );
+                $user_id = $this->_zm_alr_helpers->createUser( $user, $this->prefix );
 
                 if ( $user_id == false ){
 
-                    $status = $this->_alr_helpers->status('invalid_username'); // invalid user
+                    $status = $this->_zm_alr_helpers->status('invalid_username'); // invalid user
 
                 } else {
 
-                    $status = $this->_alr_helpers->status('success_registration'); // success
+                    $status = $this->_zm_alr_helpers->status('success_registration'); // success
                     $status['id'] = $user_id;
 
                 }
@@ -233,17 +233,17 @@ Class ALRRegister {
     public function validateUsername( $username=null, $is_ajax=true ) {
 
 
-        $username = empty( $_POST['alr_register_user_name'] ) ? esc_attr( $username ) : $_POST['alr_register_user_name'];
+        $username = empty( $_POST['zm_alr_register_user_name'] ) ? esc_attr( $username ) : $_POST['zm_alr_register_user_name'];
 
         if ( validate_username( $username ) ) {
             $user_id = username_exists( $username );
             if ( $user_id ){
-                $msg = $this->_alr_helpers->status('username_exists');
+                $msg = $this->_zm_alr_helpers->status('username_exists');
             } else {
-                $msg = $this->_alr_helpers->status('valid_username');
+                $msg = $this->_zm_alr_helpers->status('valid_username');
             }
         } else {
-            $msg = $this->_alr_helpers->status('invalid_username');
+            $msg = $this->_zm_alr_helpers->status('invalid_username');
         }
 
         if ( $is_ajax ){
@@ -265,14 +265,14 @@ Class ALRRegister {
      */
     public function validateEmail( $email=null, $is_ajax=true ) {
 
-        $email = is_null( $email ) ? $email : $_POST['alr_register_email'];
+        $email = is_null( $email ) ? $email : $_POST['zm_alr_register_email'];
 
         if ( ! filter_var( $email, FILTER_VALIDATE_EMAIL ) ) {
-            $msg = $this->_alr_helpers->status('email_invalid');
+            $msg = $this->_zm_alr_helpers->status('email_invalid');
         } else if ( email_exists( $email ) ){
-            $msg = $this->_alr_helpers->status('email_in_use');
+            $msg = $this->_zm_alr_helpers->status('email_in_use');
         } else {
-            $msg = $this->_alr_helpers->status('email_valid');
+            $msg = $this->_zm_alr_helpers->status('email_valid');
         }
 
         if ( $is_ajax ){
@@ -307,7 +307,7 @@ Class ALRRegister {
 
         $classes = implode( ' ', apply_filters( $this->prefix . '_dialog_class', array(
             $this->prefix . '_dialog',
-            ALR_NAMESPACE . '_dialog'
+            ZM_ALR_NAMESPACE . '_dialog'
             ) ) );
 
         ?>
@@ -315,8 +315,8 @@ Class ALRRegister {
         /**
          * Markup needed for jQuery UI dialog, our form is actually loaded via AJAX
          */
-        ?><div id="ajax-login-register-dialog" class="<?php echo $classes; ?>" title="<?php _e( 'Register',  ALR_TEXT_DOMAIN ); ?>" data-security="<?php print wp_create_nonce( 'register_form' ); ?>" style="display: none;">
-            <div id="ajax-login-register-target" class="ajax-login-register-dialog"><?php _e( 'Loading...', ALR_TEXT_DOMAIN ); ?></div>
+        ?><div id="ajax-login-register-dialog" class="<?php echo $classes; ?>" title="<?php _e( 'Register',  ZM_ALR_TEXT_DOMAIN ); ?>" data-security="<?php print wp_create_nonce( 'register_form' ); ?>" style="display: none;">
+            <div id="ajax-login-register-target" class="ajax-login-register-dialog"><?php _e( 'Loading...', ZM_ALR_TEXT_DOMAIN ); ?></div>
         </div>
     <?php }
 
@@ -325,9 +325,9 @@ Class ALRRegister {
 /**
  * Once plugins are loaded init our class
  */
-function alr_plugins_loaded_register(){
+function zm_alr_plugins_loaded_register(){
 
     new ALRRegister( new ZM_Dependency_Container( null ) );
 
 }
-add_action( 'plugins_loaded', 'alr_plugins_loaded_register' );
+add_action( 'plugins_loaded', 'zm_alr_plugins_loaded_register' );

@@ -8,9 +8,9 @@ Class ALRMisc {
 
     public function __construct(){
 
-        $this->prefix = 'alr_misc';
+        $this->prefix = 'zm_alr_misc';
 
-        add_filter( 'quilt_' . ALR_NAMESPACE. '_settings', array( &$this, 'settings') );
+        add_filter( 'quilt_' . ZM_ALR_NAMESPACE. '_settings', array( &$this, 'settings') );
 
     }
 
@@ -23,28 +23,28 @@ Class ALRMisc {
     public function settings( $current_settings ){
 
         $settings[ $this->prefix ] = array(
-            'title' => __('Misc.', ALR_TEXT_DOMAIN ),
+            'title' => __('Misc.', ZM_ALR_TEXT_DOMAIN ),
             'fields' => array(
                 array(
                     'id' => $this->prefix . '_login_handle',
-                    'title' => __( 'Login Handle', ALR_TEXT_DOMAIN ),
+                    'title' => __( 'Login Handle', ZM_ALR_TEXT_DOMAIN ),
                     'type' => 'fancyText',
                     'std' => '',
-                    'desc' => __( 'Type the class name or ID of the element you want to launch the dialog box when clicked, example <code>.login-link</code>', ALR_TEXT_DOMAIN )
+                    'desc' => __( 'Type the class name or ID of the element you want to launch the dialog box when clicked, example <code>.login-link</code>', ZM_ALR_TEXT_DOMAIN )
                 ),
                 array(
                     'id' => $this->prefix . '_register_handle',
-                    'title' => __( 'Register Handle', ALR_TEXT_DOMAIN ),
+                    'title' => __( 'Register Handle', ZM_ALR_TEXT_DOMAIN ),
                     'type' => 'fancyText',
                     'std' => '',
-                    'desc' => __( 'Type the class name or ID of the element you want to launch the dialog box when clicked, example <code>.register-link</code>', ALR_TEXT_DOMAIN )
+                    'desc' => __( 'Type the class name or ID of the element you want to launch the dialog box when clicked, example <code>.register-link</code>', ZM_ALR_TEXT_DOMAIN )
                 ),
                 array(
                     'id' => $this->prefix . '_force_check_password',
-                    'title' => __( 'Force Check Password', ALR_TEXT_DOMAIN ),
+                    'title' => __( 'Force Check Password', ZM_ALR_TEXT_DOMAIN ),
                     'type' => 'fancySelect',
                     'std' => $this->prefix . '_no',
-                    'desc' => __( 'Use this option if your are experiencing compatibility issues with other login and or register plugins.', ALR_TEXT_DOMAIN ),
+                    'desc' => __( 'Use this option if your are experiencing compatibility issues with other login and or register plugins.', ZM_ALR_TEXT_DOMAIN ),
                     'options' => array(
                         $this->prefix . '_yes' => 'Yes',
                         $this->prefix . '_no' => 'No'
@@ -53,14 +53,14 @@ Class ALRMisc {
                 ),
                 array(
                     'id' => $this->prefix . '_pre_load_forms',
-                    'title' => __( 'Pre-load Forms', ALR_TEXT_DOMAIN ),
+                    'title' => __( 'Pre-load Forms', ZM_ALR_TEXT_DOMAIN ),
                     'type' => 'fancySelect',
                     'std' => $this->prefix . '_pre_load_no',
                     'options' => array(
                         $this->prefix . '_pre_load_yes' => 'Yes',
                         $this->prefix . '_pre_load_no' => 'No'
                         ),
-                    'desc' => __( 'Setting this option will pre-load the forms, allowing them to be loaded prior to being clicked on.', ALR_TEXT_DOMAIN )
+                    'desc' => __( 'Setting this option will pre-load the forms, allowing them to be loaded prior to being clicked on.', ZM_ALR_TEXT_DOMAIN )
                 )
             )
         );

@@ -16,7 +16,7 @@ jQuery( document ).ready(function( $ ){
 
             zMAjaxLoginRegister.open_register();
 
-            if ( _ajax_login_settings.pre_load_forms == 'alr_misc_pre_load_no' ){
+            if ( _ajax_login_settings.pre_load_forms == 'zm_alr_misc_pre_load_no' ){
                 zMAjaxLoginRegister.load_register();
             }
 
@@ -56,7 +56,7 @@ jQuery( document ).ready(function( $ ){
         } else {
             $.ajax({
                 global: false,
-                data: "action=setup_new_user&" + $this.serialize() + "&security=" + $this.data('alr_register_security'),
+                data: "action=setup_new_user&" + $this.serialize() + "&security=" + $this.data('zm_alr_register_security'),
                 dataType: 'json',
                 type: "POST",
                 url: _ajax_login_settings.ajaxurl,
@@ -71,7 +71,7 @@ jQuery( document ).ready(function( $ ){
         e.preventDefault();
         $('#ajax-login-register-dialog').dialog('close');
         zMAjaxLoginRegister.open_login();
-        if ( _ajax_login_settings.pre_load_forms == 'alr_misc_pre_load_no' ){
+        if ( _ajax_login_settings.pre_load_forms == 'zm_alr_misc_pre_load_no' ){
             zMAjaxLoginRegister.load_login();
         }
     });

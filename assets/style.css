@@ -1,55 +1,55 @@
-.alr_form_container *,
-.alr_form_container *:before,
-.alr_form_container *:after {
+.zm_alr_form_container *,
+.zm_alr_form_container *:before,
+.zm_alr_form_container *:after {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     }
 
-.alr_label {
+.zm_alr_label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
     }
 
-.alr_ul_container {
+.zm_alr_ul_container {
     clear: both;
     margin: 0;
     padding: 0;
     list-style-type: none;
     }
 
-.alr_ul_container li {
+.zm_alr_ul_container li {
     display: inline;
     margin: 0 10px 0 0;
     }
 
-.alr_ul_container li:last-child {
+.zm_alr_ul_container li:last-child {
     margin: 0;
     }
 
-.alr_checkbox_field {
+.zm_alr_checkbox_field {
     float: left;
     margin: 5px 10px 0 0;
     width: auto;
     }
 
-.alr_email_field:hover,
-.alr_password_field:hover,
-.alr_text_field:hover {
+.zm_alr_email_field:hover,
+.zm_alr_password_field:hover,
+.zm_alr_text_field:hover {
     border-color: #aaa;
     }
 
-.alr_email_field:focus,
-.alr_password_field:focus,
-.alr_text_field:focus {
+.zm_alr_email_field:focus,
+.zm_alr_password_field:focus,
+.zm_alr_text_field:focus {
     border-color: #999;
     outline: none;
     }
 
-.alr_email_field,
-.alr_password_field,
-.alr_text_field {
+.zm_alr_email_field,
+.zm_alr_password_field,
+.zm_alr_text_field {
     -webkit-transition-property: border-color;
     -moz-transition-property: border-color;
     -o-transition-property: border-color;
@@ -76,30 +76,30 @@
     margin: 0;
     }
 
-.alr_form_field_container {
+.zm_alr_form_field_container {
     margin: 0 0 15px 0;
     }
 
-.alr_form_container input[type="submit"]:hover {
+.zm_alr_form_container input[type="submit"]:hover {
     color: #008000;
     }
 
-.alr_form_container input[type="submit"]:active {
+.zm_alr_form_container input[type="submit"]:active {
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) inset;
     -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) inset;
     border: 1px solid #CFCFCF;
     }
 
-.alr_form_container input[type="submit"]:disabled:hover {
+.zm_alr_form_container input[type="submit"]:disabled:hover {
     cursor: default;
     }
 
-.alr_form_container input[type="submit"]:disabled {
+.zm_alr_form_container input[type="submit"]:disabled {
     cursor: pointer;
     opacity: 0.5;
     }
 
-.alr_form_container input[type="submit"] {
+.zm_alr_form_container input[type="submit"] {
     -webkit-transition-property: background-image;
     -webkit-transition-duration: 0.3s;
     -webkit-transition-timing-function: linear;
@@ -122,7 +122,7 @@
     border: 1px solid #CFCFCF;
     }
 
-.alr_button_container {
+.zm_alr_button_container {
     float: left;
     padding: 0;
     width: 100%;
@@ -130,24 +130,24 @@
     }
 
 
-.alr_design_wide .alr_form_field_container {
+.zm_alr_design_wide .zm_alr_form_field_container {
     width: 50%;
     float: left;
     padding: 0 10px 0 0;
     }
 
-.alr_design_wide .alr_form_field_container:last-child {
+.zm_alr_design_wide .zm_alr_form_field_container:last-child {
     padding: 0;
     }
 
-.alr_design_wide .alr_login_checkbox_container {
+.zm_alr_design_wide .zm_alr_login_checkbox_container {
     clear: both;
     width: 100%;
     margin: 0;
     }
 
 
-.alr_design_wide .alr_form_field_container.alr_submit_container {
+.zm_alr_design_wide .zm_alr_form_field_container.zm_alr_submit_container {
     margin: 20px 0 10px;
     width: 100%;
     }
@@ -229,11 +229,11 @@
 
 
 
-.alr_fb_login_container {
+.zm_alr_fb_login_container {
     margin: 0 0 20px;
 }
 
-.alr_fb_login_container a.fb-login:before {
+.zm_alr_fb_login_container a.fb-login:before {
     background-image: url('images/fb-icon.png');
     content: ".";
     color: #425EAC;
@@ -247,7 +247,7 @@
     text-align: center;
     }
 
-.alr_fb_login_container a.fb-login {
+.zm_alr_fb_login_container a.fb-login {
     font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
     text-decoration: none;
     background: #4c69ba;
@@ -267,7 +267,7 @@
     text-decoration: none;
     }
 
-.alr_fb_login_container a.fb-login:hover {
+.zm_alr_fb_login_container a.fb-login:hover {
     background: -webkit-gradient(linear, center top, center bottom, from(#5b7bd5), to(#4864b1));
     background: -webkit-linear-gradient(#5b7bd5, #4864b1);
     cursor: pointer;

@@ -10,7 +10,7 @@ jQuery( document ).ready(function( $ ){
         var $this = $(this);
         $.ajax({
             global: false,
-            data: "action=login_submit&" + $this.serialize() + "&security=" + $this.data('alr_login_security'),
+            data: "action=login_submit&" + $this.serialize() + "&security=" + $this.data('zm_alr_login_security'),
             type: "POST",
             url: _ajax_login_settings.ajaxurl,
             success: function( msg ){
@@ -72,7 +72,7 @@ jQuery( document ).ready(function( $ ){
                         data: {
                             action: "facebook_login",
                             fb_response: fb_response,
-                            security: $this.data('alr_facebook_security')
+                            security: $this.data('zm_alr_facebook_security')
                         },
                         global: false,
                         type: "POST",
@@ -122,7 +122,7 @@ jQuery( document ).ready(function( $ ){
                 // There's a setting to either load the container div, then have the
                 // forms load inside via AJAX, or to have them already loaded, and "hidden"
                 // via display:none.
-                if ( _ajax_login_settings.pre_load_forms == 'alr_misc_pre_load_no' ){
+                if ( _ajax_login_settings.pre_load_forms == 'zm_alr_misc_pre_load_no' ){
                     zMAjaxLoginRegister.load_login();
                 }
 
@@ -134,7 +134,7 @@ jQuery( document ).ready(function( $ ){
         e.preventDefault();
         $('#ajax-login-register-login-dialog').dialog('close');
         zMAjaxLoginRegister.open_register();
-        if ( _ajax_login_settings.pre_load_forms == 'alr_misc_pre_load_no' ){
+        if ( _ajax_login_settings.pre_load_forms == 'zm_alr_misc_pre_load_no' ){
             zMAjaxLoginRegister.load_register();
         }
     });

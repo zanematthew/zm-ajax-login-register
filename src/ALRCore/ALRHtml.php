@@ -28,7 +28,7 @@ Class ALRHtml {
         $fields = apply_filters( $prefix . '_form_fields', $fields );
 
         $default_classes = apply_filters( $prefix . '_field_container_classes', array(
-            ALR_NAMESPACE . '_form_field_container'
+            ZM_ALR_NAMESPACE . '_form_field_container'
             ) );
 
         $order = apply_filters( $prefix . '_order_fields', array_keys( $fields ) );
@@ -57,8 +57,8 @@ Class ALRHtml {
                     'name' => $key,
                     'id' => sanitize_title( $key ),
                     'classes' => array(
-                        ALR_NAMESPACE . '_' . esc_attr( $fields[ $key ]['type'] ) . '_field',
-                        ALR_NAMESPACE . '_form_field'
+                        ZM_ALR_NAMESPACE . '_' . esc_attr( $fields[ $key ]['type'] ) . '_field',
+                        ZM_ALR_NAMESPACE . '_form_field'
                         ),
                     'placeholder' => esc_attr( $fields[ $key ]['title'] ),
                     'type' => esc_attr( $fields[ $key ]['type'] ),
@@ -67,7 +67,7 @@ Class ALRHtml {
                     ) ) );
 
                 $container_classes = array_merge( $default_classes, array(
-                    ALR_NAMESPACE . '_' . $args['type'] . '_container',
+                    ZM_ALR_NAMESPACE . '_' . $args['type'] . '_container',
                     $prefix . '_' . $args['type'] . '_container'
                     ) );
 
@@ -78,26 +78,26 @@ Class ALRHtml {
                 switch ( $fields[ $key ]['type'] ) {
 
                     case 'text':
-                        $html .= '<label for="' . $args['id'] . '" class="' . ALR_NAMESPACE . '_label">' . $args['title'] . '</label>';
+                        $html .= '<label for="' . $args['id'] . '" class="' . ZM_ALR_NAMESPACE . '_label">' . $args['title'] . '</label>';
                         $html .= '<input type="text" name="' . $args['name'] . '" id="' . $args['id'] . '" class="' . $field_classes . '" placeholder="' . $args['placeholder'] . '" ' . $args['extra'] . ' />';
                         $html .= PHP_EOL;
                         break;
 
                     case 'password':
-                        $html .= '<label for="' . $args['id'] . '" class="' . ALR_NAMESPACE . '_label">' . $args['title'] . '</label>';
+                        $html .= '<label for="' . $args['id'] . '" class="' . ZM_ALR_NAMESPACE . '_label">' . $args['title'] . '</label>';
                         $html .= '<input type="password" name="' . $args['name'] . '" id="' . $args['id'] . '" class="' . $field_classes . '" placeholder="' . $args['placeholder'] . '" ' . $args['extra'] . ' />';
                         $html .= PHP_EOL;
                         break;
 
                     case 'email':
-                        $html .= '<label for="' . $args['id'] . '" class="' . ALR_NAMESPACE . '_label">' . $args['title'] . '</label>';
+                        $html .= '<label for="' . $args['id'] . '" class="' . ZM_ALR_NAMESPACE . '_label">' . $args['title'] . '</label>';
                         $html .= '<input autocorrect="none" autocapitalize="none" type="email" name="' . $args['name'] . '" id="' . $args['id'] . '" class="' . $field_classes . '" placeholder="' . $args['placeholder'] . '" ' . $args['extra'] . ' />';
                         $html .= PHP_EOL;
                         break;
 
                     case 'checkbox':
                         $html .= '<input type="checkbox" name="' . $args['name'] . '" id="' . $args['id'] . '" class="' . $field_classes . '" ' . $args['extra'] . ' />';
-                        $html .= '<label for="' . $args['id'] . '" class="' . ALR_NAMESPACE . '_label">' . $args['title'] . '</label>';
+                        $html .= '<label for="' . $args['id'] . '" class="' . ZM_ALR_NAMESPACE . '_label">' . $args['title'] . '</label>';
                         $html .= PHP_EOL;
                         break;
 
@@ -167,7 +167,7 @@ Class ALRHtml {
                     ) ) );
 
                 $classes = array(
-                    ALR_NAMESPACE . '_link',
+                    ZM_ALR_NAMESPACE . '_link',
                     $prefix . '_link',
                     $args['class']
                     );
@@ -182,7 +182,7 @@ Class ALRHtml {
 
         }
 
-        return '<ul class="' . ALR_NAMESPACE . '_ul_container">' . $html . '</ul>';
+        return '<ul class="' . ZM_ALR_NAMESPACE . '_ul_container">' . $html . '</ul>';
     }
 
 }

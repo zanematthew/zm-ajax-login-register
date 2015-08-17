@@ -15,28 +15,28 @@ Class ALRHelpers {
                 'code' => 'success'
                 ),
             'username_exists' => array(
-                'description' => __('Invalid username', ALR_TEXT_DOMAIN ),
+                'description' => __('Invalid username', ZM_ALR_TEXT_DOMAIN ),
                 'cssClass' => 'error-container',
                 'code' => 'error'
                 ),
             'invalid_username' => array(
-                'description' => __( 'Invalid username', ALR_TEXT_DOMAIN ),
+                'description' => __( 'Invalid username', ZM_ALR_TEXT_DOMAIN ),
                 'cssClass' => 'error-container',
                 'code' => 'error'
                 ),
             'username_does_not_exists' => array(
-                'description' => __( 'Invalid username', ALR_TEXT_DOMAIN ),
+                'description' => __( 'Invalid username', ZM_ALR_TEXT_DOMAIN ),
                 'cssClass' => 'error-container',
                 'code' => 'error'
                 ),
 
             'incorrect_password' => array(
-                'description' => __( 'Invalid', ALR_TEXT_DOMAIN ),
+                'description' => __( 'Invalid', ZM_ALR_TEXT_DOMAIN ),
                 'cssClass' => 'error-container',
                 'code' => 'error'
                 ),
             'passwords_do_not_match' => array(
-                'description' => __('Passwords do not match.', ALR_TEXT_DOMAIN ),
+                'description' => __('Passwords do not match.', ZM_ALR_TEXT_DOMAIN ),
                 'cssClass' =>'error-container',
                 'code' => 'error'
                 ),
@@ -47,23 +47,23 @@ Class ALRHelpers {
                 'code' => 'success'
                 ),
             'email_invalid' => array(
-                'description' => __( 'Invalid Email', ALR_TEXT_DOMAIN ),
+                'description' => __( 'Invalid Email', ZM_ALR_TEXT_DOMAIN ),
                 'cssClass' => 'error-container',
                 'code' => 'error'
                 ),
             'email_in_use' => array(
-                'description' => __( 'Invalid Email', ALR_TEXT_DOMAIN ),
+                'description' => __( 'Invalid Email', ZM_ALR_TEXT_DOMAIN ),
                 'cssClass' => 'error-container',
                 'code' => 'error'
                 ),
 
             'success_login' => array(
-                'description' => __( 'Success! One moment while we log you in...', ALR_TEXT_DOMAIN ),
+                'description' => __( 'Success! One moment while we log you in...', ZM_ALR_TEXT_DOMAIN ),
                 'cssClass' => 'success-container',
                 'code' => 'success_login'
                 ),
             'success_registration' => array(
-                'description' => __( 'Success! One moment while we log you in...', ALR_TEXT_DOMAIN ),
+                'description' => __( 'Success! One moment while we log you in...', ZM_ALR_TEXT_DOMAIN ),
                 'cssClass' => 'noon',
                 'code' => 'success_registration'
                 )

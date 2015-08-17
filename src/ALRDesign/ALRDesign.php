@@ -8,15 +8,15 @@ Class ALRDesign {
 
     public function __construct(){
 
-        $this->prefix = 'alr_design';
+        $this->prefix = 'zm_alr_design';
 
         add_action( 'wp_head', array( &$this, 'header' ) );
 
-        add_filter( 'quilt_' . ALR_NAMESPACE. '_settings', array( &$this, 'settings') );
-        add_filter( 'alr_login_form_links', array( &$this, 'filterLoginLinks' ) );
-        add_filter( 'alr_login_form_fields', array( &$this, 'filterLoginFields' ) );
-        add_filter( 'alr_login_form_container_classes', array( &$this, 'loginClasses' ) );
-        add_filter( 'alr_register_form_container_classes', array( &$this, 'registerClasses' ) );
+        add_filter( 'quilt_' . ZM_ALR_NAMESPACE. '_settings', array( &$this, 'settings') );
+        add_filter( 'zm_alr_login_form_links', array( &$this, 'filterLoginLinks' ) );
+        add_filter( 'zm_alr_login_form_fields', array( &$this, 'filterLoginFields' ) );
+        add_filter( 'zm_alr_login_form_container_classes', array( &$this, 'loginClasses' ) );
+        add_filter( 'zm_alr_register_form_container_classes', array( &$this, 'registerClasses' ) );
 
     }
 
@@ -29,42 +29,42 @@ Class ALRDesign {
     public function settings( $current_settings ){
 
         $settings[ $this->prefix ] = array(
-            'title' => __('Design', ALR_TEXT_DOMAIN ),
+            'title' => __('Design', ZM_ALR_TEXT_DOMAIN ),
             'fields' => array(
                 array(
                     'id' => $this->prefix . '_login_form_layout',
-                    'title' => __( 'Form Layout', ALR_TEXT_DOMAIN ),
+                    'title' => __( 'Form Layout', ZM_ALR_TEXT_DOMAIN ),
                     'type' => 'fancySelect',
                     'std' => $this->prefix . '_default',
                     'options' => array(
-                        $this->prefix . '_default' => __( 'Default', ALR_TEXT_DOMAIN ),
-                        $this->prefix . '_wide' => __( 'Wide', ALR_TEXT_DOMAIN )
+                        $this->prefix . '_default' => __( 'Default', ZM_ALR_TEXT_DOMAIN ),
+                        $this->prefix . '_wide' => __( 'Wide', ZM_ALR_TEXT_DOMAIN )
                         )
                 ),
                 array(
                     'id' => $this->prefix . '_login_additonal_styling',
-                    'title' => __( 'Additional Styling', ALR_TEXT_DOMAIN ),
+                    'title' => __( 'Additional Styling', ZM_ALR_TEXT_DOMAIN ),
                     'type' => 'css',
-                    'desc' => __( 'Type your custom CSS styles that are applied to the dialog boxes.', ALR_TEXT_DOMAIN )
+                    'desc' => __( 'Type your custom CSS styles that are applied to the dialog boxes.', ZM_ALR_TEXT_DOMAIN )
                 ),
 
                 // Show/hide certain fields
                 array(
                     'id' => $this->prefix . '_login_disable_keep_me_logged_in',
-                    'title' => __( 'Disable "keep me logged in"', ALR_TEXT_DOMAIN ),
-                    'desc' => __( 'Use this option to disable the check box shown to keep users logged in.', ALR_TEXT_DOMAIN ),
+                    'title' => __( 'Disable "keep me logged in"', ZM_ALR_TEXT_DOMAIN ),
+                    'desc' => __( 'Use this option to disable the check box shown to keep users logged in.', ZM_ALR_TEXT_DOMAIN ),
                     'type' => 'checkbox'
                 ),
                 array(
                     'id' => $this->prefix . '_login_disable_register',
-                    'title' => __( 'Remove Registration', ALR_TEXT_DOMAIN ),
-                    'desc' => __( 'This prevents users from being able to register on the login page.', ALR_TEXT_DOMAIN ),
+                    'title' => __( 'Remove Registration', ZM_ALR_TEXT_DOMAIN ),
+                    'desc' => __( 'This prevents users from being able to register on the login page.', ZM_ALR_TEXT_DOMAIN ),
                     'type' => 'checkbox'
                 ),
                 array(
                     'id' => $this->prefix . '_login_disable_forgot_password',
-                    'title' => __( 'Remove Forgot Password', ALR_TEXT_DOMAIN ),
-                    'desc' => __( 'This prevents users from being able to use the "forgot password".', ALR_TEXT_DOMAIN ),
+                    'title' => __( 'Remove Forgot Password', ZM_ALR_TEXT_DOMAIN ),
+                    'desc' => __( 'This prevents users from being able to use the "forgot password".', ZM_ALR_TEXT_DOMAIN ),
                     'type' => 'checkbox'
                 )
             )
@@ -77,13 +77,13 @@ Class ALRDesign {
 
     public function filterLoginLinks( $links ){
 
-        global $alr_settings;
+        global $zm_alr_settings;
 
-        if ( ! empty( $alr_settings[ $this->prefix . '_login_disable_register'] ) )
-            unset( $links['alr_login_not_a_member'] );
+        if ( ! empty( $zm_alr_settings[ $this->prefix . '_login_disable_register'] ) )
+            unset( $links['zm_alr_login_not_a_member'] );
 
-        if ( ! empty( $alr_settings[ $this->prefix . '_login_disable_forgot_password'] ) )
-            unset( $links['alr_login_lost_password_url'] );
+        if ( ! empty( $zm_alr_settings[ $this->prefix . '_login_disable_forgot_password'] ) )
+            unset( $links['zm_alr_login_lost_password_url'] );
 
         return $links;
 
@@ -92,10 +92,10 @@ Class ALRDesign {
 
     public function filterLoginFields( $fields ){
 
-        global $alr_settings;
+        global $zm_alr_settings;
 
-        if ( ! empty( $alr_settings[ $this->prefix . '_login_disable_keep_me_logged_in'] ) )
-            unset( $fields['alr_login_keep_me_logged_in'] );
+        if ( ! empty( $zm_alr_settings[ $this->prefix . '_login_disable_keep_me_logged_in'] ) )
+            unset( $fields['zm_alr_login_keep_me_logged_in'] );
 
         return $fields;
 
@@ -104,14 +104,14 @@ Class ALRDesign {
 
     public function header(){
 
-        global $alr_settings;
+        global $zm_alr_settings;
 
         ?>
 
-        <?php if ( ! empty( $alr_settings[ $this->prefix . '_login_additonal_styling'] ) ) : ?>
+        <?php if ( ! empty( $zm_alr_settings[ $this->prefix . '_login_additonal_styling'] ) ) : ?>
             <!-- Start: ALR Additional Styling -->
             <style type="text/css">
-                <?php echo $alr_settings[ $this->prefix . '_login_additonal_styling']; ?>
+                <?php echo $zm_alr_settings[ $this->prefix . '_login_additonal_styling']; ?>
             </style>
             <!-- End: ALR Additional Styling -->
         <?php endif; ?>
@@ -121,9 +121,9 @@ Class ALRDesign {
 
     public function loginClasses( $classes ){
 
-        global $alr_settings;
+        global $zm_alr_settings;
 
-        $classes[] = $alr_settings[ $this->prefix . '_login_form_layout' ];
+        $classes[] = $zm_alr_settings[ $this->prefix . '_login_form_layout' ];
 
         return $classes;
 
@@ -132,9 +132,9 @@ Class ALRDesign {
 
     public function registerClasses( $classes ){
 
-        global $alr_settings;
+        global $zm_alr_settings;
 
-        $classes[] = $alr_settings[ $this->prefix . '_login_form_layout' ];
+        $classes[] = $zm_alr_settings[ $this->prefix . '_login_form_layout' ];
 
         return $classes;
 

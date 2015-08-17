@@ -8,10 +8,10 @@ Class ALRRedirect {
 
     public function __construct(){
 
-        $this->prefix = 'alr_redirect';
+        $this->prefix = 'zm_alr_redirect';
 
-        add_filter( 'quilt_' . ALR_NAMESPACE . '_settings', array( &$this, 'settings') );
-        add_filter( 'quilt_' . ALR_NAMESPACE . '_all_default_options', array( &$this, 'setDefaultRedirectUrl' ) );
+        add_filter( 'quilt_' . ZM_ALR_NAMESPACE . '_settings', array( &$this, 'settings') );
+        add_filter( 'quilt_' . ZM_ALR_NAMESPACE . '_all_default_options', array( &$this, 'setDefaultRedirectUrl' ) );
 
     }
 
@@ -24,16 +24,16 @@ Class ALRRedirect {
     public function settings( $current_settings ){
 
         $settings[ $this->prefix ] = array(
-            'title' => __('Redirect', ALR_TEXT_DOMAIN ),
+            'title' => __('Redirect', ZM_ALR_TEXT_DOMAIN ),
             'fields' => array(
                 array(
                     'id' => $this->prefix . '_redirect_after_login_url',
-                    'title' => __( 'Redirect After Login URL', ALR_TEXT_DOMAIN ),
+                    'title' => __( 'Redirect After Login URL', ZM_ALR_TEXT_DOMAIN ),
                     'type' => 'url',
                     'std' => '', // set to '' so it shows in settings as empty
                     'desc' => sprintf( '%s <code>%s</code>',
-                        __('Enter the URL or slug you want users redirected to after login, example: ', ALR_TEXT_DOMAIN ),
-                        __('http://site.com/, /dashboard/, /wp-admin/', ALR_TEXT_DOMAIN ) )
+                        __('Enter the URL or slug you want users redirected to after login, example: ', ZM_ALR_TEXT_DOMAIN ),
+                        __('http://site.com/, /dashboard/, /wp-admin/', ZM_ALR_TEXT_DOMAIN ) )
                 )
             )
         );
@@ -47,11 +47,11 @@ Class ALRRedirect {
     // visitors current URL.
     public function setDefaultRedirectUrl( $settings ){
 
-        if ( empty( $settings['alr_redirect_redirect_after_login_url'] ) ){
+        if ( empty( $settings['zm_alr_redirect_redirect_after_login_url'] ) ){
             // c/o https://kovshenin.com/2012/current-url-in-wordpress/
             global $wp;
             $current_url = trailingslashit( add_query_arg( $wp->query_string, '', home_url( $wp->request ) ) );
-            $settings['alr_redirect_redirect_after_login_url'] = $current_url;
+            $settings['zm_alr_redirect_redirect_after_login_url'] = $current_url;
         }
 
         return $settings;

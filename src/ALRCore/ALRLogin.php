@@ -12,11 +12,11 @@ Class ALRLogin {
      */
     public function __construct( ZM_Dependency_Container $di ){
 
-        $this->_alr_html = $di->get_instance( 'html', 'ALRHtml', null );
-        $this->_alr_helpers = $di->get_instance( 'helpers', 'ALRHelpers', null );
-        $this->prefix = 'alr_login';
+        $this->_zm_alr_html = $di->get_instance( 'html', 'ALRHtml', null );
+        $this->_zm_alr_helpers = $di->get_instance( 'helpers', 'ALRHelpers', null );
+        $this->prefix = 'zm_alr_login';
 
-        add_action( 'alr_init', array( &$this, 'init' ) );
+        add_action( 'zm_alr_init', array( &$this, 'init' ) );
 
     }
 
@@ -71,10 +71,10 @@ Class ALRLogin {
             $html = sprintf(
                 "<p class='%s_text'>%s <a href=%s title='%s'>%s</a></p>",
                 $this->prefix,
-                __('You are already logged in', ALR_TEXT_DOMAIN ), // Text
+                __('You are already logged in', ZM_ALR_TEXT_DOMAIN ), // Text
                 wp_logout_url( site_url() ), // URL
-                __('Logout', ALR_TEXT_DOMAIN ), // Link text
-                __('Logout', ALR_TEXT_DOMAIN ) // Link title text
+                __('Logout', ZM_ALR_TEXT_DOMAIN ), // Link text
+                __('Logout', ZM_ALR_TEXT_DOMAIN ) // Link title text
             );
 
         } else {
@@ -98,24 +98,24 @@ Class ALRLogin {
      */
     public function getLogInForm(){
 
-        $links_html = $this->_alr_html->buildFormHtmlLinks( array(
+        $links_html = $this->_zm_alr_html->buildFormHtmlLinks( array(
             $this->prefix . '_not_a_member' => array(
                 'href' => '#',
                 'class' => 'not-a-member-handle',
-                'text' => __( 'Are you a member?', ALR_TEXT_DOMAIN ),
+                'text' => __( 'Are you a member?', ZM_ALR_TEXT_DOMAIN ),
                 ),
             $this->prefix . '_lost_password_url' => array(
                 'href' => wp_lostpassword_url(),
                 'class' => '',
-                'text' => __( 'Forgot Password',ALR_TEXT_DOMAIN )
+                'text' => __( 'Forgot Password',ZM_ALR_TEXT_DOMAIN )
                 )
             ), $this->prefix );
 
         $form_classes = implode( " ", apply_filters( $this->prefix . '_form_classes', array(
-            ALR_NAMESPACE . '_form'
+            ZM_ALR_NAMESPACE . '_form'
         ) ) );
 
-        $fields_html = $this->_alr_html->buildFormFieldsHtml( array(
+        $fields_html = $this->_zm_alr_html->buildFormFieldsHtml( array(
             $this->prefix . '_user_name' => array(
                 'title' => 'User Name',
                 'type' => 'text',
@@ -137,12 +137,12 @@ Class ALRLogin {
             ), $this->prefix );
 
         $container_classes = implode( " ", apply_filters( $this->prefix . '_form_container_classes', array(
-            ALR_NAMESPACE . '_form_container',
+            ZM_ALR_NAMESPACE . '_form_container',
             $this->prefix . '_form_container'
         ) ) );
 
         $html = null;
-        $html .= '<form action="javascript://" class="'. $form_classes . '" data-alr_login_security="'. wp_create_nonce( 'login_submit' ) . '">';
+        $html .= '<form action="javascript://" class="'. $form_classes . '" data-zm_alr_login_security="'. wp_create_nonce( 'login_submit' ) . '">';
         $html .= '<div class="form-wrapper">';
         $html .= '<div class="ajax-login-register-status-container">';
         $html .= '<div class="ajax-login-register-msg-target"></div>';
@@ -179,8 +179,8 @@ Class ALRLogin {
         // if ( $is_ajax ) check_ajax_referer('login_submit','security');
 
         $args = array(
-            'login' => sanitize_user( $_POST['alr_login_user_name'] ),
-            'password' => $_POST['alr_login_password'],
+            'login' => sanitize_user( $_POST['zm_alr_login_user_name'] ),
+            'password' => $_POST['zm_alr_login_password'],
             'remember' => empty( $_POST['remember'] ) ? false : ture
         );
 
@@ -191,15 +191,15 @@ Class ALRLogin {
             if ( username_exists( $args['login'] ) ){
 
                 // if option force check password
-                global $alr_settings;
+                global $zm_alr_settings;
 
-                // Better to do via a hook from within alr_misc.
-                if ( $alr_settings['alr_misc_force_check_password'] == 'alr_misc_yes' ){
+                // Better to do via a hook from within zm_alr_misc.
+                if ( $zm_alr_settings['zm_alr_misc_force_check_password'] == 'zm_alr_misc_yes' ){
 
                     $user = get_user_by( 'login', $args['login'] );
                     if ( wp_check_password( $args['password'], $user->data->user_pass, $user->ID ) ){
 
-                        $status = $this->_alr_helpers->status('success_login');
+                        $status = $this->_zm_alr_helpers->status('success_login');
                         wp_signon( array(
                             'user_login'    => $args['login'],
                             'user_password' => $args['password'],
@@ -218,21 +218,21 @@ Class ALRLogin {
                     $user = wp_signon( $creds, false );
 
                     if ( is_wp_error( $user ) ){
-                        $status = $this->_alr_helpers->status( $user->get_error_code() );
+                        $status = $this->_zm_alr_helpers->status( $user->get_error_code() );
                     } else {
-                        $status = $this->_alr_helpers->status('success_login');
+                        $status = $this->_zm_alr_helpers->status('success_login');
                     }
                 }
 
             } else {
 
-                $status = $this->_alr_helpers->status('username_does_not_exists');
+                $status = $this->_zm_alr_helpers->status('username_does_not_exists');
 
             }
 
         } else {
 
-            $status = $this->_alr_helpers->status('invalid_username');
+            $status = $this->_zm_alr_helpers->status('invalid_username');
 
         }
 
@@ -258,10 +258,10 @@ Class ALRLogin {
          */
         $classes = implode( ' ', apply_filters( $this->prefix . '_dialog_class', array(
             $this->prefix . '_dialog',
-            ALR_NAMESPACE . '_dialog'
+            ZM_ALR_NAMESPACE . '_dialog'
             ) ) ); ?>
-        <div id="ajax-login-register-login-dialog" class="<?php echo $classes; ?>" title="<?php _e( 'Login', ALR_TEXT_DOMAIN ); ?>" data-security="<?php print wp_create_nonce( 'login_form' ); ?>">
-            <div id="ajax-login-register-login-target" class="ajax-login-register-login-dialog"><?php _e( 'Loading...', ALR_TEXT_DOMAIN ); ?>
+        <div id="ajax-login-register-login-dialog" class="<?php echo $classes; ?>" title="<?php _e( 'Login', ZM_ALR_TEXT_DOMAIN ); ?>" data-security="<?php print wp_create_nonce( 'login_form' ); ?>">
+            <div id="ajax-login-register-login-target" class="ajax-login-register-login-dialog"><?php _e( 'Loading...', ZM_ALR_TEXT_DOMAIN ); ?>
             </div>
             <?php do_action( $this->prefix . '_after_dialog' ); ?>
         </div>
@@ -272,9 +272,9 @@ Class ALRLogin {
 /**
  * Once plugins are loaded init our class
  */
-function alr_plugins_loaded_login(){
+function zm_alr_plugins_loaded_login(){
 
     new ALRLogin( new ZM_Dependency_Container( null ) );
 
 }
-add_action( 'plugins_loaded', 'alr_plugins_loaded_login' );
+add_action( 'plugins_loaded', 'zm_alr_plugins_loaded_login' );

@@ -21,9 +21,11 @@
 
 ### Social Login
 
-* [ ] Unified FB HTML for login and register class
+* [x] Unified FB HTML for login and register class
 
 > Unified HTML class names
+> Faster! %
+> Moved Settings
 
 ## Register
 
@@ -88,10 +90,11 @@
 
 # Setting -- Social
 
-* [ ] FB Enable
-* [ ] FB URL
-* [ ] FB App ID
-* [ ] FB Avatar
+* [x] FB Enable
+* [x] FB URL
+* [x] FB App ID
+* [x] FB Avatar
+* [x] Create account
 
 # Setting -- Misc.
 

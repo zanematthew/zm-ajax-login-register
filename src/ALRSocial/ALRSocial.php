@@ -8,9 +8,9 @@ Class ALRSocial {
 
     public function __construct(){
 
-        $this->prefix = 'alr_social';
+        $this->prefix = 'zm_alr_social';
 
-        add_filter( 'quilt_' . ALR_NAMESPACE. '_settings', array( &$this, 'settings') );
+        add_filter( 'quilt_' . ZM_ALR_NAMESPACE. '_settings', array( &$this, 'settings') );
 
     }
 
@@ -24,7 +24,7 @@ Class ALRSocial {
 
         // Use the below filter to add additional social settings
         $settings[ $this->prefix ] = array(
-            'title' => __('Social', ALR_TEXT_DOMAIN ),
+            'title' => __('Social', ZM_ALR_TEXT_DOMAIN ),
             'fields' => apply_filters( $this->prefix . '_settings_fields_tab', array() )
         );
 
