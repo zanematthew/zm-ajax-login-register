@@ -30,7 +30,7 @@ Class ALRDesign {
 
         $settings[ $this->prefix ] = array(
             'title' => __('Design', ZM_ALR_TEXT_DOMAIN ),
-            'fields' => array(
+            'fields' => apply_filters( $this->prefix . '_settings_fields_tab', array(
                 array(
                     'id' => $this->prefix . '_login_form_layout',
                     'title' => __( 'Form Layout', ZM_ALR_TEXT_DOMAIN ),
@@ -66,7 +66,7 @@ Class ALRDesign {
                     'title' => __( 'Remove Forgot Password', ZM_ALR_TEXT_DOMAIN ),
                     'desc' => __( 'This prevents users from being able to use the "forgot password".', ZM_ALR_TEXT_DOMAIN ),
                     'type' => 'checkbox'
-                )
+                ) )
             )
         );
 
