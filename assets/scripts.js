@@ -121,10 +121,10 @@ jQuery( document ).ready(function( $ ){
         } else if ( msg.description == '' ){
             zMAjaxLoginRegister.reload( form_obj );
         } else {
-            if ( msg.cssClass == 'noon' ){
-                jQuery('.ajax-login-register-status-container').hide();
-            } else {
+            if ( msg.code == 'error' ){
                 jQuery('.ajax-login-register-status-container').show();
+            } else {
+                jQuery('.ajax-login-register-status-container').hide();
             }
 
             jQuery('.ajax-login-register-msg-target', form_obj).addClass( msg.cssClass );
