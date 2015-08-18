@@ -69,7 +69,7 @@ Class ALRHelpers {
                 )
             );
 
-        $status = apply_filters( 'ajax_login_register_status_codes', $status );
+        $status = apply_filters( 'zm_alr_status_codes', $status );
 
         if ( empty( $value ) ){
             return $status[ $key ];
@@ -118,7 +118,7 @@ Class ALRHelpers {
             }
 
             if ( is_multisite() ){
-                $this->multisiteSetup( $user_id );
+                $this->multisiteSetup( $user_id, $prefix );
             }
 
             $wp_signon = wp_signon( array(
