@@ -25,7 +25,7 @@ Class ALRRedirect {
 
         $settings[ $this->prefix ] = array(
             'title' => __('Redirect', ZM_ALR_TEXT_DOMAIN ),
-            'fields' => array(
+            'fields' => apply_filters( $this->prefix . '_settings_fields_tab', array(
                 array(
                     'id' => $this->prefix . '_redirect_after_login_url',
                     'title' => __( 'Redirect After Login URL', ZM_ALR_TEXT_DOMAIN ),
@@ -36,7 +36,7 @@ Class ALRRedirect {
                         __('http://site.com/, /dashboard/, /wp-admin/', ZM_ALR_TEXT_DOMAIN ) )
                 )
             )
-        );
+        ) );
 
         return array_merge( $current_settings, $settings );
 

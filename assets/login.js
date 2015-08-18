@@ -16,6 +16,7 @@ jQuery( document ).ready(function( $ ){
             success: function( msg ){
 
                 ajax_login_register_show_message( $this, msg );
+                zMAjaxLoginRegister.reload( msg.redirect_url );
 
             }
         });
@@ -79,6 +80,7 @@ jQuery( document ).ready(function( $ ){
                         url: _zm_alr_settings.ajaxurl,
                         success: function( msg ){
                             ajax_login_register_show_message( $form_obj, msg );
+                            zMAjaxLoginRegister.reload( msg.redirect_url );
                         }
                     });
                 });

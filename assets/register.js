@@ -53,6 +53,7 @@ jQuery( document ).ready(function( $ ){
 
         if ( passwords_match.code == 'error' ){
             ajax_login_register_show_message( $this, msg );
+            zMAjaxLoginRegister.reload( msg.redirect_url );
         } else {
             $.ajax({
                 global: false,
@@ -62,6 +63,7 @@ jQuery( document ).ready(function( $ ){
                 url: _zm_alr_settings.ajaxurl,
                 success: function( msg ) {
                     ajax_login_register_show_message( $this, msg );
+                    zMAjaxLoginRegister.reload( msg.redirect_url );
                 }
             });
         }

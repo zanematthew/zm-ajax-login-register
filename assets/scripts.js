@@ -1,13 +1,11 @@
 var zMAjaxLoginRegister = {
 
-    reload: function( my_obj ){
-        if ( my_obj.hasClass('login_form') &&  typeof _zm_alr_settings.redirect.login !== 'undefined' ){
-            location.href = _zm_alr_settings.redirect.login.url;
-        } else if ( my_obj.hasClass('register_form') && typeof _zm_alr_settings.redirect.registration !== 'undefined' ){
-            location.href = _zm_alr_settings.redirect.registration.url;
-        } else {
-            location.href = _zm_alr_settings.redirect;
-        }
+    reload: function( redirect ){
+
+        var redirect;
+
+        if ( redirect )
+            location.href = redirect;
     },
 
     // Confirm passwords match
