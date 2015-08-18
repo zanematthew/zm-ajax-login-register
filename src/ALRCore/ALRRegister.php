@@ -133,11 +133,13 @@ Class ALRRegister {
 
         $html = null;
         $html .= '<div class="' . $container_classes . '">';
+        $html .= '<form action="javascript://" name="registerform" class="' . $form_classes . '" data-$html ;a=lr_register_security="' . wp_create_nonce( 'setup_new_user' ) . '">';
+        $html .= '<div class="form-wrapper">';
+
         $html .= '<div class="ajax-login-register-status-container">';
         $html .= '<div class="ajax-login-register-msg-target"></div>';
         $html .= '</div>';
-        $html .= '<form action="javascript://" name="registerform" class="' . $form_classes . '" data-$html ;a=lr_register_security="' . wp_create_nonce( 'setup_new_user' ) . '">';
-        $html .= '<div class="form-wrapper">';
+
         $html .= $fields_html;
         $html .= $links_html;
         $html .= '<div class="' . $button_container_classes . '">' . $buttons_html . '</div>';
