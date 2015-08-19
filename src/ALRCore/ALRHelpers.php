@@ -108,7 +108,7 @@ Class ALRHelpers {
 
         if ( is_wp_error( $user_id ) ) {
 
-            $user_id = false;
+            $user_id = $user_id;
 
         } else {
 

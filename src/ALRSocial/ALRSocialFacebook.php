@@ -5,7 +5,7 @@ Class ALRSocialFacebook {
     public function __construct( ZM_Dependency_Container $di ){
 
         $this->prefix = 'zm_alr_social_facebook';
-        $this->_zm_alr_helpers = $di->get_instance( 'helpers', 'ALRHelpers' );
+        $this->_zm_alr_helpers = $di->get_instance( 'helpers', 'ALRHelpers', null );
 
         add_action( 'wp_ajax_facebook_login', array( &$this, 'facebook_login' ) );
         add_action( 'wp_ajax_nopriv_facebook_login', array( &$this, 'facebook_login') );
@@ -26,6 +26,9 @@ Class ALRSocialFacebook {
 
         // check_ajax_referer( 'facebook-nonce', 'security' );
 
+// print_r( $_POST );
+// die("\nfb");
+
         // Map our FB response fields to the correct user fields as found in wp_update_user
         $user = array(
             'username'   => $_POST['fb_response']['id'],
@@ -44,8 +47,6 @@ Class ALRSocialFacebook {
 
         } else {
 
-            // If older version use this
-            // $user_obj = get_user_by( 'email', $user['email'] );
             $user_obj = get_user_by( 'login', $user['user_login'] );
 
             if ( $user_obj == false ){
@@ -54,7 +55,12 @@ Class ALRSocialFacebook {
 
             }
 
-            if ( $user_obj ){
+            // A WP user account already exists that is NOT associated with a FB account
+            if ( $user_obj == 'existing_user_email' ){
+
+                $status = $this->_zm_alr_helpers->status('username_exists');
+
+            } elseif ( $user_obj ){
 
                 $user_id = $user_obj->ID;
                 wp_set_auth_cookie( $user_id, true );
@@ -83,14 +89,14 @@ Class ALRSocialFacebook {
      */
     public function setupNewFacebookUser( $user=array() ){
 
-        $user_pass = wp_generate_password();
         $user_id = $this->_zm_alr_helpers->createUser( array_merge( $user, array(
-            'user_pass' => $user_pass
+            'user_pass' => wp_generate_password()
         ) ), $this->prefix );
 
-        if ( $user_id == false ){
 
-            $user_obj = false;
+        if ( is_wp_error( $user_id ) ){
+
+            $user_obj = $user_id->get_error_code();
 
         } else {
 
@@ -176,10 +182,10 @@ Class ALRSocialFacebook {
 
 
     // The Fb button
-    public function aboveLoginFields(){
+    public function aboveLoginFields( $above_html ){
 
         if ( ! $this->isEnabled() )
-            return;
+            return $above_html;
 
         $container_classes = implode( " ", array(
             'fb-login-container',
@@ -187,13 +193,13 @@ Class ALRSocialFacebook {
             $this->prefix . '_fb_login_container'
             ) );
 
-        $html = sprintf( '<div class="%s"><a href="#" class="fb-login" data-zm_alr_facebook_security="%s">%s</a></div>',
+        $above_html .= sprintf( '<div class="%s"><a href="#" class="fb-login" data-zm_alr_facebook_security="%s">%s</a></div>',
             $container_classes,
             wp_create_nonce( 'facebook-nonce' ),
             __( 'Log in using Facebook', ZM_ALR_TEXT_DOMAIN )
             );
 
-        return $html;
+        return $above_html;
 
     }
 
@@ -217,12 +223,6 @@ Class ALRSocialFacebook {
                 'title' => __( 'Enable', ZM_ALR_TEXT_DOMAIN ),
                 'std' => 'off',
                 'desc' => __( 'By enabling this setting visitors will be able to login with Facebook.', ZM_ALR_TEXT_DOMAIN )
-            ),
-            array(
-                'id' => $this->prefix . '_fb_url',
-                'type' => 'url',
-                'title' => __( 'URL', ZM_ALR_TEXT_DOMAIN ),
-                'desc' => __( 'This is the URL you have set in your Facebook Developer App Settings', ZM_ALR_TEXT_DOMAIN )
             ),
             array(
                 'id' => $this->prefix . '_fb_app_id',
@@ -256,13 +256,11 @@ Class ALRSocialFacebook {
 
         global $zm_alr_settings;
 
-        $fb_url = esc_url( $zm_alr_settings[ $this->prefix . '_fb_url' ] );
         $app_id = esc_attr( $zm_alr_settings[ $this->prefix . '_fb_app_id' ] );
 
         ?>
 
         <!-- Start: <?php echo ZM_ALR_NAMESPACE; ?> Facebook meta property -->
-        <meta property="og:<?php echo $fb_url; ?>" content="<?php echo $fb_url; ?>"/>
         <meta property="fb:<?php echo $app_id; ?>" content="<?php echo $app_id; ?>"/>
         <!-- End: <?php echo ZM_ALR_NAMESPACE; ?> Facebook meta property -->
 

@@ -147,9 +147,11 @@ Class ALRHtml {
 
         }
 
-        $above_html = apply_filters( $prefix . '_above_fields', null );
+        $above_html = null;
+        $above_html = apply_filters( $prefix . '_above_fields', $above_html );
 
-        $below_html = apply_filters( $prefix . '_below_fields', null );
+        $below_html = null;
+        $below_html = apply_filters( $prefix . '_below_fields', $below_html );
 
 
         return $above_html . $html . $below_html;
