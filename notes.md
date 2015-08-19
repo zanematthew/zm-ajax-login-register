@@ -52,7 +52,7 @@
 
 * [x] Login Shortcode
 * [x] Login Modal
-* [ ] Login FB
+* [x] Login FB
 * [x] Login responsive
 
 * [x] Register Shortcode
