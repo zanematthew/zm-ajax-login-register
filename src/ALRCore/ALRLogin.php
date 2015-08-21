@@ -184,9 +184,18 @@ Class ALRLogin {
             'remember' => empty( $_POST['remember'] ) ? false : ture
         );
 
+        $pre_status = apply_filters( $this->prefix . '_submit_pre_status_error', $_POST );
+
+        // If ANY status code is set we do not go forward
+        if ( isset( $pre_status['code'] ) ){
+
+            $status = $pre_status;
+
+        }
+
         // Currently wp_signon returns the same error code 'invalid_username' if
         // a username does not exists or is invalid
-        if ( validate_username( $args['login'] ) ){
+        elseif ( validate_username( $args['login'] ) ){
 
             if ( username_exists( $args['login'] ) ){
 
@@ -209,13 +218,11 @@ Class ALRLogin {
 
                 } else {
 
-                    $creds = array(
+                    $user = wp_signon( array(
                         'user_login'    => $args['login'],
                         'user_password' => $args['password'],
                         'remember'      => $args['remember']
-                        );
-
-                    $user = wp_signon( $creds, false );
+                    ), false );
 
                     if ( is_wp_error( $user ) ){
                         $status = $this->_zm_alr_helpers->status( $user->get_error_code() );

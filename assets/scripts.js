@@ -62,7 +62,6 @@ var zMAjaxLoginRegister = {
                     security: jQuery('#ajax-login-register-login-dialog').attr('data-security')
                 },
                 success: function( msg ){
-                    console.log( msg );
                     jQuery( "#ajax-login-register-login-target" ).fadeIn().html( msg.data ); // Give a smooth fade in effect
                 }
             });
@@ -85,7 +84,6 @@ var zMAjaxLoginRegister = {
             jQuery( "#ajax-login-register-target" ).fadeIn().html( _zm_alr_settings.registered_text ); // Give a smooth fade in effect
 
         } else {
-            console.log('loading');
             var data = {
                 action: 'load_register_template',
                 template: 'register-form',
@@ -99,11 +97,32 @@ var zMAjaxLoginRegister = {
                 type: "POST",
                 url: _zm_alr_settings.ajaxurl,
                 success: function( msg ){
-                    console.log( msg.data );
                     jQuery( "#ajax-login-register-target" ).fadeIn().html( msg.data ); // Give a smooth fade in effect
                 }
             });
         }
+    },
+
+    recaptcha_check_login: function( my_obj ){
+
+        if ( typeof grecaptcha !== 'function' )
+            return;
+
+        var google_recaptcha = '',
+            $obj = jQuery( my_obj ),
+            $dialog_container = $obj.parents('#ajax-login-register-login-dialog');
+
+        if ( $dialog_container.length ){
+            response = grecaptcha.getResponse( zm_alr_pro_google_recaptcha_login_dialog );
+        } else {
+            response = grecaptcha.getResponse( zm_alr_pro_google_recaptcha_login );
+        }
+
+        if ( response ){
+            google_recaptcha = "g-recaptcha-response=" + response;
+        }
+
+        return google_recaptcha
     }
 };
 

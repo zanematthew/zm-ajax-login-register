@@ -7,10 +7,13 @@ jQuery( document ).ready(function( $ ){
      */
     $( document ).on('submit', '.login_form', function( event ){
         event.preventDefault();
-        var $this = $(this);
+
+        var $this = $(this),
+            google_recaptcha = zMAjaxLoginRegister.recaptcha_check_login( $this );
+
         $.ajax({
             global: false,
-            data: "action=login_submit&" + $this.serialize() + "&security=" + $this.data('zm_alr_login_security'),
+            data: "action=login_submit&" + $this.serialize() + "&security=" + $this.data('zm_alr_login_security') + "&" + google_recaptcha,
             type: "POST",
             url: _zm_alr_settings.ajaxurl,
             success: function( msg ){
