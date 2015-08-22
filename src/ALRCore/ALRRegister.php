@@ -178,11 +178,18 @@ Class ALRRegister {
             'user_pass' => $_POST['zm_alr_register_confirm_password']
             ) );
 
-        $valid['email'] = $this->validateEmail( $user['email'], false );
-        $valid['username'] = $this->validateUsername( $user['user_login'], false );
+        $valid = array(
+            'email' => $this->validateEmail( $user['email'], false ),
+            'username' => $this->validateUsername( $user['user_login'], false )
+        );
         $user_id = null;
 
-        if ( $valid['username']['code'] == 'error' ){
+        $pre_status = apply_filters( $this->prefix . '_submit_pre_status_error', $_POST );
+        if ( isset( $pre_status['code'] ) ){
+
+            $status = $pre_status;
+
+        } elseif ( $valid['username']['code'] == 'error' ){
 
             $status = $this->_zm_alr_helpers->status('invalid_username');
 
@@ -321,6 +328,7 @@ Class ALRRegister {
          */
         ?><div id="ajax-login-register-dialog" class="<?php echo $classes; ?>" title="<?php _e( 'Register',  ZM_ALR_TEXT_DOMAIN ); ?>" data-security="<?php print wp_create_nonce( 'register_form' ); ?>" style="display: none;">
             <div id="ajax-login-register-target" class="ajax-login-register-dialog"><?php _e( 'Loading...', ZM_ALR_TEXT_DOMAIN ); ?></div>
+            <?php do_action( $this->prefix . '_after_dialog' ); ?>
         </div>
     <?php }
 

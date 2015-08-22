@@ -105,17 +105,19 @@ function zm_ajax_login_register_enqueue_scripts(){
     global $zm_alr_settings;
 
     wp_localize_script( 'ajax-login-register-script', '_zm_alr_settings', apply_filters( 'zm_alr_localized_js', array(
-        'ajaxurl' => admin_url("admin-ajax.php"),
-        'login_handle' => $zm_alr_settings['zm_alr_misc_login_handle'],
+        'ajaxurl'         => admin_url("admin-ajax.php"),
+        'login_handle'    => $zm_alr_settings['zm_alr_misc_login_handle'],
         'register_handle' => $zm_alr_settings['zm_alr_misc_register_handle'],
-        'redirect' => $zm_alr_settings['zm_alr_redirect_redirect_after_login_url'],
-        // 'match_error' => AjaxLogin::status('passwords_do_not_match','description'), // Deprecated
-        'wp_logout_url' => wp_logout_url( site_url() ),
-        'logout_text' => __( 'Logout', ZM_ALR_TEXT_DOMAIN ),
-        'close_text' => __( 'Close', ZM_ALR_TEXT_DOMAIN ),
-        'pre_load_forms' => $zm_alr_settings['zm_alr_misc_pre_load_forms'],
-        'logged_in_text' => __('You are already logged in', ZM_ALR_TEXT_DOMAIN ),
-        'registered_text' => __( 'You are already registered', ZM_ALR_TEXT_DOMAIN )
+        'redirect'        => $zm_alr_settings['zm_alr_redirect_redirect_after_login_url'],
+        // 'match_error'    => AjaxLogin::status('passwords_do_not_match','description'), // Deprecated
+        'wp_logout_url'   => wp_logout_url( site_url() ),
+        'logout_text'     => __( 'Logout', ZM_ALR_TEXT_DOMAIN ),
+        'close_text'      => __( 'Close', ZM_ALR_TEXT_DOMAIN ),
+        'pre_load_forms'  => $zm_alr_settings['zm_alr_misc_pre_load_forms'],
+        'logged_in_text'  => __('You are already logged in', ZM_ALR_TEXT_DOMAIN ),
+        'registered_text' => __( 'You are already registered', ZM_ALR_TEXT_DOMAIN ),
+        'dialog_width'    => 'auto',
+        'dialog_height'   => 'auto'
         ) ) );
 }
 add_action( 'wp_enqueue_scripts', 'zm_ajax_login_register_enqueue_scripts');

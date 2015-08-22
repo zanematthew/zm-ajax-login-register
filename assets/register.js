@@ -55,9 +55,12 @@ jQuery( document ).ready(function( $ ){
             ajax_login_register_show_message( $this, msg );
             zMAjaxLoginRegister.reload( msg.redirect_url );
         } else {
+
+            var google_recaptcha = zMAjaxLoginRegister.recaptcha_check_register();
+
             $.ajax({
                 global: false,
-                data: "action=setup_new_user&" + $this.serialize() + "&security=" + $this.data('zm_alr_register_security'),
+                data: "action=setup_new_user&" + $this.serialize() + "&security=" + $this.data('zm_alr_register_security') + "&" + google_recaptcha,
                 dataType: 'json',
                 type: "POST",
                 url: _zm_alr_settings.ajaxurl,

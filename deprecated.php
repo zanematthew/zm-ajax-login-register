@@ -215,3 +215,13 @@ function zm_alr_register_legacy_dialog_classes( $classes ){
 
 }
 add_filter( 'zm_alr_register_dialog_class', 'zm_alr_register_legacy_dialog_classes' );
+
+
+function zm_alr_filter_status_codes( $status ){
+    $status = apply_filters( 'ajax_login_register_status_codes', $status );
+}
+// add_filter( 'zm_alr_status_codes', 'zm_alr_filter_status_codes' );
+
+
+// $redirect_url = apply_filters( 'ajax_login_register_login_redirect', $current_url, $user_login, $status )
+// $redirect['redirect_url'] = apply_filters( 'ajax_login_register_register_redirect', $current_url, $user_login );

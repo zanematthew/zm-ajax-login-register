@@ -123,6 +123,28 @@ var zMAjaxLoginRegister = {
         }
 
         return google_recaptcha
+    },
+
+    recaptcha_check_register: function( my_obj ){
+
+        if ( typeof grecaptcha !== 'function' )
+            return;
+
+        var $obj = jQuery( my_obj ),
+            $dialog_container = $obj.parents('#ajax-login-register-dialog'),
+            google_recaptcha = '';
+
+        if ( $dialog_container.length ){
+            response = grecaptcha.getResponse( zm_alr_pro_google_recaptcha_register_dialog );
+        } else {
+            response = grecaptcha.getResponse( zm_alr_pro_google_recaptcha_register );
+        }
+
+        if ( response ){
+            google_recaptcha = "g-recaptcha-response=" + response;
+        }
+
+        return google_recaptcha;
     }
 };
 
@@ -215,6 +237,7 @@ jQuery( document ).ready(function( $ ){
     $('.ajax-login-register-container').dialog({
         autoOpen: false,
         width: _zm_alr_settings.dialog_width,
+        height: _zm_alr_settings.dialog_height,
         resizable: false,
         draggable: false,
         modal: true,
