@@ -182,7 +182,9 @@ Class ALRRegister {
             'email' => $this->validateEmail( $user['email'], false ),
             'username' => $this->validateUsername( $user['user_login'], false )
         );
+
         $user_id = null;
+        $status = null;
 
         $pre_status = apply_filters( $this->prefix . '_submit_pre_status_error', $_POST );
         if ( isset( $pre_status['code'] ) ){
@@ -212,6 +214,15 @@ Class ALRRegister {
                 } else {
 
                     $status = $this->_zm_alr_helpers->status('success_registration'); // success
+                    $wp_signon = wp_signon( array(
+                        'user_login' => $user['user_login'],
+                        'user_password' => $user['user_pass'],
+                        'remember' => true ),
+                    false );
+                    wp_new_user_notification( $user_id );
+
+                    do_action( $this->prefix . '_after_signon', $user_id );
+                    $status = apply_filters( $this->prefix . '_signon_status', $status, $user );
                     $status['id'] = $user_id;
 
                 }

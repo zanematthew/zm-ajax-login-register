@@ -121,14 +121,6 @@ Class ALRHelpers {
                 $this->multisiteSetup( $user_id, $prefix );
             }
 
-            $wp_signon = wp_signon( array(
-                'user_login' => $user['user_login'],
-                'user_password' => $user['user_pass'],
-                'remember' => true ),
-            false );
-
-            wp_new_user_notification( $user_id );
-
             do_action( $prefix . '_after_successfull_registration', $user_id );
 
         }

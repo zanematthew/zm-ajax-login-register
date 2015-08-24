@@ -141,8 +141,10 @@ Class ALRLogin {
             $this->prefix . '_form_container'
         ) ) );
 
+        $params = json_encode( apply_filters( $this->prefix . '_ajax_params', null ) );
+
         $html = null;
-        $html .= '<form action="javascript://" class="'. $form_classes . '" data-zm_alr_login_security="'. wp_create_nonce( 'login_submit' ) . '">';
+        $html .= '<form action="javascript://" class="'. $form_classes . '" data-zm_alr_login_security="'. wp_create_nonce( 'login_submit' ) . '" data-'.$this->prefix.'_ajax_params="'.$params.'">';
         $html .= '<div class="form-wrapper">';
         $html .= '<div class="ajax-login-register-status-container">';
         $html .= '<div class="ajax-login-register-msg-target"></div>';
@@ -214,6 +216,11 @@ Class ALRLogin {
                             'user_password' => $args['password'],
                             'remember'      => $args['remember']
                             ), false );
+
+                        do_action( $this->prefix . '_after_wp_signon', $args );
+
+                        $status = apply_filters( $this->prefix . '_signon_status', $status, $args );
+
                     }
 
                 } else {
@@ -224,11 +231,15 @@ Class ALRLogin {
                         'remember'      => $args['remember']
                     ), false );
 
+                    do_action( $this->prefix . '_after_wp_signon', $args );
+
+
                     if ( is_wp_error( $user ) ){
                         $status = $this->_zm_alr_helpers->status( $user->get_error_code() );
                     } else {
                         $status = $this->_zm_alr_helpers->status('success_login');
                     }
+                    $status = apply_filters( $this->prefix . '_signon_status', $status, $args );
                 }
 
             } else {
