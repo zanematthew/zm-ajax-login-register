@@ -9,6 +9,8 @@ Class ALRRegister {
         $this->prefix = 'zm_alr_register';
         add_action( 'zm_alr_init', array( &$this, 'init' ) );
 
+        add_filter( 'zm_alr_register_field_container_classes', array( &$this, 'fieldContainerClasses' ) );
+
     }
 
     /**
@@ -108,8 +110,14 @@ Class ALRRegister {
                 'title' => 'Confirm Passowrd',
                 'type' => 'password',
                 'extra' => 'autocorrect="none" autocapitalize="none"'
+                ),
+            $this->prefix . '_submit_button' => array(
+                'title' => 'Register',
+                'type' => 'submit',
+                'extra' => 'disabled'
                 )
             ), $this->prefix );
+
 
         $links_html = $this->_zm_alr_html->buildFormHtmlLinks( array(
             $this->prefix . '_not_a_member' => array(
@@ -119,17 +127,6 @@ Class ALRRegister {
                 )
             ), $this->prefix );
 
-        $buttons_html = $this->_zm_alr_html->buildFormFieldsHtml( array(
-            $this->prefix . '_submit_button' => array(
-                'title' => 'Register',
-                'type' => 'submit',
-                'extra' => 'disabled'
-                )
-            ), $this->prefix );
-
-        $button_container_classes = implode( " ", apply_filters( $this->prefix . '_button_container_classes', array(
-            ZM_ALR_NAMESPACE . '_button_container'
-            ) ) );
 
         $html = null;
         $html .= '<div class="' . $container_classes . '">';
@@ -142,7 +139,6 @@ Class ALRRegister {
 
         $html .= $fields_html;
         $html .= $links_html;
-        $html .= '<div class="' . $button_container_classes . '">' . $buttons_html . '</div>';
         $html .= '</div>';
         $html .= '</form>';
         $html .= '</div>';
@@ -353,6 +349,13 @@ Class ALRRegister {
         $redirect['redirect_url'] = apply_filters( $this->prefix . '_redirect_url', $current_url, $user_login );
 
         return $redirect;
+    }
+
+
+    public function fieldContainerClasses( $classes ){
+        // print_r($classes);
+        // zm_alr_form_field_container zm_alr_submit_container zm_alr_register_submit_container
+
     }
 }
 

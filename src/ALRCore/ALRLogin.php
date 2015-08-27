@@ -181,7 +181,7 @@ Class ALRLogin {
         // if ( $is_ajax ) check_ajax_referer('login_submit','security');
 
         $args = array(
-            'login' => sanitize_user( $_POST['zm_alr_login_user_name'] ),
+            'user_login' => sanitize_user( $_POST['zm_alr_login_user_name'] ),
             'password' => $_POST['zm_alr_login_password'],
             'remember' => empty( $_POST['remember'] ) ? false : ture
         );
@@ -197,9 +197,9 @@ Class ALRLogin {
 
         // Currently wp_signon returns the same error code 'invalid_username' if
         // a username does not exists or is invalid
-        elseif ( validate_username( $args['login'] ) ){
+        elseif ( validate_username( $args['user_login'] ) ){
 
-            if ( username_exists( $args['login'] ) ){
+            if ( username_exists( $args['user_login'] ) ){
 
                 // if option force check password
                 global $zm_alr_settings;
@@ -207,17 +207,17 @@ Class ALRLogin {
                 // Better to do via a hook from within zm_alr_misc.
                 if ( $zm_alr_settings['zm_alr_misc_force_check_password'] == 'zm_alr_misc_yes' ){
 
-                    $user = get_user_by( 'login', $args['login'] );
+                    $user = get_user_by( 'login', $args['user_login'] );
                     if ( wp_check_password( $args['password'], $user->data->user_pass, $user->ID ) ){
 
                         $status = $this->_zm_alr_helpers->status('success_login');
                         wp_signon( array(
-                            'user_login'    => $args['login'],
+                            'user_login'    => $args['user_login'],
                             'user_password' => $args['password'],
                             'remember'      => $args['remember']
                             ), false );
 
-                        do_action( $this->prefix . '_after_wp_signon', $args );
+                        do_action( $this->prefix . '_after_signon', $args );
 
                         $status = apply_filters( $this->prefix . '_signon_status', $status, $args );
 
@@ -226,12 +226,12 @@ Class ALRLogin {
                 } else {
 
                     $user = wp_signon( array(
-                        'user_login'    => $args['login'],
+                        'user_login'    => $args['user_login'],
                         'user_password' => $args['password'],
                         'remember'      => $args['remember']
                     ), false );
 
-                    do_action( $this->prefix . '_after_wp_signon', $args );
+                    do_action( $this->prefix . '_after_signon', $args );
 
 
                     if ( is_wp_error( $user ) ){
@@ -254,7 +254,7 @@ Class ALRLogin {
 
         }
 
-        $redirect['redirect_url'] = $this->loginRedirect( $args['login'], $status['code'] );
+        $redirect['redirect_url'] = $this->loginRedirect( $args['user_login'], $status['code'] );
         $status = array_merge( $status, $redirect );
 
         if ( $is_ajax ) {

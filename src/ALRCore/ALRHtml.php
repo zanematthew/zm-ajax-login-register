@@ -27,7 +27,7 @@ Class ALRHtml {
 
         $fields = apply_filters( $prefix . '_form_fields', $fields );
 
-        $default_classes = apply_filters( $prefix . '_field_container_classes', array(
+        $default_classes = apply_filters( $prefix . '_default_field_container_classes', array(
             ZM_ALR_NAMESPACE . '_form_field_container'
             ) );
 
@@ -65,7 +65,6 @@ Class ALRHtml {
 
             } else {
 
-                // filter
                 $args = wp_parse_args( $new_fields[ $key ], apply_filters( $prefix . '_fields_args', array(
                     'extra' => null,
                     'required' => null,
@@ -78,10 +77,10 @@ Class ALRHtml {
                     'value' => esc_attr( $new_fields[ $key ]['title'] )
                     ) ) );
 
-                $container_classes = array_merge( $default_classes, array(
+                $container_classes = apply_filters( sanitize_title( $key ) . '_field_container_classes', array_merge( $default_classes, array(
                     ZM_ALR_NAMESPACE . '_' . $args['type'] . '_container',
                     $prefix . '_' . $args['type'] . '_container'
-                    ) );
+                    ) ) );
 
 
                 // Handle merging of default form field classes
