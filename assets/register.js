@@ -49,27 +49,31 @@ jQuery( document ).ready(function( $ ){
         event.preventDefault();
         var $this = $( this );
 
-        passwords_match = zMAjaxLoginRegister.confirm_password('.user_confirm_password');
 
-        if ( passwords_match.code == 'error' ){
-            ajax_login_register_show_message( $this, msg );
-            zMAjaxLoginRegister.reload( msg.redirect_url );
-        } else {
+        if ( $('.user_confirm_password').length ){
+            passwords_match = zMAjaxLoginRegister.confirm_password('.user_confirm_password');
 
-            var google_recaptcha = zMAjaxLoginRegister.recaptcha_check_register();
-
-            $.ajax({
-                global: false,
-                data: "action=setup_new_user&" + $this.serialize() + "&security=" + $this.data('zm_alr_register_security') + "&" + google_recaptcha,
-                dataType: 'json',
-                type: "POST",
-                url: _zm_alr_settings.ajaxurl,
-                success: function( msg ) {
-                    ajax_login_register_show_message( $this, msg );
-                    zMAjaxLoginRegister.reload( msg.redirect_url );
-                }
-            });
+            if ( passwords_match.code == 'error' ){
+                ajax_login_register_show_message( $this, msg );
+                zMAjaxLoginRegister.reload( msg.redirect_url );
+                return false;
+            }
         }
+
+        var google_recaptcha = zMAjaxLoginRegister.recaptcha_check_register();
+
+        $.ajax({
+            global: false,
+            data: "action=setup_new_user&" + $this.serialize() + "&security=" + $this.data('zm_alr_register_security') + "&" + google_recaptcha,
+            dataType: 'json',
+            type: "POST",
+            url: _zm_alr_settings.ajaxurl,
+            success: function( msg ) {
+                ajax_login_register_show_message( $this, msg );
+                zMAjaxLoginRegister.reload( msg.redirect_url );
+            }
+        });
+
     });
 
     $( document ).on('click', '.already-registered-handle', function(e){
