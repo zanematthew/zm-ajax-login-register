@@ -65,7 +65,7 @@ Class ALRHtml {
 
             } else {
 
-                $args = wp_parse_args( $new_fields[ $key ], apply_filters( $prefix . '_fields_args', array(
+                $args = apply_filters( $prefix . '_fields_args', wp_parse_args( $new_fields[ $key ], array(
                     'extra' => null,
                     'required' => null,
                     'size' => null,
