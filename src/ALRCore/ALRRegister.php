@@ -168,16 +168,18 @@ Class ALRRegister {
         // TODO consider using wp_generate_password( $length=12, $include_standard_special_chars=false );
         // and wp_mail the users password asking to change it.
 
-        $user = wp_parse_args( $args, array(
-            'user_login' => $_POST['zm_alr_register_user_name'],
-            'email' => $_POST['zm_alr_register_email'],
-            'user_pass' => $_POST['zm_alr_register_confirm_password']
-            ) );
+        $user = apply_filters( $this->prefix . '_setup_new_user_args', wp_parse_args( $args, array(
+            'user_login' => empty( $_POST['zm_alr_register_user_name'] ) ? '' : $_POST['zm_alr_register_user_name'],
+            'email' => empty( $_POST['zm_alr_register_email'] ) ? '' : $_POST['zm_alr_register_email'],
+            'user_pass' => empty( $_POST['zm_alr_register_confirm_password'] ) ? '' : $_POST['zm_alr_register_confirm_password']
+            ) ) );
+
 
         $valid = array(
             'email' => $this->validateEmail( $user['email'], false ),
             'username' => $this->validateUsername( $user['user_login'], false )
         );
+
 
         $user_id = null;
         $status = null;
@@ -187,7 +189,9 @@ Class ALRRegister {
 
             $status = $pre_status;
 
-        } elseif ( $valid['username']['code'] == 'error' ){
+        }
+
+        elseif ( $valid['username']['code'] == 'error' ){
 
             $status = $this->_zm_alr_helpers->status('invalid_username');
 
@@ -197,7 +201,9 @@ Class ALRRegister {
 
             $status = $this->_zm_alr_helpers->status('invalid_username');
 
-        } else {
+        }
+
+        else {
 
             if ( ! isset( $status['code'] ) ){
 
@@ -210,15 +216,12 @@ Class ALRRegister {
                 } else {
 
                     $status = $this->_zm_alr_helpers->status('success_registration'); // success
-                    $wp_signon = wp_signon( array(
-                        'user_login' => $user['user_login'],
-                        'user_password' => $user['user_pass'],
-                        'remember' => true ),
-                    false );
-                    wp_new_user_notification( $user_id );
 
-                    do_action( $this->prefix . '_after_signon', $user_id );
-                    $status = apply_filters( $this->prefix . '_signon_status', $status, $user );
+                    // Allow to void this!
+                    $did_signon = apply_filters( $this->prefix . '_do_signon', true );
+                    if ( $did_signon === true ){
+                        $this->signOn( $user );
+                    }
                     $status['id'] = $user_id;
 
                 }
@@ -227,7 +230,11 @@ Class ALRRegister {
             }
         }
 
+print_r( $user );
+print_r( $status );
+var_dump($did_signon);
 
+die("\nf");
         if ( $is_ajax ) {
 
             wp_send_json( $status );
@@ -237,6 +244,20 @@ Class ALRRegister {
             return $status;
 
         }
+    }
+
+
+    public function signOn( $user=null ){
+
+        $wp_signon = wp_signon( array(
+            'user_login' => $user['user_login'],
+            'user_password' => $user['user_pass'],
+            'remember' => true ),
+        false );
+        wp_new_user_notification( $user_id );
+        do_action( $this->prefix . '_after_signon', $user_id );
+        $status = apply_filters( $this->prefix . '_signon_status', $status, $user );
+
     }
 
 
