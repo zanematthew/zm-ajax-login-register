@@ -6,6 +6,7 @@ var zMAjaxLoginRegister = {
 
         if ( redirect )
             location.href = redirect;
+
     },
 
     // Confirm passwords match
@@ -122,7 +123,7 @@ var zMAjaxLoginRegister = {
             google_recaptcha = "g-recaptcha-response=" + response;
         }
 
-        return google_recaptcha
+        return google_recaptcha;
     },
 
     recaptcha_check_register: function( my_obj ){
