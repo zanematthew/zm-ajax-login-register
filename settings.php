@@ -25,7 +25,7 @@ function zm_alr_settings_footer_content( $content ){
         esc_url( 'http://support.zanematthew.com/forum/zm-ajax-login-register/'),
         __( 'Support', ZM_ALR_NAMESPACE ),
         esc_url( $settings_campaign_url ),
-        __( 'Add-ons', ZM_ALR_NAMESPACE )
+        __( 'Pro Version', ZM_ALR_NAMESPACE )
         );
 
 }

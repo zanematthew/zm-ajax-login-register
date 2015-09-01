@@ -164,7 +164,7 @@ function zm_alr_plugin_action_links( $links, $current_plugin_file ){
 
     if ( $current_plugin_file == 'zm-ajax-login-register/zm-ajax-login-register.php' ){
         $links['zm_alr_settings'] = '<a href="' . admin_url( 'options-general.php?page=' . ZM_ALR_NAMESPACE ) . '">' . esc_attr__( 'Settings', ZM_ALR_NAMESPACE ) . '</a>';
-        $links['client_access_addons'] = sprintf('<a href="%2$s" title="%1$s" target="_blank">%1$s</a>', esc_attr__('Add-ons', ZM_ALR_TEXT_DOMAIN ), $campaign_text_link );
+        $links['zm_alr_pro'] = sprintf('<a href="%2$s" title="%1$s" target="_blank">%1$s</a>', esc_attr__('Pro Version', ZM_ALR_TEXT_DOMAIN ), $campaign_text_link );
     }
 
     return $links;

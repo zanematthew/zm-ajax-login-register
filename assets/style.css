@@ -233,7 +233,7 @@
     margin: 0 0 20px;
 }
 
-.zm_alr_fb_login_container a.fb-login:before {
+.zm_alr_fb_login_container a.fb-login-logo:before {
     background-image: url('images/fb-icon.png');
     content: ".";
     color: #425EAC;
@@ -247,7 +247,7 @@
     text-align: center;
     }
 
-.zm_alr_fb_login_container a.fb-login {
+.zm_alr_fb_login_container a.fb-login-logo {
     font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
     text-decoration: none;
     background: #4c69ba;
@@ -267,7 +267,7 @@
     text-decoration: none;
     }
 
-.zm_alr_fb_login_container a.fb-login:hover {
+.zm_alr_fb_login_container a.fb-login-logo:hover {
     background: -webkit-gradient(linear, center top, center bottom, from(#5b7bd5), to(#4864b1));
     background: -webkit-linear-gradient(#5b7bd5, #4864b1);
     cursor: pointer;

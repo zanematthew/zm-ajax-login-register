@@ -13,6 +13,7 @@ Class ALRSocialFacebook {
 
         add_filter( 'get_avatar', array( &$this, 'load_fb_avatar' ) , 1, 5 );
         add_filter( 'zm_alr_login_above_fields', array( &$this, 'aboveLoginFields' ) );
+        add_filter( 'zm_alr_register_above_fields', array( &$this, 'aboveLoginFields' ) );
         add_filter( 'zm_alr_social_settings_fields_tab', array( &$this, 'settings' ) );
     }
 
@@ -187,10 +188,22 @@ Class ALRSocialFacebook {
             $this->prefix . '_fb_login_container'
             ) );
 
-        $html = sprintf( '<div class="%s"><a href="#" class="fb-login" data-zm_alr_facebook_security="%s">%s</a></div>',
+        global $zm_alr_settings;
+
+        if ( empty( $zm_alr_settings[ $this->prefix . '_fb_login_button' ] ) ){
+            $logo_class = 'fb-login-logo';
+            $text = __( 'Log in using Facebook', ZM_ALR_TEXT_DOMAIN );
+        } else {
+            $logo_class = null;
+            $text = '<img src="'.wp_get_attachment_url($zm_alr_settings[ $this->prefix . '_fb_login_button' ]).'" />';
+        }
+
+
+        $html = sprintf( '<div class="%s"><a href="#" class="fb-login %s" data-zm_alr_facebook_security="%s">%s</a></div>',
             $container_classes,
+            $logo_class,
             wp_create_nonce( 'facebook-nonce' ),
-            __( 'Log in using Facebook', ZM_ALR_TEXT_DOMAIN )
+            $text
             );
 
         return $html;
@@ -217,6 +230,13 @@ Class ALRSocialFacebook {
                 'title' => __( 'Enable', ZM_ALR_TEXT_DOMAIN ),
                 'std' => 'off',
                 'desc' => __( 'By enabling this setting visitors will be able to login with Facebook.', ZM_ALR_TEXT_DOMAIN )
+            ),
+            array(
+                'id' => $this->prefix . '_fb_login_button',
+                'type' => 'upload',
+                'title' => __( 'Login Button', ZM_ALR_TEXT_DOMAIN ),
+                'std' => ZM_ALR_URL . 'assets/images/facebook-screen-grab.png',
+                'desc' => __( 'Upload a custom image to be displayed as the Facebook login button.', ZM_ALR_TEXT_DOMAIN )
             ),
             array(
                 'id' => $this->prefix . '_fb_url',

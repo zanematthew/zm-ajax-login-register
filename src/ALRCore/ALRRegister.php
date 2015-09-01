@@ -165,26 +165,25 @@ Class ALRRegister {
 
         // if ( $is_ajax ) check_ajax_referer('setup_new_user','security');
 
-        // TODO consider using wp_generate_password( $length=12, $include_standard_special_chars=false );
-        // and wp_mail the users password asking to change it.
-
         $user = apply_filters( $this->prefix . '_setup_new_user_args', wp_parse_args( $args, array(
             'user_login' => empty( $_POST['zm_alr_register_user_name'] ) ? '' : $_POST['zm_alr_register_user_name'],
             'email' => empty( $_POST['zm_alr_register_email'] ) ? '' : $_POST['zm_alr_register_email'],
             'user_pass' => empty( $_POST['zm_alr_register_confirm_password'] ) ? '' : $_POST['zm_alr_register_confirm_password']
             ) ) );
 
-
-        $valid = array(
+        $valid = apply_filters( $this->prefix . '_valid', array(
             'email' => $this->validateEmail( $user['email'], false ),
             'username' => $this->validateUsername( $user['user_login'], false )
-        );
-
+        ) );
 
         $user_id = null;
         $status = null;
 
-        $pre_status = apply_filters( $this->prefix . '_submit_pre_status_error', $_POST );
+
+        // Email verify needs to run "activate_user", and needs to disable createUser
+        // Maybe activate user via pre status error?
+        $pre_status = apply_filters( $this->prefix . '_submit_pre_status_error', $status, $_POST );
+
         if ( isset( $pre_status['code'] ) ){
 
             $status = $pre_status;
@@ -205,36 +204,20 @@ Class ALRRegister {
 
         else {
 
-            if ( ! isset( $status['code'] ) ){
+            $user_id = $this->_zm_alr_helpers->createUser( $user, $this->prefix );
+            $status = $this->_zm_alr_helpers->status('success_registration');
+            $status['id'] = $user_id;
 
-                $user_id = $this->_zm_alr_helpers->createUser( $user, $this->prefix );
-
-                if ( $user_id == false ){
-
-                    $status = $this->_zm_alr_helpers->status('invalid_username'); // invalid user
-
-                } else {
-
-                    $status = $this->_zm_alr_helpers->status('success_registration'); // success
-
-                    // Allow to void this!
-                    $did_signon = apply_filters( $this->prefix . '_do_signon', true );
-                    if ( $did_signon === true ){
-                        $this->signOn( $user );
-                    }
-                    $status['id'] = $user_id;
-
-                }
-
-                $status = array_merge( $status, $this->registerRedirect( $user['user_login'] ) );
+            // Allow to void this!
+            $did_signon = apply_filters( $this->prefix . '_do_signon', true );
+            if ( $did_signon === true ){
+                $this->signOn( $user );
             }
+
         }
 
-print_r( $user );
-print_r( $status );
-var_dump($did_signon);
+        $status = array_merge( $status, $this->registerRedirect( $user['user_login'] ) );
 
-die("\nf");
         if ( $is_ajax ) {
 
             wp_send_json( $status );
@@ -298,13 +281,15 @@ die("\nf");
      * email_exists();
      *
      * @since 2.0.0
-     * @param $email (string) Emailt to be validated
+     * @param $email (string) Email to be validated
      * @param $is_ajax (bool)
      * @todo check ajax refer
      */
     public function validateEmail( $email=null, $is_ajax=true ) {
 
-        $email = is_null( $email ) ? $email : $_POST['zm_alr_register_email'];
+        if ( isset( $_POST['zm_alr_register_email'] ) ){
+            $email = $_POST['zm_alr_register_email'];
+        }
 
         if ( ! filter_var( $email, FILTER_VALIDATE_EMAIL ) ) {
             $msg = $this->_zm_alr_helpers->status('email_invalid');
