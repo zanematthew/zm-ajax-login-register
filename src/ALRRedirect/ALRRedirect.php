@@ -1,25 +1,44 @@
 <?php
 
-/**
- * This class will contain ALL functionality for the "Allow By IP" section.
- * Including any CSS, JS files, settings, or additional templates, etc.
- */
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 Class ALRRedirect {
 
+
+    /**
+     * The prefix used for meta keys, CSS classes, html IDs, etc.
+     *
+     * @since 2.0.0
+     */
+    public $prefix;
+
+
+    /**
+     * Adding of all hooks
+     *
+     * @since 2.0.0
+     *
+     * @param
+     * @return
+     */
     public function __construct(){
 
         $this->prefix = 'zm_alr_redirect';
 
-        add_filter( 'quilt_' . ZM_ALR_NAMESPACE . '_settings', array( &$this, 'settings') );
+        add_filter( 'quilt_' . ZM_ALR_NAMESPACE . '_settings', array( &$this, 'settings' ) );
         add_filter( 'quilt_' . ZM_ALR_NAMESPACE . '_all_default_options', array( &$this, 'setDefaultRedirectUrl' ) );
 
     }
 
 
     /**
-     * Filters the default settings, adding the additional settings below.
+     * Adds the Redirect settings as a tab.
      *
-     * @since 1.0.0
+     * @since 2.0.0
+     *
+     * @param   $current_settings
+     * @return
      */
     public function settings( $current_settings ){
 
@@ -43,15 +62,21 @@ Class ALRRedirect {
     }
 
 
-    // This is needed rather setting the 'std' => '', because we need to know the
-    // visitors current URL.
+    /**
+     * Determine the default redirect.
+     *
+     * @since 2.0.0
+     *
+     * @param   $settings   The settings
+     * @return  $settings   The settings with the default redirect
+     */
     public function setDefaultRedirectUrl( $settings ){
 
-        if ( empty( $settings['zm_alr_redirect_redirect_after_login_url'] ) ){
+        if ( empty( $settings[ $this->prefix . '_redirect_after_login_url'] ) ){
             // c/o https://kovshenin.com/2012/current-url-in-wordpress/
             global $wp;
             $current_url = trailingslashit( add_query_arg( $wp->query_string, '', home_url( $wp->request ) ) );
-            $settings['zm_alr_redirect_redirect_after_login_url'] = $current_url;
+            $settings[ $this->prefix . '_redirect_after_login_url'] = $current_url;
         }
 
         return $settings;
@@ -59,4 +84,3 @@ Class ALRRedirect {
     }
 
 }
-new ALRRedirect();

@@ -1,15 +1,41 @@
 <?php
 
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 Class ALRRegister {
+
+    /**
+     * An object containing additional helper functions to build HTML
+     *
+     * @since 2.0.0
+     */
+    public $_zm_alr_html;
+
+
+    /**
+     * An object containing additional helper functions
+     *
+     * @since 2.0.0
+     */
+    public $_zm_alr_helpers;
+
+
+    /**
+     * The prefix used for meta keys, CSS classes, html IDs, etc.
+     *
+     * @since 2.0.0
+     */
+    public $prefix;
+
 
     public function __construct( ZM_Dependency_Container $di ){
 
         $this->_zm_alr_html = $di->get_instance( 'html', 'ALRHtml', null );
         $this->_zm_alr_helpers = $di->get_instance( 'helpers', 'ALRHelpers', null );
         $this->prefix = 'zm_alr_register';
-        add_action( 'zm_alr_init', array( &$this, 'init' ) );
 
-        add_filter( 'zm_alr_register_field_container_classes', array( &$this, 'fieldContainerClasses' ) );
+        add_action( 'zm_alr_init', array( &$this, 'init' ) );
 
     }
 
@@ -357,20 +383,4 @@ Class ALRRegister {
         return $redirect;
     }
 
-
-    public function fieldContainerClasses( $classes ){
-        // print_r($classes);
-        // zm_alr_form_field_container zm_alr_submit_container zm_alr_register_submit_container
-
-    }
 }
-
-/**
- * Once plugins are loaded init our class
- */
-function zm_alr_plugins_loaded_register(){
-
-    new ALRRegister( new ZM_Dependency_Container( null ) );
-
-}
-add_action( 'plugins_loaded', 'zm_alr_plugins_loaded_register' );

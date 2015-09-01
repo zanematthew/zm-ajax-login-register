@@ -1,11 +1,24 @@
 <?php
 
-/**
- * This class will contain ALL functionality for the "Allow By IP" section.
- * Including any CSS, JS files, settings, or additional templates, etc.
- */
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
+
 Class ALRMisc {
 
+    /**
+     * The prefix used for meta keys, CSS classes, html IDs, etc.
+     *
+     * @since 2.0.0
+     */
+    public $prefix;
+
+
+    /**
+     * Adding of all hooks
+     *
+     * @since 2.0.0
+     */
     public function __construct(){
 
         $this->prefix = 'zm_alr_misc';
@@ -16,9 +29,13 @@ Class ALRMisc {
 
 
     /**
-     * Filters the default settings, adding the additional settings below.
+     * Adds the Misc. settings as a tab.
      *
-     * @since 1.0.0
+     * @since 2.0.0
+     *
+     * @param   $current_settings   The current settings
+     * @return  Merged settings
+     *
      */
     public function settings( $current_settings ){
 
@@ -70,4 +87,3 @@ Class ALRMisc {
     }
 
 }
-new ALRMisc();

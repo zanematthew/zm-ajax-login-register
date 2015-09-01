@@ -39,9 +39,24 @@ require ZM_ALR_PATH . 'src/ALRMisc/ALRMisc.php';
 require ZM_ALR_PATH . 'src/ALRRedirect/ALRRedirect.php';
 
 
+/**
+ * This is the main, init, and only. Any features should call the 'zm_alr_init' action.
+ * Text domain is loaded here, classes init, and initial settings.
+ *
+ * @since 2.0.0
+ *
+ */
 function zm_alr_init(){
 
     load_plugin_textdomain( ZM_ALR_TEXT_DOMAIN, false, plugin_basename(dirname(__FILE__)) . '/languages' );
+
+    new ALRLogin( new ZM_Dependency_Container( null ) );
+    new ALRRegister( new ZM_Dependency_Container( null ) );
+    new ALRDesign();
+    new ALRMisc();
+    new ALRRedirect();
+    new ALRSocial();
+    new ALRSocialFacebook( new ZM_Dependency_Container( null ) );
 
     global $zm_alr_settings_obj;
     $zm_alr_settings_obj = new Quilt(
@@ -59,6 +74,12 @@ function zm_alr_init(){
 add_action( 'init', 'zm_alr_init' );
 
 
+/**
+ * Enqueues our JS, CSS, and localize any needed JS variables.
+ *
+ * @since 2.0.0
+ *
+ */
 function zm_ajax_login_register_enqueue_scripts(){
 
     $dependencies = array(
@@ -66,7 +87,6 @@ function zm_ajax_login_register_enqueue_scripts(){
         'jquery-ui-dialog'
     );
 
-    // Generic
     wp_enqueue_style( 'jquery-ui-custom', plugin_dir_url( __FILE__ ) . "assets/jquery-ui.css" );
 
     $styles = apply_filters( ZM_ALR_NAMESPACE . '_styles', array(
@@ -125,6 +145,9 @@ add_action( 'wp_enqueue_scripts', 'zm_ajax_login_register_enqueue_scripts');
 
 /**
  * When the plugin is deactivated remove the shown notice option
+ *
+ * @since 1.1
+ *
  */
 function ajax_login_register_deactivate(){
 
@@ -135,6 +158,10 @@ function ajax_login_register_deactivate(){
 register_deactivation_hook( __FILE__, 'ajax_login_register_deactivate' );
 
 
+/**
+ *
+ * @since 1.1
+ */
 function ajax_login_register_activate(){
 
     $version = update_option( 'ajax_login_register_version', AJAX_LOGIN_REGISTER_VERSION );
@@ -152,8 +179,11 @@ register_activation_hook( __FILE__, 'ajax_login_register_activate' );
 /**
  * Add our links to the plugin page, these show under the plugin in the table view.
  *
+ * @since 1.1.0
+ *
  * @param $links(array) The links coming in as an array
  * @param $current_plugin_file(string) This is the "plugin basename", i.e., my-plugin/plugin.php
+ *
  */
 function zm_alr_plugin_action_links( $links, $current_plugin_file ){
 

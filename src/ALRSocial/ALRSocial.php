@@ -1,11 +1,26 @@
 <?php
 
-/**
- * This class will contain ALL functionality for the "Allow By IP" section.
- * Including any CSS, JS files, settings, or additional templates, etc.
- */
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 Class ALRSocial {
 
+    /**
+     * The prefix used for meta keys, CSS classes, html IDs, etc.
+     *
+     * @since 2.0.0
+     */
+    public $prefix;
+
+
+    /**
+     * Adding of all hooks
+     *
+     * @since 2.0.0
+     *
+     * @param
+     * @return
+     */
     public function __construct(){
 
         $this->prefix = 'zm_alr_social';
@@ -17,12 +32,13 @@ Class ALRSocial {
 
     /**
      * Filters the default settings, adding the additional settings below.
+     * Currently this acts as a place holder and allows for additional social settings
+     * via the filter "zm_alr_social_settings_fields_tab".
      *
-     * @since 1.0.0
+     * @since 2.0.0
      */
     public function settings( $current_settings ){
 
-        // Use the below filter to add additional social settings
         $settings[ $this->prefix ] = array(
             'title' => __('Social', ZM_ALR_TEXT_DOMAIN ),
             'fields' => apply_filters( $this->prefix . '_settings_fields_tab', array() )
@@ -33,4 +49,3 @@ Class ALRSocial {
     }
 
 }
-new ALRSocial();

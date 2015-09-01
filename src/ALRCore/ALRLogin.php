@@ -1,6 +1,33 @@
 <?php
 
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 Class ALRLogin {
+
+    /**
+     * An object containing additional helper functions to build HTML
+     *
+     * @since 2.0.0
+     */
+    public $_zm_alr_html;
+
+
+    /**
+     * An object containing additional helper functions
+     *
+     * @since 2.0.0
+     */
+    public $_zm_alr_helpers;
+
+
+    /**
+     * The prefix used for meta keys, CSS classes, html IDs, etc.
+     *
+     * @since 2.0.0
+     */
+    public $prefix;
+
 
     /**
      * Init various classes, and run the init action for ALR
@@ -305,14 +332,3 @@ Class ALRLogin {
     }
 
 }
-
-
-/**
- * Once plugins are loaded init our class
- */
-function zm_alr_plugins_loaded_login(){
-
-    new ALRLogin( new ZM_Dependency_Container( null ) );
-
-}
-add_action( 'plugins_loaded', 'zm_alr_plugins_loaded_login' );

@@ -1,5 +1,9 @@
 <?php
 
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
+
 Class ALRHelpers {
 
     /**
@@ -154,7 +158,7 @@ Class ALRHelpers {
      * Searches a string of text for certain "tags", replaces the tags
      * with the given value.
      *
-     * @since 1.0.0
+     * @since   1.0.0
      * @param   $string     The value to replace tags from
      * @param   $tags       The default tags used contained key => value
      * @return  $string     The new string with replaced tags

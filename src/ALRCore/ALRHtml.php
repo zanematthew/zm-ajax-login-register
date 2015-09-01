@@ -1,9 +1,13 @@
 <?php
 
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
+
 Class ALRHtml {
 
     /**
-     * Provides a unified way to build HTML form fields.
+     * Provides a unified way to build HTML form fields for ALR front-end forms.
      *
      * This method also builds dynamic filters AND actions using the following
      * naming convention:
@@ -16,6 +20,7 @@ Class ALRHtml {
      *
      *      add_action( "{$key}_above_field" ); $key is the name of the form field
      *      add_action( "{$key}_below_field" ); $key is the name of the form field
+     *
      * @since 2.0.0
      *
      * @param   $fields     (array)     Containing the field an HTML attributes for each field.
@@ -54,9 +59,6 @@ Class ALRHtml {
         $html = null;
 
         foreach( $order as $key ){
-
-            // Key specific filter?
-            // $field = apply_filters( $prefix . '_filter_field_' . $key, $new_fields[ $key ] );
 
             if ( empty( $new_fields[ $key ] ) ){
 
@@ -140,8 +142,6 @@ Class ALRHtml {
 
                 $html .= '</div>';
 
-                // do_action( $key . '_below_field' );
-
             }
 
         }
@@ -156,7 +156,7 @@ Class ALRHtml {
 
 
     /**
-     * Provide a unified way to add links to the bottom of the form.
+     * Provide a unified way to add links to the bottom of the front-end forms.
      *
      * Additionally the following filters, actions are dynamically created:
      *
