@@ -164,7 +164,7 @@ register_deactivation_hook( __FILE__, 'ajax_login_register_deactivate' );
  */
 function ajax_login_register_activate(){
 
-    $version = update_option( 'ajax_login_register_version', AJAX_LOGIN_REGISTER_VERSION );
+    $version = update_option( 'ajax_login_register_version', ZM_ALR_VERSION );
 
     if ( $version == '1.0.9' ){
 
