@@ -57,7 +57,7 @@ Class ALRSocialFacebook {
      */
     public function facebook_login(){
 
-        // check_ajax_referer( 'facebook-nonce', 'security' );
+        check_ajax_referer( 'facebook-nonce', 'security' );
 
         $user = array(
             'username'   => $_POST['fb_response']['id'],

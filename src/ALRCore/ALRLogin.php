@@ -75,7 +75,7 @@ Class ALRLogin {
      */
     public function load_template(){
 
-        // check_ajax_referer( $_POST['referer'], 'security' );
+        check_ajax_referer( $_POST['referer'], 'security' );
 
         $msg = $this->getLogInForm();
 
@@ -205,7 +205,7 @@ Class ALRLogin {
         /**
          * Verify the AJAX request
          */
-        // if ( $is_ajax ) check_ajax_referer('login_submit','security');
+        if ( $is_ajax ) check_ajax_referer('login_submit','security');
 
         $args = array(
             'user_login' => sanitize_user( $_POST['zm_alr_login_user_name'] ),

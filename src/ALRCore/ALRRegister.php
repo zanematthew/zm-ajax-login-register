@@ -189,7 +189,7 @@ Class ALRRegister {
      */
     public function setupNewUser( $args=null, $is_ajax=true ) {
 
-        // if ( $is_ajax ) check_ajax_referer('setup_new_user','security');
+        if ( $is_ajax ) check_ajax_referer('setup_new_user','security');
 
         $user = apply_filters( $this->prefix . '_setup_new_user_args', wp_parse_args( $args, array(
             'user_login' => empty( $_POST['zm_alr_register_user_name'] ) ? '' : $_POST['zm_alr_register_user_name'],
@@ -341,7 +341,7 @@ Class ALRRegister {
      */
     public function load_register_template(){
 
-        // check_ajax_referer( $_POST['referer'], 'security' );
+        check_ajax_referer( $_POST['referer'], 'security' );
         $msg = $this->getRegisterForm();
         wp_send_json_success( $msg );
 
