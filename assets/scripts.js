@@ -256,4 +256,9 @@ jQuery( document ).ready(function( $ ){
         zMAjaxLoginRegister.load_register();
     }
 
+    $( document ).on( 'click', '.ui-widget-overlay', function(){
+
+        $('#ajax-login-register-dialog').dialog('close');
+
+    });
 });
