@@ -16,6 +16,7 @@ define( 'ZM_ALR_NAMESPACE', 'zm_alr' );
 define( 'ZM_ALR_TEXT_DOMAIN', 'ajax_login_register' );
 define( 'ZM_ALR_VERSION', '2.0.0' );
 define( 'ZM_ALR_PLUGIN_FILE', __FILE__ );
+
 define( 'ZM_ALR_PRODUCT_NAME', 'ZM AJAX Login Regiser' ); // Must match download title in EDD store!
 define( 'ZM_ALR_AUTHOR', 'Zane Matthew Kolnik' );
 
@@ -200,3 +201,23 @@ function zm_alr_plugin_action_links( $links, $current_plugin_file ){
     return $links;
 }
 add_filter( 'plugin_action_links', 'zm_alr_plugin_action_links', 10, 2 );
+
+
+/**
+ * Show an admin notice when the plugin is activated
+ * note the option 'ajax_login_register_plugin_notice_shown', is removed
+ * during the 'register_deactivation_hook', see 'ajax_login_register_deactivate()'
+ */
+function zm_alr_admin_notice(){
+
+    $campaign_text_link = 'http://store.zanematthew.com/downloads/zm-ajax-login-register-pro/?utm_source=wordpress.org&utm_medium=alr_plugin&utm_content=textlink&utm_campaign=alr_pro_upsell_link';
+
+    if ( ! get_option('ajax_login_register_plugin_notice_shown') && is_plugin_active( plugin_basename( __FILE__ ) ) ){
+        printf('<div class="updated"><p>%1$s %2$s</p></div>',
+            __('Thanks for installing ZM AJAX Login & Register, be sure to check out the features in the', ZM_ALR_TEXT_DOMAIN ),
+            '<a href="' . $campaign_text_link . '" target="_blank">Pro version</a>.'
+        );
+        update_option('ajax_login_register_plugin_notice_shown', 'true');
+    }
+}
+add_action( 'admin_notices', 'zm_alr_admin_notice' );
