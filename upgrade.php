@@ -35,12 +35,17 @@ Class ALRUpgrade {
         // upgrade from Legacy to Quilt
         $did_update = get_option( 'zm_alr_did_update' );
 
+        if ( $did_update == true )
+            return true;
+
         // Since the version is deleted when the plugin is deactivated this is the only
         // way to check if the user is upgrading from the legacy version to the new version
         foreach( $this->previous_setting_mapped_keys as $key => $value ){
             if ( get_option( $key ) == true ){
                 $previous_version = '1.1.1';
                 break;
+            } else {
+                $previous_version = false;
             }
         }
 
@@ -74,11 +79,6 @@ Class ALRUpgrade {
 
     public function convertLegacySettingToQuilt(){
 
-        $convert = array(
-            'ajax_login_register_facebook',
-            'ajax_login_register_keep_me_logged_in',
-            );
-
         foreach( $this->previous_setting_mapped_keys as $old => $new ){
 
             if ( $old == 'ajax_login_register_redirect' ){
@@ -105,10 +105,19 @@ Class ALRUpgrade {
             }
 
             // Convert on to 1
-            elseif( in_array( $old, $convert ) ){
-                $new_settings[ $new ] = 1;
+            elseif( $old == 'ajax_login_register_facebook' ){
+                $fb = get_option( $old );
+                if ( $fb == 'on' ){
+                    $new_settings[ $new ] = 1;
+                }
             }
 
+            elseif( $old == 'ajax_login_register_keep_me_logged_in' ){
+                $fb = get_option( $old );
+                if ( $fb == 'on' ){
+                    $new_settings[ $new ] = 1;
+                }
+            }
 
             elseif ( $old == 'ajax_login_register_force_check_password' ){
                 $force = get_option( $old );
@@ -150,7 +159,13 @@ Class ALRUpgrade {
 
 
     public function deleteLegacySettings(){
-        echo "\nNot yet";
+
+        $keys = array_keys( $this->previous_setting_mapped_keys );
+
+        foreach( $keys as $key ){
+            delete_option( $key );
+        }
+
     }
 
 
