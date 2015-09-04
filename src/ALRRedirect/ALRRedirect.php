@@ -41,14 +41,20 @@ Class ALRRedirect {
      * @return
      */
     public function settings( $current_settings ){
-
+        $pages = get_pages();
+        if ( $pages ) {
+            foreach ( $pages as $page ) {
+                $pages_options[ $page->ID ] = $page->post_title;
+            }
+        }
         $settings[ $this->prefix ] = array(
             'title' => __('Redirect', ZM_ALR_TEXT_DOMAIN ),
             'fields' => apply_filters( $this->prefix . '_settings_fields_tab', array(
                 array(
                     'id' => $this->prefix . '_redirect_after_login_url',
                     'title' => __( 'Redirect After Login URL', ZM_ALR_TEXT_DOMAIN ),
-                    'type' => 'url',
+                    'type' => 'select',
+                    'options' => $pages_options,
                     'std' => '', // set to '' so it shows in settings as empty
                     'desc' => sprintf( '%s <code>%s</code>',
                         __('Enter the URL or slug you want users redirected to after login, example: ', ZM_ALR_TEXT_DOMAIN ),

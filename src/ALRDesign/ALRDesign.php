@@ -54,7 +54,7 @@ Class ALRDesign {
             'title' => __('Design', ZM_ALR_TEXT_DOMAIN ),
             'fields' => apply_filters( $this->prefix . '_settings_fields_tab', array(
                 array(
-                    'id' => $this->prefix . '_login_form_layout',
+                    'id' => $this->prefix . '_form_layout',
                     'title' => __( 'Form Layout', ZM_ALR_TEXT_DOMAIN ),
                     'type' => 'fancySelect',
                     'std' => $this->prefix . '_default',
@@ -64,7 +64,7 @@ Class ALRDesign {
                         )
                 ),
                 array(
-                    'id' => $this->prefix . '_login_additonal_styling',
+                    'id' => $this->prefix . '_additonal_styling',
                     'title' => __( 'Additional Styling', ZM_ALR_TEXT_DOMAIN ),
                     'type' => 'css',
                     'desc' => __( 'Type your custom CSS styles that are applied to the dialog boxes.', ZM_ALR_TEXT_DOMAIN )

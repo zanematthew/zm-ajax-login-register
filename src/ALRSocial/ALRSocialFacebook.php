@@ -150,8 +150,8 @@ Class ALRSocialFacebook {
 
         global $zm_alr_settings;
 
-        if ( empty( $zm_alr_settings[ $this->prefix . '_fb_use_avatar' ] )
-            && $zm_alr_settings[ $this->prefix . '_fb_use_avatar' ] != 1 ){
+        if ( empty( $zm_alr_settings[ $this->prefix . '_use_avatar' ] )
+            && $zm_alr_settings[ $this->prefix . '_use_avatar' ] != 1 ){
 
             return $avatar;
 
@@ -201,7 +201,7 @@ Class ALRSocialFacebook {
 
         global $zm_alr_settings;
 
-        if ( $zm_alr_settings[ $this->prefix . '_fb_enabled' ] == 'off' ){
+        if ( $zm_alr_settings[ $this->prefix . '_enabled' ] == 'off' ){
             $enabled = false;
         } else {
             $enabled = true;
@@ -226,18 +226,18 @@ Class ALRSocialFacebook {
 
         $container_classes = implode( " ", array(
             'fb-login-container',
-            ZM_ALR_NAMESPACE . '_fb_login_container',
-            $this->prefix . '_fb_login_container'
+            ZM_ALR_NAMESPACE . '_login_container',
+            $this->prefix . '_login_container'
             ) );
 
         global $zm_alr_settings;
 
-        if ( empty( $zm_alr_settings[ $this->prefix . '_fb_login_button' ] ) ){
+        if ( empty( $zm_alr_settings[ $this->prefix . '_login_button' ] ) ){
             $logo_class = 'fb-login-logo';
             $text = __( 'Log in using Facebook', ZM_ALR_TEXT_DOMAIN );
         } else {
             $logo_class = null;
-            $text = '<img src="'.wp_get_attachment_url($zm_alr_settings[ $this->prefix . '_fb_login_button' ]).'" />';
+            $text = '<img src="'.wp_get_attachment_url($zm_alr_settings[ $this->prefix . '_login_button' ]).'" />';
         }
 
 
@@ -271,34 +271,34 @@ Class ALRSocialFacebook {
                 'type' => 'header'
                 ),
             array(
-                'id' => $this->prefix . '_fb_enabled',
+                'id' => $this->prefix . '_enabled',
                 'type' => 'checkbox',
                 'title' => __( 'Enable', ZM_ALR_TEXT_DOMAIN ),
                 'std' => 'off',
                 'desc' => __( 'By enabling this setting visitors will be able to login with Facebook.', ZM_ALR_TEXT_DOMAIN )
             ),
             array(
-                'id' => $this->prefix . '_fb_login_button',
+                'id' => $this->prefix . '_login_button',
                 'type' => 'upload',
                 'title' => __( 'Login Button', ZM_ALR_TEXT_DOMAIN ),
                 'std' => ZM_ALR_URL . 'assets/images/facebook-screen-grab.png',
                 'desc' => __( 'Upload a custom image to be displayed as the Facebook login button.', ZM_ALR_TEXT_DOMAIN )
             ),
             array(
-                'id' => $this->prefix . '_fb_url',
+                'id' => $this->prefix . '_url',
                 'type' => 'url',
                 'title' => __( 'URL', ZM_ALR_TEXT_DOMAIN ),
                 'desc' => __( 'This is the URL you have set in your Facebook Developer App Settings', ZM_ALR_TEXT_DOMAIN )
             ),
             array(
-                'id' => $this->prefix . '_fb_app_id',
+                'id' => $this->prefix . '_app_id',
                 'type' => 'fancyText',
                 'title' => __( 'App ID', ZM_ALR_TEXT_DOMAIN ),
                 'desc' => __( 'This is the App ID as seen in your <a href="https://developers.facebook.com/">Facebook Developer</a> App Dashboard. For detailed instructions visit the <a href="http://zanematthew.com/ajax-login-register-help-videos/" target="_blank">How To add Facebook Settings to AJAX Login & Register</a>.', ZM_ALR_TEXT_DOMAIN )
 
             ),
             array(
-                'id' => $this->prefix . '_fb_use_avatar',
+                'id' => $this->prefix . '_use_avatar',
                 'type' => 'checkbox',
                 'std' => 'off',
                 'title' => __( 'Use Facebook Avatar', ZM_ALR_TEXT_DOMAIN ),
@@ -329,8 +329,8 @@ Class ALRSocialFacebook {
 
         global $zm_alr_settings;
 
-        $fb_url = esc_url( $zm_alr_settings[ $this->prefix . '_fb_url' ] );
-        $app_id = esc_attr( $zm_alr_settings[ $this->prefix . '_fb_app_id' ] );
+        $fb_url = esc_url( $zm_alr_settings[ $this->prefix . '_url' ] );
+        $app_id = esc_attr( $zm_alr_settings[ $this->prefix . '_app_id' ] );
 
         ?>
 
