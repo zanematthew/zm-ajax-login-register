@@ -38,14 +38,14 @@ Class ALRUpgrade {
         if ( $did_update == true )
             return true;
 
+        $previous_version = false;
+
         // Since the version is deleted when the plugin is deactivated this is the only
         // way to check if the user is upgrading from the legacy version to the new version
         foreach( $this->previous_setting_mapped_keys as $key => $value ){
             if ( get_option( $key ) == true ){
                 $previous_version = '1.1.1';
                 break;
-            } else {
-                $previous_version = false;
             }
         }
 
@@ -70,7 +70,7 @@ Class ALRUpgrade {
             && $this->needsUpgrade() ) {
 
             $this->convertLegacySettingToQuilt();
-            $this->deleteLegacySettings();
+            // $this->deleteLegacySettings();
 
         }
 
