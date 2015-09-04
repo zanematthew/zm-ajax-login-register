@@ -25,7 +25,7 @@ require ZM_ALR_PATH . 'lib/quilt/quilt.php';
 require ZM_ALR_PATH . 'lib/zm-dependency-container/zm-dependency-container.php';
 
 require ZM_ALR_PATH . 'deprecated.php';
-
+require ZM_ALR_PATH . 'upgrade.php';
 require ZM_ALR_PATH . 'settings.php';
 
 require ZM_ALR_PATH . 'src/ALRCore/ALRHelpers.php';
@@ -153,7 +153,7 @@ add_action( 'wp_enqueue_scripts', 'zm_ajax_login_register_enqueue_scripts');
 function ajax_login_register_deactivate(){
 
     delete_option( 'ajax_login_register_plugin_notice_shown' );
-    delete_option( 'ajax_login_register_version' );
+    // delete_option( 'ajax_login_register_version' );
 
 }
 register_deactivation_hook( __FILE__, 'ajax_login_register_deactivate' );
@@ -165,10 +165,17 @@ register_deactivation_hook( __FILE__, 'ajax_login_register_deactivate' );
  */
 function ajax_login_register_activate(){
 
-    $version = update_option( 'ajax_login_register_version', ZM_ALR_VERSION );
+    // If this is a current installation we store the current version, as the
+    // previous version. This allows us to track which version users are upgrading
+    // to/from.
+    $current_version = get_option( 'ajax_login_register_version' );
+    if ( $current_version !== false ){
+        update_option( ZM_ALR_NAMESPACE . '_previous_version', $current_version );
+    }
+
+    $version = update_option( ZM_ALR_NAMESPACE . '_version', ZM_ALR_VERSION );
 
     if ( $version == '1.0.9' ){
-
         // Remove the legacy option 'admins', which was used for Facebook admin IDs
         delete_option( 'admins' );
     }
@@ -208,16 +215,23 @@ add_filter( 'plugin_action_links', 'zm_alr_plugin_action_links', 10, 2 );
  * note the option 'ajax_login_register_plugin_notice_shown', is removed
  * during the 'register_deactivation_hook', see 'ajax_login_register_deactivate()'
  */
-function zm_alr_admin_notice(){
+function zm_alr_admin_notice_campaig_url(){
 
+    if ( ! is_plugin_active( plugin_basename( ZM_ALR_PLUGIN_FILE ) ) ){
+        return;
+    }
+
+
+    // Campaign notice
     $campaign_text_link = 'http://store.zanematthew.com/downloads/zm-ajax-login-register-pro/?utm_source=wordpress.org&utm_medium=alr_plugin&utm_content=textlink&utm_campaign=alr_pro_upsell_link';
 
-    if ( ! get_option('ajax_login_register_plugin_notice_shown') && is_plugin_active( plugin_basename( __FILE__ ) ) ){
+    if ( ! get_option('ajax_login_register_plugin_notice_shown') ){
         printf('<div class="updated"><p>%1$s %2$s</p></div>',
             __('Thanks for installing ZM AJAX Login & Register, be sure to check out the features in the', ZM_ALR_TEXT_DOMAIN ),
             '<a href="' . $campaign_text_link . '" target="_blank">Pro version</a>.'
         );
         update_option('ajax_login_register_plugin_notice_shown', 'true');
     }
+
 }
-add_action( 'admin_notices', 'zm_alr_admin_notice' );
+add_action( 'admin_notices', 'zm_alr_admin_notice_campaig_url' );
