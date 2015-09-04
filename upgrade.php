@@ -35,8 +35,9 @@ Class ALRUpgrade {
         // upgrade from Legacy to Quilt
         $did_update = get_option( 'zm_alr_did_update' );
 
-        if ( $did_update == true )
-            return true;
+        if ( $did_update == "1" ){
+            $upgrade = true;
+        }
 
         $previous_version = false;
 
