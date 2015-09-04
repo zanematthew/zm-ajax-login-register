@@ -21,7 +21,8 @@ Class ALRUpgrade {
             'ajax_login_register_pre_load_forms'          => 'zm_alr_pre_load_forms',
             'ajax_login_register_redirect'                => 'zm_alr_redirect_redirect_after_login_url',
             'app_id'                                      => 'zm_alr_social_facebook_app_id',
-            'url'                                         => 'zm_alr_social_facebook_url'
+            'url'                                         => 'zm_alr_social_facebook_url',
+            'fb_avatar'                                   => 'zm_alr_social_facebook_use_avatar'
         );
 
         add_action( 'quilt_zm_alr_above_form', array( &$this, 'zm_alr_upgrade_notice' ) );
@@ -32,12 +33,21 @@ Class ALRUpgrade {
     public function needsUpgrade(){
 
         // upgrade from Legacy to Quilt
-        $previous_version = get_option( $this->previous_version_key );
         $did_update = get_option( 'zm_alr_did_update' );
+
+        // Since the version is deleted when the plugin is deactivated this is the only
+        // way to check if the user is upgrading from the legacy version to the new version
+        foreach( $this->previous_setting_mapped_keys as $key => $value ){
+            if ( get_option( $key ) == true ){
+                $previous_version = '1.1.1';
+                break;
+            }
+        }
+
 
         if ( $previous_version !== false
              && $did_update === false
-             && $previous_version < '1.1.1' ){
+             && $previous_version <= '1.1.1' ){
             $upgrade = true;
         } else {
             $upgrade = false;
@@ -55,6 +65,7 @@ Class ALRUpgrade {
             && $this->needsUpgrade() ) {
 
             $this->convertLegacySettingToQuilt();
+            $this->deleteLegacySettings();
 
         }
 
@@ -62,6 +73,11 @@ Class ALRUpgrade {
 
 
     public function convertLegacySettingToQuilt(){
+
+        $convert = array(
+            'ajax_login_register_facebook',
+            'ajax_login_register_keep_me_logged_in',
+            );
 
         foreach( $this->previous_setting_mapped_keys as $old => $new ){
 
@@ -73,14 +89,68 @@ Class ALRUpgrade {
                     $new_settings[ $new ] = $page_obj->ID;
                 }
 
+            }
+
+            elseif ( $old == 'ajax_login_register_pre_load_forms' ){
+
+                $pre_load = get_option( $old );
+                if ( $pre_load == 'on' ){
+                    $pre = 'zm_alr_misc_pre_load_yes';
+                } else {
+                    $pre = 'zm_alr_misc_pre_load_no';
+                }
+
+                $new_settings[ $new ] = $pre;
+
+            }
+
+            // Convert on to 1
+            elseif( in_array( $old, $convert ) ){
+                $new_settings[ $new ] = 1;
+            }
+
+
+            elseif ( $old == 'ajax_login_register_force_check_password' ){
+                $force = get_option( $old );
+                if ( $force == 'on' ){
+                    $check = 'zm_alr_misc_force_check_password_yes';
+                } else {
+                    $check = 'zm_alr_misc_force_check_password_no';
+                }
+                $new_settings[ $new ] = $check;
+            }
+
+            // Convert default style to zm_alr_design_default, or zm_alr_design_wide
+            elseif( $old == 'ajax_login_register_default_style' ){
+
+                $style = get_option( $old );
+
+                switch ( $style ){
+                    case 'wide' :
+                        $style = 'zm_alr_design_wide';
+                        break;
+                    case 'default' :
+                        $style = 'zm_alr_design_default';
+                        break;
+                }
+
+                $new_settings[ $new ] = $style;
+
             } else {
                 $new_settings[ $new ] = get_option( $old );
             }
         }
 
+        // echo '<pre>'; print_r( $new_settings ); echo '</pre>';
+
         update_option( ZM_ALR_NAMESPACE, $new_settings );
         update_option( 'zm_alr_did_update', true );
 
+    }
+
+
+    public function deleteLegacySettings(){
+        echo "\nNot yet";
     }
 
 

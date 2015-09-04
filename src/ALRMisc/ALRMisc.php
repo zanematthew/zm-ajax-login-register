@@ -63,8 +63,8 @@ Class ALRMisc {
                     'std' => $this->prefix . '_no',
                     'desc' => __( 'Use this option if your are experiencing compatibility issues with other login and or register plugins.', ZM_ALR_TEXT_DOMAIN ),
                     'options' => array(
-                        $this->prefix . '_yes' => 'Yes',
-                        $this->prefix . '_no' => 'No'
+                        $this->prefix . '_force_check_password_yes' => 'Yes',
+                        $this->prefix . '_force_check_password_no' => 'No'
                         )
 
                 ),

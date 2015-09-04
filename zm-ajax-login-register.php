@@ -154,7 +154,7 @@ add_action( 'wp_enqueue_scripts', 'zm_ajax_login_register_enqueue_scripts');
 function ajax_login_register_deactivate(){
 
     delete_option( 'ajax_login_register_plugin_notice_shown' );
-    // delete_option( 'ajax_login_register_version' );
+    delete_option( 'ajax_login_register_version' );
 
 }
 register_deactivation_hook( __FILE__, 'ajax_login_register_deactivate' );
@@ -170,10 +170,10 @@ function ajax_login_register_activate(){
     // previous version. This allows us to track which version users are upgrading
     // to/from.
 
-    $current_version = get_option( $this->legacy_version_key );
+    $current_version = get_option( 'ajax_login_register_version' );
     if ( $current_version !== false ){
-        update_option( $this->previous_version_key, $current_version );
-        delete_option( $this->legacy_version_key ); // remove the legacy version namespace
+        update_option( ZM_ALR_NAMESPACE . '_previous_version', $current_version );
+        delete_option( 'ajax_login_register_version' ); // remove the legacy version namespace
     }
 
     $version = update_option( ZM_ALR_NAMESPACE . '_version', ZM_ALR_VERSION );

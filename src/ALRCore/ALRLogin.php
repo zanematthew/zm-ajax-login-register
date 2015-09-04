@@ -232,7 +232,7 @@ Class ALRLogin {
                 global $zm_alr_settings;
 
                 // Better to do via a hook from within zm_alr_misc.
-                if ( $zm_alr_settings['zm_alr_misc_force_check_password'] == 'zm_alr_misc_yes' ){
+                if ( $zm_alr_settings['zm_alr_misc_force_check_password'] == 'zm_alr_misc_force_check_password_yes' ){
 
                     $user = get_user_by( 'login', $args['user_login'] );
                     if ( wp_check_password( $args['password'], $user->data->user_pass, $user->ID ) ){
