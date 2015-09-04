@@ -1,21 +1,16 @@
 <?php
 
-// Handle updating the settings
-function zm_alr_upgrade_notice(){
+Class ALRUpgrade {
 
-    $previous_version = get_option( ZM_ALR_NAMESPACE . '_previous_version' );
-    $did_update = get_option( 'zm_alr_did_update' );
+    public $previous_version_key;
+    public $legacy_version_key;
+    public $previous_setting_mapped_keys;
 
-    if ( isset( $_GET['zm_alr_update_nonce'] )
+    public function __construct(){
 
-        && wp_verify_nonce( $_GET['zm_alr_update_nonce'], 'zm_alr_do_update')
-        && $previous_version !== false
-        && $did_update === false
-        && $previous_version < '1.1.1' ) {
-
-        // start doUpdate
-        // Build an array of our legacy/previous settings, with key/value
-        $previous_setting_mapped_keys = array(
+        $this->previous_version_key = ZM_ALR_NAMESPACE . '_previous_version';
+        $this->legacy_version_key = 'ajax_login_register_version';
+        $this->previous_setting_mapped_keys = array(
             'ajax_login_register_additional_styling'      => 'zm_alr_design_additonal_styling',
             'ajax_login_register_advanced_usage_login'    => 'zm_alr_misc_login_handle',
             'ajax_login_register_advanced_usage_register' => 'zm_alr_misc_register_handle',
@@ -29,8 +24,46 @@ function zm_alr_upgrade_notice(){
             'url'                                         => 'zm_alr_social_facebook_url'
         );
 
+        add_action( 'quilt_zm_alr_above_form', array( &$this, 'zm_alr_upgrade_notice' ) );
+        add_action( 'admin_notices', array( &$this, 'zm_alr_admin_notice_upgrade' ) );
+    }
 
-        foreach( $previous_setting_mapped_keys as $old => $new ){
+
+    public function needsUpgrade(){
+
+        // upgrade from Legacy to Quilt
+        $previous_version = get_option( $this->previous_version_key );
+        $did_update = get_option( 'zm_alr_did_update' );
+
+        if ( $previous_version !== false
+             && $did_update === false
+             && $previous_version < '1.1.1' ){
+            $upgrade = true;
+        } else {
+            $upgrade = false;
+        }
+
+        return $upgrade;
+
+    }
+
+
+    // Handle updating the settings
+    public function zm_alr_upgrade_notice(){
+
+        if ( isset( $_GET['zm_alr_update_nonce'] ) && wp_verify_nonce( $_GET['zm_alr_update_nonce'], 'zm_alr_do_update')
+            && $this->needsUpgrade() ) {
+
+            $this->convertLegacySettingToQuilt();
+
+        }
+
+    }
+
+
+    public function convertLegacySettingToQuilt(){
+
+        foreach( $this->previous_setting_mapped_keys as $old => $new ){
 
             if ( $old == 'ajax_login_register_redirect' ){
 
@@ -45,31 +78,25 @@ function zm_alr_upgrade_notice(){
             }
         }
 
-        update_option( 'zm_alr_did_update', true );
         update_option( ZM_ALR_NAMESPACE, $new_settings );
-        // End doUpdate
+        update_option( 'zm_alr_did_update', true );
 
     }
 
-}
-add_action( 'quilt_zm_alr_above_form', 'zm_alr_upgrade_notice' );
 
+    public function zm_alr_admin_notice_upgrade(){
 
-function zm_alr_admin_notice_upgrade(){
+        if ( $this->needsUpgrade() === false )
+            return;
 
-    if ( ! is_plugin_active( plugin_basename( ZM_ALR_PLUGIN_FILE ) ) ){
-        return;
+        // Update notice
+        printf( '<div class="updated"><p>%1$s <a href="%2$s">%3$s</a></p></div>',
+            'Thank you for updating to the latest ZM ALR. Please finish the update by allowing ZM ALR to update your settings.',
+            wp_nonce_url(admin_url('options-general.php?page='.ZM_ALR_NAMESPACE), 'zm_alr_do_update', 'zm_alr_update_nonce'),
+            'Update now.'
+            );
+
     }
 
-    if ( get_option( 'zm_alr_did_update' ) )
-        return;
-
-    // Update notice
-    printf( '<div class="updated"><p>%1$s <a href="%2$s">%3$s</a></p></div>',
-        'Thank you for updating to the latest ZM ALR. Please finish the update by allowing ZM ALR to update your settings.',
-        wp_nonce_url(admin_url('options-general.php?page='.ZM_ALR_NAMESPACE), 'zm_alr_do_update', 'zm_alr_update_nonce'),
-        'Update now.'
-        );
 
 }
-add_action( 'admin_notices', 'zm_alr_admin_notice_upgrade' );

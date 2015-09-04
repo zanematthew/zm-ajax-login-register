@@ -58,6 +58,7 @@ function zm_alr_init(){
     new ALRRedirect();
     new ALRSocial();
     new ALRSocialFacebook( new ZM_Dependency_Container( null ) );
+    new ALRUpgrade();
 
     global $zm_alr_settings_obj;
     $zm_alr_settings_obj = new Quilt(
@@ -168,9 +169,11 @@ function ajax_login_register_activate(){
     // If this is a current installation we store the current version, as the
     // previous version. This allows us to track which version users are upgrading
     // to/from.
-    $current_version = get_option( 'ajax_login_register_version' );
+
+    $current_version = get_option( $this->legacy_version_key );
     if ( $current_version !== false ){
-        update_option( ZM_ALR_NAMESPACE . '_previous_version', $current_version );
+        update_option( $this->previous_version_key, $current_version );
+        delete_option( $this->legacy_version_key ); // remove the legacy version namespace
     }
 
     $version = update_option( ZM_ALR_NAMESPACE . '_version', ZM_ALR_VERSION );
