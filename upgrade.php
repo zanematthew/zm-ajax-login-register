@@ -1,11 +1,38 @@
 <?php
 
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 Class ALRUpgrade {
 
+    /**
+     * The previous version meta key name
+     *
+     * @since   2.0.0
+     */
     public $previous_version_key;
+
+
+    /**
+     * The legacy version meta key name
+     *
+     * @since   2.0.0
+     */
     public $legacy_version_key;
+
+
+    /**
+     * The array containing the old key, and new key
+     *
+     * @since   2.0.0
+     */
     public $previous_setting_mapped_keys;
 
+
+    /**
+     *
+     * @since   2.0.0
+     */
     public function __construct(){
 
         $this->previous_version_key = ZM_ALR_NAMESPACE . '_previous_version';
@@ -25,11 +52,21 @@ Class ALRUpgrade {
             'fb_avatar'                                   => 'zm_alr_social_facebook_use_avatar'
         );
 
-        add_action( 'quilt_zm_alr_above_form', array( &$this, 'zm_alr_upgrade_notice' ) );
-        add_action( 'admin_notices', array( &$this, 'zm_alr_admin_notice_upgrade' ) );
+        if ( $this->needsUpgrade() === true ){
+            add_action( 'quilt_zm_alr_above_form', array( &$this, 'upgradeNotice' ) );
+            add_action( 'admin_notices', array( &$this, 'adminNoticeUpgrade' ) );
+        }
+
     }
 
 
+    /**
+     * Determine if this version needs and upgrade
+     *
+     * @since   2.0.0
+     *
+     * @return  $upgrade (bool)
+     */
     public function needsUpgrade(){
 
         // upgrade from Legacy to Quilt
@@ -64,24 +101,35 @@ Class ALRUpgrade {
     }
 
 
-    // Handle updating the settings
-    public function zm_alr_upgrade_notice(){
+    /**
+     * Given we have a valid nonce we:
+     *      convert the legacy settings
+     *      update the settings in the db
+     *      delete the legacy settings
+     *
+     * @since   2.0.0
+     */
+    public function upgradeNotice(){
 
-        if ( isset( $_GET['zm_alr_update_nonce'] ) && wp_verify_nonce( $_GET['zm_alr_update_nonce'], 'zm_alr_do_update')
-            && $this->needsUpgrade() ) {
+        if ( isset( $_GET['zm_alr_update_nonce'] ) && wp_verify_nonce( $_GET['zm_alr_update_nonce'], 'zm_alr_do_update') ) {
 
             $this->convertLegacySettingToQuilt();
-            // $this->deleteLegacySettings();
+            $this->deleteLegacySettings();
 
         }
 
     }
 
 
+    /**
+     *
+     * @since   2.0.0
+     */
     public function convertLegacySettingToQuilt(){
 
         foreach( $this->previous_setting_mapped_keys as $old => $new ){
 
+            // Convert string path, i.e., /dashboard/ into page URL
             if ( $old == 'ajax_login_register_redirect' ){
 
                 $page_obj = get_page_by_path( basename( untrailingslashit( parse_url( get_option( $old ), PHP_URL_PATH ) ) ) );
@@ -92,6 +140,8 @@ Class ALRUpgrade {
 
             }
 
+            // Convert on/off to string for ...yes, ...no, i.e., field went from
+            // checkbox to a series of select options
             elseif ( $old == 'ajax_login_register_pre_load_forms' ){
 
                 $pre_load = get_option( $old );
@@ -113,6 +163,7 @@ Class ALRUpgrade {
                 }
             }
 
+            // Convert on to 1
             elseif( $old == 'ajax_login_register_keep_me_logged_in' ){
                 $fb = get_option( $old );
                 if ( $fb == 'on' ){
@@ -120,6 +171,8 @@ Class ALRUpgrade {
                 }
             }
 
+            // Convert on/off to string for ...yes, ...no, i.e., field went from
+            // checkbox to a series of select options
             elseif ( $old == 'ajax_login_register_force_check_password' ){
                 $force = get_option( $old );
                 if ( $force == 'on' ){
@@ -147,11 +200,11 @@ Class ALRUpgrade {
                 $new_settings[ $new ] = $style;
 
             } else {
+
                 $new_settings[ $new ] = get_option( $old );
+
             }
         }
-
-        // echo '<pre>'; print_r( $new_settings ); echo '</pre>';
 
         update_option( ZM_ALR_NAMESPACE, $new_settings );
         update_option( 'zm_alr_did_update', true );
@@ -159,6 +212,11 @@ Class ALRUpgrade {
     }
 
 
+    /**
+     * Delete all legacy settings.
+     *
+     * @since   2.0.0
+     */
     public function deleteLegacySettings(){
 
         $keys = array_keys( $this->previous_setting_mapped_keys );
@@ -170,12 +228,13 @@ Class ALRUpgrade {
     }
 
 
-    public function zm_alr_admin_notice_upgrade(){
+    /**
+     * Text for admin notice.
+     *
+     * @since   2.0.0
+     */
+    public function adminNoticeUpgrade(){
 
-        if ( $this->needsUpgrade() === false )
-            return;
-
-        // Update notice
         printf( '<div class="updated"><p>%1$s <a href="%2$s">%3$s</a></p></div>',
             'Thank you for updating to the latest ZM ALR. Please finish the update by allowing ZM ALR to update your settings.',
             wp_nonce_url(admin_url('options-general.php?page='.ZM_ALR_NAMESPACE), 'zm_alr_do_update', 'zm_alr_update_nonce'),
@@ -183,6 +242,5 @@ Class ALRUpgrade {
             );
 
     }
-
 
 }
