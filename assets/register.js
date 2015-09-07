@@ -1,16 +1,16 @@
-jQuery( document ).ready(function( $ ){
+$document.ready(function( $ ){
 
     /**
      * Close our dialog box when the user clicks
      * cancel/exit/close.
      */
-    $( document ).on('click', '.ajax-login-register-container .cancel', function(){
+    $document.on('click', '.ajax-login-register-container .cancel', function(){
         $(this).closest('.ajax-login-register-container').dialog('close');
     });
 
 
     if ( _zm_alr_settings.register_handle.length ){
-        $( document ).on('click', _zm_alr_settings.register_handle, function( event ){
+        $document.on('click', _zm_alr_settings.register_handle, function( event ){
 
             event.preventDefault();
 
@@ -27,24 +27,31 @@ jQuery( document ).ready(function( $ ){
     /**
      * Confirms that two input fields match
      */
-    $( document ).on('keyup', '.user_confirm_password', function(){
-        $form = $(this).parents('form');
 
-        if ( $(this).val() == '' ){
-            $( '.register_button', $form ).attr('disabled',true);
-            $( '.register_button', $form ).animate({ opacity: 0.5 });
+    function confirmPassword() {
+        $formButton = $( '.register_button', $form );
+
+        if ( !$(this).val() ){
+            $formButton
+                .attr('disabled',true)
+                .stop()
+                .animate({ opacity: 0.5 });
         } else {
-            $( '.register_button', $form ).removeAttr('disabled');
-            $( '.register_button', $form ).animate({ opacity: 1 });
+            $formButton
+                .removeAttr('disabled')
+                .stop()
+                .animate({ opacity: 1 });
         }
-     });
+    }
+
+    $document.on('keyup change', '.user_confirm_password', confirmPassword);
 
 
     /**
      * Our form is loaded via AJAX, so we need to attach our event to the document.
      * When the form is submitted process the AJAX request.
      */
-    $( document ).on('submit', '.register_form', function( event ){
+    $document.on('submit', '.register_form', function( event ){
 
         event.preventDefault();
         var $this = $( this );
@@ -76,7 +83,7 @@ jQuery( document ).ready(function( $ ){
 
     });
 
-    $( document ).on('click', '.already-registered-handle', function(e){
+    $document.on('click', '.already-registered-handle', function(e){
         e.preventDefault();
         $('#ajax-login-register-dialog').dialog('close');
         zMAjaxLoginRegister.open_login();

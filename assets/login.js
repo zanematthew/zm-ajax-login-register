@@ -1,15 +1,20 @@
-jQuery( document ).ready(function( $ ){
+$document.ready(function( $ ){
 
     /**
      * We hook into the form submission and submit it via ajax.
      * the action maps to our php function, which is added as
      * an action, and we serialize the entire content of the form.
      */
-    $( document ).on('submit', '.login_form', function( event ){
+    $document.on('submit', '.login_form', function( event ){
         event.preventDefault();
 
         var $this = $(this),
             google_recaptcha = zMAjaxLoginRegister.recaptcha_check_login( $this );
+
+        var data = {
+            action: 'login_submit',
+            security: $this.data('zm_alr_login_security')
+        };
 
         $.ajax({
             global: false,
@@ -29,12 +34,12 @@ jQuery( document ).ready(function( $ ){
     /**
      * Our element we are attaching the 'click' event to is loaded via ajax.
      */
-    $( document ).on( 'click', '.fb-login', function( event ){
+    $document.on( 'click', '.fb-login', function( event ){
 
         event.preventDefault();
 
-        var $form_obj = $( this ).parents('form'),
-            $this = $( this );
+        var $this = $( this );
+        var $form_obj = $this.parents('form');
 
         /**
          * Doc code from FB, shows fb pop-up box
@@ -107,7 +112,7 @@ jQuery( document ).ready(function( $ ){
 
 
         // Set the "login" text to be "logout" if the user is logged in.
-        if ( $('body').hasClass('logged-in') ){
+        if ( $('body.logged-in').length ){
 
             $this = $( _zm_alr_settings.login_handle ).children('a');
 
@@ -119,7 +124,7 @@ jQuery( document ).ready(function( $ ){
         // Open the dialog when they click on it.
         else {
 
-            $( document ).on('click', _zm_alr_settings.login_handle, function( event ){
+            $document.on('click', _zm_alr_settings.login_handle, function( event ){
 
                 event.preventDefault();
                 zMAjaxLoginRegister.open_login();
@@ -127,7 +132,7 @@ jQuery( document ).ready(function( $ ){
                 // There's a setting to either load the container div, then have the
                 // forms load inside via AJAX, or to have them already loaded, and "hidden"
                 // via display:none.
-                if ( _zm_alr_settings.pre_load_forms == 'zm_alr_misc_pre_load_no' ){
+                if ( _zm_alr_settings.pre_load_forms === 'zm_alr_misc_pre_load_no' ){
                     zMAjaxLoginRegister.load_login();
                 }
 
@@ -135,11 +140,11 @@ jQuery( document ).ready(function( $ ){
         }
     }
 
-    $( document ).on('click', '.not-a-member-handle', function( e ){
+    $document.on('click', '.not-a-member-handle', function( e ){
         e.preventDefault();
         $('#ajax-login-register-login-dialog').dialog('close');
         zMAjaxLoginRegister.open_register();
-        if ( _zm_alr_settings.pre_load_forms == 'zm_alr_misc_pre_load_no' ){
+        if ( _zm_alr_settings.pre_load_forms === 'zm_alr_misc_pre_load_no' ){
             zMAjaxLoginRegister.load_register();
         }
     });

@@ -133,7 +133,7 @@ Class ALRRegister {
                 'extra' => 'autocorrect="none" autocapitalize="none"'
                 ),
             $this->prefix . '_confirm_password' => array(
-                'title' => 'Confirm Passowrd',
+                'title' => 'Confirm Password',
                 'type' => 'password',
                 'extra' => 'autocorrect="none" autocapitalize="none"'
                 ),
@@ -156,7 +156,7 @@ Class ALRRegister {
 
         $html = null;
         $html .= '<div class="' . $container_classes . '">';
-        $html .= '<form action="javascript://" name="registerform" class="' . $form_classes . '" data-$html ;a=lr_register_security="' . wp_create_nonce( 'setup_new_user' ) . '">';
+        $html .= '<form action="javascript://" name="registerform" class="' . $form_classes . '" data-zm_alr_register_security="' . wp_create_nonce( 'setup_new_user' ) . '">';
         $html .= '<div class="form-wrapper">';
 
         $html .= '<div class="ajax-login-register-status-container">';
@@ -189,7 +189,7 @@ Class ALRRegister {
      */
     public function setupNewUser( $args=null, $is_ajax=true ) {
 
-        if ( $is_ajax ) check_ajax_referer('setup_new_user','security');
+        // if ( $is_ajax ) check_ajax_referer('setup_new_user','security');
 
         $user = apply_filters( $this->prefix . '_setup_new_user_args', wp_parse_args( $args, array(
             'user_login' => empty( $_POST['zm_alr_register_user_name'] ) ? '' : $_POST['zm_alr_register_user_name'],

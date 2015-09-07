@@ -1,3 +1,5 @@
+var $document = jQuery( document );
+
 var zMAjaxLoginRegister = {
 
     reload: function( redirect ){
@@ -15,12 +17,12 @@ var zMAjaxLoginRegister = {
         $obj = jQuery( my_obj );
         value = $obj.val().trim();
 
-        if ( value == '' ) return;
+        if ( !value ) return;
 
         $form = $obj.parents('form');
 
         match_value = jQuery('.user_password', $form).val();
-        if ( value == match_value ) {
+        if ( value === match_value ) {
             msg = {
                 "cssClass": "noon",
                 "description": null,
@@ -46,24 +48,32 @@ var zMAjaxLoginRegister = {
     //
     load_login: function(){
 
-        if ( jQuery('body').hasClass('logged-in') ){
+        if ( jQuery('body.logged-in').length ){
 
-            jQuery( "#ajax-login-register-login-target" ).fadeIn().html( _zm_alr_settings.logged_in_text );
+            jQuery( "#ajax-login-register-login-target" )
+                .stop()
+                .fadeIn()
+                .html( _zm_alr_settings.logged_in_text );
 
         } else {
+            var data = {
+                action: 'load_template',
+                referer: 'login_form',
+                template: 'login-form',
+                security: jQuery('#ajax-login-register-login-dialog').attr('data-security')
+            };
+            console.log('sup', data);
 
             jQuery.ajax({
                 global: false,
                 type: "POST",
                 url: _zm_alr_settings.ajaxurl,
-                data: {
-                    action: 'load_template',
-                    referer: 'login_form',
-                    template: 'login-form',
-                    security: jQuery('#ajax-login-register-login-dialog').attr('data-security')
-                },
+                data: data,
                 success: function( msg ){
-                    jQuery( "#ajax-login-register-login-target" ).fadeIn().html( msg.data ); // Give a smooth fade in effect
+                    jQuery( "#ajax-login-register-login-target" )
+                        .stop()
+                        .fadeIn()
+                        .html( msg.data ); // Give a smooth fade in effect
                 }
             });
 
@@ -80,25 +90,31 @@ var zMAjaxLoginRegister = {
     //
     load_register: function(){
 
-        if ( jQuery('body').hasClass('logged-in') ){
+        if ( jQuery('body.logged-in').length ){
 
-            jQuery( "#ajax-login-register-target" ).fadeIn().html( _zm_alr_settings.registered_text ); // Give a smooth fade in effect
+            jQuery( "#ajax-login-register-target" )
+                .stop()
+                .fadeIn()
+                .html( _zm_alr_settings.registered_text ); // Give a smooth fade in effect
 
         } else {
             var data = {
                 action: 'load_register_template',
                 template: 'register-form',
                 referer: 'register_form',
-                security:  jQuery('#ajax-login-register-dialog').attr('data-security')
+                security:  jQuery('#ajax-login-register-targetin-register-dialog').attr('data-security')
             };
-
+            console.log('sup', data);
             jQuery.ajax({
                 global: false,
                 data: data,
                 type: "POST",
                 url: _zm_alr_settings.ajaxurl,
                 success: function( msg ){
-                    jQuery( "#ajax-login-register-target" ).fadeIn().html( msg.data ); // Give a smooth fade in effect
+                    jQuery( "#ajax-login-register-target" )
+                        .stop()
+                        .fadeIn()
+                        .html( msg.data ); // Give a smooth fade in effect
                 }
             });
         }
@@ -150,25 +166,31 @@ var zMAjaxLoginRegister = {
 };
 
 
-jQuery( document ).ready(function( $ ){
+$document.ready(function( $ ){
 
 
     window.ajax_login_register_show_message = function( form_obj, msg ) {
-        if ( msg.code == 'success_login' || msg.code == 'success_registration' ){
-            jQuery('.ajax-login-register-msg-target', form_obj).addClass( msg.cssClass );
-            jQuery('.ajax-login-register-msg-target', form_obj).fadeIn().html( msg.description );
+        if ( msg.code === 'success_login' || msg.code === 'success_registration' ){
+            jQuery('.ajax-login-register-msg-target', form_obj)
+                .addClass( msg.cssClass )
+                .stop()
+                .fadeIn()
+                .html( msg.description );
             zMAjaxLoginRegister.reload( form_obj );
         } else if ( msg.description == '' ){
             zMAjaxLoginRegister.reload( form_obj );
         } else {
-            if ( msg.code == 'error' ){
+            if ( msg.code === 'error' ){
                 jQuery('.ajax-login-register-status-container').show();
             } else {
                 jQuery('.ajax-login-register-status-container').hide();
             }
 
-            jQuery('.ajax-login-register-msg-target', form_obj).addClass( msg.cssClass );
-            jQuery('.ajax-login-register-msg-target', form_obj).fadeIn().html( msg.description );
+            jQuery('.ajax-login-register-msg-target', form_obj)
+                .addClass( msg.cssClass )
+                .stop()
+                .fadeIn()
+                .html( msg.description );
         }
     };
 
@@ -177,9 +199,10 @@ jQuery( document ).ready(function( $ ){
      * Server side email validation.
      */
     window.ajax_login_register_validate_email = function( myObj ){
+
         $this = myObj;
 
-        if ( $.trim( $this.val() ) == '' ) return;
+        if ( !$.trim( $this.val() ) ) return;
 
         $form = $this.parents('form');
 
@@ -202,7 +225,7 @@ jQuery( document ).ready(function( $ ){
     /**
      * Validate email
      */
-    $( document ).on('blur', '.ajax-login-register-validate-email', function(){
+    $document.on('blur', '.ajax-login-register-validate-email', function(){
         ajax_login_register_validate_email( $(this) );
     });
 
@@ -210,9 +233,9 @@ jQuery( document ).ready(function( $ ){
     /**
      * Check that username is valid
      */
-    $( document ).on('blur', '.user_login', function(){
+    $document.on('blur', '.user_login', function(){
 
-        if ( $.trim( $(this).val() ) == '' ) return;
+        if ( !$.trim( $(this).val() ) ) return;
 
         $form = $(this).parents('form');
 
@@ -251,12 +274,12 @@ jQuery( document ).ready(function( $ ){
         of: 'body'
     });
 
-    if ( _zm_alr_settings.pre_load_forms == 'zm_alr_misc_pre_load_yes' ){
+    if ( _zm_alr_settings.pre_load_forms === 'zm_alr_misc_pre_load_yes' ){
         zMAjaxLoginRegister.load_login();
         zMAjaxLoginRegister.load_register();
     }
 
-    $( document ).on( 'click', '.ui-widget-overlay', function(){
+    $document.on( 'click', '.ui-widget-overlay', function(){
 
         $('#ajax-login-register-dialog').dialog('close');
 
