@@ -14,15 +14,15 @@ var zMAjaxLoginRegister = {
     // Confirm passwords match
     confirm_password: function( my_obj ){
 
-        $obj = jQuery( my_obj );
-        value = $obj.val().trim();
+        var $obj = jQuery( my_obj );
+        var value = $obj.val().trim();
 
-        if ( !value ) return;
+        if ( !value.length ) return;
 
-        $form = $obj.parents('form');
+        var $form = $obj.parents('form');
+        var match_value = jQuery('.user_password', $form).val();
 
-        match_value = jQuery('.user_password', $form).val();
-        if ( value === match_value ) {
+        if ( value == match_value ) {
             msg = {
                 "cssClass": "noon",
                 "description": null,
@@ -62,7 +62,6 @@ var zMAjaxLoginRegister = {
                 template: 'login-form',
                 security: jQuery('#ajax-login-register-login-dialog').attr('data-security')
             };
-            console.log('sup', data);
 
             jQuery.ajax({
                 global: false,
@@ -104,7 +103,6 @@ var zMAjaxLoginRegister = {
                 referer: 'register_form',
                 security:  jQuery('#ajax-login-register-targetin-register-dialog').attr('data-security')
             };
-            console.log('sup', data);
             jQuery.ajax({
                 global: false,
                 data: data,
@@ -200,9 +198,10 @@ $document.ready(function( $ ){
      */
     window.ajax_login_register_validate_email = function( myObj ){
 
-        $this = myObj;
+        var $this = myObj;
+        var thisVal = $.trim( $this.val() );
 
-        if ( !$.trim( $this.val() ) ) return;
+        if ( !thisVal.length ) return;
 
         $form = $this.parents('form');
 
@@ -210,7 +209,7 @@ $document.ready(function( $ ){
             global: false,
             data: {
                 action: 'validate_email',
-                zm_alr_register_email: $this.val()
+                zm_alr_register_email: thisVal
             },
             dataType: 'json',
             type: "POST",
