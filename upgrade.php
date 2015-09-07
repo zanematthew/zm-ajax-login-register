@@ -122,6 +122,8 @@ Class ALRUpgrade {
 
 
     /**
+     * Convert the legacy settings to the new Quilt settings format. Handling any
+     * unique cases along the way.
      *
      * @since   2.0.0
      */
