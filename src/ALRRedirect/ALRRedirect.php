@@ -28,6 +28,9 @@ Class ALRRedirect {
 
         add_filter( 'quilt_' . ZM_ALR_NAMESPACE . '_settings', array( &$this, 'settings' ) );
         add_filter( 'quilt_' . ZM_ALR_NAMESPACE . '_all_default_options', array( &$this, 'setDefaultRedirectUrl' ) );
+        add_filter( 'zm_alr_login_redirect_url', array( &$this, 'loginRedirectUrl' ), 15, 3 );
+        add_filter( 'zm_alr_register_redirect_url', array( &$this, 'loginRedirectUrl' ), 15, 3 );
+        add_filter( 'zm_alr_social_facebook_redirect_url', array( &$this, 'loginRedirectUrl' ), 15, 3 );
 
     }
 
@@ -86,6 +89,34 @@ Class ALRRedirect {
         }
 
         return $settings;
+
+    }
+
+
+    /**
+     * Filter for the login URL.
+     *
+     * @since   2.0.0
+     *
+     * @param   $url         The current URL
+     * @param   $user_login  The User login
+     * @param   $status      The current status
+     *
+     * @return  $url         The URL the user is redirected to
+     */
+    public function loginRedirectUrl( $url, $user_login, $status ){
+
+        global $zm_alr_settings;
+
+        if ( empty( $zm_alr_settings[ $this->prefix . '_redirect_after_login_url'] ) ){
+            global $wp;
+            $current_url = trailingslashit( add_query_arg( $wp->query_string, '', home_url( $wp->request ) ) );
+            $url = $settings[ $this->prefix . '_redirect_after_login_url'] = $current_url;
+        } else {
+            $url = get_permalink( $zm_alr_settings[ $this->prefix . '_redirect_after_login_url' ] );
+        }
+
+        return $url;
 
     }
 

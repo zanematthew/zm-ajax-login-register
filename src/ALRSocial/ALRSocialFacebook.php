@@ -102,6 +102,8 @@ Class ALRSocialFacebook {
             }
         }
 
+        $status = array_merge( $status, $this->registerRedirect( $user['user_login'] ) );
+
         wp_send_json( $status );
 
     }
@@ -356,4 +358,17 @@ Class ALRSocialFacebook {
         <!-- End: <?php echo ZM_ALR_NAMESPACE; ?> Facebook script -->
 
     <?php }
+
+
+    public function registerRedirect( $user_login=null, $status=null ){
+        // Since this is handled via an AJAX request $wp->request is always empty
+        // @todo Submit to core
+        // global $wp;
+        // $tmp = trailingslashit( add_query_arg( '', '', site_url( $wp->request ) ) );
+        $current_url = empty( $_SERVER['HTTP_REFERER'] ) ? site_url( $_SERVER['REQUEST_URI'] ) : $_SERVER['HTTP_REFERER'];
+        $redirect['redirect_url'] = apply_filters( $this->prefix . '_redirect_url', $current_url, $user_login, $status );
+
+        return $redirect;
+    }
+
 }
