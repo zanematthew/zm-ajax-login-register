@@ -280,7 +280,7 @@ $document.ready(function( $ ){
 
     $document.on( 'click', '.ui-widget-overlay', function(){
 
-        $('#ajax-login-register-dialog').dialog('close');
+        $('.ajax-login-register-container').dialog('close');
 
     });
 });
