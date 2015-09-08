@@ -177,7 +177,7 @@ Class ALRDesign {
 
         global $zm_alr_settings;
 
-        $classes[] = $zm_alr_settings[ $this->prefix . '_login_form_layout' ];
+        $classes[] = $zm_alr_settings[ $this->prefix . '_form_layout' ];
 
         return $classes;
 
@@ -197,7 +197,7 @@ Class ALRDesign {
 
         global $zm_alr_settings;
 
-        $classes[] = $zm_alr_settings[ $this->prefix . '_login_form_layout' ];
+        $classes[] = $zm_alr_settings[ $this->prefix . '_form_layout' ];
 
         return $classes;
 
