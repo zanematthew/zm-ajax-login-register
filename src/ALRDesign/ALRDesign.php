@@ -58,6 +58,7 @@ Class ALRDesign {
                     'title' => __( 'Form Layout', ZM_ALR_TEXT_DOMAIN ),
                     'type' => 'fancySelect',
                     'std' => $this->prefix . '_default',
+                    'desc' => __( 'Not applicable in widget areas.',  ZM_ALR_TEXT_DOMAIN ),
                     'options' => array(
                         $this->prefix . '_default' => __( 'Default', ZM_ALR_TEXT_DOMAIN ),
                         $this->prefix . '_wide' => __( 'Wide', ZM_ALR_TEXT_DOMAIN )

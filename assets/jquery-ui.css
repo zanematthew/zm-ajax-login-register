@@ -9,8 +9,14 @@
 .ui-widget select,
 .ui-widget textarea,
 .ui-widget button,
-.ui-widget {
+.ui-widget label,
+.ui-widget-header,
+.zm_alr_ul_container {
     font: 12px/1.4em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    }
+
+.ui-widget label {
+    font-weight: bold;
     }
 
 .ui-widget button,
