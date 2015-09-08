@@ -232,14 +232,13 @@ Class ALRSocialFacebook {
 
         global $zm_alr_settings;
 
-        if ( empty( $zm_alr_settings[ $this->prefix . '_login_button' ] ) ){
+        if ( is_int( $zm_alr_settings[ $this->prefix . '_login_button' ] ) ){
+            $logo_class = null;
+            $text = '<img src="' . wp_get_attachment_url( $zm_alr_settings[ $this->prefix . '_login_button' ] ) . '" />';
+        } else {
             $logo_class = 'fb-login-logo';
             $text = __( 'Log in using Facebook', ZM_ALR_TEXT_DOMAIN );
-        } else {
-            $logo_class = null;
-            $text = '<img src="'.wp_get_attachment_url($zm_alr_settings[ $this->prefix . '_login_button' ]).'" />';
         }
-
 
         $html = sprintf( '<div class="%s"><a href="#" class="fb-login %s" data-zm_alr_facebook_security="%s">%s</a></div>',
             $container_classes,
@@ -329,13 +328,11 @@ Class ALRSocialFacebook {
 
         global $zm_alr_settings;
 
-        $fb_url = esc_url( $zm_alr_settings[ $this->prefix . '_url' ] );
         $app_id = esc_attr( $zm_alr_settings[ $this->prefix . '_app_id' ] );
 
         ?>
 
         <!-- Start: <?php echo ZM_ALR_NAMESPACE; ?> Facebook meta property -->
-        <meta property="og:<?php echo $fb_url; ?>" content="<?php echo $fb_url; ?>"/>
         <meta property="fb:<?php echo $app_id; ?>" content="<?php echo $app_id; ?>"/>
         <!-- End: <?php echo ZM_ALR_NAMESPACE; ?> Facebook meta property -->
 
