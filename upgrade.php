@@ -48,7 +48,6 @@ Class ALRUpgrade {
             'ajax_login_register_pre_load_forms'          => 'zm_alr_pre_load_forms',
             'ajax_login_register_redirect'                => 'zm_alr_redirect_redirect_after_login_url',
             'app_id'                                      => 'zm_alr_social_facebook_app_id',
-            'url'                                         => 'zm_alr_social_facebook_url',
             'fb_avatar'                                   => 'zm_alr_social_facebook_use_avatar'
         );
 
