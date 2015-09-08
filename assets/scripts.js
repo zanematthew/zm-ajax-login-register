@@ -100,8 +100,8 @@ var zMAjaxLoginRegister = {
             var data = {
                 action: 'load_register_template',
                 template: 'register-form',
-                referer: 'register_form',
-                security:  jQuery('#ajax-login-register-targetin-register-dialog').attr('data-security')
+                referer_register: 'register_form',
+                security_register:  jQuery('#ajax-login-register-dialog').attr('data-security')
             };
             jQuery.ajax({
                 global: false,

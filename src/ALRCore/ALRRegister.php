@@ -341,8 +341,10 @@ Class ALRRegister {
      */
     public function load_register_template(){
 
-        check_ajax_referer( $_POST['referer'], 'security' );
+        check_ajax_referer( $_POST['referer_register'], 'security_register' );
+
         $msg = $this->getRegisterForm();
+
         wp_send_json_success( $msg );
 
     }
