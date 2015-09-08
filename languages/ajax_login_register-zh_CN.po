@@ -1,267 +1,425 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: zM AJAX Login & Register\n"
-"POT-Creation-Date: 2014-11-13 10:47-0500\n"
+"POT-Creation-Date: 2015-09-08 12:50-0500\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Amos Lee <iwillhappy1314@gmail.com>\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Amos Lee <4626395@gmail.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.6.10\n"
+"X-Generator: Poedit 1.6.5\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: controllers/abstract.php:51
-msgid "Login Handle"
-msgstr "登陆链接"
+#: deprecated.php:106 deprecated.php:107 src/ALRCore/ALRRegister.php:152
+msgid "Already registered?"
+msgstr "已经有账号了？"
 
-#: controllers/abstract.php:53 controllers/abstract.php:59
+#: deprecated.php:119 deprecated.php:120 src/ALRCore/ALRLogin.php:132
+msgid "Are you a member?"
+msgstr "没有账号?"
+
+#: lib/lumber/lumber.php:411
+msgid "-- Select a Value --"
+msgstr ""
+
+#: lib/lumber/lumber.php:885
+msgid "Upload"
+msgstr ""
+
+#: lib/lumber/lumber.php:889
+msgid "Remove"
+msgstr ""
+
+#: lib/quilt/quilt.php:98
+msgid "Options saved."
+msgstr ""
+
+#: lib/quilt/quilt.php:313
+msgid "Thank you for using Quilt."
+msgstr ""
+
+#: lib/quilt/quilt.php:334
+msgid "Save Changes"
+msgstr ""
+
+#: lib/quilt/quilt.php:336
+msgid "Reset Values"
+msgstr ""
+
+#: lib/quilt/quilt.php:340
+msgid "Restore ALL Default Values"
+msgstr ""
+
+#: lib/quilt/quilt.php:683
+msgid "Activate"
+msgstr ""
+
+#: lib/quilt/quilt.php:691
+msgid "Active"
+msgstr ""
+
+#: lib/quilt/quilt.php:692
+msgid "Deactivate"
+msgstr ""
+
+#: lib/quilt/quilt.php:695
+msgid "Inactive"
+msgstr ""
+
+#: lib/quilt/quilt.php:773
+msgid "This will delete your current settings and restore the defaults."
+msgstr ""
+
+#: plugin.php:136 src/ALRCore/ALRLogin.php:103 src/ALRCore/ALRLogin.php:104
+#: src/ALRCore/ALRRegister.php:82 src/ALRCore/ALRRegister.php:83
+msgid "Logout"
+msgstr "登出"
+
+#: plugin.php:137
+msgid "Close"
+msgstr "关闭"
+
+#: plugin.php:139 src/ALRCore/ALRLogin.php:101
+msgid "You are already logged in"
+msgstr "登陆成功"
+
+#: plugin.php:140 src/ALRCore/ALRRegister.php:80
+msgid "You are already registered"
+msgstr "已经注册过了"
+
+#: plugin.php:233
+#, fuzzy
 msgid ""
-"Type the class name or ID of the element you want to launch the dialog box "
-"when clicked, example"
-msgstr "输入点击时查看对话框的class或id名称，如："
+"Thanks for installing ZM AJAX Login & Register, be sure to check out the "
+"features in the"
+msgstr "谢谢使用zM AJAX 注册和登陆，请检查功能"
 
-#: controllers/abstract.php:53
-msgid ".login-link"
-msgstr ".login-link"
+#: settings.php:19 settings.php:37
+#, fuzzy
+msgid "AJAX Login & Register"
+msgstr "AJAX 登陆和注册"
 
-#: controllers/abstract.php:57
-msgid "Register Handle"
-msgstr "注册链接"
+#: settings.php:56
+#, fuzzy
+msgid "Thank you for using ZM AJAX Login & Register"
+msgstr "AJAX 登陆和注册"
 
-#: controllers/abstract.php:59
-msgid ".register-link"
-msgstr ".register-link"
+#: settings.php:59
+msgid "Support"
+msgstr ""
 
-#: controllers/abstract.php:63
+#: settings.php:61
+msgid "Pro Version"
+msgstr ""
+
+#: src/ALRCore/ALRHelpers.php:22 src/ALRCore/ALRHelpers.php:27
+#: src/ALRCore/ALRHelpers.php:32
+msgid "Invalid username"
+msgstr "用户名不正确"
+
+#: src/ALRCore/ALRHelpers.php:38
+msgid "Invalid"
+msgstr "错误"
+
+#: src/ALRCore/ALRHelpers.php:43
+msgid "Passwords do not match."
+msgstr "密码不一致"
+
+#: src/ALRCore/ALRHelpers.php:54 src/ALRCore/ALRHelpers.php:59
+msgid "Invalid Email"
+msgstr "Email错误"
+
+#: src/ALRCore/ALRHelpers.php:65 src/ALRCore/ALRHelpers.php:70
+msgid "Success! One moment while we log you in..."
+msgstr "登陆成功，请稍候"
+
+#: src/ALRCore/ALRLogin.php:137
+msgid "Forgot Password"
+msgstr "忘记密码"
+
+#: src/ALRCore/ALRLogin.php:311
+msgid "Login"
+msgstr "登陆"
+
+#: src/ALRCore/ALRLogin.php:312 src/ALRCore/ALRRegister.php:371
+msgid "Loading..."
+msgstr "加载中"
+
+#: src/ALRCore/ALRRegister.php:94
+msgid "Registration is currently closed."
+msgstr "目前不开放注册"
+
+#: src/ALRCore/ALRRegister.php:370
+msgid "Register"
+msgstr "注册"
+
+#: src/ALRDesign/ALRDesign.php:54
+msgid "Design"
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:58
+msgid "Form Layout"
+msgstr "表单布局"
+
+#: src/ALRDesign/ALRDesign.php:61
+msgid "Not applicable in widget areas."
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:63
+msgid "Default"
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:64
+msgid "Wide"
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:69
 msgid "Additional Styling"
 msgstr "附加样式"
 
-#: controllers/abstract.php:65
+#: src/ALRDesign/ALRDesign.php:71
 msgid "Type your custom CSS styles that are applied to the dialog boxes."
 msgstr "自定对话框CSS"
 
-#: controllers/abstract.php:69
+#: src/ALRDesign/ALRDesign.php:77
+msgid "Disable \"keep me logged in\""
+msgstr "禁用 \"记住我\""
+
+#: src/ALRDesign/ALRDesign.php:78
+msgid "Use this option to disable the check box shown to keep users logged in."
+msgstr "选中禁用登录时的“记住我”选项"
+
+#: src/ALRDesign/ALRDesign.php:83
+msgid "Remove Registration"
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:84
+msgid "This prevents users from being able to register on the login page."
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:89
+#, fuzzy
+msgid "Remove Forgot Password"
+msgstr "忘记密码"
+
+#: src/ALRDesign/ALRDesign.php:90
+msgid "This prevents users from being able to use the \"forgot password\"."
+msgstr ""
+
+#: src/ALRMisc/ALRMisc.php:43
+msgid "Misc."
+msgstr ""
+
+#: src/ALRMisc/ALRMisc.php:47
+msgid "Login Handle"
+msgstr "登陆链接"
+
+#: src/ALRMisc/ALRMisc.php:50
+#, fuzzy
+msgid ""
+"Type the class name or ID of the element you want to launch the dialog box "
+"when clicked, example <code>.login-link</code>"
+msgstr "输入点击时查看对话框的class或id名称，如："
+
+#: src/ALRMisc/ALRMisc.php:54
+msgid "Register Handle"
+msgstr "注册链接"
+
+#: src/ALRMisc/ALRMisc.php:57
+#, fuzzy
+msgid ""
+"Type the class name or ID of the element you want to launch the dialog box "
+"when clicked, example <code>.register-link</code>"
+msgstr "输入点击时查看对话框的class或id名称，如："
+
+#: src/ALRMisc/ALRMisc.php:61
+#, fuzzy
+msgid "Force Check Password"
+msgstr "忘记密码"
+
+#: src/ALRMisc/ALRMisc.php:64
+msgid ""
+"Use this option if your are experiencing compatibility issues with other "
+"login and or register plugins."
+msgstr ""
+
+#: src/ALRMisc/ALRMisc.php:73
+msgid "Pre-load Forms"
+msgstr ""
+
+#: src/ALRMisc/ALRMisc.php:80
+msgid ""
+"Setting this option will pre-load the forms, allowing them to be loaded "
+"prior to being clicked on."
+msgstr ""
+
+#: src/ALRRedirect/ALRRedirect.php:54
+msgid "Redirect"
+msgstr ""
+
+#: src/ALRRedirect/ALRRedirect.php:58
 msgid "Redirect After Login URL"
 msgstr "登陆后跳转到 URL"
 
-#: controllers/abstract.php:71
+#: src/ALRRedirect/ALRRedirect.php:63
 msgid ""
 "Enter the URL or slug you want users redirected to after login, example: "
 msgstr "输入用户登陆后跳转的完整URL，如："
 
-#: controllers/abstract.php:71
+#: src/ALRRedirect/ALRRedirect.php:64
 msgid "http://site.com/, /dashboard/, /wp-admin/"
 msgstr "http://site.com/, /dashboard/, /wp-admin/"
 
-#: controllers/abstract.php:75
-msgid "Form Layout"
-msgstr "表单布局"
-
-#: controllers/abstract.php:84
-msgid "URL"
-msgstr "URL"
-
-#: controllers/abstract.php:86
-msgid "This is the URL you have set in your Facebook Developer App Settings"
-msgstr "Facebook 开发APP的url"
-
-#: controllers/abstract.php:90
-msgid "App ID"
-msgstr "App ID"
-
-#: controllers/abstract.php:92
-msgid "This is the App ID as seen in your Facebook Developer App Dashboard"
-msgstr "Facebook App的ID"
-
-#: controllers/abstract.php:99
-msgid "Enable Facebook Login"
-msgstr "启用 Facebook 登陆"
-
-#: controllers/abstract.php:100
-msgid "By disabling this, your Facebook settings will still be saved."
-msgstr "即使禁用了，你的Facebook设置还会被保存"
-
-#: controllers/abstract.php:104
-msgid "Disable \"keep me logged in\""
-msgstr "禁用 \"记住我\""
-
-#: controllers/abstract.php:105
-msgid "Use this option to disable the check box shown to keep users logged in."
-msgstr "选中禁用登录时的“记住我”选项"
-
-#: controllers/abstract.php:224 controllers/abstract.php:229
-#: controllers/abstract.php:234
-msgid "Invalid username"
-msgstr "用户名不正确"
-
-#: controllers/abstract.php:240
-msgid "Invalid"
-msgstr "错误"
-
-#: controllers/abstract.php:245
-msgid "Passwords do not match."
-msgstr "密码不一致"
-
-#: controllers/abstract.php:256 controllers/abstract.php:261
-msgid "Invalid Email"
-msgstr "Email错误"
-
-#: controllers/abstract.php:267 controllers/abstract.php:272
-msgid "Success! One moment while we log you in..."
-msgstr "登陆成功，请稍候"
-
-#: controllers/admin.php:65 controllers/admin.php:66
-msgid "AJAX Login &amp; Register"
-msgstr "AJAX 登陆和注册"
-
-#: controllers/admin.php:118
-msgid ""
-"Thanks for installing zM AJAX Login & Register, be sure to check out the "
-"features in the"
-msgstr "谢谢使用zM AJAX 注册和登陆，请检查功能"
-
-#: plugin.php:83 views/login-form.php:11 views/register-form.php:13
-msgid "Logout"
-msgstr "登出"
-
-#: plugin.php:84
-msgid "Close"
-msgstr "关闭"
-
-#: views/login-dialog.php:8 views/login-form.php:38
-msgid "Login"
-msgstr "登陆"
-
-#: views/login-dialog.php:9 views/register-dialog.php:8
-msgid "Loading..."
-msgstr "加载中"
-
-#: views/login-form.php:11
-msgid "You are already logged in"
-msgstr "登陆成功"
-
-#: views/login-form.php:27 views/register-form.php:31
-msgid "User Name"
-msgstr "用户名"
-
-#: views/login-form.php:28 views/register-form.php:36
-msgid "Password"
-msgstr "密码"
-
-#: views/login-form.php:29
-msgid "Are you a member?"
-msgstr "没有账号?"
-
-#: views/login-form.php:34
-msgid "Keep me logged in"
-msgstr "记住我"
-
-#: views/login-form.php:36
-msgid "Forgot Password"
-msgstr "忘记密码"
-
-#: views/register-dialog.php:7 views/register-form.php:41
-msgid "Register"
-msgstr "注册"
-
-#: views/register-form.php:13
-msgid "You are already registered"
-msgstr "已经注册过了"
-
-#: views/register-form.php:32
-msgid "Email"
-msgstr "电子邮件"
-
-#: views/register-form.php:37
-msgid "Confirm Password"
-msgstr "确认密码"
-
-#: views/register-form.php:39
-msgid "Already registered?"
-msgstr "已经有账号了？"
-
-#: views/register-form.php:48
-msgid "Registration is currently closed."
-msgstr "目前不开放注册"
-
-#: views/settings.php:15
-msgid "AJAX Login &amp; Register Settings"
-msgstr "AJAX 注册和登陆设置"
-
-#: views/settings.php:17
-msgid "Usage"
-msgstr "使用方法"
-
-#: views/settings.php:18
-msgid ""
-"<p>To create a login page using shortcode; add the following shortcode "
-"<code>ajax_login</code> for the login page or <code>ajax_register</code> for "
-"the registration page to any Page or Post.</p><p>To create a login or "
-"registration dialog box do the following; create a menu item, assign a "
-"custom class name, then add that custom class name to the field: <em>Login "
-"Handle</em> for login or <em>Register Handle</em> for the registration page "
-"found in the settings below.</p><p><em>Note your theme must support custom "
-"menus</em></p><p><em>Note your site will need to be open to registration</"
-"em></p>"
+#: src/ALRSocial/ALRSocial.php:43
+msgid "Social"
 msgstr ""
-"<p>创建登录页面，请添加以下简码<code> ajax_login</code>到你的登陆页面。"
-"<code> ajax_register</code>到你的注册页面。</ p> <p>要创建登录或注册对话框，"
-"请创建一个菜单项，并添加自定义class名，然后添加自定义的class名到<em>登陆链接"
-"</ em>和<em>注册链接</em></p> <p>的<em>注意：你的主题必须支持自定义菜单</ "
-"em></p> <p>您的网站将需要开放登记</ em></p>"
 
-#: views/settings.php:21
-msgid "General Settings"
-msgstr "通用设置"
+#: src/ALRSocial/ALRSocialFacebook.php:245
+msgid "Log in using Facebook"
+msgstr ""
 
-#: views/settings.php:34
+#: src/ALRSocial/ALRSocialFacebook.php:274
 msgid "Facebook Settings"
 msgstr "Facebook 设置"
 
-#: views/settings.php:36
-msgid ""
-"<p>Once you have created your Facebook App, go to your Facebook Developer "
-"App Settings and add your site URL(s) to the App Domains field. Then, copy "
-"your App ID and paste into your App ID field in the zM AJAX Login & Register "
-"Facebook settings.</p><p>In order to use Facebook login you will need to "
-"Create a Facebook App, by visiting <a href=\"https://developers.facebook.com/"
-"\" target=\"_blank\">Facebook Developers</a>. Once you have created your "
-"Facebook App you are now ready to enter your \"site URL\" as seen in "
-"Facebook Developer App Settings and your App ID.</p><p>For detailed "
-"instructions visit the <a href=\"http://zanematthew.com/ajax-login-register-"
-"help-videos/\" target=\"_blank\">How To add Facebook Settings to AJAX Login "
-"&amp; Register</a>, feel free to contact us via our <a href=\"http://support."
-"zanematthew.com/forum/zm-ajax-login-register/\" target=\"_blank\">Support "
-"Forum</a> if you need additional help.</p>"
+#: src/ALRSocial/ALRSocialFacebook.php:280
+msgid "Enable"
 msgstr ""
-"<p>创建了Facebook应用程序后，打开你的Facebook开发应用程序设置，增加你的站点"
-"URL到应用域名字段。然后，复制你的App ID，并粘贴到ZM AJAX登录和注册的Facebook"
-"设置的App ID字段处。</p> <p>想使用Facebook登录，您需要创建一个Facebook应用程"
-"序，访问的<a href=\"https://developers.facebook.com/\" target=\"_blank"
-"\">Facebook开发者</a>。"
 
-#: views/settings.php:48
-msgid "Advanced Usage"
-msgstr "高级使用"
+#: src/ALRSocial/ALRSocialFacebook.php:282
+msgid "By enabling this setting visitors will be able to login with Facebook."
+msgstr ""
 
-#: views/settings.php:76
-msgid "Upgrade to the Pro version"
-msgstr "升级到高级版"
+#: src/ALRSocial/ALRSocialFacebook.php:287
+msgid "Login Button"
+msgstr ""
 
-#: views/settings.php:77
-msgid "Remove these ads?"
-msgstr "删除广告"
+#: src/ALRSocial/ALRSocialFacebook.php:289
+msgid "Upload a custom image to be displayed as the Facebook login button."
+msgstr ""
 
-#: views/settings.php:78
-msgid "Remove this ad, upgrade to Pro"
-msgstr "升级到高级版以删除广告"
+#: src/ALRSocial/ALRSocialFacebook.php:294
+msgid "App ID"
+msgstr "App ID"
 
-#: views/settings.php:78
-msgid "Upgrade to Login &amp; Register Pro"
-msgstr "升级到高级版"
+#: src/ALRSocial/ALRSocialFacebook.php:295
+msgid ""
+"This is the App ID as seen in your <a href=\"https://developers.facebook.com/"
+"\">Facebook Developer</a> App Dashboard. For detailed instructions visit the "
+"<a href=\"http://zanematthew.com/ajax-login-register-help-videos/\" target="
+"\"_blank\">How To add Facebook Settings to AJAX Login & Register</a>."
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:302
+msgid "Use Facebook Avatar"
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:303
+msgid ""
+"Checking this box will make Facebook profile picture show as avatar when "
+"possible "
+msgstr ""
+
+#~ msgid ".login-link"
+#~ msgstr ".login-link"
+
+#~ msgid ".register-link"
+#~ msgstr ".register-link"
+
+#~ msgid "URL"
+#~ msgstr "URL"
+
+#~ msgid "This is the URL you have set in your Facebook Developer App Settings"
+#~ msgstr "Facebook 开发APP的url"
+
+#~ msgid "This is the App ID as seen in your Facebook Developer App Dashboard"
+#~ msgstr "Facebook App的ID"
+
+#~ msgid "Enable Facebook Login"
+#~ msgstr "启用 Facebook 登陆"
+
+#~ msgid "By disabling this, your Facebook settings will still be saved."
+#~ msgstr "即使禁用了，你的Facebook设置还会被保存"
+
+#~ msgid "User Name"
+#~ msgstr "用户名"
+
+#~ msgid "Password"
+#~ msgstr "密码"
+
+#~ msgid "Keep me logged in"
+#~ msgstr "记住我"
+
+#~ msgid "Email"
+#~ msgstr "电子邮件"
+
+#~ msgid "Confirm Password"
+#~ msgstr "确认密码"
+
+#~ msgid "AJAX Login &amp; Register Settings"
+#~ msgstr "AJAX 注册和登陆设置"
+
+#~ msgid "Usage"
+#~ msgstr "使用方法"
+
+#~ msgid ""
+#~ "<p>To create a login page using shortcode; add the following shortcode "
+#~ "<code>ajax_login</code> for the login page or <code>ajax_register</code> "
+#~ "for the registration page to any Page or Post.</p><p>To create a login or "
+#~ "registration dialog box do the following; create a menu item, assign a "
+#~ "custom class name, then add that custom class name to the field: "
+#~ "<em>Login Handle</em> for login or <em>Register Handle</em> for the "
+#~ "registration page found in the settings below.</p><p><em>Note your theme "
+#~ "must support custom menus</em></p><p><em>Note your site will need to be "
+#~ "open to registration</em></p>"
+#~ msgstr ""
+#~ "<p>创建登录页面，请添加以下简码<code> ajax_login</code>到你的登陆页面。"
+#~ "<code> ajax_register</code>到你的注册页面。</ p> <p>要创建登录或注册对话"
+#~ "框，请创建一个菜单项，并添加自定义class名，然后添加自定义的class名到<em>登"
+#~ "陆链接</ em>和<em>注册链接</em></p> <p>的<em>注意：你的主题必须支持自定义"
+#~ "菜单</ em></p> <p>您的网站将需要开放登记</ em></p>"
+
+#~ msgid "General Settings"
+#~ msgstr "通用设置"
+
+#~ msgid ""
+#~ "<p>Once you have created your Facebook App, go to your Facebook Developer "
+#~ "App Settings and add your site URL(s) to the App Domains field. Then, "
+#~ "copy your App ID and paste into your App ID field in the zM AJAX Login & "
+#~ "Register Facebook settings.</p><p>In order to use Facebook login you will "
+#~ "need to Create a Facebook App, by visiting <a href=\"https://developers."
+#~ "facebook.com/\" target=\"_blank\">Facebook Developers</a>. Once you have "
+#~ "created your Facebook App you are now ready to enter your \"site URL\" as "
+#~ "seen in Facebook Developer App Settings and your App ID.</p><p>For "
+#~ "detailed instructions visit the <a href=\"http://zanematthew.com/ajax-"
+#~ "login-register-help-videos/\" target=\"_blank\">How To add Facebook "
+#~ "Settings to AJAX Login &amp; Register</a>, feel free to contact us via "
+#~ "our <a href=\"http://support.zanematthew.com/forum/zm-ajax-login-register/"
+#~ "\" target=\"_blank\">Support Forum</a> if you need additional help.</p>"
+#~ msgstr ""
+#~ "<p>创建了Facebook应用程序后，打开你的Facebook开发应用程序设置，增加你的站"
+#~ "点URL到应用域名字段。然后，复制你的App ID，并粘贴到ZM AJAX登录和注册的"
+#~ "Facebook设置的App ID字段处。</p> <p>想使用Facebook登录，您需要创建一个"
+#~ "Facebook应用程序，访问的<a href=\"https://developers.facebook.com/\" "
+#~ "target=\"_blank\">Facebook开发者</a>。"
+
+#~ msgid "Advanced Usage"
+#~ msgstr "高级使用"
+
+#~ msgid "Upgrade to the Pro version"
+#~ msgstr "升级到高级版"
+
+#~ msgid "Remove these ads?"
+#~ msgstr "删除广告"
+
+#~ msgid "Remove this ad, upgrade to Pro"
+#~ msgstr "升级到高级版以删除广告"
+
+#~ msgid "Upgrade to Login &amp; Register Pro"
+#~ msgstr "升级到高级版"

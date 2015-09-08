@@ -1,60 +1,295 @@
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: ajax_login_register-fr_FR\n"
-"POT-Creation-Date: \n"
+"POT-Creation-Date: 2015-09-08 12:53-0500\n"
 "PO-Revision-Date: \n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.6.5\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"Language: fr\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x;_ex;_nx;esc_attr__;esc_attr_e;esc_attr_x;"
+"esc_html__;esc_html_e;esc_html_x;_n_noop;_nx_noop;translate_nooped_plural\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
 
+#: deprecated.php:106 deprecated.php:107 src/ALRCore/ALRRegister.php:152
+#, fuzzy
+msgid "Already registered?"
+msgstr "Vous êtes déjà inscrit"
 
-# "handle" refiere a lugar donde el usario puede tomar la acción de acceder la página seleccionada
-#: controllers/abstract.php:83
-msgid "Login Handle"
-msgstr "Gestionnaire de connexion"
-
-# tecla o escribir a máquina
-#: controllers/abstract.php:85 controllers/abstract.php:91
-msgid ""
-"Type the class name or ID of the element you want to launch the dialog box "
-"when clicked, example"
+#: deprecated.php:119 deprecated.php:120 src/ALRCore/ALRLogin.php:132
+msgid "Are you a member?"
 msgstr ""
-"Tapez le nom de la classe ou l'ID de l'élément qui doit lancer la boite de "
-"dialogue, exemple"
 
-#: controllers/abstract.php:85
-msgid ".login-link"
-msgstr ".login-link"
+#: lib/lumber/lumber.php:411
+msgid "-- Select a Value --"
+msgstr ""
 
-#: controllers/abstract.php:89
-msgid "Register Handle"
-msgstr "Gestionnaire d'inscription"
+#: lib/lumber/lumber.php:885
+msgid "Upload"
+msgstr ""
 
-#: controllers/abstract.php:91
-msgid ".register-link"
-msgstr ".register-link"
+#: lib/lumber/lumber.php:889
+msgid "Remove"
+msgstr ""
 
-#: controllers/abstract.php:95
+#: lib/quilt/quilt.php:98
+msgid "Options saved."
+msgstr ""
+
+#: lib/quilt/quilt.php:313
+msgid "Thank you for using Quilt."
+msgstr ""
+
+#: lib/quilt/quilt.php:334
+msgid "Save Changes"
+msgstr ""
+
+#: lib/quilt/quilt.php:336
+msgid "Reset Values"
+msgstr ""
+
+#: lib/quilt/quilt.php:340
+msgid "Restore ALL Default Values"
+msgstr ""
+
+#: lib/quilt/quilt.php:683
+msgid "Activate"
+msgstr ""
+
+#: lib/quilt/quilt.php:691
+msgid "Active"
+msgstr ""
+
+#: lib/quilt/quilt.php:692
+msgid "Deactivate"
+msgstr ""
+
+#: lib/quilt/quilt.php:695
+msgid "Inactive"
+msgstr ""
+
+#: lib/quilt/quilt.php:773
+msgid "This will delete your current settings and restore the defaults."
+msgstr ""
+
+#: plugin.php:136 src/ALRCore/ALRLogin.php:103 src/ALRCore/ALRLogin.php:104
+#: src/ALRCore/ALRRegister.php:82 src/ALRCore/ALRRegister.php:83
+msgid "Logout"
+msgstr "Se déconnecter"
+
+#: plugin.php:137
+msgid "Close"
+msgstr ""
+
+#: plugin.php:139 src/ALRCore/ALRLogin.php:101
+msgid "You are already logged in"
+msgstr "Vous êtes déjà connecté"
+
+#: plugin.php:140 src/ALRCore/ALRRegister.php:80
+msgid "You are already registered"
+msgstr "Vous êtes déjà inscrit"
+
+#: plugin.php:207
+#, fuzzy
+msgid "Settings"
+msgstr "Paramètres globaux"
+
+#: plugin.php:208 settings.php:61
+msgid "Pro Version"
+msgstr ""
+
+#: plugin.php:233
+msgid ""
+"Thanks for installing ZM AJAX Login & Register, be sure to check out the "
+"features in the"
+msgstr ""
+
+# fix this sentence in english.
+# Ajax login and registration? (exclude the ;)
+#: settings.php:19 settings.php:37
+#, fuzzy
+msgid "AJAX Login & Register"
+msgstr "Connexion Ajax &amp; Inscription"
+
+#: settings.php:56
+msgid "Thank you for using ZM AJAX Login & Register"
+msgstr ""
+
+#: settings.php:59
+msgid "Support"
+msgstr ""
+
+#: src/ALRCore/ALRHelpers.php:22 src/ALRCore/ALRHelpers.php:27
+#: src/ALRCore/ALRHelpers.php:32
+msgid "Invalid username"
+msgstr ""
+
+#: src/ALRCore/ALRHelpers.php:38
+msgid "Invalid"
+msgstr ""
+
+#: src/ALRCore/ALRHelpers.php:43
+msgid "Passwords do not match."
+msgstr "Le mot de passe ne correspond pas."
+
+#: src/ALRCore/ALRHelpers.php:54 src/ALRCore/ALRHelpers.php:59
+msgid "Invalid Email"
+msgstr ""
+
+#: src/ALRCore/ALRHelpers.php:65 src/ALRCore/ALRHelpers.php:70
+msgid "Success! One moment while we log you in..."
+msgstr ""
+
+#: src/ALRCore/ALRLogin.php:137
+#, fuzzy
+msgid "Forgot Password"
+msgstr "Mot de Passe perdu"
+
+#: src/ALRCore/ALRLogin.php:311
+msgid "Login"
+msgstr "Connexion"
+
+#: src/ALRCore/ALRLogin.php:312 src/ALRCore/ALRRegister.php:371
+msgid "Loading..."
+msgstr "Chargement..."
+
+# Inscripción o registración
+#: src/ALRCore/ALRRegister.php:94
+msgid "Registration is currently closed."
+msgstr "L'inscription est clôse pour le moment."
+
+#: src/ALRCore/ALRRegister.php:370
+msgid "Register"
+msgstr "S'inscrire"
+
+#: src/ALRDesign/ALRDesign.php:54
+msgid "Design"
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:58
+msgid "Form Layout"
+msgstr "Style du formulaire"
+
+#: src/ALRDesign/ALRDesign.php:61
+msgid "Not applicable in widget areas."
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:63
+msgid "Default"
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:64
+msgid "Wide"
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:69
 msgid "Additional Styling"
 msgstr "Style Additionnel"
 
 # o hecho a la medida
-#: controllers/abstract.php:97
+#: src/ALRDesign/ALRDesign.php:71
 msgid "Type your custom CSS styles that are applied to the dialog boxes."
 msgstr ""
 "Tapez votre style CSS personnalisé qui sera appliqué aux boites de dialogue."
 
-#: controllers/abstract.php:101
+#: src/ALRDesign/ALRDesign.php:77
+#, fuzzy
+msgid "Disable \"keep me logged in\""
+msgstr "Désactive me laisser connecter"
+
+#: src/ALRDesign/ALRDesign.php:78
+msgid "Use this option to disable the check box shown to keep users logged in."
+msgstr ""
+"Utiliser cette option pour désactiver l'option permettant aux utilisateurs "
+"de rester connecté."
+
+#: src/ALRDesign/ALRDesign.php:83
+msgid "Remove Registration"
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:84
+msgid "This prevents users from being able to register on the login page."
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:89
+#, fuzzy
+msgid "Remove Forgot Password"
+msgstr "Mot de Passe perdu"
+
+#: src/ALRDesign/ALRDesign.php:90
+msgid "This prevents users from being able to use the \"forgot password\"."
+msgstr ""
+
+#: src/ALRMisc/ALRMisc.php:43
+msgid "Misc."
+msgstr ""
+
+# "handle" refiere a lugar donde el usario puede tomar la acción de acceder la página seleccionada
+#: src/ALRMisc/ALRMisc.php:47
+msgid "Login Handle"
+msgstr "Gestionnaire de connexion"
+
+# tecla o escribir a máquina
+#: src/ALRMisc/ALRMisc.php:50
+#, fuzzy
+msgid ""
+"Type the class name or ID of the element you want to launch the dialog box "
+"when clicked, example <code>.login-link</code>"
+msgstr ""
+"Tapez le nom de la classe ou l'ID de l'élément qui doit lancer la boite de "
+"dialogue, exemple"
+
+#: src/ALRMisc/ALRMisc.php:54
+msgid "Register Handle"
+msgstr "Gestionnaire d'inscription"
+
+# tecla o escribir a máquina
+#: src/ALRMisc/ALRMisc.php:57
+#, fuzzy
+msgid ""
+"Type the class name or ID of the element you want to launch the dialog box "
+"when clicked, example <code>.register-link</code>"
+msgstr ""
+"Tapez le nom de la classe ou l'ID de l'élément qui doit lancer la boite de "
+"dialogue, exemple"
+
+#: src/ALRMisc/ALRMisc.php:61
+#, fuzzy
+msgid "Force Check Password"
+msgstr "Confirmer le mot de passe"
+
+#: src/ALRMisc/ALRMisc.php:64
+msgid ""
+"Use this option if your are experiencing compatibility issues with other "
+"login and or register plugins."
+msgstr ""
+
+#: src/ALRMisc/ALRMisc.php:73
+msgid "Pre-load Forms"
+msgstr ""
+
+#: src/ALRMisc/ALRMisc.php:80
+msgid ""
+"Setting this option will pre-load the forms, allowing them to be loaded "
+"prior to being clicked on."
+msgstr ""
+
+#: src/ALRRedirect/ALRRedirect.php:54
+msgid "Redirect"
+msgstr ""
+
+#: src/ALRRedirect/ALRRedirect.php:58
 msgid "Redirect After Login URL"
 msgstr "URL de redirection après connexion"
 
 # Zane to remove Slug from this---
-#: controllers/abstract.php:103
+#: src/ALRRedirect/ALRRedirect.php:63
 msgid ""
 "Enter the URL or slug you want users redirected to after login, example: "
 msgstr ""
@@ -62,124 +297,66 @@ msgstr ""
 "exemple:"
 
 # not translatable?
-#: controllers/abstract.php:103
+#: src/ALRRedirect/ALRRedirect.php:64
 msgid "http://site.com/, /dashboard/, /wp-admin/"
 msgstr "http://site.com/, /tableau de bord/, /wp-admin/"
 
-#: controllers/abstract.php:107
-msgid "Form Layout"
-msgstr "Style du formulaire"
-
-#: controllers/abstract.php:116
-msgid "URL"
-msgstr "URL"
-
-# o admón
-#: controllers/abstract.php:121
-msgid "Admin ID"
-msgstr "ID de l'admin"
-
-#: controllers/abstract.php:126
-msgid "App ID"
-msgstr "ID de l'application"
-
-#: controllers/abstract.php:134
-msgid "Enable Facebook Login"
-msgstr "Activer la connexion via Facebook"
-
-# by disabling this, your facebook setttings will still be saved.
-#: controllers/abstract.php:135
-msgid "By disabling this your Facebook settings will still be saved."
+#: src/ALRSocial/ALRSocial.php:43
+msgid "Social"
 msgstr ""
-"En désactivant cette option vos paramètres Facebook seront sauvegardés."
 
-#: controllers/abstract.php:139
-msgid "Disable keep me logged in"
-msgstr "Désactive me laisser connecter"
-
-#: controllers/abstract.php:140
-msgid "Use this option to disable the check box shown to keep users logged in."
+#: src/ALRSocial/ALRSocialFacebook.php:245
+msgid "Log in using Facebook"
 msgstr ""
-"Utiliser cette option pour désactiver l'option permettant aux utilisateurs "
-"de rester connecté."
-
-#: controllers/abstract.php:289
-msgid "Passwords do not match."
-msgstr "Le mot de passe ne correspond pas."
-
-#: controllers/abstract.php:292 views/login-form.php:11
-#: views/register-form.php:13
-msgid "Logout"
-msgstr "Se déconnecter"
-
-# fix this sentence in english.
-# Ajax login and registration? (exclude the ;)
-#: controllers/admin.php:56 controllers/admin.php:57
-msgid "Ajax Login &amp; Register"
-msgstr "Connexion Ajax &amp; Inscription"
-
-#: views/login-dialog.php:8
-msgid "Login"
-msgstr "Connexion"
-
-#: views/login-dialog.php:9 views/register-dialog.php:8
-msgid "Loading..."
-msgstr "Chargement..."
-
-#: views/login-form.php:11
-msgid "You are already logged in"
-msgstr "Vous êtes déjà connecté"
-
-#: views/login-form.php:24 views/register-form.php:31
-msgid "User Name"
-msgstr "Pseudo"
-
-#: views/login-form.php:25 views/register-form.php:33
-msgid "Password"
-msgstr "Mot de Passe"
-
-#: views/login-form.php:30
-msgid "Keep me logged in"
-msgstr "Me laisser connecté"
-
-#: views/login-form.php:32
-msgid "Lost Password"
-msgstr "Mot de Passe perdu"
-
-#: views/register-form.php:13
-msgid "You are already registered"
-msgstr "Vous êtes déjà inscrit"
-
-#: views/register-form.php:32
-msgid "Email"
-msgstr "Email"
-
-#: views/register-form.php:34
-msgid "Confirm Password"
-msgstr "Confirmer le mot de passe"
-
-#: views/register-form.php:36
-msgid "Register"
-msgstr "S'inscrire"
-
-# Inscripción o registración
-#: views/register-form.php:43
-msgid "Registration is currently closed."
-msgstr "L'inscription est clôse pour le moment."
-
-#: views/settings.php:15
-msgid "Ajax Login &amp; Register Settings"
-msgstr "Connexion Ajax &amp; Paramètres d'inscription"
-
-#: views/settings.php:19
-msgid "General Settings"
-msgstr "Paramètres globaux"
 
 # o configuraciones de Facebook.
-#: views/settings.php:32
+#: src/ALRSocial/ALRSocialFacebook.php:274
 msgid "Facebook Settings"
 msgstr "Paramètres Facebook"
 
-#: views/settings.php:44
-msgid "Advanced Usage"
-msgstr "Utilisation avancée"
+#: src/ALRSocial/ALRSocialFacebook.php:280
+msgid "Enable"
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:282
+msgid "By enabling this setting visitors will be able to login with Facebook."
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:287
+msgid "Login Button"
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:289
+msgid "Upload a custom image to be displayed as the Facebook login button."
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:294
+msgid "App ID"
+msgstr "ID de l'application"
+
+#: src/ALRSocial/ALRSocialFacebook.php:295
+msgid ""
+"This is the App ID as seen in your <a href=\"https://developers.facebook.com/"
+"\">Facebook Developer</a> App Dashboard. For detailed instructions visit the "
+"<a href=\"http://zanematthew.com/ajax-login-register-help-videos/\" target="
+"\"_blank\">How To add Facebook Settings to AJAX Login & Register</a>."
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:302
+msgid "Use Facebook Avatar"
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:303
+msgid ""
+"Checking this box will make Facebook profile picture show as avatar when "
+"possible "
+msgstr ""
+
+#~ msgid ".login-link"
+#~ msgstr ".login-link"
+
+#~ msgid ".register-link"
+#~ msgstr ".register-link"
+
+#~ msgid "URL"
+#~ msgstr "URL"

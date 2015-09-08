@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: zM Ajax Login & Register\n"
-"POT-Creation-Date: 2014-11-13 10:46-0500\n"
-"PO-Revision-Date: 2014-11-13 10:46-0500\n"
+"POT-Creation-Date: 2015-09-08 12:51-0500\n"
+"PO-Revision-Date: 2015-09-08 12:51-0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Artem Belov <artbelov@live.ru>\n"
 "Language: ru_RU\n"
@@ -16,271 +16,421 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: controllers/abstract.php:51
-msgid "Login Handle"
-msgstr "Селектор авторизации"
+#: deprecated.php:106 deprecated.php:107 src/ALRCore/ALRRegister.php:152
+msgid "Already registered?"
+msgstr "Уже зарегистрированы?"
 
-#: controllers/abstract.php:53 controllers/abstract.php:59
-msgid ""
-"Type the class name or ID of the element you want to launch the dialog box "
-"when clicked, example"
+#: deprecated.php:119 deprecated.php:120 src/ALRCore/ALRLogin.php:132
+msgid "Are you a member?"
+msgstr "Уже зарегистрированы?"
+
+#: lib/lumber/lumber.php:411
+msgid "-- Select a Value --"
 msgstr ""
-"Введите класс или ID, который будет присвоен диалоговому окну, например"
 
-#: controllers/abstract.php:53
-msgid ".login-link"
-msgstr ".login-link"
+#: lib/lumber/lumber.php:885
+msgid "Upload"
+msgstr ""
 
-#: controllers/abstract.php:57
-msgid "Register Handle"
-msgstr "Селектор регистрации"
+#: lib/lumber/lumber.php:889
+msgid "Remove"
+msgstr ""
 
-#: controllers/abstract.php:59
-msgid ".register-link"
-msgstr ".register-link"
+#: lib/quilt/quilt.php:98
+msgid "Options saved."
+msgstr ""
 
-#: controllers/abstract.php:63
+#: lib/quilt/quilt.php:313
+msgid "Thank you for using Quilt."
+msgstr ""
+
+#: lib/quilt/quilt.php:334
+msgid "Save Changes"
+msgstr ""
+
+#: lib/quilt/quilt.php:336
+msgid "Reset Values"
+msgstr ""
+
+#: lib/quilt/quilt.php:340
+msgid "Restore ALL Default Values"
+msgstr ""
+
+#: lib/quilt/quilt.php:683
+msgid "Activate"
+msgstr ""
+
+#: lib/quilt/quilt.php:691
+msgid "Active"
+msgstr ""
+
+#: lib/quilt/quilt.php:692
+msgid "Deactivate"
+msgstr ""
+
+#: lib/quilt/quilt.php:695
+msgid "Inactive"
+msgstr ""
+
+#: lib/quilt/quilt.php:773
+msgid "This will delete your current settings and restore the defaults."
+msgstr ""
+
+#: plugin.php:136 src/ALRCore/ALRLogin.php:103 src/ALRCore/ALRLogin.php:104
+#: src/ALRCore/ALRRegister.php:82 src/ALRCore/ALRRegister.php:83
+msgid "Logout"
+msgstr "Выйти"
+
+#: plugin.php:137
+msgid "Close"
+msgstr ""
+
+#: plugin.php:139 src/ALRCore/ALRLogin.php:101
+msgid "You are already logged in"
+msgstr "Вы уже авторизаваны"
+
+#: plugin.php:140 src/ALRCore/ALRRegister.php:80
+msgid "You are already registered"
+msgstr "Вы уже зарегистрированы"
+
+#: plugin.php:233
+msgid ""
+"Thanks for installing ZM AJAX Login & Register, be sure to check out the "
+"features in the"
+msgstr ""
+
+#: settings.php:19 settings.php:37
+#, fuzzy
+msgid "AJAX Login & Register"
+msgstr "AJAX авторизация и регистрация"
+
+#: settings.php:56
+#, fuzzy
+msgid "Thank you for using ZM AJAX Login & Register"
+msgstr "AJAX авторизация и регистрация"
+
+#: settings.php:59
+msgid "Support"
+msgstr ""
+
+#: settings.php:61
+msgid "Pro Version"
+msgstr ""
+
+#: src/ALRCore/ALRHelpers.php:22 src/ALRCore/ALRHelpers.php:27
+#: src/ALRCore/ALRHelpers.php:32
+msgid "Invalid username"
+msgstr "Некорректное имя пользователя"
+
+#: src/ALRCore/ALRHelpers.php:38
+#, fuzzy
+msgid "Invalid"
+msgstr "Некорректный Email"
+
+#: src/ALRCore/ALRHelpers.php:43
+msgid "Passwords do not match."
+msgstr "Пароли не совпадают."
+
+#: src/ALRCore/ALRHelpers.php:54 src/ALRCore/ALRHelpers.php:59
+msgid "Invalid Email"
+msgstr "Некорректный Email"
+
+#: src/ALRCore/ALRHelpers.php:65 src/ALRCore/ALRHelpers.php:70
+msgid "Success! One moment while we log you in..."
+msgstr "Пожалуйста, подождите, пока идёт авторизация..."
+
+#: src/ALRCore/ALRLogin.php:137
+msgid "Forgot Password"
+msgstr "Забыли пароль?"
+
+#: src/ALRCore/ALRLogin.php:311
+msgid "Login"
+msgstr "Авторизация"
+
+#: src/ALRCore/ALRLogin.php:312 src/ALRCore/ALRRegister.php:371
+msgid "Loading..."
+msgstr "Загрузка..."
+
+#: src/ALRCore/ALRRegister.php:94
+msgid "Registration is currently closed."
+msgstr "В данный момент регистрация запрещена."
+
+#: src/ALRCore/ALRRegister.php:370
+msgid "Register"
+msgstr "Регистрация"
+
+#: src/ALRDesign/ALRDesign.php:54
+msgid "Design"
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:58
+msgid "Form Layout"
+msgstr "Макет формы"
+
+#: src/ALRDesign/ALRDesign.php:61
+msgid "Not applicable in widget areas."
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:63
+msgid "Default"
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:64
+msgid "Wide"
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:69
 msgid "Additional Styling"
 msgstr "Произвольные CSS стили"
 
-#: controllers/abstract.php:65
+#: src/ALRDesign/ALRDesign.php:71
 msgid "Type your custom CSS styles that are applied to the dialog boxes."
 msgstr "Введите произвольные CSS стили, которые применятся к диалоговым окнам"
 
-#: controllers/abstract.php:69
+#: src/ALRDesign/ALRDesign.php:77
+msgid "Disable \"keep me logged in\""
+msgstr "Отключить \"Запомнить меня\""
+
+#: src/ALRDesign/ALRDesign.php:78
+msgid "Use this option to disable the check box shown to keep users logged in."
+msgstr "Используйте опцию, чтобы отключить пункт \"Запомнить меня\""
+
+#: src/ALRDesign/ALRDesign.php:83
+msgid "Remove Registration"
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:84
+msgid "This prevents users from being able to register on the login page."
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:89
+#, fuzzy
+msgid "Remove Forgot Password"
+msgstr "Забыли пароль?"
+
+#: src/ALRDesign/ALRDesign.php:90
+msgid "This prevents users from being able to use the \"forgot password\"."
+msgstr ""
+
+#: src/ALRMisc/ALRMisc.php:43
+msgid "Misc."
+msgstr ""
+
+#: src/ALRMisc/ALRMisc.php:47
+msgid "Login Handle"
+msgstr "Селектор авторизации"
+
+#: src/ALRMisc/ALRMisc.php:50
+#, fuzzy
+msgid ""
+"Type the class name or ID of the element you want to launch the dialog box "
+"when clicked, example <code>.login-link</code>"
+msgstr ""
+"Введите класс или ID, который будет присвоен диалоговому окну, например"
+
+#: src/ALRMisc/ALRMisc.php:54
+msgid "Register Handle"
+msgstr "Селектор регистрации"
+
+#: src/ALRMisc/ALRMisc.php:57
+#, fuzzy
+msgid ""
+"Type the class name or ID of the element you want to launch the dialog box "
+"when clicked, example <code>.register-link</code>"
+msgstr ""
+"Введите класс или ID, который будет присвоен диалоговому окну, например"
+
+#: src/ALRMisc/ALRMisc.php:61
+#, fuzzy
+msgid "Force Check Password"
+msgstr "Забыли пароль?"
+
+#: src/ALRMisc/ALRMisc.php:64
+msgid ""
+"Use this option if your are experiencing compatibility issues with other "
+"login and or register plugins."
+msgstr ""
+
+#: src/ALRMisc/ALRMisc.php:73
+msgid "Pre-load Forms"
+msgstr ""
+
+#: src/ALRMisc/ALRMisc.php:80
+msgid ""
+"Setting this option will pre-load the forms, allowing them to be loaded "
+"prior to being clicked on."
+msgstr ""
+
+#: src/ALRRedirect/ALRRedirect.php:54
+msgid "Redirect"
+msgstr ""
+
+#: src/ALRRedirect/ALRRedirect.php:58
 msgid "Redirect After Login URL"
 msgstr "Редирект после авторизации"
 
-#: controllers/abstract.php:71
+#: src/ALRRedirect/ALRRedirect.php:63
 msgid ""
 "Enter the URL or slug you want users redirected to after login, example: "
 msgstr ""
 "Введите URL или путь, на который пользователи будут перенаправлены после "
 "авторизации, например:"
 
-#: controllers/abstract.php:71
+#: src/ALRRedirect/ALRRedirect.php:64
 msgid "http://site.com/, /dashboard/, /wp-admin/"
 msgstr "http://site.ru/, /dashboard/, /wp-admin/"
 
-#: controllers/abstract.php:75
-msgid "Form Layout"
-msgstr "Макет формы"
-
-#: controllers/abstract.php:84
-msgid "URL"
-msgstr "URL"
-
-#: controllers/abstract.php:86
-msgid "This is the URL you have set in your Facebook Developer App Settings"
-msgstr "URL, который Вы установили в панели управления приложения в Facebook"
-
-#: controllers/abstract.php:90
-msgid "App ID"
-msgstr "ID приложения"
-
-#: controllers/abstract.php:92
-msgid "This is the App ID as seen in your Facebook Developer App Dashboard"
-msgstr "ID приложения, указанный в Вашей панели управления в Facebook"
-
-#: controllers/abstract.php:99
-msgid "Enable Facebook Login"
-msgstr "Авторизация через Facebook"
-
-#: controllers/abstract.php:100
-msgid "By disabling this, your Facebook settings will still be saved."
-msgstr "При отключении опции настройки Facebook не будут изменены"
-
-#: controllers/abstract.php:104
-msgid "Disable \"keep me logged in\""
-msgstr "Отключить \"Запомнить меня\""
-
-#: controllers/abstract.php:105
-msgid "Use this option to disable the check box shown to keep users logged in."
-msgstr "Используйте опцию, чтобы отключить пункт \"Запомнить меня\""
-
-#: controllers/abstract.php:224 controllers/abstract.php:229
-#: controllers/abstract.php:234
-msgid "Invalid username"
-msgstr "Некорректное имя пользователя"
-
-#: controllers/abstract.php:240
-#, fuzzy
-msgid "Invalid"
-msgstr "Некорректный Email"
-
-#: controllers/abstract.php:245
-msgid "Passwords do not match."
-msgstr "Пароли не совпадают."
-
-#: controllers/abstract.php:256 controllers/abstract.php:261
-msgid "Invalid Email"
-msgstr "Некорректный Email"
-
-#: controllers/abstract.php:267 controllers/abstract.php:272
-msgid "Success! One moment while we log you in..."
-msgstr "Пожалуйста, подождите, пока идёт авторизация..."
-
-#: controllers/admin.php:65 controllers/admin.php:66
-msgid "AJAX Login &amp; Register"
-msgstr "AJAX авторизация и регистрация"
-
-#: controllers/admin.php:118
-msgid ""
-"Thanks for installing zM AJAX Login & Register, be sure to check out the "
-"features in the"
+#: src/ALRSocial/ALRSocial.php:43
+msgid "Social"
 msgstr ""
 
-#: plugin.php:83 views/login-form.php:11 views/register-form.php:13
-msgid "Logout"
-msgstr "Выйти"
-
-#: plugin.php:84
-msgid "Close"
+#: src/ALRSocial/ALRSocialFacebook.php:245
+msgid "Log in using Facebook"
 msgstr ""
 
-#: views/login-dialog.php:8 views/login-form.php:38
-msgid "Login"
-msgstr "Авторизация"
-
-#: views/login-dialog.php:9 views/register-dialog.php:8
-msgid "Loading..."
-msgstr "Загрузка..."
-
-#: views/login-form.php:11
-msgid "You are already logged in"
-msgstr "Вы уже авторизаваны"
-
-#: views/login-form.php:27 views/register-form.php:31
-msgid "User Name"
-msgstr "Имя пользователя"
-
-#: views/login-form.php:28 views/register-form.php:36
-msgid "Password"
-msgstr "Пароль"
-
-#: views/login-form.php:29
-msgid "Are you a member?"
-msgstr "Уже зарегистрированы?"
-
-#: views/login-form.php:34
-msgid "Keep me logged in"
-msgstr "Запомнить меня"
-
-#: views/login-form.php:36
-msgid "Forgot Password"
-msgstr "Забыли пароль?"
-
-#: views/register-dialog.php:7 views/register-form.php:41
-msgid "Register"
-msgstr "Регистрация"
-
-#: views/register-form.php:13
-msgid "You are already registered"
-msgstr "Вы уже зарегистрированы"
-
-#: views/register-form.php:32
-msgid "Email"
-msgstr "Email"
-
-#: views/register-form.php:37
-msgid "Confirm Password"
-msgstr "Подтвердите пароль"
-
-#: views/register-form.php:39
-msgid "Already registered?"
-msgstr "Уже зарегистрированы?"
-
-#: views/register-form.php:48
-msgid "Registration is currently closed."
-msgstr "В данный момент регистрация запрещена."
-
-#: views/settings.php:15
-msgid "AJAX Login &amp; Register Settings"
-msgstr "Настройки AJAX авторизации и регистрации"
-
-#: views/settings.php:17
-msgid "Usage"
-msgstr "Использование"
-
-#: views/settings.php:18
-msgid ""
-"<p>To create a login page using shortcode; add the following shortcode "
-"<code>ajax_login</code> for the login page or <code>ajax_register</code> for "
-"the registration page to any Page or Post.</p><p>To create a login or "
-"registration dialog box do the following; create a menu item, assign a "
-"custom class name, then add that custom class name to the field: <em>Login "
-"Handle</em> for login or <em>Register Handle</em> for the registration page "
-"found in the settings below.</p><p><em>Note your theme must support custom "
-"menus</em></p><p><em>Note your site will need to be open to registration</"
-"em></p>"
-msgstr ""
-"<p>Используйте шорткод <code>ajax_login</code> для отображения формы входа "
-"или <code>ajax_register</code> для отображения формы регистрации на любой "
-"странице или электронном письме.</p><p>Чтобы создать форму авторизации или "
-"регистрации в диалоговом окне необходимо выполнить следующие действия: "
-"создать пункт меню, с возможностью назначить ему имя CSS класса, а затем "
-"добавить в соответствующее поле <em>Селектор авторизации</em> для входа в "
-"систему или <em>Селектор регистрации</em> для страницы регистрации в "
-"настройках, которые указаны ниже.</p><p><em>Примечание: Ваша тема должна "
-"поддерживать пользовательские меню, а сайт должен быть открыт для "
-"регистрации.</em></p>"
-
-#: views/settings.php:21
-msgid "General Settings"
-msgstr "Настройки"
-
-#: views/settings.php:34
+#: src/ALRSocial/ALRSocialFacebook.php:274
 msgid "Facebook Settings"
 msgstr "Настройки Facebook"
 
-#: views/settings.php:36
-#, fuzzy
+#: src/ALRSocial/ALRSocialFacebook.php:280
+msgid "Enable"
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:282
+msgid "By enabling this setting visitors will be able to login with Facebook."
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:287
+msgid "Login Button"
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:289
+msgid "Upload a custom image to be displayed as the Facebook login button."
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:294
+msgid "App ID"
+msgstr "ID приложения"
+
+#: src/ALRSocial/ALRSocialFacebook.php:295
 msgid ""
-"<p>Once you have created your Facebook App, go to your Facebook Developer "
-"App Settings and add your site URL(s) to the App Domains field. Then, copy "
-"your App ID and paste into your App ID field in the zM AJAX Login & Register "
-"Facebook settings.</p><p>In order to use Facebook login you will need to "
-"Create a Facebook App, by visiting <a href=\"https://developers.facebook.com/"
-"\" target=\"_blank\">Facebook Developers</a>. Once you have created your "
-"Facebook App you are now ready to enter your \"site URL\" as seen in "
-"Facebook Developer App Settings and your App ID.</p><p>For detailed "
-"instructions visit the <a href=\"http://zanematthew.com/ajax-login-register-"
-"help-videos/\" target=\"_blank\">How To add Facebook Settings to AJAX Login "
-"&amp; Register</a>, feel free to contact us via our <a href=\"http://support."
-"zanematthew.com/forum/zm-ajax-login-register/\" target=\"_blank\">Support "
-"Forum</a> if you need additional help.</p>"
-msgstr ""
-"<p>Как только Вы создали своё Faceebook приложение, перейдите в его "
-"настройки и добавьте URL сайта в поле \"App Domains\". Затем, скопируйте ​​"
-"идентификатор в поле App ID в настройки AJAX авторизации и регистрации.</"
-"p><p>Для того, чтобы использовать авторизацию через Facebook, Вам необходимо "
-"создать Facebook приложение, посетив <a href=\"https://developers.facebook."
-"com/\">Facebook Developers</a>. Затем, Вы можете ввести \"Site URL\", в "
-"настройках Facebook приложения, а также узнать App ID.</p><p>Для получения "
-"более подробной инструкции, посетите страницу «<a href=\"http://support."
-"zanematthew.com/how-to/zm-ajax-login-register/adding-facebook-settings/\" "
-"target=\"_blank\">как добавить настройки Facebook приложения</a>». Не "
-"стесняйтесь связаться с нами через <a href=\"http://support.zanematthew.com/"
-"forum/zm-ajax-login-register/\">форум поддержки</a>, если Вы нуждаетесь в "
-"помощи.</p>"
-
-#: views/settings.php:48
-msgid "Advanced Usage"
-msgstr "Дополнительные настройки"
-
-#: views/settings.php:76
-msgid "Upgrade to the Pro version"
+"This is the App ID as seen in your <a href=\"https://developers.facebook.com/"
+"\">Facebook Developer</a> App Dashboard. For detailed instructions visit the "
+"<a href=\"http://zanematthew.com/ajax-login-register-help-videos/\" target="
+"\"_blank\">How To add Facebook Settings to AJAX Login & Register</a>."
 msgstr ""
 
-#: views/settings.php:77
-msgid "Remove these ads?"
+#: src/ALRSocial/ALRSocialFacebook.php:302
+msgid "Use Facebook Avatar"
 msgstr ""
 
-#: views/settings.php:78
-msgid "Remove this ad, upgrade to Pro"
+#: src/ALRSocial/ALRSocialFacebook.php:303
+msgid ""
+"Checking this box will make Facebook profile picture show as avatar when "
+"possible "
 msgstr ""
 
-#: views/settings.php:78
+#~ msgid ".login-link"
+#~ msgstr ".login-link"
+
+#~ msgid ".register-link"
+#~ msgstr ".register-link"
+
+#~ msgid "URL"
+#~ msgstr "URL"
+
+#~ msgid "This is the URL you have set in your Facebook Developer App Settings"
+#~ msgstr ""
+#~ "URL, который Вы установили в панели управления приложения в Facebook"
+
+#~ msgid "This is the App ID as seen in your Facebook Developer App Dashboard"
+#~ msgstr "ID приложения, указанный в Вашей панели управления в Facebook"
+
+#~ msgid "Enable Facebook Login"
+#~ msgstr "Авторизация через Facebook"
+
+#~ msgid "By disabling this, your Facebook settings will still be saved."
+#~ msgstr "При отключении опции настройки Facebook не будут изменены"
+
+#~ msgid "User Name"
+#~ msgstr "Имя пользователя"
+
+#~ msgid "Password"
+#~ msgstr "Пароль"
+
+#~ msgid "Keep me logged in"
+#~ msgstr "Запомнить меня"
+
+#~ msgid "Email"
+#~ msgstr "Email"
+
+#~ msgid "Confirm Password"
+#~ msgstr "Подтвердите пароль"
+
+#~ msgid "AJAX Login &amp; Register Settings"
+#~ msgstr "Настройки AJAX авторизации и регистрации"
+
+#~ msgid "Usage"
+#~ msgstr "Использование"
+
+#~ msgid ""
+#~ "<p>To create a login page using shortcode; add the following shortcode "
+#~ "<code>ajax_login</code> for the login page or <code>ajax_register</code> "
+#~ "for the registration page to any Page or Post.</p><p>To create a login or "
+#~ "registration dialog box do the following; create a menu item, assign a "
+#~ "custom class name, then add that custom class name to the field: "
+#~ "<em>Login Handle</em> for login or <em>Register Handle</em> for the "
+#~ "registration page found in the settings below.</p><p><em>Note your theme "
+#~ "must support custom menus</em></p><p><em>Note your site will need to be "
+#~ "open to registration</em></p>"
+#~ msgstr ""
+#~ "<p>Используйте шорткод <code>ajax_login</code> для отображения формы "
+#~ "входа или <code>ajax_register</code> для отображения формы регистрации на "
+#~ "любой странице или электронном письме.</p><p>Чтобы создать форму "
+#~ "авторизации или регистрации в диалоговом окне необходимо выполнить "
+#~ "следующие действия: создать пункт меню, с возможностью назначить ему имя "
+#~ "CSS класса, а затем добавить в соответствующее поле <em>Селектор "
+#~ "авторизации</em> для входа в систему или <em>Селектор регистрации</em> "
+#~ "для страницы регистрации в настройках, которые указаны ниже.</"
+#~ "p><p><em>Примечание: Ваша тема должна поддерживать пользовательские меню, "
+#~ "а сайт должен быть открыт для регистрации.</em></p>"
+
+#~ msgid "General Settings"
+#~ msgstr "Настройки"
+
 #, fuzzy
-msgid "Upgrade to Login &amp; Register Pro"
-msgstr "AJAX авторизация и регистрация"
+#~ msgid ""
+#~ "<p>Once you have created your Facebook App, go to your Facebook Developer "
+#~ "App Settings and add your site URL(s) to the App Domains field. Then, "
+#~ "copy your App ID and paste into your App ID field in the zM AJAX Login & "
+#~ "Register Facebook settings.</p><p>In order to use Facebook login you will "
+#~ "need to Create a Facebook App, by visiting <a href=\"https://developers."
+#~ "facebook.com/\" target=\"_blank\">Facebook Developers</a>. Once you have "
+#~ "created your Facebook App you are now ready to enter your \"site URL\" as "
+#~ "seen in Facebook Developer App Settings and your App ID.</p><p>For "
+#~ "detailed instructions visit the <a href=\"http://zanematthew.com/ajax-"
+#~ "login-register-help-videos/\" target=\"_blank\">How To add Facebook "
+#~ "Settings to AJAX Login &amp; Register</a>, feel free to contact us via "
+#~ "our <a href=\"http://support.zanematthew.com/forum/zm-ajax-login-register/"
+#~ "\" target=\"_blank\">Support Forum</a> if you need additional help.</p>"
+#~ msgstr ""
+#~ "<p>Как только Вы создали своё Faceebook приложение, перейдите в его "
+#~ "настройки и добавьте URL сайта в поле \"App Domains\". Затем, скопируйте ​​"
+#~ "идентификатор в поле App ID в настройки AJAX авторизации и регистрации.</"
+#~ "p><p>Для того, чтобы использовать авторизацию через Facebook, Вам "
+#~ "необходимо создать Facebook приложение, посетив <a href=\"https://"
+#~ "developers.facebook.com/\">Facebook Developers</a>. Затем, Вы можете "
+#~ "ввести \"Site URL\", в настройках Facebook приложения, а также узнать App "
+#~ "ID.</p><p>Для получения более подробной инструкции, посетите страницу «<a "
+#~ "href=\"http://support.zanematthew.com/how-to/zm-ajax-login-register/"
+#~ "adding-facebook-settings/\" target=\"_blank\">как добавить настройки "
+#~ "Facebook приложения</a>». Не стесняйтесь связаться с нами через <a href="
+#~ "\"http://support.zanematthew.com/forum/zm-ajax-login-register/\">форум "
+#~ "поддержки</a>, если Вы нуждаетесь в помощи.</p>"
+
+#~ msgid "Advanced Usage"
+#~ msgstr "Дополнительные настройки"
+
+#, fuzzy
+#~ msgid "Upgrade to Login &amp; Register Pro"
+#~ msgstr "AJAX авторизация и регистрация"
