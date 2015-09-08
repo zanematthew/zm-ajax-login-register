@@ -1,9 +1,13 @@
 <?php
 
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
+
 Class ALRHtml {
 
     /**
-     * Provides a unified way to build HTML form fields.
+     * Provides a unified way to build HTML form fields for ALR front-end forms.
      *
      * This method also builds dynamic filters AND actions using the following
      * naming convention:
@@ -16,6 +20,7 @@ Class ALRHtml {
      *
      *      add_action( "{$key}_above_field" ); $key is the name of the form field
      *      add_action( "{$key}_below_field" ); $key is the name of the form field
+     *
      * @since 2.0.0
      *
      * @param   $fields     (array)     Containing the field an HTML attributes for each field.
@@ -27,7 +32,7 @@ Class ALRHtml {
 
         $fields = apply_filters( $prefix . '_form_fields', $fields );
 
-        $default_classes = apply_filters( $prefix . '_field_container_classes', array(
+        $default_classes = apply_filters( $prefix . '_default_field_container_classes', array(
             ZM_ALR_NAMESPACE . '_form_field_container'
             ) );
 
@@ -55,9 +60,6 @@ Class ALRHtml {
 
         foreach( $order as $key ){
 
-            // Key specific filter?
-            // $field = apply_filters( $prefix . '_filter_field_' . $key, $new_fields[ $key ] );
-
             if ( empty( $new_fields[ $key ] ) ){
 
                 $html .= "invalid key {$key} added for order<br />";
@@ -65,8 +67,7 @@ Class ALRHtml {
 
             } else {
 
-                // filter
-                $args = wp_parse_args( $new_fields[ $key ], apply_filters( $prefix . '_fields_args', array(
+                $args = apply_filters( $prefix . '_fields_args', wp_parse_args( $new_fields[ $key ], array(
                     'extra' => null,
                     'required' => null,
                     'size' => null,
@@ -78,10 +79,10 @@ Class ALRHtml {
                     'value' => esc_attr( $new_fields[ $key ]['title'] )
                     ) ) );
 
-                $container_classes = array_merge( $default_classes, array(
+                $container_classes = apply_filters( sanitize_title( $key ) . '_field_container_classes', array_merge( $default_classes, array(
                     ZM_ALR_NAMESPACE . '_' . $args['type'] . '_container',
                     $prefix . '_' . $args['type'] . '_container'
-                    ) );
+                    ) ) );
 
 
                 // Handle merging of default form field classes
@@ -141,8 +142,6 @@ Class ALRHtml {
 
                 $html .= '</div>';
 
-                // do_action( $key . '_below_field' );
-
             }
 
         }
@@ -159,7 +158,7 @@ Class ALRHtml {
 
 
     /**
-     * Provide a unified way to add links to the bottom of the form.
+     * Provide a unified way to add links to the bottom of the front-end forms.
      *
      * Additionally the following filters, actions are dynamically created:
      *

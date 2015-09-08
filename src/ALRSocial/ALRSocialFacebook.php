@@ -1,7 +1,35 @@
 <?php
 
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
+
 Class ALRSocialFacebook {
 
+    /**
+     * The prefix used for meta keys, CSS classes, html IDs, etc.
+     *
+     * @since 2.0.0
+     */
+    public $prefix;
+
+
+    /**
+     * An object containing additional helper functions
+     *
+     * @since 2.0.0
+     */
+    public $_zm_alr_helpers;
+
+
+    /**
+     * Adding of all hooks
+     *
+     * @since 2.0.0
+     *
+     * @param
+     * @return
+     */
     public function __construct( ZM_Dependency_Container $di ){
 
         $this->prefix = 'zm_alr_social_facebook';
@@ -13,23 +41,24 @@ Class ALRSocialFacebook {
 
         add_filter( 'get_avatar', array( &$this, 'load_fb_avatar' ) , 1, 5 );
         add_filter( 'zm_alr_login_above_fields', array( &$this, 'aboveLoginFields' ) );
+        add_filter( 'zm_alr_register_above_fields', array( &$this, 'aboveLoginFields' ) );
         add_filter( 'zm_alr_social_settings_fields_tab', array( &$this, 'settings' ) );
+
     }
 
 
     /**
-     * Creates a new user in WordPress using their FB account info.
+     * Maps our FB response fields to the correct user fields as found in wp_update_user. Then
+     * calls setUpNewFacebookUser, and passes the correct response via JSON to JS.
      *
-     * @uses setup_new_user();
+     * @since 2.0.0
+     *
+     * @return  JSON    A JSON object
      */
     public function facebook_login(){
 
-        // check_ajax_referer( 'facebook-nonce', 'security' );
+        check_ajax_referer( 'facebook-nonce', 'security' );
 
-// print_r( $_POST );
-// die("\nfb");
-
-        // Map our FB response fields to the correct user fields as found in wp_update_user
         $user = array(
             'username'   => $_POST['fb_response']['id'],
             'user_login' => $_POST['fb_response']['id'],
@@ -109,7 +138,6 @@ Class ALRSocialFacebook {
     }
 
 
-
     /**
      * Replaces the default gravatar with the Facebook profile picture.
      *
@@ -125,8 +153,8 @@ Class ALRSocialFacebook {
 
         global $zm_alr_settings;
 
-        if ( empty( $zm_alr_settings[ $this->prefix . '_fb_use_avatar' ] )
-            && $zm_alr_settings[ $this->prefix . '_fb_use_avatar' ] != 1 ){
+        if ( empty( $zm_alr_settings[ $this->prefix . '_use_avatar' ] )
+            && $zm_alr_settings[ $this->prefix . '_use_avatar' ] != 1 ){
 
             return $avatar;
 
@@ -165,12 +193,18 @@ Class ALRSocialFacebook {
     }
 
 
-    // Is it enabled
+    /**
+     * Determine if the Facebook login setting is set.
+     *
+     * @since 2.0.0
+     *
+     * @return BOOL
+     */
     public function isEnabled(){
 
         global $zm_alr_settings;
 
-        if ( $zm_alr_settings[ $this->prefix . '_fb_enabled' ] == 'off' ){
+        if ( $zm_alr_settings[ $this->prefix . '_enabled' ] == 'off' ){
             $enabled = false;
         } else {
             $enabled = true;
@@ -181,7 +215,13 @@ Class ALRSocialFacebook {
     }
 
 
-    // The Fb button
+    /**
+     * Filters the fields above the Login form and displays the FB button.
+     *
+     * @since 2.0.0
+     *
+     * @return The FB button
+     */
     public function aboveLoginFields( $above_html ){
 
         if ( ! $this->isEnabled() )
@@ -189,14 +229,25 @@ Class ALRSocialFacebook {
 
         $container_classes = implode( " ", array(
             'fb-login-container',
-            ZM_ALR_NAMESPACE . '_fb_login_container',
-            $this->prefix . '_fb_login_container'
+            ZM_ALR_NAMESPACE . '_login_container',
+            $this->prefix . '_login_container'
             ) );
 
-        $above_html .= sprintf( '<div class="%s"><a href="#" class="fb-login" data-zm_alr_facebook_security="%s">%s</a></div>',
+        global $zm_alr_settings;
+
+        if ( is_int( $zm_alr_settings[ $this->prefix . '_login_button' ] ) ){
+            $logo_class = null;
+            $text = '<img src="' . wp_get_attachment_url( $zm_alr_settings[ $this->prefix . '_login_button' ] ) . '" />';
+        } else {
+            $logo_class = 'fb-login-logo';
+            $text = __( 'Log in using Facebook', ZM_ALR_TEXT_DOMAIN );
+        }
+
+        $above_html .= sprintf( '<div class="%s"><a href="#" class="fb-login %s" data-zm_alr_facebook_security="%s">%s</a></div>',
             $container_classes,
+            $logo_class,
             wp_create_nonce( 'facebook-nonce' ),
-            __( 'Log in using Facebook', ZM_ALR_TEXT_DOMAIN )
+            $text
             );
 
         return $above_html;
@@ -207,7 +258,11 @@ Class ALRSocialFacebook {
     /**
      * Filters the default settings, adding the additional settings below.
      *
-     * @since 1.0.0
+     * @since   2.0.0
+     *
+     * @param   $current_settings   The current global settings
+     *
+     * @return  $settings           The current global settings with the additional FB settings
      */
     public function settings( $current_settings ){
 
@@ -218,21 +273,28 @@ Class ALRSocialFacebook {
                 'type' => 'header'
                 ),
             array(
-                'id' => $this->prefix . '_fb_enabled',
+                'id' => $this->prefix . '_enabled',
                 'type' => 'checkbox',
                 'title' => __( 'Enable', ZM_ALR_TEXT_DOMAIN ),
                 'std' => 'off',
                 'desc' => __( 'By enabling this setting visitors will be able to login with Facebook.', ZM_ALR_TEXT_DOMAIN )
             ),
             array(
-                'id' => $this->prefix . '_fb_app_id',
+                'id' => $this->prefix . '_login_button',
+                'type' => 'upload',
+                'title' => __( 'Login Button', ZM_ALR_TEXT_DOMAIN ),
+                'std' => ZM_ALR_URL . 'assets/images/facebook-screen-grab.png',
+                'desc' => __( 'Upload a custom image to be displayed as the Facebook login button.', ZM_ALR_TEXT_DOMAIN )
+            ),
+            array(
+                'id' => $this->prefix . '_app_id',
                 'type' => 'fancyText',
                 'title' => __( 'App ID', ZM_ALR_TEXT_DOMAIN ),
                 'desc' => __( 'This is the App ID as seen in your <a href="https://developers.facebook.com/">Facebook Developer</a> App Dashboard. For detailed instructions visit the <a href="http://zanematthew.com/ajax-login-register-help-videos/" target="_blank">How To add Facebook Settings to AJAX Login & Register</a>.', ZM_ALR_TEXT_DOMAIN )
 
             ),
             array(
-                'id' => $this->prefix . '_fb_use_avatar',
+                'id' => $this->prefix . '_use_avatar',
                 'type' => 'checkbox',
                 'std' => 'off',
                 'title' => __( 'Use Facebook Avatar', ZM_ALR_TEXT_DOMAIN ),
@@ -248,7 +310,14 @@ Class ALRSocialFacebook {
     }
 
 
-    // add our meta and FB script
+
+    /**
+     * Adds our meta and FB script to the HTML head via wp_head
+     *
+     * @since   2.0.0
+     *
+     * @return  Adds the needed meta fields for FB.
+     */
     public function head(){
 
         if ( ! $this->isEnabled() )
@@ -256,7 +325,7 @@ Class ALRSocialFacebook {
 
         global $zm_alr_settings;
 
-        $app_id = esc_attr( $zm_alr_settings[ $this->prefix . '_fb_app_id' ] );
+        $app_id = esc_attr( $zm_alr_settings[ $this->prefix . '_app_id' ] );
 
         ?>
 
@@ -288,12 +357,3 @@ Class ALRSocialFacebook {
 
     <?php }
 }
-/**
- * Once plugins are loaded init our class
- */
-function zm_alr_plugins_loaded_social_facebook(){
-
-    new ALRSocialFacebook( new ZM_Dependency_Container( null ) );
-
-}
-add_action( 'plugins_loaded', 'zm_alr_plugins_loaded_social_facebook' );

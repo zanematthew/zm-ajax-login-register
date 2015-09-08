@@ -1,5 +1,9 @@
 <?php
 
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
+
 Class ALRHelpers {
 
     /**
@@ -121,14 +125,6 @@ Class ALRHelpers {
                 $this->multisiteSetup( $user_id, $prefix );
             }
 
-            $wp_signon = wp_signon( array(
-                'user_login' => $user['user_login'],
-                'user_password' => $user['user_pass'],
-                'remember' => true ),
-            false );
-
-            wp_new_user_notification( $user_id );
-
             do_action( $prefix . '_after_successfull_registration', $user_id );
 
         }
@@ -155,6 +151,52 @@ Class ALRHelpers {
 
         return $added_to_blog;
 
+    }
+
+
+    /**
+     * Searches a string of text for certain "tags", replaces the tags
+     * with the given value.
+     *
+     * @since   1.0.0
+     * @param   $string     The value to replace tags from
+     * @param   $tags       The default tags used contained key => value
+     * @return  $string     The new string with replaced tags
+     */
+    public function templateTags( $string=null, $default_tags=null ){
+
+        $message = str_replace( array_keys( $default_tags ), $default_tags, nl2br( $string ) );
+        $message = wp_kses_decode_entities( $message,
+            array(
+                'code' => array(),
+                'br' => array(),
+                'a' => array()
+                )
+            );
+
+        return $message;
+    }
+
+
+    /**
+     * A more reliable way to determine the IP address from the HTTP headers
+     *
+     * @since 1.2
+     * @param void
+     * @return IP address
+     */
+    public function getIp(){
+        foreach( array( 'HTTP_CLIENT_IP', 'HTTP_X_FORWARDED_FOR', 'HTTP_X_FORWARDED', 'HTTP_X_CLUSTER_CLIENT_IP', 'HTTP_FORWARDED_FOR', 'HTTP_FORWARDED', 'REMOTE_ADDR') as $key ){
+            if ( array_key_exists( $key, $_SERVER ) === true ){
+                foreach( explode( ',', $_SERVER[ $key ] ) as $ip ){
+                    $ip = trim( $ip ); // just to be safe
+
+                    if ( filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) !== false ){
+                        $ip_address = $ip;
+                    }
+                }
+            }
+        }
     }
 
 }

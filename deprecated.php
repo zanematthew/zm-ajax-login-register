@@ -165,10 +165,10 @@ function zm_alr_register_filter( $role ){
     return $role;
 
 }
-add_filter( 'zm_alr_register_default_role', 'zm_alr_regsiter_filter' );
+add_filter( 'zm_alr_register_default_role', 'zm_alr_register_filter' );
 
 
-function zm_alr_register_after_registration(){
+function zm_alr_register_after_registration( $user_id ){
     do_action( 'zm_ajax_login_after_successfull_registration', $user_id );
 }
 add_action( 'zm_alr_register_after_successfull_registration', 'zm_alr_register_after_registration' );
@@ -215,3 +215,13 @@ function zm_alr_register_legacy_dialog_classes( $classes ){
 
 }
 add_filter( 'zm_alr_register_dialog_class', 'zm_alr_register_legacy_dialog_classes' );
+
+
+function zm_alr_filter_status_codes( $status ){
+    $status = apply_filters( 'ajax_login_register_status_codes', $status );
+}
+// add_filter( 'zm_alr_status_codes', 'zm_alr_filter_status_codes' );
+
+
+// $redirect_url = apply_filters( 'ajax_login_register_login_redirect', $current_url, $user_login, $status )
+// $redirect['redirect_url'] = apply_filters( 'ajax_login_register_register_redirect', $current_url, $user_login );

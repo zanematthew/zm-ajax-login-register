@@ -1,11 +1,29 @@
 <?php
 
 /**
- * This class will contain ALL functionality for the "Allow By IP" section.
- * Including any CSS, JS files, settings, or additional templates, etc.
+ * Design object.
+ * @since 2.0
  */
+
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 Class ALRDesign {
 
+
+    /**
+     * The prefix used for meta keys, CSS classes, html IDs, etc.
+     *
+     * @since 2.0.0
+     */
+    public $prefix;
+
+
+    /**
+     * Adding of all hooks
+     *
+     * @since 2.0.0
+     */
     public function __construct(){
 
         $this->prefix = 'zm_alr_design';
@@ -22,9 +40,13 @@ Class ALRDesign {
 
 
     /**
-     * Filters the default settings, adding the additional settings below.
+     * Adds the design settings as a tab.
      *
-     * @since 1.0.0
+     * @since 2.0.0
+     *
+     * @param   $current_settings   The current settings
+     * @return  Merged settings
+     *
      */
     public function settings( $current_settings ){
 
@@ -32,7 +54,7 @@ Class ALRDesign {
             'title' => __('Design', ZM_ALR_TEXT_DOMAIN ),
             'fields' => apply_filters( $this->prefix . '_settings_fields_tab', array(
                 array(
-                    'id' => $this->prefix . '_login_form_layout',
+                    'id' => $this->prefix . '_form_layout',
                     'title' => __( 'Form Layout', ZM_ALR_TEXT_DOMAIN ),
                     'type' => 'fancySelect',
                     'std' => $this->prefix . '_default',
@@ -42,7 +64,7 @@ Class ALRDesign {
                         )
                 ),
                 array(
-                    'id' => $this->prefix . '_login_additonal_styling',
+                    'id' => $this->prefix . '_additonal_styling',
                     'title' => __( 'Additional Styling', ZM_ALR_TEXT_DOMAIN ),
                     'type' => 'css',
                     'desc' => __( 'Type your custom CSS styles that are applied to the dialog boxes.', ZM_ALR_TEXT_DOMAIN )
@@ -75,6 +97,14 @@ Class ALRDesign {
     }
 
 
+    /**
+     * Filter to show or remove the Register link, and forgot password link.
+     *
+     * @since 2.0.0
+     *
+     * @param   $links  The links to filter
+     * @return  $links  The links with either the removal of login, or forgot password
+     */
     public function filterLoginLinks( $links ){
 
         global $zm_alr_settings;
@@ -90,6 +120,14 @@ Class ALRDesign {
     }
 
 
+    /**
+     * Filter used to show or remove the "keep me logged in" checkbox
+     *
+     * @since 2.0.0
+     *
+     * @param   $fields     An array containing all form fields
+     * @return  $fields     An array either removing the field
+     */
     public function filterLoginFields( $fields ){
 
         global $zm_alr_settings;
@@ -102,6 +140,12 @@ Class ALRDesign {
     }
 
 
+    /**
+     * Action to add the additional styling if present.
+     *
+     * @since   2.0.0
+     * @return  Prints out the CSS in the HTML head if present
+     */
     public function header(){
 
         global $zm_alr_settings;
@@ -119,6 +163,15 @@ Class ALRDesign {
     <?php }
 
 
+    /**
+     * Filter to add an additional HTML class representing the form layout
+     * to the body tag for further styling.
+     *
+     * @since   2.0.0
+     *
+     * @param   $classes    The array of body classes from WordPress
+     * @return  $classes    The array of classes with the additional class.
+     */
     public function loginClasses( $classes ){
 
         global $zm_alr_settings;
@@ -130,6 +183,15 @@ Class ALRDesign {
     }
 
 
+    /**
+     * Filter to add an additional HTML class representing the form layout
+     * to the body tag for further styling.
+     *
+     * @since   2.0.0
+     *
+     * @param   $classes    The array of body classes from WordPress
+     * @return  $classes    The array of classes with the additional class.
+     */
     public function registerClasses( $classes ){
 
         global $zm_alr_settings;
@@ -141,4 +203,3 @@ Class ALRDesign {
     }
 
 }
-new ALRDesign();

@@ -1,6 +1,33 @@
 <?php
 
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 Class ALRLogin {
+
+    /**
+     * An object containing additional helper functions to build HTML
+     *
+     * @since 2.0.0
+     */
+    public $_zm_alr_html;
+
+
+    /**
+     * An object containing additional helper functions
+     *
+     * @since 2.0.0
+     */
+    public $_zm_alr_helpers;
+
+
+    /**
+     * The prefix used for meta keys, CSS classes, html IDs, etc.
+     *
+     * @since 2.0.0
+     */
+    public $prefix;
+
 
     /**
      * Init various classes, and run the init action for ALR
@@ -48,7 +75,7 @@ Class ALRLogin {
      */
     public function load_template(){
 
-        // check_ajax_referer( $_POST['referer'], 'security' );
+        check_ajax_referer( $_POST['referer'], 'security' );
 
         $msg = $this->getLogInForm();
 
@@ -141,8 +168,10 @@ Class ALRLogin {
             $this->prefix . '_form_container'
         ) ) );
 
+        $params = json_encode( apply_filters( $this->prefix . '_ajax_params', null ) );
+
         $html = null;
-        $html .= '<form action="javascript://" class="'. $form_classes . '" data-zm_alr_login_security="'. wp_create_nonce( 'login_submit' ) . '">';
+        $html .= '<form action="javascript://" class="'. $form_classes . '" data-zm_alr_login_security="'. wp_create_nonce( 'login_submit' ) . '" data-'.$this->prefix.'_ajax_params="'.$params.'">';
         $html .= '<div class="form-wrapper">';
         $html .= '<div class="ajax-login-register-status-container">';
         $html .= '<div class="ajax-login-register-msg-target"></div>';
@@ -176,52 +205,68 @@ Class ALRLogin {
         /**
          * Verify the AJAX request
          */
-        // if ( $is_ajax ) check_ajax_referer('login_submit','security');
+        if ( $is_ajax ) check_ajax_referer('login_submit','security');
 
         $args = array(
-            'login' => sanitize_user( $_POST['zm_alr_login_user_name'] ),
+            'user_login' => sanitize_user( $_POST['zm_alr_login_user_name'] ),
             'password' => $_POST['zm_alr_login_password'],
             'remember' => empty( $_POST['remember'] ) ? false : ture
         );
 
+        $pre_status = apply_filters( $this->prefix . '_submit_pre_status_error', $_POST );
+
+        // If ANY status code is set we do not go forward
+        if ( isset( $pre_status['code'] ) ){
+
+            $status = $pre_status;
+
+        }
+
         // Currently wp_signon returns the same error code 'invalid_username' if
         // a username does not exists or is invalid
-        if ( validate_username( $args['login'] ) ){
+        elseif ( validate_username( $args['user_login'] ) ){
 
-            if ( username_exists( $args['login'] ) ){
+            if ( username_exists( $args['user_login'] ) ){
 
                 // if option force check password
                 global $zm_alr_settings;
 
                 // Better to do via a hook from within zm_alr_misc.
-                if ( $zm_alr_settings['zm_alr_misc_force_check_password'] == 'zm_alr_misc_yes' ){
+                if ( $zm_alr_settings['zm_alr_misc_force_check_password'] == 'zm_alr_misc_force_check_password_yes' ){
 
-                    $user = get_user_by( 'login', $args['login'] );
+                    $user = get_user_by( 'login', $args['user_login'] );
                     if ( wp_check_password( $args['password'], $user->data->user_pass, $user->ID ) ){
 
                         $status = $this->_zm_alr_helpers->status('success_login');
                         wp_signon( array(
-                            'user_login'    => $args['login'],
+                            'user_login'    => $args['user_login'],
                             'user_password' => $args['password'],
                             'remember'      => $args['remember']
                             ), false );
+
+                        do_action( $this->prefix . '_after_signon', $args );
+
+                        $status = apply_filters( $this->prefix . '_signon_status', $status, $args );
+
                     }
 
                 } else {
 
-                    $creds = array(
-                        'user_login'    => $args['login'],
+                    $user = wp_signon( array(
+                        'user_login'    => $args['user_login'],
                         'user_password' => $args['password'],
                         'remember'      => $args['remember']
-                        );
+                    ), false );
 
-                    $user = wp_signon( $creds, false );
+                    do_action( $this->prefix . '_after_signon', $args );
+
 
                     if ( is_wp_error( $user ) ){
                         $status = $this->_zm_alr_helpers->status( $user->get_error_code() );
                     } else {
                         $status = $this->_zm_alr_helpers->status('success_login');
                     }
+                    $status = apply_filters( $this->prefix . '_signon_status', $status, $args );
                 }
 
             } else {
@@ -236,7 +281,7 @@ Class ALRLogin {
 
         }
 
-        $redirect['redirect_url'] = $this->loginRedirect( $args['login'], $status['code'] );
+        $redirect['redirect_url'] = $this->loginRedirect( $args['user_login'], $status['code'] );
         $status = array_merge( $status, $redirect );
 
         if ( $is_ajax ) {
@@ -287,14 +332,3 @@ Class ALRLogin {
     }
 
 }
-
-
-/**
- * Once plugins are loaded init our class
- */
-function zm_alr_plugins_loaded_login(){
-
-    new ALRLogin( new ZM_Dependency_Container( null ) );
-
-}
-add_action( 'plugins_loaded', 'zm_alr_plugins_loaded_login' );
