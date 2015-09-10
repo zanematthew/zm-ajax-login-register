@@ -76,6 +76,14 @@ function zm_alr_init(){
 add_action( 'init', 'zm_alr_init' );
 
 
+function zm_alr_admin_init(){
+
+    do_action( ZM_ALR_NAMESPACE . '_admin_init' );
+
+}
+add_action( 'admin_init', 'zm_alr_admin_init' );
+
+
 /**
  * Enqueues our JS, CSS, and localize any needed JS variables.
  *
