@@ -4,7 +4,7 @@ Contributors: ZaneMatthew, dvk
 Donate link: http://zanematthew.com/donate/
 Tags: admin, AJAX, login, manage, modal, password, plugin, redirect, register, username, Facebook
 Requires at least: 3.5
-Tested up to: 4.2.2
+Tested up to: 4.3
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -160,6 +160,12 @@ Your seeing this message because your site is not open for registration. In orde
 
 
 == Changelog ==
+
+= 2.0.0 =
+
+ * Settings page is now tabbed based.
+ * Settings are now optimized.
+ * Enhancement: Clicking outside of a dialog now closes the dialog
 
 = 1.1.1 =
 
