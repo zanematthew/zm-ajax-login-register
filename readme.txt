@@ -1,4 +1,4 @@
-=== zM Ajax Login & Register ===
+=== ZM Ajax Login & Register ===
 
 Contributors: ZaneMatthew, dvk
 Donate link: http://zanematthew.com/donate/
@@ -13,7 +13,7 @@ Allows you to create a custom login and registration page or login and registrat
 
 == Description ==
 
-With zM Ajax Login & Register, you can create a custom login and registration page. No need for any custom post types, just create a normal WordPress page, add your own custom logo, text, and use the following shortcode `[ajax_login]`, `[ajax_register]`.
+With ZM Ajax Login & Register, you can create a custom login and registration page. No need for any custom post types, just create a normal WordPress page, add your own custom logo, text, and use the following shortcode `[ajax_login]`, `[ajax_register]`.
 
 From the settings you can assign login and register modal boxes to menu items, and add a redirect URL. By assigning the login and register modals to menu items users will be able to click menu items, will display a single login or register form in a modal without any post content. Once the users login they can be redirected to a custom page, for example: "dashboard", or "welcome".
 
@@ -44,7 +44,7 @@ Interested in more features? View our [Pro Version](http://zanematthew.com/produ
 
 = Translations =
 
-zM AJAX Login & Register is available in the following languages. Thanks to the respective contributors:
+ZM AJAX Login & Register is available in the following languages. Thanks to the respective contributors:
 
 * Albanian via [shpberisha](http://www.twitter.com/shpberisha)
 * Brazilian Portuguese via [PageLab Pull Request](https://github.com/zanematthew/zm-ajax-login-register/pull/59)
