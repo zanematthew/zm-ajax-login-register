@@ -109,9 +109,7 @@ Class ALRRedirect {
         global $zm_alr_settings;
 
         if ( empty( $zm_alr_settings[ $this->prefix . '_redirect_after_login_url'] ) ){
-            global $wp;
-            $current_url = trailingslashit( add_query_arg( $wp->query_string, '', home_url( $wp->request ) ) );
-            $url = $settings[ $this->prefix . '_redirect_after_login_url'] = $current_url;
+            $url = empty( $_SERVER['HTTP_REFERER'] ) ? site_url( $_SERVER['REQUEST_URI'] ) : $_SERVER['HTTP_REFERER'];
         } else {
             $url = get_permalink( $zm_alr_settings[ $this->prefix . '_redirect_after_login_url' ] );
         }
