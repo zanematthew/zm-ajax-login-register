@@ -144,21 +144,21 @@ Class ALRLogin {
 
         $fields_html = $this->_zm_alr_html->buildFormFieldsHtml( array(
             $this->prefix . '_user_name' => array(
-                'title' => 'User Name',
+                'title' => __( 'User Name', ZM_ALR_TEXT_DOMAIN ),
                 'type' => 'text',
                 'extra' => 'autocorrect="none" autocapitalize="none"'
                 ),
             $this->prefix . '_password' => array(
-                'title' => 'Password',
+                'title' => __( 'Password', ZM_ALR_TEXT_DOMAIN ),
                 'type' => 'password',
                 'extra' => 'autocorrect="none" autocapitalize="none"'
                 ),
             $this->prefix . '_keep_me_logged_in' => array(
-                'title' => 'Keep Me Logged In',
+                'title' => __( 'Keep Me Logged In', ZM_ALR_TEXT_DOMAIN ),
                 'type' => 'checkbox'
                 ),
             $this->prefix . '_submit_button' => array(
-                'title' => 'Login',
+                'title' => __( 'Login', ZM_ALR_TEXT_DOMAIN ),
                 'type' => 'submit'
                 )
             ), $this->prefix );

@@ -118,27 +118,27 @@ Class ALRRegister {
 
         $fields_html = $this->_zm_alr_html->buildFormFieldsHtml( array(
             $this->prefix . '_user_name' => array(
-                'title' => 'User Name',
+                'title' => __( 'User Name', ZM_ALR_TEXT_DOMAIN ),
                 'type' => 'text',
                 'extra' => 'autocorrect="none" autocapitalize="none"'
                 ),
             $this->prefix . '_email' => array(
-                'title' => 'Email',
+                'title' => __( 'Email', ZM_ALR_TEXT_DOMAIN ),
                 'type' => 'email',
                 'extra' => 'autocorrect="none" autocapitalize="none"'
                 ),
             $this->prefix . '_password' => array(
-                'title' => 'Password',
+                'title' => __( 'Password', ZM_ALR_TEXT_DOMAIN ),
                 'type' => 'password',
                 'extra' => 'autocorrect="none" autocapitalize="none"'
                 ),
             $this->prefix . '_confirm_password' => array(
-                'title' => 'Confirm Password',
+                'title' => __( 'Confirm Password', ZM_ALR_TEXT_DOMAIN ),
                 'type' => 'password',
                 'extra' => 'autocorrect="none" autocapitalize="none"'
                 ),
             $this->prefix . '_submit_button' => array(
-                'title' => 'Register',
+                'title' => __( 'Register', ZM_ALR_TEXT_DOMAIN ),
                 'type' => 'submit',
                 'extra' => 'disabled'
                 )
@@ -242,7 +242,7 @@ Class ALRRegister {
 
         }
 
-        $status = array_merge( $status, $this->registerRedirect( $user['user_login'] ) );
+        $status = array_merge( $status, $this->registerRedirect( $user['user_login'], $status['code'] ) );
 
         if ( $is_ajax ) {
 
@@ -375,14 +375,12 @@ Class ALRRegister {
 
 
     public function registerRedirect( $user_login=null, $status=null ){
-        // Since this is handled via an AJAX request $wp->request is always empty
-        // @todo Submit to core
-        // global $wp;
-        // $tmp = trailingslashit( add_query_arg( '', '', site_url( $wp->request ) ) );
-        $current_url = empty( $_SERVER['HTTP_REFERER'] ) ? site_url( $_SERVER['REQUEST_URI'] ) : $_SERVER['HTTP_REFERER'];
-        $redirect['redirect_url'] = apply_filters( $this->prefix . '_redirect_url', $current_url, $user_login, $stauts );
 
-        return $redirect;
+        $current_url = empty( $_SERVER['HTTP_REFERER'] ) ? site_url( $_SERVER['REQUEST_URI'] ) : $_SERVER['HTTP_REFERER'];
+
+        $redirect_url = apply_filters( $this->prefix . '_redirect_url', $current_url, $user_login, $status );
+
+        return $redirect_url;
     }
 
 }
