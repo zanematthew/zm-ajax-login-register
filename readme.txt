@@ -161,6 +161,10 @@ Your seeing this message because your site is not open for registration. In orde
 
 == Changelog ==
 
+= 2.0.1 =
+
+ * Adding Swedish translation, [#123](https://github.com/zanematthew/zm-ajax-login-register/issues/123)
+
 = 2.0.0 =
 
  * Settings page is now tabbed based.

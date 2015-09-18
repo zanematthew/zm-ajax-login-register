@@ -1,0 +1,470 @@
+# Loco Gettext template
+msgid ""
+msgstr ""
+"Project-Id-Version: zM AJAX Login & Register\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-18 10:30-0500\n"
+"PO-Revision-Date: 2015-09-18 10:31-0500\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Revision-Date: Tue Sep 15 2015 20:36:16 GMT+0200 (W. Europe Daylight "
+"Time)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.6.5\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: deprecated.php:106 deprecated.php:107 src/ALRCore/ALRRegister.php:152
+msgid "Already registered?"
+msgstr "Redan medlem?"
+
+#: deprecated.php:119 deprecated.php:120 src/ALRCore/ALRLogin.php:132
+msgid "Are you a member?"
+msgstr "Är du redan medlem?"
+
+#: lib/lumber/lumber.php:420
+msgid "-- Select a Value --"
+msgstr ""
+
+#: lib/lumber/lumber.php:894
+msgid "Upload"
+msgstr ""
+
+#: lib/lumber/lumber.php:898
+msgid "Remove"
+msgstr ""
+
+#: lib/quilt/quilt.php:116
+msgid "Options saved."
+msgstr ""
+
+#: lib/quilt/quilt.php:331
+msgid "Thank you for using Quilt."
+msgstr ""
+
+#: lib/quilt/quilt.php:352
+msgid "Save Changes"
+msgstr ""
+
+#: lib/quilt/quilt.php:354
+msgid "Reset Values"
+msgstr ""
+
+#: lib/quilt/quilt.php:358
+msgid "Restore ALL Default Values"
+msgstr ""
+
+#: lib/quilt/quilt.php:701
+msgid "Activate"
+msgstr ""
+
+#: lib/quilt/quilt.php:709
+msgid "Active"
+msgstr ""
+
+#: lib/quilt/quilt.php:710
+msgid "Deactivate"
+msgstr ""
+
+#: lib/quilt/quilt.php:713
+msgid "Inactive"
+msgstr ""
+
+#: lib/quilt/quilt.php:791
+msgid "This will delete your current settings and restore the defaults."
+msgstr ""
+
+#: plugin.php:144 src/ALRCore/ALRLogin.php:103 src/ALRCore/ALRLogin.php:104
+#: src/ALRCore/ALRRegister.php:82 src/ALRCore/ALRRegister.php:83
+msgid "Logout"
+msgstr "Logga ut"
+
+#: plugin.php:145
+msgid "Close"
+msgstr "Stäng"
+
+#: plugin.php:147 src/ALRCore/ALRLogin.php:101
+msgid "You are already logged in"
+msgstr "Du är redan inloggad"
+
+#: plugin.php:148 src/ALRCore/ALRRegister.php:80
+msgid "You are already registered"
+msgstr "Du är redan medlem"
+
+#: plugin.php:215
+#, fuzzy
+msgid "Settings"
+msgstr "Allmänna Inställningar"
+
+#: plugin.php:216 settings.php:61
+msgid "Pro Version"
+msgstr "Pro Version"
+
+#: plugin.php:241
+#, fuzzy
+msgid ""
+"Thanks for installing ZM AJAX Login & Register, be sure to check out the "
+"features in the"
+msgstr ""
+"Tack för att du installerar zM AJAX Login & Register, se till att kolla in "
+"funktionerna i"
+
+#: settings.php:19 settings.php:37
+#, fuzzy
+msgid "AJAX Login & Register"
+msgstr "AJAX Login &amp; Register"
+
+#: settings.php:56
+#, fuzzy
+msgid "Thank you for using ZM AJAX Login & Register"
+msgstr "AJAX Login &amp; Register"
+
+#: settings.php:59
+msgid "Support"
+msgstr ""
+
+#: src/ALRCore/ALRHelpers.php:22 src/ALRCore/ALRHelpers.php:27
+#: src/ALRCore/ALRHelpers.php:32
+msgid "Invalid username"
+msgstr "Ogiltigt användarnamn"
+
+#: src/ALRCore/ALRHelpers.php:38
+msgid "Invalid"
+msgstr "Ogiltig"
+
+#: src/ALRCore/ALRHelpers.php:43
+msgid "Passwords do not match."
+msgstr "Lösenorden stämmer ej överens."
+
+#: src/ALRCore/ALRHelpers.php:54 src/ALRCore/ALRHelpers.php:59
+msgid "Invalid Email"
+msgstr "Ogiltig e-post"
+
+#: src/ALRCore/ALRHelpers.php:65 src/ALRCore/ALRHelpers.php:70
+msgid "Success! One moment while we log you in..."
+msgstr "Godkänt! Vänta ett ögonblick medan vi loggar in dig..."
+
+#: src/ALRCore/ALRLogin.php:137
+msgid "Forgot Password"
+msgstr "Glömt Lösenord"
+
+#: src/ALRCore/ALRLogin.php:147 src/ALRCore/ALRRegister.php:121
+msgid "User Name"
+msgstr "Användarnamn"
+
+#: src/ALRCore/ALRLogin.php:152 src/ALRCore/ALRRegister.php:131
+msgid "Password"
+msgstr "Lösenord"
+
+#: src/ALRCore/ALRLogin.php:157
+#, fuzzy
+msgid "Keep Me Logged In"
+msgstr "Håll mig inloggad"
+
+#: src/ALRCore/ALRLogin.php:161 src/ALRCore/ALRLogin.php:311
+msgid "Login"
+msgstr "Logga in"
+
+#: src/ALRCore/ALRLogin.php:312 src/ALRCore/ALRRegister.php:371
+msgid "Loading..."
+msgstr "Laddar..."
+
+#: src/ALRCore/ALRRegister.php:94
+msgid "Registration is currently closed."
+msgstr "Registreringen är för närvarande stängd."
+
+#: src/ALRCore/ALRRegister.php:126
+msgid "Email"
+msgstr "Email"
+
+#: src/ALRCore/ALRRegister.php:136
+msgid "Confirm Password"
+msgstr "Bekräfta Lösenord"
+
+#: src/ALRCore/ALRRegister.php:141 src/ALRCore/ALRRegister.php:370
+msgid "Register"
+msgstr "Registrera"
+
+#: src/ALRDesign/ALRDesign.php:54
+msgid "Design"
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:58
+msgid "Form Layout"
+msgstr "Formulär Layout"
+
+#: src/ALRDesign/ALRDesign.php:61
+msgid "Not applicable in widget areas."
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:63
+msgid "Default"
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:64
+msgid "Wide"
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:69
+msgid "Additional Styling"
+msgstr "Ytterligare Styling"
+
+#: src/ALRDesign/ALRDesign.php:71
+msgid "Type your custom CSS styles that are applied to the dialog boxes."
+msgstr "Skriv din anpassningsbara CSS-kod som tillämpas på dialogrutorna."
+
+#: src/ALRDesign/ALRDesign.php:77
+msgid "Disable \"keep me logged in\""
+msgstr "Inaktivera \"håll mig inloggad\""
+
+#: src/ALRDesign/ALRDesign.php:78
+msgid "Use this option to disable the check box shown to keep users logged in."
+msgstr ""
+"Använd detta alternativ för att inaktivera kryssrutan som visas för att "
+"hålla användare inloggade."
+
+#: src/ALRDesign/ALRDesign.php:83
+msgid "Remove Registration"
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:84
+msgid "This prevents users from being able to register on the login page."
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:89
+#, fuzzy
+msgid "Remove Forgot Password"
+msgstr "Glömt Lösenord"
+
+#: src/ALRDesign/ALRDesign.php:90
+msgid "This prevents users from being able to use the \"forgot password\"."
+msgstr ""
+
+#: src/ALRMisc/ALRMisc.php:43
+msgid "Misc."
+msgstr ""
+
+#: src/ALRMisc/ALRMisc.php:47
+msgid "Login Handle"
+msgstr "Hantera Login"
+
+#: src/ALRMisc/ALRMisc.php:50
+#, fuzzy
+msgid ""
+"Type the class name or ID of the element you want to launch the dialog box "
+"when clicked, example <code>.login-link</code>"
+msgstr ""
+"Skriv klassnamnet eller ID på elementet du vill starta dialogrutan med när "
+"du klickar på, exempelvis"
+
+#: src/ALRMisc/ALRMisc.php:54
+msgid "Register Handle"
+msgstr "Hantera Registrering"
+
+#: src/ALRMisc/ALRMisc.php:57
+#, fuzzy
+msgid ""
+"Type the class name or ID of the element you want to launch the dialog box "
+"when clicked, example <code>.register-link</code>"
+msgstr ""
+"Skriv klassnamnet eller ID på elementet du vill starta dialogrutan med när "
+"du klickar på, exempelvis"
+
+#: src/ALRMisc/ALRMisc.php:61
+#, fuzzy
+msgid "Force Check Password"
+msgstr "Glömt Lösenord"
+
+#: src/ALRMisc/ALRMisc.php:64
+msgid ""
+"Use this option if your are experiencing compatibility issues with other "
+"login and or register plugins."
+msgstr ""
+
+#: src/ALRMisc/ALRMisc.php:73
+msgid "Pre-load Forms"
+msgstr ""
+
+#: src/ALRMisc/ALRMisc.php:80
+msgid ""
+"Setting this option will pre-load the forms, allowing them to be loaded "
+"prior to being clicked on."
+msgstr ""
+
+#: src/ALRRedirect/ALRRedirect.php:54
+msgid "Redirect"
+msgstr ""
+
+#: src/ALRRedirect/ALRRedirect.php:58
+msgid "Redirect After Login URL"
+msgstr "Styr vidare till URL efter inloggning "
+
+#: src/ALRRedirect/ALRRedirect.php:63
+msgid ""
+"Enter the URL or slug you want users redirected to after login, example: "
+msgstr ""
+"Ange URL eller informationsmarginal som du vill att användarna ska "
+"omdirigeras till efter inloggning, exempelvis:"
+
+#: src/ALRRedirect/ALRRedirect.php:64
+msgid "http://site.com/, /dashboard/, /wp-admin/"
+msgstr "http://sajt.com/, /dashboard/, /wp-admin/"
+
+#: src/ALRSocial/ALRSocial.php:43
+msgid "Social"
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:245
+msgid "Log in using Facebook"
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:274
+msgid "Facebook Settings"
+msgstr "Facebook Inställningar"
+
+#: src/ALRSocial/ALRSocialFacebook.php:280
+msgid "Enable"
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:282
+msgid "By enabling this setting visitors will be able to login with Facebook."
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:287
+msgid "Login Button"
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:289
+msgid "Upload a custom image to be displayed as the Facebook login button."
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:294
+msgid "App ID"
+msgstr "App ID"
+
+#: src/ALRSocial/ALRSocialFacebook.php:295
+msgid ""
+"This is the App ID as seen in your <a href=\"https://developers.facebook.com/"
+"\">Facebook Developer</a> App Dashboard. For detailed instructions visit the "
+"<a href=\"http://zanematthew.com/ajax-login-register-help-videos/\" target="
+"\"_blank\">How To add Facebook Settings to AJAX Login & Register</a>."
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:302
+msgid "Use Facebook Avatar"
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:303
+msgid ""
+"Checking this box will make Facebook profile picture show as avatar when "
+"possible "
+msgstr ""
+
+#~ msgid ".login-link"
+#~ msgstr ".login-link"
+
+#~ msgid ".register-link"
+#~ msgstr ".register-link"
+
+#~ msgid "URL"
+#~ msgstr "URL"
+
+#~ msgid "This is the URL you have set in your Facebook Developer App Settings"
+#~ msgstr ""
+#~ "Detta är URL:en du har skrivit in i dina Facebook Developer App "
+#~ "Inställningar"
+
+#~ msgid "This is the App ID as seen in your Facebook Developer App Dashboard"
+#~ msgstr ""
+#~ "Detta är App ID:n som syns i din Facebook Developer App Instrumentpanel"
+
+#~ msgid "Enable Facebook Login"
+#~ msgstr "Aktivera Facebook Login"
+
+#~ msgid "By disabling this, your Facebook settings will still be saved."
+#~ msgstr ""
+#~ "Genom att inaktivera detta, så sparas dina Facebook inställningar "
+#~ "fortfarande."
+
+#~ msgid "AJAX Login &amp; Register Settings"
+#~ msgstr "AJAX Login &amp; Registrera Inställningar"
+
+#~ msgid "Usage"
+#~ msgstr "Användning"
+
+#~ msgid ""
+#~ "<p>To create a login page using shortcode; add the following shortcode "
+#~ "<code>ajax_login</code> for the login page or <code>ajax_register</code> "
+#~ "for the registration page to any Page or Post.</p><p>To create a login or "
+#~ "registration dialog box do the following; create a menu item, assign a "
+#~ "custom class name, then add that custom class name to the field: "
+#~ "<em>Login Handle</em> for login or <em>Register Handle</em> for the "
+#~ "registration page found in the settings below.</p><p><em>Note your theme "
+#~ "must support custom menus</em></p><p><em>Note your site will need to be "
+#~ "open to registration</em></p>"
+#~ msgstr ""
+#~ "<p>Så här skapar du en inloggningssida när du använder kortkod; lägg till "
+#~ "följande kortkod <code>ajax_login</code> för inloggningssidan eller "
+#~ "<code>ajax_register</code> för registreringssidan till valfri Sida eller "
+#~ "Inlägg.</p><p>För att skapa en inloggning- eller registrering-dialogruta "
+#~ "gör du följande; skapa ett menyalternativ, tilldela ett anpassat klass-"
+#~ "namn, lägg sedan till det anpassade klassnamnet till fältet: <em>Hantera "
+#~ "Login</em> för att logga in eller <em>Hantera  Registrering</em> till "
+#~ "registreringssidan som finns i inställningarna nedan.</p><p><em>OBS! Ditt "
+#~ "tema måste stödja anpassade menyer</em></p><p><em>OBS! Din webbplats "
+#~ "måste vara öppen för registrering</em></p>"
+
+#~ msgid ""
+#~ "<p>Once you have created your Facebook App, go to your Facebook Developer "
+#~ "App Settings and add your site URL(s) to the App Domains field. Then, "
+#~ "copy your App ID and paste into your App ID field in the zM AJAX Login & "
+#~ "Register Facebook settings.</p><p>In order to use Facebook login you will "
+#~ "need to Create a Facebook App, by visiting <a href=\"https://developers."
+#~ "facebook.com/\" target=\"_blank\">Facebook Developers</a>. Once you have "
+#~ "created your Facebook App you are now ready to enter your \"site URL\" as "
+#~ "seen in Facebook Developer App Settings and your App ID.</p><p>For "
+#~ "detailed instructions visit the <a href=\"http://zanematthew.com/ajax-"
+#~ "login-register-help-videos/\" target=\"_blank\">How To add Facebook "
+#~ "Settings to AJAX Login &amp; Register</a>, feel free to contact us via "
+#~ "our <a href=\"http://support.zanematthew.com/forum/zm-ajax-login-register/"
+#~ "\" target=\"_blank\">Support Forum</a> if you need additional help.</p>"
+#~ msgstr ""
+#~ "<p>När du har skapat din Facebook App, gå till dina Facebook Developer "
+#~ "App inställningar och lägg till din(a) URL(s) till App-domäner fältet. "
+#~ "Efter det, kopiera din App ID och klistra in det i App ID-fältet i ZM "
+#~ "AJAX Login & Register Facebook inställningar.</p><p>För att kunna använda "
+#~ "Facebook Login måste du skapa en Facebook App, genom att besöka <a href="
+#~ "\"https://developers.facebook.com/\" target=\"_blank\">Facebook "
+#~ "Developers</a>. När du har skapat din Facebook App så är du nu redo att "
+#~ "skriva in din \"sajt URL\" som kan ses i Facebook Developer App "
+#~ "inställningar och din App ID</p><p> För detaljerade instruktioner besök "
+#~ "<a href=\"http://zanematthew.com/ajax-login-register-help-videos/\" "
+#~ "target=\"_blank\">Hur man lägger till Facebook-inställningar till AJAX "
+#~ "Login & amp; Register</a>, känn dig välkommen att kontakta oss via vårt "
+#~ "<a href=\"http://support.zanematthew.com/forum/zm-ajax-login-register/\" "
+#~ "target=\"_blank\"> Supportforum</a> om du behöver extra hjälp.</p>"
+
+#~ msgid "Advanced Usage"
+#~ msgstr "Avancerad Användning"
+
+#~ msgid "Upgrade to the Pro version"
+#~ msgstr "Uppgradera till Pro version"
+
+#~ msgid "Remove these ads?"
+#~ msgstr "Ta bort dessa annonser?"
+
+#~ msgid "Remove this ad, upgrade to Pro"
+#~ msgstr "Ta bort denna annons, uppgradera till Pro"
+
+#~ msgid "Upgrade to Login &amp; Register Pro"
+#~ msgstr "Uppgradera till Login &amp; Register Pro"
