@@ -163,7 +163,7 @@ Your seeing this message because your site is not open for registration. In orde
 
 = 2.0.1 =
 
- * Adding Swedish translation, [#123](https://github.com/zanematthew/zm-ajax-login-register/issues/123)
+ * Adding Polish translation, [#123](https://github.com/zanematthew/zm-ajax-login-register/issues/123), by [couponmachine.in](http://www.couponmachine.in)
 
 = 2.0.0 =
 
