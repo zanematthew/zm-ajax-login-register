@@ -153,10 +153,10 @@ Class ALRDesign {
 
         ?>
 
-        <?php if ( ! empty( $zm_alr_settings[ $this->prefix . '_login_additonal_styling'] ) ) : ?>
+        <?php if ( ! empty( $zm_alr_settings[ $this->prefix . '_additonal_styling'] ) ) : ?>
             <!-- Start: ALR Additional Styling -->
             <style type="text/css">
-                <?php echo $zm_alr_settings[ $this->prefix . '_login_additonal_styling']; ?>
+                <?php echo $zm_alr_settings[ $this->prefix . '_additonal_styling']; ?>
             </style>
             <!-- End: ALR Additional Styling -->
         <?php endif; ?>
