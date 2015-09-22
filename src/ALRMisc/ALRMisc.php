@@ -41,7 +41,7 @@ Class ALRMisc {
 
         $settings[ $this->prefix ] = array(
             'title' => __('Misc.', ZM_ALR_TEXT_DOMAIN ),
-            'fields' => array(
+            'fields' => apply_filters( $this->prefix . '_settings_fields_tab', array(
                 array(
                     'id' => $this->prefix . '_login_handle',
                     'title' => __( 'Login Handle', ZM_ALR_TEXT_DOMAIN ),
@@ -80,7 +80,7 @@ Class ALRMisc {
                     'desc' => __( 'Setting this option will pre-load the forms, allowing them to be loaded prior to being clicked on.', ZM_ALR_TEXT_DOMAIN )
                 )
             )
-        );
+        ) );
 
         return array_merge( $current_settings, $settings );
 

@@ -41,16 +41,9 @@ Class ALRHtml {
         $new_fields = array();
         foreach( $fields as $key => $value ){
 
-            $new_value = apply_filters( 'below_' . $key, null );
             $new_fields[ $key ] = $value;
-
-            // Add the new value, using the key/
-            if ( $new_value ){
-                $new_fields[ $new_value['key'] ] = $new_value;
-
-                // no need to keep the key around, so we remove it, to avoid later confusion.
-                unset( $new_fields[ $new_value['key'] ]['key'] );
-            }
+            $new_fields = apply_filters( 'above_' . $key, $new_fields );
+            $new_fields = apply_filters( 'below_' . $key, $new_fields );
 
         }
 

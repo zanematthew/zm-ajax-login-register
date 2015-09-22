@@ -207,11 +207,11 @@ Class ALRLogin {
          */
         if ( $is_ajax ) check_ajax_referer('login_submit','security');
 
-        $args = array(
+        $args = apply_filters( $this->prefix . '_form_params', array(
             'user_login' => sanitize_user( $_POST['zm_alr_login_user_name'] ),
             'password' => $_POST['zm_alr_login_password'],
             'remember' => empty( $_POST['remember'] ) ? false : ture
-        );
+        ) );
 
         $pre_status = apply_filters( $this->prefix . '_submit_pre_status_error', $_POST );
 
