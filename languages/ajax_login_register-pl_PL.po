@@ -1,0 +1,459 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: zM AJAX Login & Register\n"
+"POT-Creation-Date: 2015-09-28 11:53-0500\n"
+"PO-Revision-Date: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.6.5\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x;_ex;_nx;esc_attr__;esc_attr_e;esc_attr_x;"
+"esc_html__;esc_html_e;esc_html_x;_n_noop;_nx_noop;translate_nooped_plural\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: deprecated.php:106 deprecated.php:107 src/ALRCore/ALRRegister.php:152
+msgid "Already registered?"
+msgstr "Już jesteś zarejestrowany/a?"
+
+#: deprecated.php:119 deprecated.php:120 src/ALRCore/ALRLogin.php:132
+msgid "Are you a member?"
+msgstr "Czy jesteś członkiem?"
+
+#: lib/lumber/lumber.php:420
+msgid "-- Select a Value --"
+msgstr ""
+
+#: lib/lumber/lumber.php:894
+msgid "Upload"
+msgstr ""
+
+#: lib/lumber/lumber.php:898
+msgid "Remove"
+msgstr ""
+
+#: lib/quilt/quilt.php:116
+msgid "Options saved."
+msgstr ""
+
+#: lib/quilt/quilt.php:331
+msgid "Thank you for using Quilt."
+msgstr ""
+
+#: lib/quilt/quilt.php:352
+msgid "Save Changes"
+msgstr ""
+
+#: lib/quilt/quilt.php:354
+msgid "Reset Values"
+msgstr ""
+
+#: lib/quilt/quilt.php:358
+msgid "Restore ALL Default Values"
+msgstr ""
+
+#: lib/quilt/quilt.php:701
+msgid "Activate"
+msgstr ""
+
+#: lib/quilt/quilt.php:709
+msgid "Active"
+msgstr ""
+
+#: lib/quilt/quilt.php:710
+msgid "Deactivate"
+msgstr ""
+
+#: lib/quilt/quilt.php:713
+msgid "Inactive"
+msgstr ""
+
+#: lib/quilt/quilt.php:791
+msgid "This will delete your current settings and restore the defaults."
+msgstr ""
+
+#: plugin.php:146 src/ALRCore/ALRLogin.php:103 src/ALRCore/ALRLogin.php:104
+#: src/ALRCore/ALRRegister.php:82 src/ALRCore/ALRRegister.php:83
+msgid "Logout"
+msgstr "Wyloguj się"
+
+#: plugin.php:147
+msgid "Close"
+msgstr "Zamknij"
+
+#: plugin.php:149 src/ALRCore/ALRLogin.php:101
+msgid "You are already logged in"
+msgstr "Już jesteś zalogowana."
+
+#: plugin.php:150 src/ALRCore/ALRRegister.php:80
+msgid "You are already registered"
+msgstr "Jesteś już zarejestrowany"
+
+#: plugin.php:217
+msgid "Settings"
+msgstr "Ustawienia główne"
+
+#: plugin.php:218 settings.php:61
+msgid "Pro Version"
+msgstr "Zobacz wersje PRO"
+
+#: plugin.php:243
+msgid ""
+"Thanks for installing ZM AJAX Login & Register, be sure to check out the "
+"features in the"
+msgstr ""
+"Dziękujemy za zainstalowanie ZM AJAX Login & Rejestracja, koniecznie "
+"zapoznaj się z funkcji"
+
+#: settings.php:19 settings.php:37
+msgid "AJAX Login & Register"
+msgstr "Zaloguj się AJAX &amp; rejestru"
+
+#: settings.php:56
+msgid "Thank you for using ZM AJAX Login & Register"
+msgstr "Zaloguj się AJAX &amp; rejestru"
+
+#: settings.php:59
+msgid "Support"
+msgstr ""
+
+#: src/ALRCore/ALRHelpers.php:22 src/ALRCore/ALRHelpers.php:27
+#: src/ALRCore/ALRHelpers.php:32
+msgid "Invalid username"
+msgstr "Nieprawidłowa nazwa użytkownika"
+
+#: src/ALRCore/ALRHelpers.php:38
+msgid "Invalid"
+msgstr "Nieważna"
+
+#: src/ALRCore/ALRHelpers.php:43
+msgid "Passwords do not match."
+msgstr "Wprowadzone hasła nie są identyczne."
+
+#: src/ALRCore/ALRHelpers.php:54 src/ALRCore/ALRHelpers.php:59
+msgid "Invalid Email"
+msgstr "Nieprawidłowy adres e-mail."
+
+#: src/ALRCore/ALRHelpers.php:65 src/ALRCore/ALRHelpers.php:70
+msgid "Success! One moment while we log you in..."
+msgstr "Sukces! Jednej chwili, a my Zaloguj się..."
+
+#: src/ALRCore/ALRLogin.php:137
+msgid "Forgot Password"
+msgstr "Nie pamiętam hasła"
+
+#: src/ALRCore/ALRLogin.php:147 src/ALRCore/ALRRegister.php:121
+msgid "User Name"
+msgstr "Nazwa użytkownika"
+
+#: src/ALRCore/ALRLogin.php:152 src/ALRCore/ALRRegister.php:131
+msgid "Password"
+msgstr "Hasło"
+
+#: src/ALRCore/ALRLogin.php:157
+msgid "Keep Me Logged In"
+msgstr "Nie wylogowuj mnie"
+
+#: src/ALRCore/ALRLogin.php:161 src/ALRCore/ALRLogin.php:311
+msgid "Login"
+msgstr "Zaloguj się"
+
+#: src/ALRCore/ALRLogin.php:312 src/ALRCore/ALRRegister.php:373
+msgid "Loading..."
+msgstr "Ładowanie"
+
+#: src/ALRCore/ALRRegister.php:94
+msgid "Registration is currently closed."
+msgstr "Rejestracja jest obecnie zamknięty."
+
+#: src/ALRCore/ALRRegister.php:126 src/ALREmailLogin/ALREmailLogin.php:61
+msgid "Email"
+msgstr "Email"
+
+#: src/ALRCore/ALRRegister.php:136
+msgid "Confirm Password"
+msgstr "Powtórz hasło"
+
+#: src/ALRCore/ALRRegister.php:141 src/ALRCore/ALRRegister.php:372
+msgid "Register"
+msgstr "Zarejestruj się"
+
+#: src/ALRDesign/ALRDesign.php:54
+msgid "Design"
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:58
+msgid "Form Layout"
+msgstr "Układ formularza"
+
+#: src/ALRDesign/ALRDesign.php:61
+msgid "Not applicable in widget areas."
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:63
+msgid "Default"
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:64
+msgid "Wide"
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:69
+msgid "Additional Styling"
+msgstr "Dodatkowe style"
+
+#: src/ALRDesign/ALRDesign.php:71
+msgid "Type your custom CSS styles that are applied to the dialog boxes."
+msgstr ""
+"Wpisz swoje niestandardowe style CSS, które są stosowane do okien "
+"dialogowych."
+
+#: src/ALRDesign/ALRDesign.php:77
+msgid "Disable \"keep me logged in\""
+msgstr "Wyłącz \"Nie wylogowuj mnie\""
+
+#: src/ALRDesign/ALRDesign.php:78
+msgid "Use this option to disable the check box shown to keep users logged in."
+msgstr ""
+"Użyj tej opcji, aby wyłączyć pole wyboru pokazany zachować zalogowanych "
+"użytkowników."
+
+#: src/ALRDesign/ALRDesign.php:83
+msgid "Remove Registration"
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:84
+msgid "This prevents users from being able to register on the login page."
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:89
+msgid "Remove Forgot Password"
+msgstr "Nie pamiętam hasła"
+
+#: src/ALRDesign/ALRDesign.php:90
+msgid "This prevents users from being able to use the \"forgot password\"."
+msgstr ""
+
+#: src/ALREmailLogin/ALREmailLogin.php:36
+msgid "Enable Email Login"
+msgstr "Wyraźne połączenia. Lepsze połączenia."
+
+#: src/ALREmailLogin/ALREmailLogin.php:44
+msgid ""
+"By enabling this setting users can login with their email. Note users MUST "
+"still <strong>register</strong> with a user name."
+msgstr ""
+
+#: src/ALRMisc/ALRMisc.php:43
+msgid "Misc."
+msgstr ""
+
+#: src/ALRMisc/ALRMisc.php:47
+msgid "Login Handle"
+msgstr "Zaloguj Uchwyt"
+
+#: src/ALRMisc/ALRMisc.php:50
+msgid ""
+"Type the class name or ID of the element you want to launch the dialog box "
+"when clicked, example <code>.login-link</code>"
+msgstr ""
+"Wpisz nazwę klasy lub ID elementu, który chcesz uruchomić okno dialogowe po "
+"kliknięciu, przykład"
+
+#: src/ALRMisc/ALRMisc.php:54
+msgid "Register Handle"
+msgstr "Zarejestrować uchwyt"
+
+#: src/ALRMisc/ALRMisc.php:57
+msgid ""
+"Type the class name or ID of the element you want to launch the dialog box "
+"when clicked, example <code>.register-link</code>"
+msgstr ""
+"Wpisz nazwę klasy lub ID elementu, który chcesz uruchomić okno dialogowe po "
+"kliknięciu, przykład"
+
+#: src/ALRMisc/ALRMisc.php:61
+msgid "Force Check Password"
+msgstr "Nie pamiętam hasła"
+
+#: src/ALRMisc/ALRMisc.php:64
+msgid ""
+"Use this option if your are experiencing compatibility issues with other "
+"login and or register plugins."
+msgstr ""
+
+#: src/ALRMisc/ALRMisc.php:73
+msgid "Pre-load Forms"
+msgstr ""
+
+#: src/ALRMisc/ALRMisc.php:80
+msgid ""
+"Setting this option will pre-load the forms, allowing them to be loaded "
+"prior to being clicked on."
+msgstr ""
+
+#: src/ALRRedirect/ALRRedirect.php:54
+msgid "Redirect"
+msgstr ""
+
+#: src/ALRRedirect/ALRRedirect.php:58
+msgid "Redirect After Login URL"
+msgstr "Przekierować po URL logowania"
+
+#: src/ALRRedirect/ALRRedirect.php:63
+msgid ""
+"Enter the URL or slug you want users redirected to after login, example: "
+msgstr ""
+"Wprowadź adres URL lub ślimak ma użytkownik przekierowany po zalogowaniu, "
+"przykład:"
+
+#: src/ALRRedirect/ALRRedirect.php:64
+msgid "http://site.com/, /dashboard/, /wp-admin/"
+msgstr "http://site.com/, / deska rozdzielcza /, / wp-admin /"
+
+#: src/ALRSocial/ALRSocial.php:43
+msgid "Social"
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:245
+msgid "Log in using Facebook"
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:274
+msgid "Facebook Settings"
+msgstr "Ustawienia Facebook"
+
+#: src/ALRSocial/ALRSocialFacebook.php:280
+msgid "Enable"
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:282
+msgid "By enabling this setting visitors will be able to login with Facebook."
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:287
+msgid "Login Button"
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:289
+msgid "Upload a custom image to be displayed as the Facebook login button."
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:294
+msgid "App ID"
+msgstr "App ID"
+
+#: src/ALRSocial/ALRSocialFacebook.php:295
+msgid ""
+"This is the App ID as seen in your <a href=\"https://developers.facebook.com/"
+"\">Facebook Developer</a> App Dashboard. For detailed instructions visit the "
+"<a href=\"http://zanematthew.com/ajax-login-register-help-videos/\" target="
+"\"_blank\">How To add Facebook Settings to AJAX Login & Register</a>."
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:302
+msgid "Use Facebook Avatar"
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:303
+msgid ""
+"Checking this box will make Facebook profile picture show as avatar when "
+"possible "
+msgstr ""
+
+#~ msgid ".login-link"
+#~ msgstr ".Login-link"
+
+#~ msgid ".register-link"
+#~ msgstr ".register-link"
+
+#~ msgid "URL"
+#~ msgstr "Odnośnik URL"
+
+#~ msgid "This is the URL you have set in your Facebook Developer App Settings"
+#~ msgstr "Jest to adres ustawiono w ustawienia aplikacji Facebook Developer"
+
+#~ msgid "This is the App ID as seen in your Facebook Developer App Dashboard"
+#~ msgstr ""
+#~ "Jest to identyfikator aplikacji, jak widać w Facebook App Developer "
+#~ "Dashboard"
+
+#~ msgid "By disabling this, your Facebook settings will still be saved."
+#~ msgstr "Po wyłączeniu tej funkcji, nadal będą zapisane ustawienia Facebook."
+
+#~ msgid "AJAX Login &amp; Register Settings"
+#~ msgstr "Logowanie i Rejestracja AJAX Ustawienia"
+
+#~ msgid "Usage"
+#~ msgstr "Zastosowanie"
+
+#~ msgid ""
+#~ "<p>To create a login page using shortcode; add the following shortcode "
+#~ "<code>ajax_login</code> for the login page or <code>ajax_register</code> "
+#~ "for the registration page to any Page or Post.</p><p>To create a login or "
+#~ "registration dialog box do the following; create a menu item, assign a "
+#~ "custom class name, then add that custom class name to the field: "
+#~ "<em>Login Handle</em> for login or <em>Register Handle</em> for the "
+#~ "registration page found in the settings below.</p><p><em>Note your theme "
+#~ "must support custom menus</em></p><p><em>Note your site will need to be "
+#~ "open to registration</em></p>"
+#~ msgstr ""
+#~ "<p>To create a login page using shortcode; add the following shortcode "
+#~ "<code>ajax_login</code> for the login page or <code>ajax_register</code> "
+#~ "for the registration page to any Page or Post.</p><p>To create a login or "
+#~ "registration dialog box do the following; create a menu item, assign a "
+#~ "custom class name, then add that custom class name to the field: "
+#~ "<em>Login Handle</em> for login or <em>Register Handle</em> for the "
+#~ "registration page found in the settings below.</p><p><em>Note your theme "
+#~ "must support custom menus</em></p><p><em>Note your site will need to be "
+#~ "open to registration</em></p>"
+
+#~ msgid ""
+#~ "<p>Once you have created your Facebook App, go to your Facebook Developer "
+#~ "App Settings and add your site URL(s) to the App Domains field. Then, "
+#~ "copy your App ID and paste into your App ID field in the zM AJAX Login & "
+#~ "Register Facebook settings.</p><p>In order to use Facebook login you will "
+#~ "need to Create a Facebook App, by visiting <a href=\"https://developers."
+#~ "facebook.com/\" target=\"_blank\">Facebook Developers</a>. Once you have "
+#~ "created your Facebook App you are now ready to enter your \"site URL\" as "
+#~ "seen in Facebook Developer App Settings and your App ID.</p><p>For "
+#~ "detailed instructions visit the <a href=\"http://zanematthew.com/ajax-"
+#~ "login-register-help-videos/\" target=\"_blank\">How To add Facebook "
+#~ "Settings to AJAX Login &amp; Register</a>, feel free to contact us via "
+#~ "our <a href=\"http://support.zanematthew.com/forum/zm-ajax-login-register/"
+#~ "\" target=\"_blank\">Support Forum</a> if you need additional help.</p>"
+#~ msgstr ""
+#~ "<p>Once you have created your Facebook App, go to your Facebook Developer "
+#~ "App Settings and add your site URL(s) to the App Domains field. Then, "
+#~ "copy your App ID and paste into your App ID field in the zM AJAX Login & "
+#~ "Register Facebook settings.</p><p>In order to use Facebook login you will "
+#~ "need to Create a Facebook App, by visiting <a href=\"https://developers."
+#~ "facebook.com/\" target=\"_blank\">Facebook Developers</a>. Once you have "
+#~ "created your Facebook App you are now ready to enter your \"site URL\" as "
+#~ "seen in Facebook Developer App Settings and your App ID.</p><p>For "
+#~ "detailed instructions visit the <a href=\"http://zanematthew.com/ajax-"
+#~ "login-register-help-videos/\" target=\"_blank\">How To add Facebook "
+#~ "Settings to AJAX Login &amp; Register</a>, feel free to contact us via "
+#~ "our <a href=\"http://support.zanematthew.com/forum/zm-ajax-login-register/"
+#~ "\" target=\"_blank\">Support Forum</a> if you need additional help.</p>"
+
+#~ msgid "Advanced Usage"
+#~ msgstr "Użycie zaawansowane"
+
+#~ msgid "Upgrade to the Pro version"
+#~ msgstr "Uaktualnienie do wersji Pro"
+
+#~ msgid "Remove these ads?"
+#~ msgstr "Usuń te reklamy?"
+
+#~ msgid "Remove this ad, upgrade to Pro"
+#~ msgstr "Usuń to ogłoszenie, upgrade do Pro"
+
+#~ msgid "Upgrade to Login &amp; Register Pro"
+#~ msgstr "Upgrade do logowania i zarejestruj Pro"

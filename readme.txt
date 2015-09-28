@@ -52,6 +52,7 @@ ZM AJAX Login & Register is available in the following languages. Thanks to the 
 * Croatian via Fran
 * French via [@jukd](https://twitter.com/jukd)
 * Italian via [@FilippoAceto](http://www.filippoaceto.it/)
+* Polish via [Abdul](http://www.couponmachine.in)
 * Persian via [Behzad](https://www.facebook.com/theme20)
 * Romanian via [Sandu](http://www.vtube.ro/)
 * Russian (Russian) via [artbelov](https://github.com/artbelov)
@@ -163,8 +164,9 @@ Your seeing this message because your site is not open for registration. In orde
 
 = 2.0.1 =
 
- * Adding Swedish translation
+ * Adding Swedish translation, [#123](https://github.com/zanematthew/zm-ajax-login-register/issues/123)
  * Bug: Fixed issue where additional styling (textarea CSS) did not show, [#124](https://github.com/zanematthew/zm-ajax-login-register/issues/124)
+ * Adding Polish translation, [#125](https://github.com/zanematthew/zm-ajax-login-register/issues/125)
 
 = 2.0.0 =
 
