@@ -38,8 +38,6 @@ require ZM_ALR_PATH . 'src/ALRSocial/ALRSocial.php';
 require ZM_ALR_PATH . 'src/ALRSocial/ALRSocialFacebook.php';
 require ZM_ALR_PATH . 'src/ALRMisc/ALRMisc.php';
 require ZM_ALR_PATH . 'src/ALRRedirect/ALRRedirect.php';
-require ZM_ALR_PATH . 'src/ALREmailLogin/ALREmailLogin.php';
-
 
 /**
  * This is the main, init, and only. Any features should call the 'zm_alr_init' action.
@@ -60,7 +58,6 @@ function zm_alr_init(){
     new ALRSocial();
     new ALRSocialFacebook( new ZM_Dependency_Container( null ) );
     new ALRUpgrade();
-    new ALREmailLogin();
 
     global $zm_alr_settings_obj;
     $zm_alr_settings_obj = new Quilt(
