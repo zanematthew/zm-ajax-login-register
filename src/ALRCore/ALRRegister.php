@@ -242,7 +242,9 @@ Class ALRRegister {
 
         }
 
-        $status = array_merge( $status, $this->registerRedirect( $user['user_login'], $status['code'] ) );
+        $status = array_merge( $status, array(
+            'redirect_url' => $this->registerRedirect( $user['user_login'], $status['code'] ) )
+        );
 
         if ( $is_ajax ) {
 
