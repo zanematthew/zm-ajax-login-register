@@ -51,6 +51,7 @@ ZM AJAX Login & Register is available in the following languages. Thanks to the 
 * Chinese (front end only), via [Pull Request](https://github.com/zanematthew/zm-ajax-login-register/pull/71)
 * Croatian via Fran
 * French via [@jukd](https://twitter.com/jukd)
+* Hebrew via [Yehuda](http://www.atarimtr.co.il/)
 * Italian via [@FilippoAceto](http://www.filippoaceto.it/)
 * Polish via [Abdul](http://www.couponmachine.in)
 * Persian via [Behzad](https://www.facebook.com/theme20)
