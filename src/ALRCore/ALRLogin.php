@@ -213,7 +213,7 @@ Class ALRLogin {
             'remember' => empty( $_POST['remember'] ) ? false : ture
         ) );
 
-        $pre_status = apply_filters( $this->prefix . '_submit_pre_status_error', $_POST );
+        $pre_status = apply_filters( $this->prefix . '_submit_pre_status_error', $status, $_POST );
 
         // If ANY status code is set we do not go forward
         if ( isset( $pre_status['code'] ) ){
