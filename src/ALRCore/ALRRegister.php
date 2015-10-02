@@ -237,7 +237,7 @@ Class ALRRegister {
             // Allow to void this!
             $did_signon = apply_filters( $this->prefix . '_do_signon', true );
             if ( $did_signon === true ){
-                $this->signOn( $user );
+                $this->signOn( $user, $status );
             }
 
         }
@@ -258,15 +258,29 @@ Class ALRRegister {
     }
 
 
-    public function signOn( $user=null ){
+    /**
+     * This is a wrapper for the default WordPress function wp_signon that
+     * performs certain functions after the signon.
+     *
+     * @param   array   $user     {
+     *      @type   string  $user_login     The user login
+     *      @type   string  $user_pass      The user password
+     * }
+     * @param   array   $status   {}
+     * @return  void
+     */
+    public function signOn( $user=null, $status=null ){
 
         $wp_signon = wp_signon( array(
             'user_login' => $user['user_login'],
             'user_password' => $user['user_pass'],
             'remember' => true ),
         false );
-        wp_new_user_notification( $user_id );
-        do_action( $this->prefix . '_after_signon', $user_id );
+
+        $user_obj = get_user_by( 'login', $user['user_login'] );
+
+        wp_new_user_notification( $user_obj->ID );
+        do_action( $this->prefix . '_after_signon', $user_obj->ID );
         $status = apply_filters( $this->prefix . '_signon_status', $status, $user );
 
     }
