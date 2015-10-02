@@ -9,21 +9,25 @@ $document.ready(function( $ ){
         event.preventDefault();
 
         var $this = $(this),
-            google_recaptcha = zMAjaxLoginRegister.recaptcha_check_login( $this );
+            google_recaptcha = zMAjaxLoginRegister.recaptcha_check_login( $this ),
+            serialized_form = $this.serialize(),
+            form_fields = 'input[type="password"], input[type="text"], input[type="email"], input[type="checkbox"], input[type="submit"]',
+            data = {
+                action: 'login_submit',
+                security: $this.data('zm_alr_login_security')
+            };
 
-        var data = {
-            action: 'login_submit',
-            security: $this.data('zm_alr_login_security')
-        };
+        $this.find( form_fields ).attr('disabled','disabled');
 
         $.ajax({
             global: false,
-            data: "action=login_submit&" + $this.serialize() + "&security=" + $this.data('zm_alr_login_security') + "&" + google_recaptcha,
+            data: "action=login_submit&" + serialized_form + "&security=" + $this.data('zm_alr_login_security') + "&" + google_recaptcha,
             type: "POST",
             url: _zm_alr_settings.ajaxurl,
             success: function( msg ){
 
                 ajax_login_register_show_message( $this, msg );
+                $this.find( form_fields ).removeAttr('disabled');
                 zMAjaxLoginRegister.reload( msg.redirect_url );
 
             }
