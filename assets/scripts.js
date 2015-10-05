@@ -267,11 +267,16 @@ $document.ready(function( $ ){
         closeText: _zm_alr_settings.close_text
     });
 
+
     $( '#ajax-login-register-dialog, #ajax-login-register-login-dialog' ).dialog( "option", "position", {
-        my: "center top",
-        at: "center top+5%",
-        of: 'body'
-    });
+
+            my: _zm_alr_settings.dialog_position.my,
+            at: _zm_alr_settings.dialog_position.at,
+            of: _zm_alr_settings.dialog_position.of
+
+        }
+    );
+
 
     if ( _zm_alr_settings.pre_load_forms === 'zm_alr_misc_pre_load_yes' ){
         zMAjaxLoginRegister.load_login();

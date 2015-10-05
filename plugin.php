@@ -146,8 +146,14 @@ function zm_ajax_login_register_enqueue_scripts(){
         'logged_in_text'  => __('You are already logged in', ZM_ALR_TEXT_DOMAIN ),
         'registered_text' => __( 'You are already registered', ZM_ALR_TEXT_DOMAIN ),
         'dialog_width'    => 'auto',
-        'dialog_height'   => 'auto'
-        ) ) );
+        'dialog_height'   => 'auto',
+        'dialog_position' => array(
+            'my' => 'center top',
+            'at' => 'center top+5%',
+            'of' => 'body'
+        )
+    ) ) );
+
 }
 add_action( 'wp_enqueue_scripts', 'zm_ajax_login_register_enqueue_scripts');
 
