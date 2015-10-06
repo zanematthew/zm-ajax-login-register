@@ -32,7 +32,7 @@ var zMAjaxLoginRegister = {
             msg = {
                 "cssClass": "error-container",
                 "description": _zm_alr_settings.match_error,
-                "code": "error"
+                "code": "show_notice"
             };
         }
 
@@ -166,7 +166,6 @@ var zMAjaxLoginRegister = {
 
 $document.ready(function( $ ){
 
-
     window.ajax_login_register_show_message = function( form_obj, msg ) {
         if ( msg.code === 'success_login' || msg.code === 'success_registration' ){
             jQuery('.ajax-login-register-msg-target', form_obj)
@@ -178,7 +177,7 @@ $document.ready(function( $ ){
         } else if ( msg.description == '' ){
             zMAjaxLoginRegister.reload( form_obj );
         } else {
-            if ( msg.code === 'error' ){
+            if ( msg.code === 'show_notice' ){
                 jQuery('.ajax-login-register-status-container').show();
             } else {
                 jQuery('.ajax-login-register-status-container').hide();

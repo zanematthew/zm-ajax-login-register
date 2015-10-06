@@ -21,28 +21,28 @@ Class ALRHelpers {
             'username_exists' => array(
                 'description' => __('Invalid username', ZM_ALR_TEXT_DOMAIN ),
                 'cssClass' => 'error-container',
-                'code' => 'error'
+                'code' => 'show_notice'
                 ),
             'invalid_username' => array(
                 'description' => __( 'Invalid username', ZM_ALR_TEXT_DOMAIN ),
                 'cssClass' => 'error-container',
-                'code' => 'error'
+                'code' => 'show_notice'
                 ),
             'username_does_not_exists' => array(
                 'description' => __( 'Invalid username', ZM_ALR_TEXT_DOMAIN ),
                 'cssClass' => 'error-container',
-                'code' => 'error'
+                'code' => 'show_notice'
                 ),
 
             'incorrect_password' => array(
                 'description' => __( 'Invalid', ZM_ALR_TEXT_DOMAIN ),
                 'cssClass' => 'error-container',
-                'code' => 'error'
+                'code' => 'show_notice'
                 ),
             'passwords_do_not_match' => array(
                 'description' => __('Passwords do not match.', ZM_ALR_TEXT_DOMAIN ),
                 'cssClass' =>'error-container',
-                'code' => 'error'
+                'code' => 'show_notice'
                 ),
 
             'email_valid' => array(
@@ -53,12 +53,12 @@ Class ALRHelpers {
             'email_invalid' => array(
                 'description' => __( 'Invalid Email', ZM_ALR_TEXT_DOMAIN ),
                 'cssClass' => 'error-container',
-                'code' => 'error'
+                'code' => 'show_notice'
                 ),
             'email_in_use' => array(
                 'description' => __( 'Invalid Email', ZM_ALR_TEXT_DOMAIN ),
                 'cssClass' => 'error-container',
-                'code' => 'error'
+                'code' => 'show_notice'
                 ),
 
             'success_login' => array(
@@ -68,7 +68,7 @@ Class ALRHelpers {
                 ),
             'success_registration' => array(
                 'description' => __( 'Success! One moment while we log you in...', ZM_ALR_TEXT_DOMAIN ),
-                'cssClass' => 'noon',
+                'cssClass' => 'noon success-container',
                 'code' => 'success_registration'
                 )
             );

@@ -65,7 +65,7 @@ $document.ready(function( $ ){
         if ( $('.user_confirm_password').length ){
             passwords_match = zMAjaxLoginRegister.confirm_password('.user_confirm_password');
 
-            if ( passwords_match.code == 'error' ){
+            if ( passwords_match.code == 'show_notice' ){
                 ajax_login_register_show_message( $this, msg );
                 $this.find( form_fields ).removeAttr('disabled');
                 zMAjaxLoginRegister.reload( msg.redirect_url );

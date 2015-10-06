@@ -231,7 +231,11 @@ Class ALRRegister {
         else {
 
             $user_id = $this->_zm_alr_helpers->createUser( $user, $this->prefix );
-            $status = $this->_zm_alr_helpers->status('success_registration');
+
+            $status = $this->_zm_alr_helpers->status( apply_filters(
+                $this->prefix . '_setup_new_user_status_filter',
+                'success_registration' ) );
+
             $status['id'] = $user_id;
 
             // Allow to void this!
