@@ -1,0 +1,462 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ZM AJAX Login Register\n"
+"POT-Creation-Date: 2015-10-06 12:26-0500\n"
+"PO-Revision-Date: 2015-10-06 12:26-0500\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: gl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.6.5\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x;_ex;_nx;esc_attr__;esc_attr_e;esc_attr_x;"
+"esc_html__;esc_html_e;esc_html_x;_n_noop;_nx_noop;translate_nooped_plural\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: deprecated.php:106 deprecated.php:107 src/ALRCore/ALRRegister.php:152
+msgid "Already registered?"
+msgstr "Clàraichte mar tha?"
+
+#: deprecated.php:119 deprecated.php:120 src/ALRCore/ALRLogin.php:132
+msgid "Are you a member?"
+msgstr "An e ball a th' unnad"
+
+#: lib/lumber/lumber.php:420
+msgid "-- Select a Value --"
+msgstr ""
+
+#: lib/lumber/lumber.php:894
+msgid "Upload"
+msgstr ""
+
+#: lib/lumber/lumber.php:898
+msgid "Remove"
+msgstr ""
+
+#: lib/quilt/quilt.php:116
+msgid "Options saved."
+msgstr ""
+
+#: lib/quilt/quilt.php:331
+msgid "Thank you for using Quilt."
+msgstr ""
+
+#: lib/quilt/quilt.php:352
+msgid "Save Changes"
+msgstr ""
+
+#: lib/quilt/quilt.php:354
+msgid "Reset Values"
+msgstr ""
+
+#: lib/quilt/quilt.php:358
+msgid "Restore ALL Default Values"
+msgstr ""
+
+#: lib/quilt/quilt.php:700
+msgid "Activate"
+msgstr ""
+
+#: lib/quilt/quilt.php:708
+msgid "Active"
+msgstr ""
+
+#: lib/quilt/quilt.php:709
+msgid "Deactivate"
+msgstr ""
+
+#: lib/quilt/quilt.php:712
+msgid "Inactive"
+msgstr ""
+
+#: lib/quilt/quilt.php:790
+msgid "This will delete your current settings and restore the defaults."
+msgstr ""
+
+#: plugin.php:143 src/ALRCore/ALRLogin.php:103 src/ALRCore/ALRLogin.php:104
+#: src/ALRCore/ALRRegister.php:82 src/ALRCore/ALRRegister.php:83
+msgid "Logout"
+msgstr "Log a-mach"
+
+#: plugin.php:144
+msgid "Close"
+msgstr "Dùin"
+
+#: plugin.php:146 src/ALRCore/ALRLogin.php:101
+msgid "You are already logged in"
+msgstr "Tha sibh a-staigh mar tha"
+
+#: plugin.php:147 src/ALRCore/ALRRegister.php:80
+msgid "You are already registered"
+msgstr "Tha sibh clàraichte mar tha"
+
+#: plugin.php:220
+msgid "Settings"
+msgstr "Roghainnean Coitcheann"
+
+#: plugin.php:221 settings.php:61
+msgid "Pro Version"
+msgstr "Seòrsa Pro"
+
+#: plugin.php:246
+msgid ""
+"Thanks for installing ZM AJAX Login & Register, be sure to check out the "
+"features in the"
+msgstr ""
+"Ceud taing airson zM AJAX Login & Register cuir air bhog, bitheamh cìnnteach "
+"feuchainn na feartan anns an"
+
+#: settings.php:19 settings.php:37
+msgid "AJAX Login & Register"
+msgstr "AJAX Login &amp; Register"
+
+#: settings.php:56
+msgid "Thank you for using ZM AJAX Login & Register"
+msgstr "AJAX Login &amp; Register"
+
+#: settings.php:59
+msgid "Support"
+msgstr ""
+
+#: src/ALRCore/ALRHelpers.php:22 src/ALRCore/ALRHelpers.php:27
+#: src/ALRCore/ALRHelpers.php:32
+msgid "Invalid username"
+msgstr "Ainm-cleachdte nach obrachadh"
+
+#: src/ALRCore/ALRHelpers.php:38
+msgid "Invalid"
+msgstr "Ceàrr"
+
+#: src/ALRCore/ALRHelpers.php:43
+msgid "Passwords do not match."
+msgstr "Chan eil na faclan-fàire an aon rud"
+
+#: src/ALRCore/ALRHelpers.php:54 src/ALRCore/ALRHelpers.php:59
+msgid "Invalid Email"
+msgstr "Seòladh post-dealain nach obrachadh"
+
+#: src/ALRCore/ALRHelpers.php:65 src/ALRCore/ALRHelpers.php:70
+msgid "Success! One moment while we log you in..."
+msgstr "Rinn sin a ghnothach!  Feitheimh diog fhad 's a log sinn a-steach thu"
+
+#: src/ALRCore/ALRLogin.php:137
+msgid "Forgot Password"
+msgstr "Dhiochuimhnich mi m' fhacail-faire"
+
+#: src/ALRCore/ALRLogin.php:147 src/ALRCore/ALRRegister.php:121
+msgid "User Name"
+msgstr "Ainm-cleachdaiche"
+
+#: src/ALRCore/ALRLogin.php:152 src/ALRCore/ALRRegister.php:131
+msgid "Password"
+msgstr "Facal-faire"
+
+#: src/ALRCore/ALRLogin.php:157
+msgid "Keep Me Logged In"
+msgstr "Cùm mi air mo loggadh a-staigh"
+
+#: src/ALRCore/ALRLogin.php:161 src/ALRCore/ALRLogin.php:312
+msgid "Login"
+msgstr "Log a-steach"
+
+#: src/ALRCore/ALRLogin.php:313 src/ALRCore/ALRRegister.php:391
+msgid "Loading..."
+msgstr "Ag obair..."
+
+#: src/ALRCore/ALRRegister.php:94
+msgid "Registration is currently closed."
+msgstr "Tha clàrachadh dùinte an-drast."
+
+#: src/ALRCore/ALRRegister.php:126
+msgid "Email"
+msgstr "Seòladh post-dealain"
+
+#: src/ALRCore/ALRRegister.php:136
+msgid "Confirm Password"
+msgstr "Dèan cìnnteach air do facal-faire"
+
+#: src/ALRCore/ALRRegister.php:141 src/ALRCore/ALRRegister.php:390
+msgid "Register"
+msgstr "Clàraich"
+
+#: src/ALRDesign/ALRDesign.php:54
+msgid "Design"
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:58
+msgid "Form Layout"
+msgstr "Coltas am form"
+
+#: src/ALRDesign/ALRDesign.php:61
+msgid "Not applicable in widget areas."
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:63
+msgid "Default"
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:64
+msgid "Wide"
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:69
+msgid "Additional Styling"
+msgstr "Stoidhleadh a bharrachd"
+
+#: src/ALRDesign/ALRDesign.php:71
+msgid "Type your custom CSS styles that are applied to the dialog boxes."
+msgstr ""
+"Cuir a-steach do stoidhlichean CSS agad fhein an seo airson na bogsaichean "
+"dialog"
+
+#: src/ALRDesign/ALRDesign.php:77
+msgid "Disable \"keep me logged in\""
+msgstr "Cuir dheth \"cum mi air mo loggadh a-staigh\""
+
+#: src/ALRDesign/ALRDesign.php:78
+msgid "Use this option to disable the check box shown to keep users logged in."
+msgstr ""
+"Cleachd an roghainn seo airson am bogsa airson cumail luchd-tadhail air "
+"loggadh a-staigh a' chuir dheth"
+
+#: src/ALRDesign/ALRDesign.php:83
+msgid "Remove Registration"
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:84
+msgid "This prevents users from being able to register on the login page."
+msgstr ""
+
+#: src/ALRDesign/ALRDesign.php:89
+msgid "Remove Forgot Password"
+msgstr "Dhiochuimhnich mi m' fhacail-faire"
+
+#: src/ALRDesign/ALRDesign.php:90
+msgid "This prevents users from being able to use the \"forgot password\"."
+msgstr ""
+
+#: src/ALRMisc/ALRMisc.php:43
+msgid "Misc."
+msgstr ""
+
+#: src/ALRMisc/ALRMisc.php:47
+msgid "Login Handle"
+msgstr "Laimhsiche Log a-steach"
+
+#: src/ALRMisc/ALRMisc.php:50
+msgid ""
+"Type the class name or ID of the element you want to launch the dialog box "
+"when clicked, example <code>.login-link</code>"
+msgstr ""
+"Sgrìobh an ainm an class neo ID den eilemead a tha sibh ag iarraidh airson a "
+"bhith chur air bhog am bogsa dialog an deidh dha air a bhith a bhruthadh, "
+"mar eisimpleir"
+
+#: src/ALRMisc/ALRMisc.php:54
+msgid "Register Handle"
+msgstr "Laimhsiche Clàraidh"
+
+#: src/ALRMisc/ALRMisc.php:57
+msgid ""
+"Type the class name or ID of the element you want to launch the dialog box "
+"when clicked, example <code>.register-link</code>"
+msgstr ""
+"Sgrìobh an ainm an class neo ID den eilemead a tha sibh ag iarraidh airson a "
+"bhith chur air bhog am bogsa dialog an deidh dha air a bhith a bhruthadh, "
+"mar eisimpleir"
+
+#: src/ALRMisc/ALRMisc.php:61
+msgid "Force Check Password"
+msgstr "Dhiochuimhnich mi m' fhacail-faire"
+
+#: src/ALRMisc/ALRMisc.php:64
+msgid ""
+"Use this option if your are experiencing compatibility issues with other "
+"login and or register plugins."
+msgstr ""
+
+#: src/ALRMisc/ALRMisc.php:73
+msgid "Pre-load Forms"
+msgstr ""
+
+#: src/ALRMisc/ALRMisc.php:80
+msgid ""
+"Setting this option will pre-load the forms, allowing them to be loaded "
+"prior to being clicked on."
+msgstr ""
+
+#: src/ALRRedirect/ALRRedirect.php:54
+msgid "Redirect"
+msgstr ""
+
+#: src/ALRRedirect/ALRRedirect.php:58
+msgid "Redirect After Login URL"
+msgstr ""
+"Seòladh far an teid luchd-taidhail ath-chuartachadh an deidh loggadh a-steach"
+
+#: src/ALRRedirect/ALRRedirect.php:63
+msgid ""
+"Enter the URL or slug you want users redirected to after login, example: "
+msgstr ""
+"Cuir a-steach an seòladh neo slug a tha sibh ag iarraidh luchd-tadhail a "
+"bhith air an ath-chuartachadh ris an deidh dhaibh loggeadh a-steach, mar "
+"eisimpleir:"
+
+#: src/ALRRedirect/ALRRedirect.php:64
+msgid "http://site.com/, /dashboard/, /wp-admin/"
+msgstr "http://site.com/, /dashboard/, /wp-admin/"
+
+#: src/ALRSocial/ALRSocial.php:43
+msgid "Social"
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:245
+msgid "Log in using Facebook"
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:274
+msgid "Facebook Settings"
+msgstr "Roghainnean Facebook"
+
+#: src/ALRSocial/ALRSocialFacebook.php:280
+msgid "Enable"
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:282
+msgid "By enabling this setting visitors will be able to login with Facebook."
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:287
+msgid "Login Button"
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:289
+msgid "Upload a custom image to be displayed as the Facebook login button."
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:294
+msgid "App ID"
+msgstr "App ID"
+
+#: src/ALRSocial/ALRSocialFacebook.php:295
+msgid ""
+"This is the App ID as seen in your <a href=\"https://developers.facebook.com/"
+"\">Facebook Developer</a> App Dashboard. For detailed instructions visit the "
+"<a href=\"http://zanematthew.com/ajax-login-register-help-videos/\" target="
+"\"_blank\">How To add Facebook Settings to AJAX Login & Register</a>."
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:302
+msgid "Use Facebook Avatar"
+msgstr ""
+
+#: src/ALRSocial/ALRSocialFacebook.php:303
+msgid ""
+"Checking this box will make Facebook profile picture show as avatar when "
+"possible "
+msgstr ""
+
+#~ msgid ".login-link"
+#~ msgstr ".login-link"
+
+#~ msgid ".register-link"
+#~ msgstr ".register-link"
+
+#~ msgid "URL"
+#~ msgstr "Seòladh"
+
+#~ msgid "This is the URL you have set in your Facebook Developer App Settings"
+#~ msgstr ""
+#~ "'S e seo an seòladh a chuir thu a-steach 's na Roghainnean Facebook "
+#~ "Developer App agad"
+
+#~ msgid "This is the App ID as seen in your Facebook Developer App Dashboard"
+#~ msgstr ""
+#~ "'S e seo an App ID mar a chitheas tu e san Deas-Bhòrd Facebook Developer "
+#~ "App agad"
+
+#~ msgid "Enable Facebook Login"
+#~ msgstr "Cuir air Log a-steach le Facebook"
+
+#~ msgid "By disabling this, your Facebook settings will still be saved."
+#~ msgstr ""
+#~ "Le bhith cuir seo dheth, bith do roghainnean Facebook air an sabhaladh"
+
+#~ msgid "AJAX Login &amp; Register Settings"
+#~ msgstr "Roghainnean AJAX Login &amp; Register"
+
+#~ msgid "Usage"
+#~ msgstr "Cleachdadh"
+
+#~ msgid ""
+#~ "<p>To create a login page using shortcode; add the following shortcode "
+#~ "<code>ajax_login</code> for the login page or <code>ajax_register</code> "
+#~ "for the registration page to any Page or Post.</p><p>To create a login or "
+#~ "registration dialog box do the following; create a menu item, assign a "
+#~ "custom class name, then add that custom class name to the field: "
+#~ "<em>Login Handle</em> for login or <em>Register Handle</em> for the "
+#~ "registration page found in the settings below.</p><p><em>Note your theme "
+#~ "must support custom menus</em></p><p><em>Note your site will need to be "
+#~ "open to registration</em></p>"
+#~ msgstr ""
+#~ "<p>Airson duilleag log a-steach a' dhèanamh le shortcode; cleachd an "
+#~ "shortcode seo <code>ajax_login</code> airson an duilleag log a-steach neo "
+#~ "<code>ajax_register</code> airson an duilleag clàraidh gu duilleag neo "
+#~ "post sam bith.</p><p>Airson bogsa dialog airson loggadh a-steach neo "
+#~ "clàradh a'dhèanamh: dèan pàirt de menu, cuir ainm-class sònraichte ris "
+#~ "agus cuir an t-ainm sin dhan bogsa: <em>Laimhsiche Log a-steach</em> "
+#~ "airson loggadh a-steach neo <em>Laimhsiche Clàradh</em> airson na "
+#~ "duilleige clàraidh a gheibh sibh anns na roghainnean gu h-ìosal.</"
+#~ "p><p><em>Thoir an aire gu bheil d' ùrlar a' cuir taic ri menus sònraichte "
+#~ "</em></p><p><em>Feumaidh do làrach a bhith fosgailte ri clàradh 's na "
+#~ "roghainnean coitcheann WordPress</em></p>"
+
+#~ msgid ""
+#~ "<p>Once you have created your Facebook App, go to your Facebook Developer "
+#~ "App Settings and add your site URL(s) to the App Domains field. Then, "
+#~ "copy your App ID and paste into your App ID field in the zM AJAX Login & "
+#~ "Register Facebook settings.</p><p>In order to use Facebook login you will "
+#~ "need to Create a Facebook App, by visiting <a href=\"https://developers."
+#~ "facebook.com/\" target=\"_blank\">Facebook Developers</a>. Once you have "
+#~ "created your Facebook App you are now ready to enter your \"site URL\" as "
+#~ "seen in Facebook Developer App Settings and your App ID.</p><p>For "
+#~ "detailed instructions visit the <a href=\"http://zanematthew.com/ajax-"
+#~ "login-register-help-videos/\" target=\"_blank\">How To add Facebook "
+#~ "Settings to AJAX Login &amp; Register</a>, feel free to contact us via "
+#~ "our <a href=\"http://support.zanematthew.com/forum/zm-ajax-login-register/"
+#~ "\" target=\"_blank\">Support Forum</a> if you need additional help.</p>"
+#~ msgstr ""
+#~ "<p>Nuair a tha sibh air do Facebook App a' dhèanamh, theid gu do "
+#~ "Roghainnean Facebook Developer App 's cuir do sheòladh(idhean) dhan App "
+#~ "Domains bogsa.  A nuair sin, copaidh App ID 's paste e dhan bogsa App ID "
+#~ "anns na Roghainnean zM AJAX Login & Register.</p><p>Airson Log a-steach "
+#~ "le Facebook a' cleachdadh feumaidh tu Facebook App a' dhèanamh aig <a "
+#~ "href=\"https://developers.facebook.com/\" target=\"_blank\">Facebook "
+#~ "Developers</a>.  Nuair a tha sibh air sin a' dhèanamh tha sibh deiseil do "
+#~ "\"site URL\" mar a chìtheas tu anns na Roghainnean Facebook Developer App "
+#~ "agus do App ID a' cuir a-steach.</p><p>Airson stùireadh nas mionaidiche "
+#~ "'sa Bheurla, theid do <a href=\"http://zanematthew.com/ajax-login-"
+#~ "register-help-videos/\" target=\"_blank\">How To add Facebook Settings to "
+#~ "AJAX Login &amp; Register</a>, neo cuir fios thugainn tro an <a href=\\"
+#~ "\"http://support.zanematthew.com/forum/zm-ajax-login-register/\" target="
+#~ "\"_blank\">Support Forum</a> ma tha sibh a dhith air barrachd cuideachadh."
+#~ "</p>"
+
+#~ msgid "Advanced Usage"
+#~ msgstr "Cleachdadh fìleanta"
+
+#~ msgid "Upgrade to the Pro version"
+#~ msgstr "Leasaich ri Pro"
+
+#~ msgid "Remove these ads?"
+#~ msgstr "Thoir air falbh na sanasan seo?"
+
+#~ msgid "Remove this ad, upgrade to Pro"
+#~ msgstr "Thoir air falbh an sanas seo le bhith leasachadh ri Pro"
+
+#~ msgid "Upgrade to Login &amp; Register Pro"
+#~ msgstr "Leasaich ri Login &amp; Register Pro"
