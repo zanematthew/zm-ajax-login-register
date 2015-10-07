@@ -306,7 +306,9 @@ Class ALRRegister {
 
         $username = empty( $_POST['zm_alr_register_user_name'] ) ? esc_attr( $username ) : $_POST['zm_alr_register_user_name'];
 
-        if ( validate_username( $username ) ) {
+        if ( empty( $username ) ) {
+            $msg = $this->_zm_alr_helpers->status('invalid_username');
+        } elseif ( validate_username( $username ) ) {
             $user_id = username_exists( $username );
             if ( $user_id ){
                 $msg = $this->_zm_alr_helpers->status('username_exists');
