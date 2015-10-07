@@ -396,21 +396,4 @@ Class ALRRegister {
         </div>
     <?php }
 
-
-    public function registerRedirect( $user_login=null, $status=null ){
-
-        if ( $status == 'error' ){
-
-            $redirect_url = null;
-
-        } else {
-
-            $current_url = empty( $_SERVER['HTTP_REFERER'] ) ? site_url( $_SERVER['REQUEST_URI'] ) : $_SERVER['HTTP_REFERER'];
-            $redirect_url = apply_filters( $this->prefix . '_redirect_url', $current_url, $user_login, $status );
-
-        }
-
-        return $redirect_url;
-    }
-
 }

@@ -282,8 +282,13 @@ Class ALRLogin {
 
         }
 
-        $redirect['redirect_url'] = $this->loginRedirect( $args['user_login'], $status['code'] );
-        $status = array_merge( $status, $redirect );
+        $status = array_merge( $status, array(
+            'reidrect_url' => $this->_zm_alr_helpers->getRedirectUrl(
+                $args['user_login'],
+                $status['code'],
+                $this->prefix
+            )
+        ) );
 
         if ( $is_ajax ) {
             wp_send_json( $status );
@@ -315,21 +320,5 @@ Class ALRLogin {
             <?php do_action( $this->prefix . '_after_dialog' ); ?>
         </div>
     <?php }
-
-
-    public function loginRedirect( $user_login=null, $status=null ){
-
-        // Since this is handled via an AJAX request $wp->request is always empty
-        // @todo Submit to core
-        // global $wp;
-        // $current_url = trailingslashit( add_query_arg( '', '', site_url( $wp->request ) ) );
-        if ( $status == 'success_login' ){
-            $current_url = empty( $_SERVER['HTTP_REFERER'] ) ? site_url( $_SERVER['REQUEST_URI'] ) : $_SERVER['HTTP_REFERER'];
-            $redirect_url = apply_filters( $this->prefix . '_redirect_url', $current_url, $user_login, $status );
-        } else {
-            $redirect_url = null;
-        }
-        return $redirect_url;
-    }
 
 }

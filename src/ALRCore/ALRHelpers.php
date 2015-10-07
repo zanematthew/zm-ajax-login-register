@@ -199,4 +199,40 @@ Class ALRHelpers {
         }
     }
 
+
+    /**
+     * Determine the redirect URL for login, and registration.
+     *
+     * @since   2.0.2
+     *
+     * @param   (string)    $user_login     The user login
+     * @param   (string)    $status         The status code to check against.
+     * @param   (string)    $prefix         The prefix used for filters
+     */
+    public function getRedirectUrl( $user_login=null, $status=null, $prefix=null ){
+
+        $success = array(
+            'success_registration',
+            'success_login'
+            );
+
+        if ( in_array( $status, $success )){
+
+            $current_url = empty( $_SERVER['HTTP_REFERER'] ) ? site_url( $_SERVER['REQUEST_URI'] ) : $_SERVER['HTTP_REFERER'];
+
+            $redirect_url = apply_filters( $prefix . '_redirect_url',
+                $current_url,
+                $user_login,
+                $status
+            );
+
+        } else {
+
+            $redirect_url = null;
+
+        }
+
+        return $redirect_url;
+    }
+
 }
