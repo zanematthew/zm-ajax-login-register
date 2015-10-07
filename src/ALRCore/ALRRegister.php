@@ -239,8 +239,6 @@ Class ALRRegister {
                 $this->prefix . '_setup_new_user_status_filter',
                 'success_registration' ) );
 
-            $status['id'] = $user_id;
-
             // Allow to void this!
             $did_signon = apply_filters( $this->prefix . '_do_signon', true );
             if ( $did_signon === true ){
