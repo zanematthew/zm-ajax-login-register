@@ -210,7 +210,6 @@ Class ALRLogin {
         $args = apply_filters( $this->prefix . '_form_params', array(
             'user_login' => empty( $_POST['zm_alr_login_user_name'] ) ? null : sanitize_user( $_POST['zm_alr_login_user_name'] ),
             'password' => $_POST['zm_alr_login_password'],
-            'remember' => empty( $_POST['remember'] ) ? false : ture
             'remember' => empty( $_POST['remember'] ) ? false : true
         ) );
 
