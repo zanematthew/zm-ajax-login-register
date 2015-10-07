@@ -211,6 +211,7 @@ Class ALRLogin {
             'user_login' => empty( $_POST['zm_alr_login_user_name'] ) ? null : sanitize_user( $_POST['zm_alr_login_user_name'] ),
             'password' => $_POST['zm_alr_login_password'],
             'remember' => empty( $_POST['remember'] ) ? false : ture
+            'remember' => empty( $_POST['remember'] ) ? false : true
         ) );
 
         $status = null;
