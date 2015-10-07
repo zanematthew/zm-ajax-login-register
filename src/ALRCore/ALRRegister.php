@@ -219,13 +219,13 @@ Class ALRRegister {
 
         }
 
-        elseif ( $valid['username']['code'] == 'error' ){
+        elseif ( $valid['username']['code'] == 'show_notice' ){
 
             $status = $this->_zm_alr_helpers->status('invalid_username');
 
         }
 
-        elseif ( $valid['email']['code'] == 'error' ){
+        elseif ( $valid['email']['code'] == 'show_notice' ){
 
             $status = $this->_zm_alr_helpers->status('invalid_username');
 
