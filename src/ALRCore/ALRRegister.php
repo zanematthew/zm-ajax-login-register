@@ -250,8 +250,12 @@ Class ALRRegister {
         }
 
         $status = array_merge( $status, array(
-            'redirect_url' => $this->registerRedirect( $user['user_login'], $status['code'] ) )
-        );
+            'redirect_url' => $this->_zm_alr_helpers->getRedirectUrl(
+                $user['user_login'],
+                $status['code'],
+                $this->prefix
+            )
+        ) );
 
         if ( $is_ajax ) {
 
