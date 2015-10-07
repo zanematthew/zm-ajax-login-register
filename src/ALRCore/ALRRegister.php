@@ -120,16 +120,19 @@ Class ALRRegister {
             $this->prefix . '_user_name' => array(
                 'title' => __( 'User Name', ZM_ALR_TEXT_DOMAIN ),
                 'type' => 'text',
+                'required' => true,
                 'extra' => 'autocorrect="none" autocapitalize="none"'
                 ),
             $this->prefix . '_email' => array(
                 'title' => __( 'Email', ZM_ALR_TEXT_DOMAIN ),
                 'type' => 'email',
+                'required' => true,
                 'extra' => 'autocorrect="none" autocapitalize="none"'
                 ),
             $this->prefix . '_password' => array(
                 'title' => __( 'Password', ZM_ALR_TEXT_DOMAIN ),
                 'type' => 'password',
+                'required' => true,
                 'extra' => 'autocorrect="none" autocapitalize="none"'
                 ),
             $this->prefix . '_confirm_password' => array(

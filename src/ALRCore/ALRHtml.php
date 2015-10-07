@@ -89,25 +89,29 @@ Class ALRHtml {
 
                 $field_classes = implode( " ", $args['classes'] );
 
+                if ( $args['required'] == true ){
+                    $args['required'] = 'required';
+                }
+
                 $html .= '<div class="' . implode( " ", $container_classes ) . '">';
 
                 switch ( $new_fields[ $key ]['type'] ) {
 
                     case 'text':
                         $html .= '<label for="' . $args['id'] . '" class="' . ZM_ALR_NAMESPACE . '_label">' . $args['title'] . '</label>';
-                        $html .= '<input type="text" name="' . $args['name'] . '" id="' . $args['id'] . '" class="' . $field_classes . '" placeholder="' . $args['placeholder'] . '" ' . $args['extra'] . ' />';
+                        $html .= '<input type="text" name="' . $args['name'] . '" id="' . $args['id'] . '" class="' . $field_classes . '" placeholder="' . $args['placeholder'] . '" ' . $args['extra'] . ' ' . $args['required'] . ' />';
                         $html .= PHP_EOL;
                         break;
 
                     case 'password':
                         $html .= '<label for="' . $args['id'] . '" class="' . ZM_ALR_NAMESPACE . '_label">' . $args['title'] . '</label>';
-                        $html .= '<input type="password" name="' . $args['name'] . '" id="' . $args['id'] . '" class="' . $field_classes . '" placeholder="' . $args['placeholder'] . '" ' . $args['extra'] . ' />';
+                        $html .= '<input type="password" name="' . $args['name'] . '" id="' . $args['id'] . '" class="' . $field_classes . '" placeholder="' . $args['placeholder'] . '" ' . $args['extra'] . ' ' . $args['required'] . ' />';
                         $html .= PHP_EOL;
                         break;
 
                     case 'email':
                         $html .= '<label for="' . $args['id'] . '" class="' . ZM_ALR_NAMESPACE . '_label">' . $args['title'] . '</label>';
-                        $html .= '<input autocorrect="none" autocapitalize="none" type="email" name="' . $args['name'] . '" id="' . $args['id'] . '" class="' . $field_classes . '" placeholder="' . $args['placeholder'] . '" ' . $args['extra'] . ' />';
+                        $html .= '<input autocorrect="none" autocapitalize="none" type="email" name="' . $args['name'] . '" id="' . $args['id'] . '" class="' . $field_classes . '" placeholder="' . $args['placeholder'] . '" ' . $args['extra'] . ' ' . $args['required'] . ' />';
                         $html .= PHP_EOL;
                         break;
 
