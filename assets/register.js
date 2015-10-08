@@ -27,9 +27,9 @@ $document.ready(function( $ ){
     /**
      * Confirms that two input fields match
      */
-
-    function confirmPassword() {
-        $formButton = $( '.register_button', $form );
+    $document.on('keyup change', '.user_confirm_password', function(){
+        var $form = $(this).parents('form'),
+            $formButton = $( '.register_button', $form );
 
         if ( !$(this).val() ){
             $formButton
@@ -42,9 +42,7 @@ $document.ready(function( $ ){
                 .stop()
                 .animate({ opacity: 1 });
         }
-    }
-
-    $document.on('keyup change', '.user_confirm_password', confirmPassword);
+    });
 
 
     /**
