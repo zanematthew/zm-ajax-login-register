@@ -42,6 +42,12 @@ Interested in more features? View our [Pro Version](http://zanematthew.com/produ
 * Free dedicated support for 1-year
 * Additional features to come!
 
+= Integrations =
+
+ZM AJAX Login Register works well with the following plugins
+
+* [Goodbye Captcha](https://wordpress.org/plugins/goodbye-captcha/)
+
 = Translations =
 
 ZM AJAX Login & Register is available in the following languages. Thanks to the respective contributors:
