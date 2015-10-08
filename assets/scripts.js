@@ -173,9 +173,6 @@ $document.ready(function( $ ){
                 .stop()
                 .fadeIn()
                 .html( msg.description );
-            zMAjaxLoginRegister.reload( form_obj );
-        } else if ( msg.description == '' ){
-            zMAjaxLoginRegister.reload( form_obj );
         } else {
             if ( msg.code === 'show_notice' ){
                 jQuery('.ajax-login-register-status-container').show();

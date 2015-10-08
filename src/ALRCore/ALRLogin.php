@@ -283,7 +283,7 @@ Class ALRLogin {
         }
 
         $status = array_merge( $status, array(
-            'reidrect_url' => $this->_zm_alr_helpers->getRedirectUrl(
+            'redirect_url' => $this->_zm_alr_helpers->getRedirectUrl(
                 $args['user_login'],
                 $status['code'],
                 $this->prefix
