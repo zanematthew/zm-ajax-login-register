@@ -56,22 +56,26 @@ $document.ready(function( $ ){
          // Since WordPress requires the email we cannot continue if they
          // do not provide their email address
         FB.login( function( response ) {
-            /**
-             * If we get a successful authorization response we handle it
-             * note the "scope" parameter.
-             */
-            var requested_scopes = ['public_profile','email','contact_email'];
-            var response_scopes = $.map( response.authResponse.grantedScopes.split(","), $.trim );
-            var diff = $( requested_scopes ).not( response_scopes ).get();
-            var granted_access = diff.length;
 
-            if ( ! granted_access ){
+            if (response.status === 'connected') {
 
-                /**
-                 * "me" refers to the current FB user, console.log( response )
-                 * for a full list.
-                 */
-                FB.api('/me', function(response) {
+                var requested_fields = [
+                    'id',
+                    'name',
+                    'first_name',
+                    'last_name',
+                    'email',
+                    'age_range',
+                    'link',
+                    'gender',
+                    'locale',
+                    'timezone',
+                    'updated_time',
+                    'verified'
+                ];
+
+                FB.api('/me?fields=' + requested_fields.join(), function( response ) {
+
                     var fb_response = response;
 
                     /**
@@ -104,8 +108,7 @@ $document.ready(function( $ ){
              * See the following for full list:
              * @url https://developers.facebook.com/docs/authentication/permissions/
              */
-            scope: 'email',
-            return_scopes: true
+            scope: 'public_profile'
         });
     });
 
