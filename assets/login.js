@@ -78,6 +78,7 @@ $document.ready(function( $ ){
 
                     var fb_response = response;
 
+
                     /**
                      * Make an Ajax request to the "facebook_login" function
                      * passing the params: username, fb_id and email.
@@ -108,7 +109,8 @@ $document.ready(function( $ ){
              * See the following for full list:
              * @url https://developers.facebook.com/docs/authentication/permissions/
              */
-            scope: 'public_profile'
+            scope: 'public_profile,email'
+
         });
     });
 
