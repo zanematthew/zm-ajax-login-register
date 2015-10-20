@@ -63,7 +63,7 @@ ZM AJAX Login & Register is available in the following languages. Thanks to the 
 * Persian via [Behzad](https://www.facebook.com/theme20)
 * Romanian via [Sandu](http://www.vtube.ro/)
 * Russian (Russian) via [artbelov](https://github.com/artbelov)
-* Russian (Ukraine) via Ivanka from [Coupofy](http://www.coupofy.com/)
+* Russian (Ukraine)
 * Scottish Gaelic via Steven Kellow
 * Serbian via [ogi](http://firstsiteguide.com/)
 * Spanish via [dvk](http://profiles.wordpress.org/dvk/)
