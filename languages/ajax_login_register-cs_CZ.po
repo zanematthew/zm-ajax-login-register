@@ -1,0 +1,288 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: zM AJAX Login & Register\n"
+"POT-Creation-Date: 2015-11-02 18:51+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Ondřej Spilka <spilka.ondrej@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Poedit 1.8.2\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x;_ex;_nx;esc_attr__;esc_attr_e;esc_attr_x;"
+"esc_html__;esc_html_e;esc_html_x;_n_noop;_nx_noop;translate_nooped_plural\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Language: cs_CZ\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: controllers/abstract.php:51
+msgid "Login Handle"
+msgstr ""
+
+#: controllers/abstract.php:53 controllers/abstract.php:59
+msgid ""
+"Type the class name or ID of the element you want to launch the dialog box "
+"when clicked, example"
+msgstr ""
+"Název třídy nebo ID elementu, který bude přiřazen dialogovému oknu "
+"vyvolanému při kliku, např."
+
+#: controllers/abstract.php:53
+msgid ".login-link"
+msgstr ""
+
+#: controllers/abstract.php:57
+msgid "Register Handle"
+msgstr ""
+
+#: controllers/abstract.php:59
+msgid ".register-link"
+msgstr ""
+
+#: controllers/abstract.php:63
+msgid "Additional Styling"
+msgstr "Další styly"
+
+#: controllers/abstract.php:65
+msgid "Type your custom CSS styles that are applied to the dialog boxes."
+msgstr "Vaše CSS styly aplikované na dialogová okna"
+
+#: controllers/abstract.php:69
+msgid "Redirect After Login URL"
+msgstr "URL přesměrování pro přihlášení"
+
+#: controllers/abstract.php:71
+msgid ""
+"Enter the URL or slug you want users redirected to after login, example: "
+msgstr "URL nebo slug/alias kam budou uživatelé přesměrováni pro loginu, např."
+
+#: controllers/abstract.php:71
+msgid "http://site.com/, /dashboard/, /wp-admin/"
+msgstr ""
+
+#: controllers/abstract.php:75
+msgid "Form Layout"
+msgstr "Rozvržení formuláře"
+
+#: controllers/abstract.php:84
+msgid "URL"
+msgstr ""
+
+#: controllers/abstract.php:86
+msgid "This is the URL you have set in your Facebook Developer App Settings"
+msgstr "URL, které jste nastavil(a) ve svém Facebook Developer Apps nastavení"
+
+#: controllers/abstract.php:90
+msgid "App ID"
+msgstr ""
+
+#: controllers/abstract.php:92
+msgid "This is the App ID as seen in your Facebook Developer App Dashboard"
+msgstr "App ID jak je vidět v Facebook Developer App Dashboard"
+
+#: controllers/abstract.php:99
+msgid "Enable Facebook Login"
+msgstr "Povolit Facebook přihlášení"
+
+#: controllers/abstract.php:100
+msgid "By disabling this, your Facebook settings will still be saved."
+msgstr "I přesto, že tuto volbu zakážete, budou nastavení pro Facebook uložena"
+
+#: controllers/abstract.php:104
+msgid "Disable \"keep me logged in\""
+msgstr "Zakázat volbu \"zůstat přihlášen\""
+
+#: controllers/abstract.php:105
+msgid "Use this option to disable the check box shown to keep users logged in."
+msgstr "Použijte tuto volbu pro zákaz checkboxu \"zůstat přihlášen\""
+
+#: controllers/abstract.php:224 controllers/abstract.php:229
+#: controllers/abstract.php:234
+msgid "Invalid username"
+msgstr "Neplatné jméno nebo heslo"
+
+#: controllers/abstract.php:240
+msgid "Invalid"
+msgstr "Neplatné jméno nebo heslo"
+
+#: controllers/abstract.php:245
+msgid "Passwords do not match."
+msgstr "Zadaná hesla neodpovídají"
+
+#: controllers/abstract.php:256 controllers/abstract.php:261
+msgid "Invalid Email"
+msgstr "Špatný formát e-mailu"
+
+#: controllers/abstract.php:267 controllers/abstract.php:272
+msgid "Success! One moment while we log you in..."
+msgstr "Přihlášení bylo úspěšné, chvilku než přihlášení proběhne..."
+
+#: controllers/admin.php:65 controllers/admin.php:66
+msgid "AJAX Login &amp; Register"
+msgstr ""
+
+#: controllers/admin.php:102 views/settings.php:21
+msgid "General Settings"
+msgstr "Obecná nastavení"
+
+#: controllers/admin.php:103
+msgid "Pro Version"
+msgstr ""
+
+#: controllers/admin.php:118
+msgid ""
+"Thanks for installing zM AJAX Login & Register, be sure to check out the "
+"features in the"
+msgstr ""
+"Děkuji, že jste si nainstalovali  zM AJAX Login & Register, podívejte se na "
+"nasatvení doplňku"
+
+#: plugin.php:83 views/login-form.php:11 views/register-form.php:13
+msgid "Logout"
+msgstr "Odhlášení"
+
+#: plugin.php:84
+msgid "Close"
+msgstr "Zavřít"
+
+#: views/login-dialog.php:8 views/login-form.php:38
+msgid "Login"
+msgstr "Přihlášení"
+
+#: views/login-dialog.php:9 views/register-dialog.php:8
+msgid "Loading..."
+msgstr "Pracuji..."
+
+#: views/login-form.php:11
+msgid "You are already logged in"
+msgstr "Již jste přihlášen(a)"
+
+#: views/login-form.php:27 views/register-form.php:31
+msgid "User Name"
+msgstr "Uživatelské jméno"
+
+#: views/login-form.php:28 views/register-form.php:36
+msgid "Password"
+msgstr "Heslo"
+
+#: views/login-form.php:29
+msgid "Are you a member?"
+msgstr "Jste již zaregistrován(a)?"
+
+#: views/login-form.php:34
+msgid "Keep me logged in"
+msgstr "Zůstat přihlášen"
+
+#: views/login-form.php:36
+msgid "Forgot Password"
+msgstr "Zapomenuté heslo"
+
+#: views/register-dialog.php:7 views/register-form.php:41
+msgid "Register"
+msgstr "Registrace"
+
+#: views/register-form.php:13
+msgid "You are already registered"
+msgstr "Již jste zaregistrován(a)"
+
+#: views/register-form.php:32
+msgid "Email"
+msgstr "e-mail"
+
+#: views/register-form.php:37
+msgid "Confirm Password"
+msgstr "Potvrďte heslo"
+
+#: views/register-form.php:39
+msgid "Already registered?"
+msgstr "Jste již zaregistrován(a)?"
+
+#: views/register-form.php:48
+msgid "Registration is currently closed."
+msgstr "Registrace není momentálně možná - kontaktujte administrátora webu."
+
+#: views/settings.php:15
+msgid "AJAX Login &amp; Register Settings"
+msgstr "Nastavení AJAX Login &amp; Register "
+
+#: views/settings.php:17
+msgid "Usage"
+msgstr "Jak používat"
+
+#: views/settings.php:18
+msgid ""
+"<p>To create a login page using shortcode; add the following shortcode "
+"<code>ajax_login</code> for the login page or <code>ajax_register</code> for "
+"the registration page to any Page or Post.</p><p>To create a login or "
+"registration dialog box do the following; create a menu item, assign a "
+"custom class name, then add that custom class name to the field: <em>Login "
+"Handle</em> for login or <em>Register Handle</em> for the registration page "
+"found in the settings below.</p><p><em>Note your theme must support custom "
+"menus</em></p><p><em>Note your site will need to be open to registration</"
+"em></p>"
+msgstr ""
+"<p>Přihlašovací stránku vytvořte použitím této zkratky; následující zkratku "
+"přidejte do přihl. stránky<code>ajax_login</code>, pro registraci použijte "
+"zkratku <code>ajax_register</code> v jakémkoli příspěvku nebo stránce.</"
+"p><p>Pokud chcete vytvořit dialogové okno pro přihlášení nebo registraci, "
+"vytvořte položku menu, přiřaďte jí vlastní název CSS třídy a tento název pak "
+"použijte v nastaveních <em>Login Handle</em> pro přihlášení nebo  "
+"<em>Register Handle</em> pro registraci.</p><p><em>Pozn. vaše téma/šablona "
+"musí podporovat vlastní menu</em></p><p><em>Pozn. 2. Váš web musí mít "
+"povolen registraci</em></p>"
+
+#: views/settings.php:34
+msgid "Facebook Settings"
+msgstr "Nastavení Facebook"
+
+#: views/settings.php:36
+msgid ""
+"<p>Once you have created your Facebook App, go to your Facebook Developer "
+"App Settings and add your site URL(s) to the App Domains field. Then, copy "
+"your App ID and paste into your App ID field in the zM AJAX Login & Register "
+"Facebook settings.</p><p>In order to use Facebook login you will need to "
+"Create a Facebook App, by visiting <a href=\"https://developers.facebook.com/"
+"\" target=\"_blank\">Facebook Developers</a>. Once you have created your "
+"Facebook App you are now ready to enter your \"site URL\" as seen in "
+"Facebook Developer App Settings and your App ID.</p><p>For detailed "
+"instructions visit the <a href=\"http://zanematthew.com/ajax-login-register-"
+"help-videos/\" target=\"_blank\">How To add Facebook Settings to AJAX Login "
+"&amp; Register</a>, feel free to contact us via our <a href=\"http://support."
+"zanematthew.com/forum/zm-ajax-login-register/\" target=\"_blank\">Support "
+"Forum</a> if you need additional help.</p>"
+msgstr ""
+"<p>Jakmile jste vytvořili Vaši facebook APP, přejděte na Facebook Developer "
+"App Settings a přidejte URL vašeho webu do pole App Domains. Pak zkopírujte "
+"vaše App ID a vložte jej do pole App ID v záložce Facebook Nastavení "
+"pluginu  zM AJAX Login & Register</p><p>Abyste mohli používat Facebook login "
+"you musíte vytvořit aplikaci pomocí Create a Facebook Appna stránách <a href="
+"\"https://developers.facebook.com/\" target=\"_blank\">Facebook Developers</"
+"a>. Jakmile jste Facebook App vytvořil(a) můžete \"site URL\"  a \"App ID\" "
+"viditelný v Facebook Developer App Settings použít v nastavení zM AJAX.</"
+"p><p>Detailní návod najdete na <a href=\"http://zanematthew.com/ajax-login-"
+"register-help-videos/\" target=\"_blank\">How To add Facebook Settings to "
+"AJAX Login &amp; Register</a> nebo nás kontaktujte na <a href=\"http://"
+"support.zanematthew.com/forum/zm-ajax-login-register/\" target=\"_blank"
+"\">Support Forum</a></p>"
+
+#: views/settings.php:48
+msgid "Advanced Usage"
+msgstr "Pokročilé možnosti"
+
+#: views/settings.php:76
+msgid "Upgrade to the Pro version"
+msgstr "Přejděte na Pro verzi"
+
+#: views/settings.php:77
+msgid "Remove these ads?"
+msgstr "Odstranit tyto reklamy?"
+
+#: views/settings.php:78
+msgid "Remove this ad, upgrade to Pro"
+msgstr "Přejděte na Pro verzi a odstraňte tak reklamy"
+
+#: views/settings.php:78
+msgid "Upgrade to Login &amp; Register Pro"
+msgstr "Přechod na verzi  Login &amp; Register Pro"
