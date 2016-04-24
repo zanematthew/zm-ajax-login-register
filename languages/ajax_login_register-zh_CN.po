@@ -1,122 +1,107 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: zM AJAX Login & Register\n"
-"POT-Creation-Date: 2015-09-08 12:50-0500\n"
+"POT-Creation-Date: 2016-04-24 10:27+0800\n"
 "PO-Revision-Date: \n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: Amos Lee <iwillhappy1314@gmail.com>\n"
 "Language-Team: Amos Lee <4626395@gmail.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.6.5\n"
+"X-Generator: Poedit 1.8.7\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: deprecated.php:106 deprecated.php:107 src/ALRCore/ALRRegister.php:152
+#: deprecated.php:106 deprecated.php:107 src/ALRCore/ALRRegister.php:155
 msgid "Already registered?"
-msgstr "已经有账号了？"
+msgstr "已注册？"
 
 #: deprecated.php:119 deprecated.php:120 src/ALRCore/ALRLogin.php:132
 msgid "Are you a member?"
-msgstr "没有账号?"
+msgstr "已注册？"
 
-#: lib/lumber/lumber.php:411
+#: lib/lumber/lumber.php:420
 msgid "-- Select a Value --"
-msgstr ""
+msgstr "— 选择一项 —"
 
-#: lib/lumber/lumber.php:885
+#: lib/lumber/lumber.php:894
 msgid "Upload"
-msgstr ""
+msgstr "上传"
 
-#: lib/lumber/lumber.php:889
+#: lib/lumber/lumber.php:898
 msgid "Remove"
-msgstr ""
+msgstr "删除"
 
-#: lib/quilt/quilt.php:98
+#: lib/quilt/quilt.php:116
 msgid "Options saved."
-msgstr ""
+msgstr "设置已保存。"
 
-#: lib/quilt/quilt.php:313
+#: lib/quilt/quilt.php:331
 msgid "Thank you for using Quilt."
-msgstr ""
+msgstr "感谢您使用Quilt。"
 
-#: lib/quilt/quilt.php:334
+#: lib/quilt/quilt.php:352
 msgid "Save Changes"
-msgstr ""
+msgstr "保存修改"
 
-#: lib/quilt/quilt.php:336
+#: lib/quilt/quilt.php:354
 msgid "Reset Values"
-msgstr ""
+msgstr "重置所有预设值"
 
-#: lib/quilt/quilt.php:340
+#: lib/quilt/quilt.php:358
 msgid "Restore ALL Default Values"
-msgstr ""
+msgstr "恢復所有默認值"
 
-#: lib/quilt/quilt.php:683
+#: lib/quilt/quilt.php:700
 msgid "Activate"
-msgstr ""
+msgstr "启用"
 
-#: lib/quilt/quilt.php:691
+#: lib/quilt/quilt.php:708
 msgid "Active"
-msgstr ""
+msgstr "启用"
 
-#: lib/quilt/quilt.php:692
+#: lib/quilt/quilt.php:709
 msgid "Deactivate"
-msgstr ""
+msgstr "禁用"
 
-#: lib/quilt/quilt.php:695
+#: lib/quilt/quilt.php:712
 msgid "Inactive"
-msgstr ""
+msgstr "处于非活动状态"
 
-#: lib/quilt/quilt.php:773
+#: lib/quilt/quilt.php:790
 msgid "This will delete your current settings and restore the defaults."
-msgstr ""
+msgstr "將會刪除目前的設置并恢復默認設置"
 
-#: plugin.php:136 src/ALRCore/ALRLogin.php:103 src/ALRCore/ALRLogin.php:104
+#: plugin.php:143 src/ALRCore/ALRLogin.php:103 src/ALRCore/ALRLogin.php:104
 #: src/ALRCore/ALRRegister.php:82 src/ALRCore/ALRRegister.php:83
 msgid "Logout"
 msgstr "登出"
 
-#: plugin.php:137
+#: plugin.php:144
 msgid "Close"
 msgstr "关闭"
 
-#: plugin.php:139 src/ALRCore/ALRLogin.php:101
+#: plugin.php:146 src/ALRCore/ALRLogin.php:101
 msgid "You are already logged in"
 msgstr "登陆成功"
 
-#: plugin.php:140 src/ALRCore/ALRRegister.php:80
+#: plugin.php:147 src/ALRCore/ALRRegister.php:80
 msgid "You are already registered"
 msgstr "已经注册过了"
 
-#: plugin.php:233
-#, fuzzy
+#: plugin.php:246
 msgid ""
 "Thanks for installing ZM AJAX Login & Register, be sure to check out the "
 "features in the"
-msgstr "谢谢使用zM AJAX 注册和登陆，请检查功能"
+msgstr "谢谢安装zM AJAX 注册和登录，请检查功能"
 
 #: settings.php:19 settings.php:37
-#, fuzzy
 msgid "AJAX Login & Register"
-msgstr "AJAX 登陆和注册"
-
-#: settings.php:56
-#, fuzzy
-msgid "Thank you for using ZM AJAX Login & Register"
-msgstr "AJAX 登陆和注册"
-
-#: settings.php:59
-msgid "Support"
-msgstr ""
-
-#: settings.php:61
-msgid "Pro Version"
-msgstr ""
+msgstr "登入 & 註冊"
 
 #: src/ALRCore/ALRHelpers.php:22 src/ALRCore/ALRHelpers.php:27
 #: src/ALRCore/ALRHelpers.php:32
@@ -143,11 +128,23 @@ msgstr "登陆成功，请稍候"
 msgid "Forgot Password"
 msgstr "忘记密码"
 
-#: src/ALRCore/ALRLogin.php:311
+#: src/ALRCore/ALRLogin.php:147 src/ALRCore/ALRRegister.php:121
+msgid "User Name"
+msgstr "用户名"
+
+#: src/ALRCore/ALRLogin.php:152 src/ALRCore/ALRRegister.php:133
+msgid "Password"
+msgstr "密码"
+
+#: src/ALRCore/ALRLogin.php:157
+msgid "Keep Me Logged In"
+msgstr "记住我"
+
+#: src/ALRCore/ALRLogin.php:161 src/ALRCore/ALRLogin.php:317
 msgid "Login"
 msgstr "登陆"
 
-#: src/ALRCore/ALRLogin.php:312 src/ALRCore/ALRRegister.php:371
+#: src/ALRCore/ALRLogin.php:318 src/ALRCore/ALRRegister.php:398
 msgid "Loading..."
 msgstr "加载中"
 
@@ -155,13 +152,21 @@ msgstr "加载中"
 msgid "Registration is currently closed."
 msgstr "目前不开放注册"
 
-#: src/ALRCore/ALRRegister.php:370
+#: src/ALRCore/ALRRegister.php:127
+msgid "Email"
+msgstr "电子邮件"
+
+#: src/ALRCore/ALRRegister.php:139
+msgid "Confirm Password"
+msgstr "确认密码"
+
+#: src/ALRCore/ALRRegister.php:144 src/ALRCore/ALRRegister.php:397
 msgid "Register"
 msgstr "注册"
 
 #: src/ALRDesign/ALRDesign.php:54
 msgid "Design"
-msgstr ""
+msgstr "设计"
 
 #: src/ALRDesign/ALRDesign.php:58
 msgid "Form Layout"
@@ -169,15 +174,15 @@ msgstr "表单布局"
 
 #: src/ALRDesign/ALRDesign.php:61
 msgid "Not applicable in widget areas."
-msgstr ""
+msgstr "不适用在小工具区域。"
 
 #: src/ALRDesign/ALRDesign.php:63
 msgid "Default"
-msgstr ""
+msgstr "默认"
 
 #: src/ALRDesign/ALRDesign.php:64
 msgid "Wide"
-msgstr ""
+msgstr "全宽"
 
 #: src/ALRDesign/ALRDesign.php:69
 msgid "Additional Styling"
@@ -197,71 +202,69 @@ msgstr "选中禁用登录时的“记住我”选项"
 
 #: src/ALRDesign/ALRDesign.php:83
 msgid "Remove Registration"
-msgstr ""
+msgstr "删除注册"
 
 #: src/ALRDesign/ALRDesign.php:84
 msgid "This prevents users from being able to register on the login page."
-msgstr ""
+msgstr "这样可以防止用户在登录页面上注册。"
 
 #: src/ALRDesign/ALRDesign.php:89
-#, fuzzy
 msgid "Remove Forgot Password"
-msgstr "忘记密码"
+msgstr "移除忘记密码"
 
 #: src/ALRDesign/ALRDesign.php:90
 msgid "This prevents users from being able to use the \"forgot password\"."
-msgstr ""
+msgstr "此項是禁止用戶使用\"忘記密碼\"."
 
 #: src/ALRMisc/ALRMisc.php:43
 msgid "Misc."
-msgstr ""
+msgstr "杂项"
 
 #: src/ALRMisc/ALRMisc.php:47
 msgid "Login Handle"
 msgstr "登陆链接"
 
 #: src/ALRMisc/ALRMisc.php:50
-#, fuzzy
 msgid ""
 "Type the class name or ID of the element you want to launch the dialog box "
 "when clicked, example <code>.login-link</code>"
-msgstr "输入点击时查看对话框的class或id名称，如："
+msgstr ""
+"输入类名称或ID，这样用户点击才能出现对话框，例如 <code>.login-link</code>"
 
 #: src/ALRMisc/ALRMisc.php:54
 msgid "Register Handle"
 msgstr "注册链接"
 
 #: src/ALRMisc/ALRMisc.php:57
-#, fuzzy
 msgid ""
 "Type the class name or ID of the element you want to launch the dialog box "
 "when clicked, example <code>.register-link</code>"
-msgstr "输入点击时查看对话框的class或id名称，如："
+msgstr ""
+"输入类名称或ID，这样用户点击才能出现对话框，例如 <code>.register-link</code>"
 
 #: src/ALRMisc/ALRMisc.php:61
-#, fuzzy
 msgid "Force Check Password"
-msgstr "忘记密码"
+msgstr "强制检查密码"
 
 #: src/ALRMisc/ALRMisc.php:64
 msgid ""
 "Use this option if your are experiencing compatibility issues with other "
 "login and or register plugins."
-msgstr ""
+msgstr "如果你正在经历与其他登录注册插件的兼容性问题，请使用此选项。"
 
 #: src/ALRMisc/ALRMisc.php:73
 msgid "Pre-load Forms"
-msgstr ""
+msgstr "预加载表单"
 
 #: src/ALRMisc/ALRMisc.php:80
 msgid ""
 "Setting this option will pre-load the forms, allowing them to be loaded "
 "prior to being clicked on."
-msgstr ""
+msgstr "设置这个选项会预加载表单，让他们可以被点击之前加载。"
 
 #: src/ALRRedirect/ALRRedirect.php:54
 msgid "Redirect"
-msgstr ""
+msgstr "重定向"
 
 #: src/ALRRedirect/ALRRedirect.php:58
 msgid "Redirect After Login URL"
@@ -278,11 +281,11 @@ msgstr "http://site.com/, /dashboard/, /wp-admin/"
 
 #: src/ALRSocial/ALRSocial.php:43
 msgid "Social"
-msgstr ""
+msgstr "社交"
 
 #: src/ALRSocial/ALRSocialFacebook.php:245
 msgid "Log in using Facebook"
-msgstr ""
+msgstr "登录使用Facebook"
 
 #: src/ALRSocial/ALRSocialFacebook.php:274
 msgid "Facebook Settings"
@@ -290,19 +293,19 @@ msgstr "Facebook 设置"
 
 #: src/ALRSocial/ALRSocialFacebook.php:280
 msgid "Enable"
-msgstr ""
+msgstr "启用"
 
 #: src/ALRSocial/ALRSocialFacebook.php:282
 msgid "By enabling this setting visitors will be able to login with Facebook."
-msgstr ""
+msgstr "通过启用此设置让游客将可以使用Facebook登录。"
 
 #: src/ALRSocial/ALRSocialFacebook.php:287
 msgid "Login Button"
-msgstr ""
+msgstr "登录按钮"
 
 #: src/ALRSocial/ALRSocialFacebook.php:289
 msgid "Upload a custom image to be displayed as the Facebook login button."
-msgstr ""
+msgstr "上传自定义图像做为Facebook的登录按钮。"
 
 #: src/ALRSocial/ALRSocialFacebook.php:294
 msgid "App ID"
@@ -315,16 +318,29 @@ msgid ""
 "<a href=\"http://zanematthew.com/ajax-login-register-help-videos/\" target="
 "\"_blank\">How To add Facebook Settings to AJAX Login & Register</a>."
 msgstr ""
+"这是应用程序ID，你可以<a href=https://developers.facebook.com/ "
+"target=“_blank”>Facebook开发</a>应用程序仪表板看到。有关详细说明请访问<a "
+"href=http://zanematthew.com/ajax-login-register-help-videos/ target=“_blank”>"
+"如何添加Facebook的设置到AJAX Login & Register</a> 。"
 
 #: src/ALRSocial/ALRSocialFacebook.php:302
 msgid "Use Facebook Avatar"
-msgstr ""
+msgstr "使用Facebook头像"
 
 #: src/ALRSocial/ALRSocialFacebook.php:303
 msgid ""
 "Checking this box will make Facebook profile picture show as avatar when "
 "possible "
-msgstr ""
+msgstr "选中该复选框，显示Facebook的个人资料头像"
+
+#~ msgid "Thank you for using ZM AJAX Login & Register"
+#~ msgstr "感谢使用AJAX 登陆和注册"
+
+#~ msgid "Support"
+#~ msgstr "支持"
+
+#~ msgid "Pro Version"
+#~ msgstr "版本信息"
 
 #~ msgid ".login-link"
 #~ msgstr ".login-link"
@@ -346,21 +362,6 @@ msgstr ""
 
 #~ msgid "By disabling this, your Facebook settings will still be saved."
 #~ msgstr "即使禁用了，你的Facebook设置还会被保存"
-
-#~ msgid "User Name"
-#~ msgstr "用户名"
-
-#~ msgid "Password"
-#~ msgstr "密码"
-
-#~ msgid "Keep me logged in"
-#~ msgstr "记住我"
-
-#~ msgid "Email"
-#~ msgstr "电子邮件"
-
-#~ msgid "Confirm Password"
-#~ msgstr "确认密码"
 
 #~ msgid "AJAX Login &amp; Register Settings"
 #~ msgstr "AJAX 注册和登陆设置"
