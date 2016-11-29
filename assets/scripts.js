@@ -168,6 +168,15 @@ $document.ready(function( $ ){
 
     window.ajax_login_register_show_message = function( form_obj, msg ) {
         if ( msg.code === 'success_login' || msg.code === 'success_registration' ){
+
+            // Trigger an event that allows other plugins to know when the user
+            // is successfully logged in/registered.
+            if ( msg.code === 'success_login' ) {
+                jQuery(document).trigger('zm-login-success', [form_obj, msg]);
+            } else {
+                jQuery(document).trigger('zm-register-success', [form_obj, msg]);
+            }
+
             jQuery('.ajax-login-register-msg-target', form_obj)
                 .addClass( msg.cssClass )
                 .stop()
