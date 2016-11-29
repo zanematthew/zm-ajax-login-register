@@ -19,6 +19,8 @@ $document.ready(function( $ ){
 
         $this.find( form_fields ).attr('disabled','disabled');
 
+        $(document).trigger('zm-before-login-ajax');
+
         $.ajax({
             global: false,
             data: "action=login_submit&" + serialized_form + "&security=" + $this.data('zm_alr_login_security') + "&" + google_recaptcha,
@@ -29,7 +31,7 @@ $document.ready(function( $ ){
                 ajax_login_register_show_message( $this, msg );
                 $this.find( form_fields ).removeAttr('disabled');
                 zMAjaxLoginRegister.reload( msg.redirect_url );
-
+                $(document).trigger('zm-after-login-ajax');
             }
         });
     });

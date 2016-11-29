@@ -71,6 +71,8 @@ $document.ready(function( $ ){
             }
         }
 
+        $(document).trigger('zm-before-register-ajax');
+
         $.ajax({
             global: false,
             data: "action=setup_new_user&" + serialized_form + "&security=" + $this.data('zm_alr_register_security') + "&" + google_recaptcha,
@@ -81,6 +83,7 @@ $document.ready(function( $ ){
                 ajax_login_register_show_message( $this, msg );
                 $this.find( form_fields ).removeAttr('disabled');
                 zMAjaxLoginRegister.reload( msg.redirect_url );
+                $(document).trigger('zm-after-register-ajax');
             }
         });
 
